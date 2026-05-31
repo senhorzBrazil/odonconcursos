@@ -277,7 +277,12 @@
         mask-composite: intersect;
       }
       .bg-carousel .hc-card { margin-bottom: 12px; }
-      .hero-section { align-items: flex-end; }
+      .hero-section {
+        align-items: flex-end;
+        padding-top: clamp(160px, 30vh, 300px);
+        min-height: calc(100vh + 20px);
+        min-height: calc(100svh + 20px);
+      }
       .hero-left { max-width: 100%; }
       .hero-scrim {
         background:
