@@ -177,7 +177,8 @@
       position: relative;
       overflow: hidden;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      padding-top: clamp(64px, 12vh, 160px);
       min-height: calc(100vh - 64px);
       min-height: calc(100svh - 64px);
       background: var(--bg);
@@ -195,7 +196,7 @@
     .hero-wrap {
       position: relative;
       z-index: 4;
-      padding: clamp(110px,15vh,180px) clamp(20px,5vw,64px) clamp(48px,7vh,88px);
+      padding: 0 clamp(20px,5vw,64px) clamp(48px,7vh,88px);
       width: min(1200px, 100%);
       margin: 0 auto;
       text-align: left;
