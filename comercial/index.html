@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concurseiro PRO - Odon Concursos</title>
+  <meta name="description" content="Método completo de preparação para concursos públicos de Odontologia. Mais de 1.100 aprovados.">
+
+  <!-- ═══ TRACKING ═══ -->
+  <script>window.dataLayer = window.dataLayer || [];</script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T3P99TN7');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Meta (Facebook) Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3213093405602824');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=3213093405602824&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
+
+  <!-- VK Digital Pixel -->
+  <script>
+    !function(w, d, c) {
+      (w.vkPixelSales = w.vkPixelSales || { _q: [] })._q.push(['init', c]);
+      (w.vkPageViewPixel = w.vkPageViewPixel || { _q: [] })._q.push(['init', c, 'page_view']);
+      ['https://cf.vkdigital.com.br/sales_pixel.js?v=56', 'https://cf.vkdigital.com.br/event_pageview.js'].forEach(function(src) {
+        var s = d.createElement('script'); s.src = src; s.async = 1; d.head.appendChild(s);
+      });
+    }(window, document, '483f3BgKMg7hpxp3qnfk');
+  </script>
+  <!-- End VK Digital -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: { DEFAULT: '#EE2A7B', dark: '#c92066' },
+            blue: { DEFAULT: '#0E0740' },
+            dark: { bg: '#050505', section: '#0a0a0a', card: '#111111', border: '#222222' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *:not(i) { font-family: 'Inter', sans-serif; }
+    * { line-height: 1.2em; }
+    body { background-color: #050505; color: #fff; overflow-x: hidden; }
+
+    .section-divider { width: 40px; height: 4px; background: #EE2A7B; border-radius: 9999px; margin: 16px auto; }
+    .section-divider-left { width: 40px; height: 4px; background: #EE2A7B; border-radius: 9999px; margin: 16px 0; }
+
+    .card-hover { transition: all .3s cubic-bezier(.16,1,.3,1); }
+    .card-hover:hover {
+      border-color: rgba(238,42,123,.5) !important;
+      box-shadow: 0 6px 24px rgba(238,42,123,.15) !important;
+      transform: translateY(-4px);
+    }
+
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary ~ * { animation: slideDown .3s ease-in-out; }
+    @keyframes slideDown { from { opacity:0; transform:translateY(-10px);} to {opacity:1;transform:translateY(0);} }
+
+    /* Marquee (usado só na seção de professores) */
+    @keyframes scroll-left { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+    .animate-marquee-horizontal { animation: scroll-left 40s linear infinite; display:flex; width:max-content; }
+
+    /* Reveal */
+    .reveal { opacity:0; transform:translateY(20px); transition:all .5s cubic-bezier(.16,1,.3,1); }
+    .reveal.active { opacity:1; transform:translateY(0); }
+    .delay-100 { transition-delay:100ms; } .delay-200 { transition-delay:200ms; } .delay-300 { transition-delay:300ms; }
+
+    /* ─── HERO: texto à esquerda + carrossel diagonal à direita (igual referência) ─── */
+    .hero-section {
+      position:relative; overflow:hidden; display:flex; align-items:center;
+      min-height:100vh; min-height:100svh; background:#050505;
+    }
+    /* degradê na base para integrar com a próxima seção */
+    .hero-section::after {
+      content:''; position:absolute; left:0; right:0; bottom:0; height:180px;
+      background:linear-gradient(to bottom, rgba(5,5,5,0) 0%, #050505 100%);
+      pointer-events:none; z-index:3;
+    }
+    .hero-wrap {
+      position:relative; z-index:4; width:min(1200px,100%); margin:0 auto;
+      padding:clamp(48px,9vh,110px) clamp(20px,5vw,64px);
+    }
+    .hero-left { display:flex; flex-direction:column; align-items:flex-start; gap:24px; max-width:600px; text-align:left; }
+
+    /* carrossel — recuado à direita e inclinado na diagonal (desktop) */
+    .bg-carousel {
+      position:absolute; top:-24%; bottom:-24%; left:42%; right:-16%; z-index:0;
+      display:flex; flex-wrap:nowrap; gap:16px; transform:rotate(-13deg); transform-origin:center;
+      -webkit-mask-image:
+        linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%),
+        linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+      -webkit-mask-composite:source-in; mask-composite:intersect;
+      mask-image:
+        linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%),
+        linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    }
+    .hc-col { position:relative; overflow:hidden; flex:1 1 0; min-width:0; }
+    .hc-track { display:flex; flex-direction:column; will-change:transform; }
+    .hc-col:nth-child(odd) .hc-track  { animation:hcUp var(--dur,34s) linear infinite; }
+    .hc-col:nth-child(even) .hc-track { animation:hcDown var(--dur,34s) linear infinite; }
+    .hc-col:nth-child(1) .hc-track{--dur:32s;} .hc-col:nth-child(2) .hc-track{--dur:38s;}
+    .hc-col:nth-child(3) .hc-track{--dur:28s;} .hc-col:nth-child(4) .hc-track{--dur:42s;}
+    .hc-card {
+      position:relative; border-radius:18px; overflow:hidden; aspect-ratio:4/5;
+      flex:0 0 auto; margin-bottom:16px; background:#111; box-shadow:0 8px 22px rgba(0,0,0,.38);
+    }
+    .hc-card img { width:100%; height:100%; object-fit:cover; display:block; }
+    .hc-card::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(238,42,123,.45), rgba(238,42,123,0) 50%); }
+    @keyframes hcUp   { from{transform:translateY(0);}    to{transform:translateY(-50%);} }
+    @keyframes hcDown { from{transform:translateY(-50%);} to{transform:translateY(0);} }
+
+    /* scrim escuro por cima do carrossel p/ legibilidade (horizontal: escuro à esquerda) */
+    .hero-scrim {
+      position:absolute; inset:0; z-index:2; pointer-events:none;
+      background:
+        linear-gradient(90deg, rgba(5,5,5,.98) 0%, rgba(5,5,5,.92) 36%, rgba(5,5,5,.45) 62%, rgba(5,5,5,.12) 100%),
+        radial-gradient(ellipse 70% 60% at 78% 0%, rgba(238,42,123,.16), transparent 60%);
+    }
+
+    @media (max-width:1100px){
+      .bg-carousel { left:48%; right:-18%; }
+      .bg-carousel .hc-col:nth-child(n+4){ display:none; } /* mostra 3 colunas */
+    }
+    /* mobile: diagonal, imagens no topo e texto embaixo */
+    @media (max-width:700px){
+      .bg-carousel {
+        left:-16%; right:-16%; top:-16%; bottom:auto; height:70%; gap:12px;
+        -webkit-mask-image:
+          linear-gradient(to bottom, transparent 0%, #000 8%, #000 82%, transparent 100%),
+          linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+        -webkit-mask-composite:source-in; mask-composite:intersect;
+        mask-image:
+          linear-gradient(to bottom, transparent 0%, #000 8%, #000 82%, transparent 100%),
+          linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      }
+      .bg-carousel .hc-card { margin-bottom:12px; }
+      .hero-section { align-items:flex-end; padding-top:clamp(160px,30vh,300px); min-height:calc(100vh + 20px); min-height:calc(100svh + 20px); }
+      .hero-left { max-width:100%; }
+      .hero-scrim {
+        background:
+          linear-gradient(to top, rgba(5,5,5,.99) 30%, rgba(5,5,5,.86) 52%, rgba(5,5,5,.42) 78%, rgba(5,5,5,.55) 100%),
+          radial-gradient(ellipse 90% 40% at 60% 0%, rgba(238,42,123,.16), transparent 60%);
+      }
+    }
+    @media (prefers-reduced-motion:reduce){ .hc-track{animation:none;} }
+
+    /* ─── Texto em gradiente (destaques) ─── */
+    .gtext {
+      background:linear-gradient(92deg, #EE2A7B 10%, #ff7ab3 90%);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+      padding-bottom:.04em;
+    }
+
+    /* ─── Kicker de seção (rótulo) ─── */
+    .s-label {
+      display:inline-flex; align-items:center; gap:10px; justify-content:center;
+      font-size:clamp(9px,1.4vw,11px); letter-spacing:.22em; text-transform:uppercase;
+      font-weight:800; color:#EE2A7B; margin-bottom:14px;
+    }
+    .s-label::before { content:''; width:26px; height:1px; background:#EE2A7B; opacity:.6; }
+
+    /* ─── CTA refinado (estilo referência) ─── */
+    .cta {
+      position:relative; isolation:isolate; overflow:hidden;
+      display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+      padding:clamp(15px,2.2vw,19px) clamp(24px,4.5vw,42px) !important;
+      font-weight:800 !important; font-size:clamp(14px,1.5vw,18px) !important;
+      letter-spacing:.01em; line-height:1.15 !important; text-align:center;
+      color:#fff !important; text-decoration:none; border:none !important; border-radius:999px !important; cursor:pointer;
+      background:radial-gradient(120% 130% at 50% 0%, #ff4f99 0%, #EE2A7B 46%, #c92066 100%) !important;
+      box-shadow:0 0 22px rgba(238,42,123,.5), 0 0 46px rgba(238,42,123,.32), 0 12px 28px rgba(238,42,123,.25) !important;
+      transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    }
+    .cta:hover { transform:translateY(-2px) scale(1.03); box-shadow:0 0 30px rgba(238,42,123,.65), 0 0 70px rgba(238,42,123,.45), 0 16px 38px rgba(238,42,123,.32) !important; }
+    .cta:active { transform:scale(.97); }
+    .cta::before {
+      content:''; position:absolute; bottom:0; left:-14%; z-index:-1; width:80px; height:170%;
+      background:linear-gradient(10deg, #ffd9ec 12%, rgba(255,217,236,0) 66%);
+      transform:skew(-25deg); filter:blur(5px); pointer-events:none;
+      animation:ctaShine 3.2s ease-in-out infinite;
+    }
+    .cta::after { content:''; position:absolute; inset:0; z-index:-1; border-radius:999px; border:1.5px solid rgba(255,255,255,.22); pointer-events:none; }
+    @keyframes ctaShine { 0%,100%{ left:-14%; opacity:0; } 20%{ opacity:1; } 48%{ left:110%; opacity:1; } 51%{ opacity:0; } }
+
+    /* CTA branco (sobre fundo rosa) */
+    .cta-light {
+      position:relative; overflow:hidden; isolation:isolate;
+      display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+      padding:clamp(15px,2.2vw,19px) clamp(28px,5vw,48px); border-radius:999px;
+      background:#fff; color:#EE2A7B; font-weight:800; font-size:clamp(14px,1.5vw,18px);
+      text-decoration:none; box-shadow:0 10px 30px rgba(0,0,0,.25); transition:transform .25s, box-shadow .25s;
+    }
+    .cta-light:hover { transform:translateY(-2px) scale(1.03); box-shadow:0 14px 38px rgba(0,0,0,.3); }
+    .cta-light:active { transform:scale(.97); }
+
+    /* Botão de compra (checkout) */
+    .cta-buy {
+      display:block; width:100%;
+      padding:clamp(15px,2.2vw,18px) 1rem !important;
+      font-size:clamp(15px,1.5vw,18px) !important;
+      box-shadow:0 0 22px rgba(37,211,102,.4), 0 10px 26px rgba(37,211,102,.25) !important;
+      transition:transform .2s, box-shadow .2s;
+    }
+    .cta-buy:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 0 30px rgba(37,211,102,.55), 0 14px 32px rgba(37,211,102,.3) !important; }
+    .cta-buy:active { transform:scale(.98); }
+
+    @media (prefers-reduced-motion:reduce){ .cta::before{ animation:none; opacity:0; } }
+
+    /* Cards: borda/hover mais refinado */
+    .card-hover { transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s, border-color .35s; }
+    .card-hover:hover {
+      border-color: rgba(238,42,123,.55) !important;
+      box-shadow: 0 14px 40px rgba(0,0,0,.45), 0 0 26px rgba(238,42,123,.18) !important;
+      transform: translateY(-5px);
+    }
+
+    /* Price gate */
+    .price-locked .price-reveal-target { filter:blur(9px); opacity:.55; user-select:none; pointer-events:none; }
+    .price-locked .buy-btn { display:none !important; }
+    .price-unlocked .price-lock-cta { display:none !important; }
+
+    /* Modal */
+    .pm-overlay {
+      position:fixed; inset:0; z-index:300; display:flex; align-items:center; justify-content:center;
+      padding:16px; background:rgba(0,0,0,.85); backdrop-filter:blur(8px);
+      opacity:0; visibility:hidden; transition:all .3s ease; overflow-y:auto;
+    }
+    .pm-overlay.open { opacity:1; visibility:visible; }
+    .pm-card {
+      width:100%; max-width:430px; margin:auto; background:#111; border:1px solid #222;
+      border-radius:20px; overflow:hidden; transform:scale(.96) translateY(20px); transition:transform .3s ease; position:relative;
+    }
+    .pm-overlay.open .pm-card { transform:scale(1) translateY(0); }
+    .pm-input {
+      width:100%; background:#050505; border:1px solid #2a2a2a; border-radius:10px;
+      padding:14px 16px; color:#fff; font-size:14px; outline:none; transition:border-color .2s;
+    }
+    .pm-input:focus { border-color:rgba(238,42,123,.6); }
+    .pm-input::placeholder { color:#666; }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-brand selection:text-white relative overflow-x-hidden price-locked">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3P99TN7"
+    height="0" width="0" style="display:none;visibility:hidden" title="gtm"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- WhatsApp flutuante -->
+  <a href="#planos" class="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-[#25D366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.5)] hover:scale-110 transition-transform flex items-center justify-center z-50">
+    <i class="fa-brands fa-whatsapp text-3xl md:text-4xl"></i>
+  </a>
+
+  <main class="w-full overflow-x-hidden">
+
+    <!-- ═══ HERO (seção 1) com BG diagonal de prints ═══ -->
+    <header class="hero-section">
+      <!-- carrossel diagonal no fundo (preenchido via JS) -->
+      <div class="bg-carousel" aria-hidden="true" id="heroCarousel"></div>
+      <div class="hero-scrim" aria-hidden="true"></div>
+
+      <div class="hero-wrap">
+        <div class="hero-left">
+          <div class="reveal">
+            <img decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2024/07/MarcaDagua-OdonConcursos-variacao-06-1.png" alt="Odon Concursos" class="w-[180px] md:w-[200px] h-auto object-contain drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
+          </div>
+
+          <span class="reveal delay-100 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand/30 bg-brand/10 text-brand text-xs md:text-sm font-bold tracking-wide uppercase backdrop-blur-sm">
+            <i class="fa-solid fa-trophy"></i> +1.100 dentistas aprovados
+          </span>
+
+          <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold reveal delay-200">
+            Descubra como ser aprovado em concurso público de Odontologia para ter
+            <span class="gtext">mais estabilidade financeira, segurança e um bom salário todo mês.</span>
+          </h1>
+
+          <p class="text-base md:text-xl text-gray-300 font-medium reveal delay-300">
+            O método <strong class="text-white">Concurseiro PRO</strong> é completo e foi responsável por mais de
+            1.100 aprovações, mesmo para quem tem pouco tempo de estudo.
+          </p>
+
+          <a href="#planos" class="reveal delay-300 cta inline-flex items-center justify-center transition-all duration-300 active:scale-95 md:hover:scale-105 shadow-[0_0_20px_rgba(238,42,123,0.4)] text-base md:text-lg w-full sm:w-auto">
+            QUERO SER APROVADO EM CONCURSO!
+            <i class="fa-solid fa-arrow-right ml-3 text-lg"></i>
+          </a>
+
+          <div class="reveal delay-300 flex flex-wrap gap-x-5 gap-y-2 text-sm text-gray-400 font-medium">
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Método validado</span>
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> 100% online</span>
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Suporte com professores</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ Dores ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-dark-section relative z-10 border-t border-dark-border/50">
+      <div class="absolute top-1/2 -left-20 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-brand/10 blur-[120px] rounded-full -z-10 pointer-events-none -translate-y-1/2"></div>
+      <div class="max-w-5xl mx-auto text-center flex flex-col items-center bg-white p-6 sm:p-8 md:p-14 rounded-3xl md:rounded-[35px] shadow-xl">
+        <h2 class="text-xl sm:text-2xl md:text-4xl font-bold mb-8 md:mb-10 uppercase max-w-4xl reveal text-[#0e0740]">
+          Até quando você vai estudar sem ter certeza se está no caminho certo para
+          <span class="gtext">passar em um concurso de odontologia?</span>
+        </h2>
+        <div class="w-full max-w-4xl rounded-2xl md:rounded-3xl overflow-hidden mb-8 md:mb-10 reveal">
+          <img decoding="async" loading="lazy" src="https://odonconcursospage.com/wp-content/uploads/2026/03/banner.webp" alt="Banner Concurseiro PRO" class="w-full h-auto object-cover">
+        </div>
+        <p class="text-base md:text-xl text-gray-700 mb-8 md:mb-12 max-w-3xl reveal">
+          Se você já não aguenta mais estudar sem saber se está focando no que realmente cai na prova, se sente
+          sobrecarregada com editais extensos e tem a sensação de que nunca vai dar tempo de ver tudo, provavelmente você também…
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 w-full text-left mb-10 md:mb-12" id="painCards"></div>
+        <a href="#planos" class="cta flex items-center justify-center transition-all duration-300 active:scale-95 md:hover:scale-105 shadow-[0_0_20px_rgba(238,42,123,0.4)] text-base md:text-lg w-full sm:w-auto reveal">QUERO SER APROVADO EM CONCURSO!</a>
+      </div>
+    </section>
+
+    <!-- ═══ Mergulhamos / Método ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-white text-black relative z-10">
+      <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 md:gap-16 items-center">
+        <div class="w-full lg:w-1/2 reveal">
+          <img decoding="async" loading="lazy" src="https://odonconcursospage.com/wp-content/uploads/2026/03/celular.webp" alt="Concurseiro PRO Mobile" class="w-full h-auto">
+        </div>
+        <div class="w-full lg:w-1/2 reveal delay-100">
+          <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-blue">Mergulhamos de cabeça estudando TUDO sobre aprovação em concurso público de odontologia.</h2>
+          <div class="section-divider-left"></div>
+          <div class="space-y-4 text-gray-700 text-base md:text-lg">
+            <p>Nós também já vivemos essa sensação de estar estudando muito e, ao mesmo tempo, sentindo que não estava estudando do jeito certo.</p>
+            <p>Mergulhamos de cabeça tentando entender por que tantos dentistas estudavam por meses (ou anos) e continuavam sem aprovação, enquanto outros, com menos tempo de estudo, conseguiam passar.</p>
+            <p class="font-bold text-blue text-lg md:text-xl border-l-4 border-brand pl-4 my-6">E a resposta não estava em estudar mais horas. Estava em <span class="gtext">como</span> estudar.</p>
+            <p>Os concursos de Odontologia seguem padrões muito específicos de cobrança — por banca, por disciplina e por tipo de prova — e quase ninguém ensina isso de forma organizada.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto mt-16 text-center reveal">
+        <h3 class="text-3xl md:text-4xl font-black mb-6 md:mb-8 text-brand tracking-tight">CONCURSEIRO PRO</h3>
+        <p class="text-base md:text-xl text-gray-700 mb-8">O Concurseiro Pro é um treinamento online criado para ensinar exatamente isso: um passo a passo de preparação para concursos de Odontologia, baseado em:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 text-left mb-10" id="methodCards"></div>
+        <p class="text-lg md:text-xl font-bold mb-6 text-blue">Mesmo que você:</p>
+        <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-10" id="evenIfTags"></div>
+        <p class="text-base md:text-xl text-gray-700 mb-10">O Concurseiro Pro é o lugar onde organizamos todo o método que ajuda o aluno a sair da confusão, ganhar clareza nos estudos e evoluir com segurança até a aprovação.</p>
+        <a href="#planos" class="inline-flex cta items-center justify-center transition-all duration-300 active:scale-95 md:hover:scale-105 shadow-[0_0_20px_rgba(238,42,123,0.4)] text-base md:text-lg w-full sm:w-auto">QUERO SER APROVADO EM CONCURSO!</a>
+      </div>
+    </section>
+
+    <!-- ═══ Provas reais (dark) ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-dark-bg text-center relative z-10">
+      <div class="absolute top-0 right-0 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-brand/10 blur-[150px] rounded-full -z-10 pointer-events-none translate-x-1/4 -translate-y-1/4"></div>
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 uppercase max-w-4xl mx-auto reveal">PROVAS REAIS DE ALUNOS QUE FORAM APROVADOS PELO NOSSO MÉTODO</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 mb-8 md:mb-12 reveal delay-100"
+             data-img-grid='["prova-1","prova-2","prova-5","prova-3","prova-8","prova-6","aprov-4","prova-16"]'></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8 reveal"
+             data-video-grid='["Lp6OBEG7wbs","Akkp0nC0fKA","bSponCOMkY0","Cv5sQndeBqo"]' data-dark="1"></div>
+        <a href="#planos" class="inline-flex w-full sm:w-auto cta items-center justify-center transition-all duration-300 active:scale-95 md:hover:scale-105 shadow-[0_0_20px_rgba(238,42,123,0.4)] text-base md:text-lg reveal">QUERO SER APROVADO EM CONCURSO!</a>
+      </div>
+    </section>
+
+    <!-- ═══ Diferente dos cursinhos ═══ -->
+    <section class="pt-10 pb-20 md:py-20 px-5 md:px-8 bg-dark-section relative z-20 border-t border-dark-border/50">
+      <div class="absolute bottom-0 -left-20 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-brand/10 blur-[150px] rounded-full -z-10 pointer-events-none translate-y-1/4"></div>
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 uppercase reveal">O CONCURSEIRO PRO É DIFERENTE DA MAIORIA DOS CURSINHOS DE CONCURSO POR AÍ…</h2>
+        <p class="text-base md:text-xl text-gray-400 mb-10 md:mb-12 reveal delay-100">Porque ele foi criado exclusivamente para concursos de Odontologia, com base no que realmente reprova e aprova candidatos na prática.</p>
+        <div class="flex flex-col md:flex-row gap-6 md:gap-8 text-left">
+          <div class="flex-1 bg-dark-card border border-dark-border p-6 md:p-8 rounded-3xl opacity-90 reveal delay-200 card-hover">
+            <h3 class="text-lg md:text-xl font-bold text-gray-500 mb-6 uppercase">Enquanto outros cursinhos…</h3>
+            <ul class="space-y-4" id="othersList"></ul>
+          </div>
+          <div class="flex-1 bg-brand border border-brand/50 p-6 md:p-8 rounded-3xl shadow-[0_0_30px_rgba(238,42,123,0.3)] relative overflow-hidden reveal delay-300 card-hover">
+            <div class="absolute inset-0 bg-white/5"></div>
+            <h3 class="text-xl md:text-2xl font-black text-white mb-6 uppercase relative z-10">NO CONCURSEIRO PRO VOCÊ TEM:</h3>
+            <ul class="space-y-4 relative z-10 text-white/90 font-medium" id="oursList"></ul>
+          </div>
+        </div>
+        <div class="mt-10 md:mt-12 reveal">
+          <a href="#planos" class="inline-flex w-full sm:w-auto cta items-center justify-center transition-all duration-300 active:scale-95 md:hover:scale-105 shadow-[0_0_20px_rgba(238,42,123,0.4)] text-base md:text-lg">QUERO SER APROVADO EM CONCURSO!</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Dentro do Concurseiro PRO ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-white text-black relative z-10">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-10 md:gap-12 items-center">
+        <div class="w-full md:w-1/2 reveal">
+          <img decoding="async" loading="lazy" src="https://odonconcursospage.com/wp-content/uploads/2026/03/celular-1.webp" alt="Concurseiro PRO" class="w-full h-auto transform scale-[1.2] md:scale-[1.8]">
+        </div>
+        <div class="w-full md:w-1/2 reveal delay-100">
+          <h2 class="text-2xl md:text-4xl font-bold mb-6 md:mb-8 uppercase text-blue">Dentro do Concurseiro PRO você terá:</h2>
+          <ul class="space-y-4 md:space-y-6 text-gray-800 text-sm md:text-base font-medium" id="insideList"></ul>
+          <p class="font-bold text-lg md:text-xl mt-6 md:mt-8 text-blue">Tudo isso para que você tenha clareza do que estudar, constância na rotina e segurança para ser aprovado.</p>
+          <div class="mt-8">
+            <a href="#planos" class="inline-flex w-full sm:w-auto cta items-center justify-center transition-all duration-300 active:scale-95 md:hover:scale-105 shadow-[0_0_20px_rgba(238,42,123,0.4)] text-base md:text-lg">QUERO SER APROVADO!</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Passo a passo ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-dark-bg relative z-10 border-t border-dark-border/50">
+      <div class="absolute top-1/3 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-brand/10 blur-[150px] rounded-full -z-10 pointer-events-none translate-x-1/4"></div>
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 md:mb-12 uppercase reveal">CONFIRA ABAIXO O SEU PASSO A PASSO ATÉ A SUA APROVAÇÃO:</h2>
+        <div class="space-y-6 md:space-y-8 mt-12 md:mt-16" id="steps"></div>
+        <div class="mt-12 reveal">
+          <p class="text-lg md:text-2xl font-bold text-brand mb-10">Viu como é simples? Você vai receber o seu mapa até a aprovação. É só seguir!</p>
+          <a href="#planos" class="inline-flex w-full sm:w-auto cta items-center justify-center transition-all duration-300 active:scale-95 md:hover:scale-105 shadow-[0_0_20px_rgba(238,42,123,0.4)] text-base md:text-lg">QUERO ME INSCREVER AGORA!</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ +1.100 aprovados (white) ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-white text-black text-center">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-10 uppercase max-w-4xl mx-auto reveal text-blue">SÃO MAIS DE 1.100 ALUNOS APROVADOS</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 mb-8 md:mb-10 reveal delay-100"
+             data-img-grid='["prova-4","prova-7","prova-10","foto-1","prova-11","prova-12","prova-13","prova-17"]'></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8 reveal"
+             data-video-grid='["et96cp-ksKY","s0fbBTfHeZA","xrlSo5IctBY","kYyPd7u1HP8"]'></div>
+        <a href="#planos" class="inline-flex w-full sm:w-auto cta items-center justify-center transition-all duration-300 active:scale-95 md:hover:scale-105 shadow-[0_0_20px_rgba(238,42,123,0.4)] text-base md:text-lg reveal">QUERO SER APROVADO EM CONCURSO!</a>
+      </div>
+    </section>
+
+    <!-- ═══ Bônus ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-dark-section relative z-10 border-t border-dark-border/50">
+      <div class="absolute top-1/2 left-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-brand/10 blur-[150px] rounded-full -z-10 pointer-events-none -translate-y-1/2 -translate-x-1/4"></div>
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 uppercase reveal">ESSES SÃO OS BÔNUS QUE VÃO ACELERAR SUA APROVAÇÃO</h2>
+        <div class="section-divider"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12 mb-10 md:mb-12 text-left" id="bonusGrid"></div>
+        <a href="#planos" class="inline-flex w-full sm:w-auto cta items-center justify-center transition-all duration-300 active:scale-95 md:hover:scale-105 shadow-[0_0_20px_rgba(238,42,123,0.4)] text-base md:text-lg reveal">QUERO SER APROVADO EM CONCURSO!</a>
+      </div>
+    </section>
+
+    <!-- ═══ Odon Academy ═══ -->
+    <section class="p-10 md:py-20 md:px-8 bg-dark-bg relative z-10 border-t border-dark-border/50">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-10 md:mb-16 reveal">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold uppercase text-brand">BÔNUS EXTRA - ODON ACADEMY</h2>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-8 md:gap-12 items-center mb-12 md:mb-20">
+          <div class="w-full lg:w-2/5 reveal">
+            <div class="bg-dark-card border border-dark-border rounded-2xl md:rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden">
+              <video src="https://odonconcursospage.com/wp-content/uploads/2026/03/plataforma-completa.webm" muted loop playsinline preload="none" class="w-full h-auto block pointer-events-none observe-video"></video>
+            </div>
+          </div>
+          <div class="w-full lg:w-3/5 reveal delay-100">
+            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 md:mb-6 uppercase leading-tight text-white">SEJA BEM-VINDO AO <span class="gtext">ODON ACADEMY.</span></h3>
+            <p class="text-base sm:text-lg md:text-xl text-gray-400 font-medium">Um espaço criado para que a sua jornada seja mais leve, mais rápida e mais humana. Aqui, cada aluno que passa te aproxima da sua aprovação.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-10 md:mb-12" id="academyCards"></div>
+        <p class="text-xl md:text-2xl text-center text-gray-300 mt-10 md:mt-12 mb-6 md:mb-8 reveal">O valor de todos os bônus que você está prestes a receber é de nada mais e nada menos que <span class="text-brand font-bold">R$ 3.273,00</span>.</p>
+        <div class="text-center mt-6 md:mt-8 reveal delay-300">
+          <a href="#planos" class="inline-flex w-full sm:w-auto cta items-center justify-center transition-all duration-300 active:scale-95 md:hover:scale-105 shadow-[0_0_20px_rgba(238,42,123,0.4)] text-base md:text-lg">QUERO SER APROVADO EM CONCURSO!</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Vale a pena ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-dark-bg relative z-10 border-t border-dark-border/50">
+      <div class="absolute bottom-0 right-0 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-brand/10 blur-[150px] rounded-full -z-10 pointer-events-none translate-x-1/4"></div>
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="w-full max-w-4xl mx-auto mb-10 md:mb-12 reveal delay-100">
+          <img decoding="async" loading="lazy" src="https://odonconcursospage.com/wp-content/uploads/2026/03/mockup-geral.webp" alt="Pacote Concurseiro PRO" class="w-full h-auto">
+        </div>
+        <div class="space-y-6 text-left" id="worthIt"></div>
+      </div>
+    </section>
+
+    <!-- ═══ PLANOS (com preço travado) ═══ -->
+    <section id="planos" class="py-12 md:py-20 px-5 md:px-8 bg-dark-section relative z-10 overflow-hidden border-t border-dark-border/50">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[700px] md:h-[700px] bg-brand/10 blur-[150px] md:blur-[200px] -z-10 rounded-full pointer-events-none"></div>
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 uppercase reveal">ENTRANDO HOJE VOCÊ VAI RECEBER:</h2>
+        <p class="text-gray-400 mb-12 md:mb-16 max-w-2xl mx-auto reveal delay-100">
+          <i class="fa-solid fa-lock text-brand mr-2"></i> Os valores estão bloqueados. Clique em <strong class="text-white">"Liberar valores"</strong> e veja a condição especial de hoje.
+        </p>
+
+        <div class="flex flex-col lg:flex-row gap-8 justify-center items-stretch text-left">
+
+          <!-- Plano 1 -->
+          <div class="flex-1 bg-dark-card border border-dark-border rounded-3xl p-6 md:p-8 flex flex-col relative opacity-95 reveal card-hover">
+            <h3 class="text-2xl md:text-3xl font-black text-white mb-6 uppercase text-center">CONCURSEIRO PRO</h3>
+            <ul class="space-y-3 md:space-y-4 text-xs md:text-sm text-gray-400 mb-8 flex-1" data-plan-items="1"></ul>
+            <div class="text-center">
+              <div class="price-reveal-target">
+                <p class="text-red-500 line-through mb-1 md:mb-2 text-sm">DE: R$ 5.270,00</p>
+                <p class="text-xs md:text-sm text-gray-400 uppercase tracking-widest mb-1 md:mb-2">POR APENAS:</p>
+                <div class="text-[#25d366] font-black text-4xl md:text-5xl mb-2">12x DE R$ 133,09</div>
+                <p class="text-gray-400 mb-6 md:mb-8 text-sm">ou R$ 1.597,00 à vista</p>
+              </div>
+              <button type="button" class="price-lock-cta reveal-price-btn w-full bg-dark-border hover:bg-gray-700 text-white font-bold py-4 rounded-full transition-colors text-base md:text-lg active:scale-95 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-lock"></i> LIBERAR VALORES
+              </button>
+              <a href="https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=RGZkVEF4Qzh5M3M9&vch=concurseiropro3" data-plan="Concurseiro PRO" data-value="1597" class="buy-btn cta-buy w-full text-white font-bold py-4 rounded-full active:scale-95 text-center text-base md:text-lg" style="background-color:#25d366;">QUERO SER APROVADO</a>
+            </div>
+          </div>
+
+          <!-- Plano 2 (destaque) -->
+          <div class="flex-1 border border-brand/50 rounded-3xl p-6 md:p-8 flex flex-col relative shadow-[0_0_40px_rgba(238,42,123,0.3)] lg:-translate-y-4 reveal delay-100 mt-6 lg:mt-0 hover:scale-[1.02] transition-transform card-hover" style="background-color:#971e505c;">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-brand font-black text-xs md:text-sm uppercase px-4 md:px-6 py-1 md:py-2 rounded-full shadow-lg whitespace-nowrap">MELHOR OPÇÃO</div>
+            <h3 class="text-xl md:text-2xl font-black text-white mb-6 uppercase text-center mt-4 md:mt-2">CONCURSEIRO PRO<br><span class="text-sm md:text-lg opacity-90 block mt-1">+ PLATAFORMA ODON QUESTÕES</span></h3>
+            <ul class="space-y-3 md:space-y-4 text-xs md:text-sm text-white/80 mb-8 flex-1" data-plan-items="2"></ul>
+            <div class="text-center">
+              <div class="price-reveal-target">
+                <p class="text-red-400 line-through mb-1 md:mb-2 text-sm">DE: R$ 6.270,00</p>
+                <p class="text-xs md:text-sm text-white/80 uppercase tracking-widest mb-1 md:mb-2">POR APENAS:</p>
+                <div class="text-[#25d366] font-black text-4xl md:text-5xl mb-2">12X DE R$ 174,76</div>
+                <p class="text-white/80 mb-6 md:mb-8 text-sm">ou R$ 2.097,00 à vista</p>
+              </div>
+              <button type="button" class="price-lock-cta reveal-price-btn w-full bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold py-4 rounded-full transition-colors text-base md:text-lg active:scale-95 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-lock"></i> LIBERAR VALORES
+              </button>
+              <a href="https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=REhGVTZwUDlIRU09&vch=proquestoes" data-plan="Concurseiro PRO + Odon Questões" data-value="2097" class="buy-btn cta-buy w-full font-bold py-4 rounded-full active:scale-95 text-center text-lg text-white" style="background-color:#25d366;">QUERO SER APROVADO</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Professores / Odon ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-gray-50 text-black relative z-10 border-t border-gray-200">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 uppercase text-blue reveal">Os melhores estão aqui!</h2>
+        <div class="section-divider"></div>
+        <div class="w-full relative flex items-center overflow-hidden mb-10 md:mb-12 reveal delay-100">
+          <div class="absolute top-0 left-0 w-12 md:w-32 h-full bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
+          <div class="absolute top-0 right-0 w-12 md:w-32 h-full bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
+          <div class="animate-marquee-horizontal flex gap-3 md:gap-4 px-2" id="profMarquee"></div>
+        </div>
+        <p class="text-base md:text-xl text-gray-700 mb-10 md:mb-16 max-w-3xl mx-auto reveal delay-100">Os maiores especialistas em concursos de Odontologia do Brasil agora serão seus professores no Concurseiro PRO. Já são mais de 500 aulas e semanalmente adicionamos mais. Aulas diretas e sem enrolação para te levar à aprovação!</p>
+        <img decoding="async" loading="lazy" src="https://odonconcursospage.com/wp-content/uploads/2024/07/MarcaDagua-OdonConcursos-variacao-01.png" alt="Odon Concursos" class="w-[200px] h-auto object-contain mx-auto mb-6 reveal">
+        <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 uppercase text-brand reveal">CONHEÇA O ODON CONCURSOS</h3>
+        <p class="text-sm md:text-lg text-gray-700 max-w-4xl mx-auto text-left md:text-center reveal delay-100 font-medium">O Odon Concursos é uma edtech especializada exclusivamente em concursos de Odontologia, criada para dentistas que buscam aprovação com um método claro, com clareza e direcionamento. Nosso método foi responsável por 1.100 aprovações e foi pensado para quem concilia trabalho, estudos e tem pouco tempo disponível. Com a nossa metodologia você vai poder visualizar a evolução, corrigir falhas rapidamente e estudar com mais segurança e confiança.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Garantia ═══ -->
+    <section class="py-12 md:py-20 px-5 md:px-8 bg-white text-black text-center flex flex-col items-center">
+      <div class="max-w-3xl mx-auto flex flex-col items-center reveal">
+        <div class="w-20 h-20 md:w-24 md:h-24 bg-brand rounded-full flex items-center justify-center mb-6 md:mb-8 shadow-xl shadow-brand/30">
+          <i class="fa-solid fa-shield-halved text-white text-4xl md:text-5xl"></i>
+        </div>
+        <h2 class="text-4xl md:text-6xl font-black mb-2 tracking-tight uppercase text-blue">RISCO ZERO!</h2>
+        <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-6 md:mb-8 uppercase">GARANTIA INCONDICIONAL</h3>
+        <p class="text-base md:text-xl text-gray-700 mb-6 font-medium">Temos tanta segurança de que o Concurseiro PRO vai mudar sua vida e te conduzir até sua aprovação que você tem uma garantia TOTAL de 7 dias a contar da data da matrícula. Esse direito é seu!</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-2xl md:rounded-3xl p-6 md:p-8 text-sm md:text-base text-gray-600 shadow-sm w-full card-hover">Se você não ficar satisfeito(a) com o Concurseiro PRO, basta dentro dos 7 dias de garantia enviar um e-mail para o nosso suporte que realizaremos o reembolso total do valor investido.</div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="py-12 md:py-20 px-5 md:px-8 bg-dark-bg relative z-10 border-t border-dark-border/50">
+      <div class="absolute top-0 left-0 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-brand/10 blur-[150px] rounded-full -z-10 pointer-events-none -translate-y-1/2"></div>
+      <div class="max-w-4xl mx-auto flex flex-col items-center">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center uppercase reveal">PERGUNTAS FREQUENTES:</h2>
+        <div class="w-full space-y-3 md:space-y-4 reveal delay-100" id="faq"></div>
+        <a href="#planos" class="mt-10 md:mt-12 inline-flex w-full sm:w-auto cta items-center justify-center transition-all duration-300 active:scale-95 md:hover:scale-105 shadow-[0_0_20px_rgba(238,42,123,0.4)] text-base md:text-lg reveal">QUERO SER APROVADO EM CONCURSO!</a>
+      </div>
+    </section>
+
+    <!-- ═══ Mais aprovados (white) ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-white text-black border-t border-gray-200 text-center">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-10 uppercase max-w-4xl mx-auto reveal text-blue">VEJA ALGUNS DE NOSSOS MAIS DE 1.100 ALUNOS APROVADOS</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 mb-8 md:mb-10 reveal delay-100"
+             data-img-grid='["prova-14","prova-15","prova-16","prova-9"]'></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 reveal"
+             data-video-grid='["glUmixEnMJE","QCQQIYFCXOQ","9HGdFqG0p-Q","hyGWyqbEnAI"]'></div>
+      </div>
+    </section>
+
+    <!-- ═══ Dúvidas / CTA final ═══ -->
+    <section class="py-12 md:py-20 px-5 md:px-8 bg-brand text-center flex flex-col items-center">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-4 md:mb-6 text-white uppercase tracking-tight reveal">SE TIVER QUALQUER DÚVIDA...</h2>
+      <p class="text-base md:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl font-medium reveal delay-100">Basta tocar no botão abaixo e chamar nosso time de especialistas.</p>
+      <a href="https://api.whatsapp.com/send?phone=5519994565534&text=Quero%20saber%20mais%20sobre%20o%20Concurseiro%20PRO" target="_blank" rel="noopener" class="cta-light uppercase tracking-wide w-full sm:w-auto reveal delay-200">
+        <i class="fa-brands fa-whatsapp text-2xl"></i> TENHO DÚVIDAS
+      </a>
+    </section>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="py-8 md:py-10 px-5 md:px-8 bg-dark-bg border-t border-dark-border">
+      <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+        <img decoding="async" loading="lazy" src="https://odonconcursospage.com/wp-content/uploads/2024/07/MarcaDagua-OdonConcursos-variacao-06-1.png" alt="Odon Concursos" class="w-[200px] h-auto object-contain mb-6">
+        <p class="text-gray-500 text-xs md:text-sm">&copy; 2026 Odon Concursos. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ═══ MODAL: liberar preço ═══ -->
+  <div class="pm-overlay" id="priceModal" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+    <div class="pm-card">
+      <div class="h-1 bg-gradient-to-r from-brand via-pink-400 to-brand"></div>
+      <button type="button" class="absolute top-3 right-3 w-9 h-9 rounded-full text-gray-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition z-10" id="pmClose" aria-label="Fechar">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <div class="p-7 md:p-8">
+        <div class="w-14 h-14 bg-brand/15 border border-brand/30 rounded-2xl flex items-center justify-center mb-4 text-brand text-2xl">
+          <i class="fa-solid fa-unlock-keyhole"></i>
+        </div>
+        <h3 id="pmTitle" class="text-2xl font-bold text-white mb-1">Libere os valores</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mb-6">Preencha seus dados para revelar a condição especial de hoje. É rápido e seu acesso continua aqui mesmo.</p>
+
+        <form id="priceForm" class="space-y-4">
+          <div>
+            <label class="block text-[10px] tracking-[.18em] uppercase font-bold text-gray-400 mb-2" for="pm-nome">Seu nome</label>
+            <input class="pm-input" type="text" id="pm-nome" required placeholder="Nome completo" autocomplete="name">
+          </div>
+          <div>
+            <label class="block text-[10px] tracking-[.18em] uppercase font-bold text-gray-400 mb-2" for="pm-email">Seu e-mail</label>
+            <input class="pm-input" type="email" id="pm-email" required placeholder="seu@email.com" autocomplete="email">
+          </div>
+          <div>
+            <label class="block text-[10px] tracking-[.18em] uppercase font-bold text-gray-400 mb-2" for="pm-whats">Seu WhatsApp</label>
+            <input class="pm-input" type="tel" id="pm-whats" required placeholder="(DDD) 9 0000-0000" inputmode="numeric" autocomplete="tel">
+          </div>
+          <button type="submit" id="pmSubmit" class="cta w-full mt-2">
+            REVELAR VALORES <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+        <p class="flex items-center justify-center gap-2 text-[11px] text-gray-500 mt-4">
+          <i class="fa-solid fa-lock"></i> Seus dados estão seguros
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    "use strict";
+    const proxy = n => 'https://wsrv.nl/?url=odonconcursospage.com/wp-content/uploads/2026/02/' + n + '.webp&w=400&q=55';
+    const up = (y,m,f) => 'https://odonconcursospage.com/wp-content/uploads/' + y + '/' + m + '/' + f;
+    const el = (html) => { const t=document.createElement('template'); t.innerHTML=html.trim(); return t.content.firstElementChild; };
+
+    /* ── HERO: carrossel diagonal ── */
+    (function () {
+      const wrap = document.getElementById('heroCarousel');
+      const COLS = 4, PER = 8, TOTAL = 11;
+      let seed = 1;
+      for (let c = 0; c < COLS; c++) {
+        const col = el('<div class="hc-col"><div class="hc-track"></div></div>');
+        const track = col.firstElementChild;
+        const cards = [];
+        for (let i = 0; i < PER; i++) { cards.push(((seed - 1) % TOTAL) + 1); seed++; }
+        cards.concat(cards).forEach(n => {
+          const card = el('<div class="hc-card"><img loading="lazy" alt=""></div>');
+          card.querySelector('img').src = proxy('professores-' + (n === 11 ? '11-scaled' : n));
+          track.appendChild(card);
+        });
+        wrap.appendChild(col);
+      }
+    })();
+
+    /* ── Pain cards ── */
+    const pains = [
+      "Já sentiu ansiedade só de pensar no tamanho do edital e no pouco tempo que tem para estudar",
+      "Não consegue conciliar trabalho, residência, filhos ou rotina pesada com uma preparação para concurso público",
+      "Estuda, estuda… mas continua errando muitas questões e não vê evolução clara nos resultados",
+      "Tem medo de estar focando em conteúdos errados, perdendo tempo e dinheiro para descobrir isso apenas no dia da prova",
+      "Não consegue manter constância nos estudos e se sente culpada por não estudar todos os dias",
+      "Fica inseguro achando que outras pessoas estão mais preparadas do que você",
+      "Já pensou em desistir por achar que “não é inteligente o suficiente” ou que “não vai passar nunca”",
+      "Quer estabilidade, segurança financeira e qualidade de vida, mas não sabe como chegar lá através do concurso público"
+    ];
+    const painGrid = document.getElementById('painCards');
+    pains.forEach((t, i) => painGrid.appendChild(el(
+      `<div class="relative overflow-hidden rounded-xl group card-hover border-b-[5px] border-brand aspect-[4/5] flex flex-col justify-end shadow-xl">
+        <img loading="lazy" decoding="async" src="${up('2026','03','imagecard-' + (i+1) + '.webp')}" alt="" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-700 group-hover:scale-105">
+        <div class="relative z-20 w-full px-5 pb-6 pt-5 mt-auto bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent">
+          <p class="text-white text-sm md:text-[15px] font-medium leading-snug">${t}</p>
+        </div>
+      </div>`)));
+
+    /* ── Method checks ── */
+    const methods = ["Estudo direcionado por perfil","Treino constante com questões","Correção de erros, repetição e ajustes durante a preparação","Organização de uma rotina alinhada com sua disponibilidade"];
+    const mc = document.getElementById('methodCards');
+    methods.forEach(t => mc.appendChild(el(
+      `<div class="bg-gray-50 p-4 rounded-xl border border-gray-200 flex items-center gap-3 card-hover">
+        <i class="fa-solid fa-check text-brand text-xl shrink-0"></i>
+        <span class="text-sm md:text-base text-gray-800 font-medium">${t}</span>
+      </div>`)));
+
+    const tags = ["Tenha acabado de começar","Já tenha tentado estudar antes e se frustrado","Trabalhe o dia inteiro","Tenha pouco tempo disponível"];
+    const tg = document.getElementById('evenIfTags');
+    tags.forEach(t => tg.appendChild(el(`<span class="bg-gray-100 border border-gray-200 px-4 py-2 rounded-full text-xs md:text-sm text-gray-700 font-medium">${t}</span>`)));
+
+    /* ── Comparison lists ── */
+    const others = ["Entregam conteúdo genérico, feito para várias áreas de concursos ao mesmo tempo","Jogam aulas longas sem dizer o que é prioridade","Fazem você tentar “fechar o edital” sem estratégia","Não consideram que você trabalha, faz residência ou tem família","Deixam o aluno perdido, sem saber se está no caminho certo"];
+    const ours = ["Um método focado em edital + banca + padrão de cobrança","Treino com questões reais, comentadas por professores especialistas nas principais bancas de odontologia","Direcionamento claro do que estudar e do que não perder tempo","Um plano de estudos realista, feito pelo professor, adaptado à sua rotina e tempo de estudo","Suporte próximo e humano, com professores que acompanham sua evolução","Uma base sólida para chegar na prova com mais segurança e menos ansiedade"];
+    const ol = document.getElementById('othersList');
+    others.forEach(t => ol.appendChild(el(`<li class="flex gap-3"><i class="fa-solid fa-xmark text-red-500 text-xl shrink-0 mt-1"></i><span class="text-gray-400 text-sm md:text-base">${t}</span></li>`)));
+    const oursL = document.getElementById('oursList');
+    ours.forEach(t => oursL.appendChild(el(`<li class="flex gap-3"><i class="fa-solid fa-check text-white text-xl shrink-0 mt-1"></i><span class="text-sm md:text-base">${t}</span></li>`)));
+
+    /* ── Inside list ── */
+    const inside = [
+      "Acesso ao método completo do Concurseiro Pro, com aulas de Odontologia, SUS, Informática, Português, Redação, Matemática, Raciocínio Lógico, Atualidades, Direito Constitucional, Direito Administrativo e matérias específicas — organizadas passo a passo para concursos de Odontologia",
+      "Conteúdo direcionado por edital e banca, focado no que realmente cai na prova",
+      "Treinamento intensivo por questões, com comentários detalhados de professores especialistas",
+      "Aulas 100% online e gravadas, para assistir quando e onde quiser",
+      "Cronograma de estudos personalizado feito por um professor, ajustado à sua rotina e pensado para quem tem pouco tempo",
+      "Acompanhamento do desempenho, para identificar pontos fortes, corrigir erros e ajustar o foco",
+      "Suporte próximo, para tirar dúvidas ao longo da preparação",
+      "Atualizações do treinamento, conforme mudanças de bancas e editais"
+    ];
+    const il = document.getElementById('insideList');
+    inside.forEach(t => il.appendChild(el(`<li class="flex gap-3 md:gap-4 items-start"><i class="fa-regular fa-circle-check text-brand text-2xl md:text-3xl shrink-0"></i><span class="mt-1 md:mt-0">${t}</span></li>`)));
+
+    /* ── Steps ── */
+    const steps = [
+      ["bonus5","Planejamento Personalizado","","Cronograma de estudos feito pelos professores da Odon, totalmente adaptado à sua realidade, edital e tempo disponível."],
+      ["bonus4","Videoaulas focadas e direcionadas","","Acesso a aulas direto ao ponto, com foco no que realmente cai nas provas das principais bancas de Odontologia."],
+      ["bonus2","Materiais em PDF","(Resumos, Apostilas etc)","Materiais complementares para facilitar a compreensão, acelerar revisões e garantir memorização efetiva."],
+      ["questoes","Questões Comentadas","(Odon Questões)","Treinamento intensivo através de resoluções de questões focado no nível e na cobrança da banca, revelando todos os padrões da prova."],
+      ["bonus1","Tira Dúvidas com os Professores","(1 ano de suporte)","Suporte premium direto com especialistas para esclarecer dúvidas, ajudando você a não travar nos estudos e manter a segurança."]
+    ];
+    const stepsWrap = document.getElementById('steps');
+    steps.forEach((s, i) => {
+      const reversed = i % 2 === 1;
+      const sub = s[2] ? `<span class="block text-xl md:text-2xl text-white/50 mt-1 font-bold">${s[2]}</span>` : '';
+      stepsWrap.appendChild(el(
+        `<div class="flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-6 md:gap-10 text-left bg-[#202020] p-6 md:p-8 rounded-[20px] shadow-lg reveal">
+          <div class="w-full md:w-1/2 shrink-0">
+            <div class="rounded-xl md:rounded-2xl overflow-hidden border border-dark-border shadow-[0_10px_30px_rgba(0,0,0,0.5)] bg-black">
+              <video src="${up('2026', s[0]==='questoes'?'02':'03', s[0]+'.webm')}" muted loop playsinline preload="none" class="w-full h-auto block pointer-events-none observe-video"></video>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2">
+            <h3 class="text-2xl md:text-3xl lg:text-4xl font-black text-brand mb-3 md:mb-4 leading-tight">${s[1]}${sub}</h3>
+            <p class="text-base md:text-lg text-gray-400 font-medium tracking-wide">${s[3]}</p>
+          </div>
+        </div>`));
+    });
+
+    /* ── Bonus grid ── */
+    const bonuses = [
+      ["bonus1","BÔNUS #1 – SUPORTE PREMIUM (TIRA-DÚVIDAS COM PROFESSORES)","Acesso a um canal direto para tirar dúvidas com professores especialistas em concursos de Odontologia ao longo da sua preparação. Ideal para não travar nos estudos e ajustar o foco.","R$497,00"],
+      ["bonus2","BÔNUS #2 – MATERIAL EM PDF E MAPAS MENTAIS","Materiais complementares para facilitar a compreensão, revisão e memorização dos conteúdos mais cobrados em concursos de Odontologia.","R$297,00"],
+      ["bonus3","BÔNUS #3 – BANCO COM 15 MIL QUESTÕES GABARITADAS","Acesso a um banco com mais de 15.000 questões, organizadas por banca para você treinar exatamente no padrão da prova.","R$497,00"],
+      ["bonus4","BÔNUS #4 – RESOLUÇÃO DE QUESTÕES EM VÍDEO","Resolução comentada em vídeo: como a banca pensa, por que cada alternativa está certa ou errada e como evitar erros recorrentes.","R$297,00"],
+      ["bonus5","BÔNUS #5 – CRONOGRAMA DE ESTUDOS PERSONALIZADO","Cronograma feito pelos professores da Odon, 100% adaptado ao seu edital, ao seu tempo disponível e à sua rotina real.","R$497,00"],
+      ["bonus6","BÔNUS #6 – TODAS AS ATUALIZAÇÕES DURANTE 12 MESES","Durante 12 meses você recebe atualizações de conteúdo, ajustes conforme novas bancas e editais e novos materiais sem custo adicional.","R$397,00"],
+      ["bonus7","BÔNUS #7 – SIMULADOS FREQUENTES","Simulados periódicos para testar seu nível real, ajustar o foco dos estudos e chegar mais seguro(a) para a prova.","R$297,00"],
+      ["__img:sorteio.jpg","BÔNUS #8 – SORTEIOS DE INSCRIÇÕES EM CONCURSOS","Todos os meses os alunos participam de sorteios de inscrições gratuitas para concursos públicos de Odontologia. Se você for sorteado(a), nós pagamos a sua inscrição.","R$197,00"],
+      ["bonus9","BÔNUS #9 – ATUALIDADES ESTRATÉGICAS PARA PROVAS","Conteúdos de atualidades essenciais para provas, com módulo exclusivo atualizado pelo Prof. Otoniel e envio diário de notícias no seu e-mail.","R$297,00"]
+    ];
+    const bg = document.getElementById('bonusGrid');
+    bonuses.forEach(b => {
+      let media;
+      if (b[0].startsWith('__img:')) {
+        media = `<img loading="lazy" decoding="async" src="${up('2026','03',b[0].slice(6))}" alt="" class="w-full h-auto block rounded-xl border border-dark-border mb-4">`;
+      } else {
+        media = `<video src="${up('2026','03',b[0]+'.webm')}" muted loop playsinline preload="none" class="w-full h-auto block rounded-xl border border-dark-border mb-4 pointer-events-none observe-video bg-black"></video>`;
+      }
+      bg.appendChild(el(
+        `<div class="bg-dark-card border border-dark-border p-6 md:p-8 rounded-2xl flex flex-col justify-between reveal card-hover">
+          <div>${media}<h3 class="text-lg md:text-xl font-bold mb-2 md:mb-3 text-white">${b[1]}</h3>
+          <p class="text-gray-400 text-xs md:text-sm mb-4">${b[2]}</p></div>
+          <p class="text-brand font-semibold text-base md:text-lg">VALOR: ${b[3]}</p>
+        </div>`));
+    });
+
+    /* ── Academy cards ── */
+    const academy = [
+      ["concursos-em-andamento","fa-bell","Alertas de editais e concursos em tempo real","Edital publicou, data retificou, novo concurso previsto: você fica sabendo antes de todo mundo. Enquanto outras candidatas descobrem dias depois, você já está ajustando o cronograma e saindo na frente."],
+      ["estrategia-de-estudo","fa-brain","Estratégia de estudos baseada em evidência","Técnicas de revisão espaçada, organização de rotina para quem trabalha o dia todo e conteúdo sobre memória e aprendizagem que funciona de verdade. Você passa a estudar com método."],
+      ["rede-de-apoio","fa-users","Rede de apoio entre dentistas concurseiros","Nos dias em que você quiser desistir, a comunidade segura sua mão. Tem espaço para desabafar, depoimento de quem já passou e gente que entende exatamente o que você sente."]
+    ];
+    const ac = document.getElementById('academyCards');
+    academy.forEach((a, i) => ac.appendChild(el(
+      `<div class="bg-dark-card border border-dark-border rounded-2xl overflow-hidden reveal ${i?('delay-'+(i*100)):''} card-hover flex flex-col shadow-xl">
+        <div class="bg-[#0a0a0a] border-b border-dark-border overflow-hidden">
+          <video src="${up('2026','03',a[0]+'.webm')}" muted loop playsinline preload="none" class="w-full h-auto block pointer-events-none observe-video"></video>
+        </div>
+        <div class="p-6 md:p-8 flex flex-col flex-1">
+          <div class="mb-4"><i class="fa-solid ${a[1]} text-3xl sm:text-4xl text-brand mb-4"></i>
+          <h4 class="text-lg md:text-xl font-bold text-white leading-tight">${a[2]}</h4></div>
+          <p class="text-gray-400 text-sm md:text-base flex-1">${a[3]}</p>
+        </div>
+      </div>`)));
+
+    /* ── Worth it ── */
+    const worth = [
+      ["E se tudo o que você vai receber aqui pudesse te dar clareza total do que estudar, organização da sua rotina e segurança para chegar competitivo(a) na prova, mesmo tendo pouco tempo para estudar…","IRIA VALER A PENA?",false],
+      ["E se, em vez de tentar estudar tudo e se sentir sempre atrasada, você simplesmente seguisse um método já validado, usado por mais de 1.100 dentistas aprovados em concursos de odontologia, focado exatamente no que as bancas cobram…","IRIA VALER A PENA?",false],
+      ["E se isso pudesse te levar à aprovação em concurso público de Odontologia, garantindo estabilidade financeira, segurança profissional e um bom salário todo mês…","IRIA VALER A PENA?",false],
+      ["Se você pudesse conquistar a sua vaga, ter tranquilidade para planejar o futuro, ajudar sua família, ter mais qualidade de vida e finalmente sentir orgulho ao ver seu nome na lista de aprovados…","ÓBVIO QUE SIM!",true]
+    ];
+    const wi = document.getElementById('worthIt');
+    worth.forEach(w => {
+      if (w[2]) {
+        wi.appendChild(el(`<div class="bg-brand p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-[0_0_30px_rgba(238,42,123,0.3)] text-center reveal card-hover">
+          <p class="text-base md:text-xl text-white/90 mb-3">${w[0]}</p>
+          <p class="text-3xl md:text-4xl font-black text-white uppercase">${w[1]}</p></div>`));
+      } else {
+        wi.appendChild(el(`<div class="bg-dark-card p-6 md:p-8 rounded-2xl md:rounded-3xl border border-dark-border reveal card-hover">
+          <p class="text-base md:text-xl text-gray-300 mb-3">${w[0]}</p>
+          <p class="text-xl md:text-2xl font-black text-white uppercase">${w[1]}</p></div>`));
+      }
+    });
+
+    /* ── Plan items ── */
+    const planBase = [
+      ["Acesso completo (12 meses)","R$ 1.997,00"],["BÔNUS #1 – Suporte","R$ 497,00"],["BÔNUS #2 – Mapas Mentais","R$ 297,00"],
+      ["BÔNUS #3 – 15.000 Questões","R$ 497,00"],["BÔNUS #4 – Vídeos","R$ 297,00"],["BÔNUS #5 – Cronograma","R$ 497,00"],
+      ["BÔNUS #6 – Atualizações","R$ 397,00"],["BÔNUS #7 – Simulados","R$ 297,00"],["BÔNUS #8 – Sorteios","R$ 197,00"],["BÔNUS #9 – Atualidades","R$ 297,00"]
+    ];
+    function fillPlan(sel, extra) {
+      const ul = document.querySelector('[data-plan-items="' + sel + '"]');
+      const items = extra ? [extra].concat(planBase) : planBase.slice();
+      const border = sel === '2' ? 'border-white/20' : 'border-dark-border';
+      items.forEach((it, idx) => {
+        const bold = (extra && idx === 0) ? 'font-bold text-white' : '';
+        ul.appendChild(el(`<li class="flex justify-between border-b ${border} pb-2 ${bold}"><span>${it[0]}</span><span class="text-white">${it[1]}</span></li>`));
+      });
+    }
+    fillPlan('1', null);
+    fillPlan('2', ["Odon Questões (12 meses)","R$ 997,00"]);
+
+    /* ── Image grids ── */
+    document.querySelectorAll('[data-img-grid]').forEach(grid => {
+      const dark = grid.closest('.bg-dark-bg, .bg-dark-section');
+      JSON.parse(grid.getAttribute('data-img-grid')).forEach(name => {
+        grid.appendChild(el(
+          `<div class="aspect-[4/5] rounded-xl overflow-hidden card-hover shadow-lg relative ${dark?'bg-gray-800':'bg-gray-200'}">
+            <img loading="lazy" decoding="async" src="${up('2026','02',name+'.webp')}" alt="Prova de aprovação" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+          </div>`));
+      });
+    });
+
+    /* ── Video grids (YouTube) ── */
+    document.querySelectorAll('[data-video-grid]').forEach(grid => {
+      const dark = grid.getAttribute('data-dark') === '1';
+      JSON.parse(grid.getAttribute('data-video-grid')).forEach(id => {
+        grid.appendChild(el(
+          `<div class="aspect-[9/16] rounded-2xl overflow-hidden shadow-lg border ${dark?'border-dark-border bg-black':'border-gray-100 bg-gray-50'} card-hover">
+            <iframe class="w-full h-full" loading="lazy" src="https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1" title="Depoimento" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>`));
+      });
+    });
+
+    /* ── Professores marquee ── */
+    const pm = document.getElementById('profMarquee');
+    const profList = [];
+    for (let i = 1; i <= 11; i++) profList.push(i === 11 ? 'professores-11-scaled' : 'professores-' + i);
+    profList.concat(profList).forEach(n => {
+      pm.appendChild(el(
+        `<div class="w-24 md:w-36 aspect-[4/5] rounded-xl overflow-hidden flex-shrink-0 relative">
+          <img loading="lazy" decoding="async" src="${proxy(n)}" alt="Professor" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-brand/70 to-transparent"></div>
+        </div>`));
+    });
+
+    /* ── FAQ ── */
+    const faqs = [
+      ["Qual a metodologia de vocês?","A metodologia do Concurseiro PRO é baseada em estudar o que tem mais chance de cair na sua prova + treino por questões, focado exatamente no que as bancas cobram. Você vai estudar de acordo com o edital e a banca, treinar com questões reais, entender o padrão de cobrança e corrigir erros rapidamente. O método prioriza aprendizado ativo, com questões comentadas por professores especialistas, acompanhamento de desempenho e um plano realista para quem trabalha e tem pouco tempo."],
+      ["E se eu tiver alguma dúvida durante o treinamento? Terei acesso aos professores?","SIM! Todas as suas dúvidas serão respondidas por texto ou vídeo dentro da área de membros, exclusivamente por nossos professores, sem limite de mensagens durante 1 ano inteiro. Você não vai ficar sozinho em nenhum momento."],
+      ["Preciso de um PC, notebook, tablet ou celular super moderno?","NÃO! Você precisa apenas de uma conexão de internet. Até com um celular simples você consegue acessar a plataforma, assistir às aulas e resolver as questões sem dificuldades."],
+      ["Esse treinamento é online ou presencial? Já está 100% gravado?","É 100% ONLINE e todo o conteúdo base já está completamente gravado e disponível imediatamente após o pagamento. Ele também continua recebendo novas aulas e atualizações de forma contínua. O acesso chega no seu e-mail logo após a confirmação."],
+      ["Esse treinamento está 100% completo?","SIM! O conteúdo atual está 100% completo e ainda continua sendo atualizado frequentemente, com novas aulas e melhorias, sem custo adicional."],
+      ["Posso cancelar se não gostar?","SIM, sem nenhuma dificuldade. Você tem 7 dias de garantia total. Dentro desse período, por qualquer motivo, basta enviar um e-mail ou mensagem no WhatsApp para o suporte que devolvemos 100% do seu dinheiro."],
+      ["Quais são as formas de pagamento?","Você pode pagar em até 12 parcelas no cartão de crédito (e usar 2 cartões, se precisar). Também aceitamos PIX. Trabalhamos com todos os bancos e bandeiras."],
+      ["Após efetuar o pagamento, qual o prazo para liberar o treinamento?","Cartão de crédito ou PIX: acesso imediato."],
+      ["O sistema de pagamento é realmente 100% seguro?","SIM! Utilizamos uma plataforma de pagamento 100% segura e criptografada, a mesma usada por grandes empresas de produtos digitais no Brasil."],
+      ["Não tenho tempo agora. Posso adquirir e fazer depois?","Seu acesso é de 1 ano completo e não expira em poucos meses. Você pode garantir sua vaga agora e estudar quando for melhor para você, no seu ritmo."],
+      ["Preciso ser formado para começar?","Não. Recomendamos iniciar a partir do 5º período da faculdade para aumentar suas chances de aprovação ao se formar."],
+      ["Após a prova, posso ter ajuda com os recursos?","Sim. O Odon disponibiliza orientações sobre recursos administrativos sempre que houver possibilidade de contestação de questões, com direcionamento técnico claro."],
+      ["Esse método serve para o meu nível (iniciante ou avançado)?","Sim. Funciona tanto para quem está começando quanto para quem já estuda há tempo e ainda não passou. O estudo é sempre direcionado por edital, banca e padrão de cobrança."],
+      ["Quantas horas por dia eu preciso estudar?","O método foi pensado para quem tem pouco tempo. É possível estudar com 1 a 2 horas por dia, de forma consistente. O mais importante não é a quantidade de horas, e sim o que e como você estuda."]
+    ];
+    const faqWrap = document.getElementById('faq');
+    faqs.forEach(f => faqWrap.appendChild(el(
+      `<details class="group bg-dark-card border border-dark-border rounded-xl md:rounded-2xl overflow-hidden card-hover">
+        <summary class="p-5 md:p-6 font-bold text-base md:text-lg cursor-pointer flex justify-between items-center hover:text-brand transition-colors select-none">
+          <span class="pr-4 text-white">${f[0]}</span>
+          <span class="group-open:rotate-180 transition-transform shrink-0"><i class="fa-solid fa-chevron-down text-brand text-lg"></i></span>
+        </summary>
+        <div class="p-5 md:p-6 pt-0 text-sm md:text-base text-gray-400">${f[1]}</div>
+      </details>`)));
+
+    /* ── Reveal + lazy video observers ── */
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); revObs.unobserve(e.target); } });
+    }, { threshold: .1, rootMargin: "0px 0px -50px 0px" });
+    document.querySelectorAll('.reveal').forEach(e => revObs.observe(e));
+
+    const vidObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        const v = e.target;
+        if (e.isIntersecting) { v.play().catch(()=>{}); } else { v.pause(); }
+      });
+    }, { threshold: .1 });
+    document.querySelectorAll('video.observe-video').forEach(v => vidObs.observe(v));
+
+    /* ── WhatsApp phone mask ── */
+    const whats = document.getElementById('pm-whats');
+    whats.addEventListener('input', e => {
+      let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+      if (v.length <= 10) { v = v.replace(/^(\d{2})(\d)/, '($1) $2').replace(/(\d{4})(\d)/, '$1-$2'); }
+      else { v = v.replace(/^(\d{2})(\d)/, '($1) $2').replace(/(\d{5})(\d)/, '$1-$2'); }
+      e.target.value = v;
+    });
+
+    /* ── Price modal logic ── */
+    const modal = document.getElementById('priceModal');
+    const openModal = () => { modal.classList.add('open'); document.body.style.overflow = 'hidden'; };
+    const closeModal = () => { modal.classList.remove('open'); document.body.style.overflow = ''; };
+
+    document.querySelectorAll('.reveal-price-btn').forEach(b => b.addEventListener('click', openModal));
+    document.getElementById('pmClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    function unlockPrices() {
+      document.body.classList.remove('price-locked');
+      document.body.classList.add('price-unlocked');
+    }
+    // Se já preencheu antes, mantém liberado
+    try { if (localStorage.getItem('odon_lead_ok') === '1') unlockPrices(); } catch (e) {}
+
+    /* ── Captura de UTMs (URL > localStorage) ── */
+    function getUTMs() {
+      const p = new URLSearchParams(location.search);
+      const keys = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','fbclid','gclid','vk_source'];
+      const out = {};
+      keys.forEach(k => {
+        let v = p.get(k);
+        if (!v) { try { v = localStorage.getItem(k); } catch (e) {} }
+        if (v) { out[k] = v; try { localStorage.setItem(k, v); } catch (e) {} }
+      });
+      return out;
+    }
+
+    const WEBHOOK_URL = 'https://hook.us2.make.com/1mwqrp8opnveycq7cxqjlfpnr1166ebc';
+
+    document.getElementById('priceForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.getElementById('pmSubmit');
+      btn.disabled = true; btn.innerHTML = 'PROCESSANDO...';
+
+      const utms = getUTMs();
+      const lead = Object.assign({
+        nome: document.getElementById('pm-nome').value.trim(),
+        email: document.getElementById('pm-email').value.trim(),
+        whatsapp: whats.value.replace(/\D/g, ''),
+        origem: 'Concurseiro PRO - liberar valores',
+        evento: 'Lead',
+        pagina: location.href,
+        data: new Date().toISOString()
+      }, utms);
+
+      try {
+        localStorage.setItem('odon_lead', JSON.stringify(lead));
+        localStorage.setItem('odon_lead_ok', '1');
+      } catch (err) {}
+
+      /* Evento Lead — Meta Pixel + GTM dataLayer */
+      if (window.fbq) fbq('track', 'Lead', { content_name: 'Liberar valores - Concurseiro PRO' });
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({ event: 'lead', lead_origem: lead.origem });
+
+      /* Envio para o webhook do Make (text/plain evita preflight CORS) */
+      try {
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+          body: JSON.stringify(lead),
+          keepalive: true
+        }).catch(() => {});
+      } catch (err) {}
+
+      setTimeout(() => {
+        unlockPrices();
+        closeModal();
+        btn.disabled = false;
+        btn.innerHTML = 'REVELAR VALORES <i class="fa-solid fa-arrow-right"></i>';
+        const planos = document.getElementById('planos');
+        if (planos) planos.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 450);
+    });
+
+    /* ── InitiateCheckout ao clicar em comprar ── */
+    document.querySelectorAll('.buy-btn').forEach(b => {
+      b.addEventListener('click', () => {
+        const plan = b.getAttribute('data-plan') || 'Concurseiro PRO';
+        const value = parseFloat(b.getAttribute('data-value')) || undefined;
+        if (window.fbq) fbq('track', 'InitiateCheckout', { content_name: plan, value: value, currency: 'BRL' });
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({ event: 'initiate_checkout', plan: plan, value: value });
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
