@@ -989,12 +989,14 @@
       window.dataLayer = window.dataLayer || [];
       dataLayer.push({ event: 'lead', lead_origem: lead.origem });
 
-      /* Envio para o webhook do Make (text/plain evita preflight CORS) */
+      /* Envio para o webhook do Make — form-urlencoded: cada campo vira uma
+         chave separada no bundle (e não dispara preflight CORS) */
       try {
+        const form = new URLSearchParams();
+        Object.keys(lead).forEach(k => form.append(k, lead[k] == null ? '' : String(lead[k])));
         fetch(WEBHOOK_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-          body: JSON.stringify(lead),
+          body: form,
           keepalive: true
         }).catch(() => {});
       } catch (err) {}
