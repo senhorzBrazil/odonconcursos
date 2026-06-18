@@ -577,7 +577,7 @@
             nome: 'HOB MG — Hospital Odilon Behrens (BH)',
             status: 'soon', statusLabel: 'Previsto', banca: 'IBGP',
             cupom: 'ODON-HOBMG',
-            texto: '<strong>5 vagas para Cirurgião-Dentista.</strong>',
+            texto: '<strong>5 vagas para Cirurgião-Dentista</strong> — carga horária de 24h semanais.',
             salario: 'R$ 4.194,73 a R$ 4.404,46'
           },
           {
@@ -849,14 +849,19 @@
       });
     }
 
+    // preposição correta por estado: "em" São Paulo / Minas Gerais · "no" Rio / Espírito Santo
+    function prepEstado(estado) {
+      return ({ 'São Paulo': 'em', 'Minas Gerais': 'em', 'Rio de Janeiro': 'no', 'Espírito Santo': 'no' })[estado] || 'em';
+    }
+
     async function searchConcursos(estado) {
-      await botSay(`Certo. Vou <strong>pesquisar os concursos disponíveis no ${escapeHtml(estado)}</strong>.`, 850);
+      await botSay(`Certo. Vou <strong>pesquisar os concursos disponíveis ${prepEstado(estado)} ${escapeHtml(estado)}</strong>.`, 850);
 
       const card = document.createElement('div');
       card.className = 'msg bot';
       card.innerHTML = `
         <div class="loading-card">
-          <div class="loading-head"><span class="spin"></span><b>Buscando concursos no ${escapeHtml(estado)}</b></div>
+          <div class="loading-head"><span class="spin"></span><b>Buscando concursos ${prepEstado(estado)} ${escapeHtml(estado)}</b></div>
           <div class="loading-track"><div class="loading-fill"></div></div>
           <div class="loading-step" id="loadStepEstado"><i data-lucide="search"></i><span>Varrendo editais abertos</span></div>
         </div>`;
@@ -876,7 +881,7 @@
 
     async function askConcurso(estado) {
       const lista = (ESTADOS[estado] && ESTADOS[estado].concursos) || [];
-      await botSay(`No <strong>${escapeHtml(estado)}</strong> temos os seguintes concursos <strong>abertos e previstos</strong>. Qual deles te interessa?`, 950);
+      await botSay(`${prepEstado(estado) === 'em' ? 'Em' : 'No'} <strong>${escapeHtml(estado)}</strong> temos os seguintes concursos <strong>abertos e previstos</strong>. Qual deles te interessa?`, 950);
       showChips(
         lista.map(c => ({
           label: `${c.nome} <span style="display:block;font-size:11.5px;font-weight:600;color:var(--lime);margin-top:3px;">${c.statusLabel}</span>`,
