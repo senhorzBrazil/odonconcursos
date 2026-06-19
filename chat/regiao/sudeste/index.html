@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Concursos de Odontologia no Sul · OdonConcursos</title>
+  <title>Concursos de Odontologia no Sudeste · OdonConcursos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -58,6 +58,7 @@
     @keyframes barPulse  { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
     @keyframes spin      { to { transform: rotate(360deg); } }
     @keyframes loadFill  { from { width: 4%; } to { width: 100%; } }
+    @keyframes dash      { to { background-position: 22px 0; } }
 
     body {
       font-family: var(--sans);
@@ -214,8 +215,9 @@
       cursor: pointer;
       transition: background .18s, border-color .18s, transform .12s, box-shadow .18s;
       white-space: nowrap;
+      text-align: left;
     }
-    .chip svg { width: 15px; height: 15px; stroke: var(--lime); fill: none; stroke-width: 2.2; }
+    .chip svg { width: 15px; height: 15px; stroke: var(--lime); fill: none; stroke-width: 2.2; flex-shrink: 0; }
     .chip:hover {
       background: rgba(233,30,140,.18);
       border-color: var(--lime);
@@ -223,6 +225,15 @@
       box-shadow: 0 4px 14px rgba(233,30,140,.22);
     }
     .chip:active { transform: scale(.97); }
+    /* chip largo (lista de concursos empilhada) */
+    .chip.chip-wide {
+      flex: 1 1 100%;
+      white-space: normal;
+      justify-content: flex-start;
+      border-radius: 14px;
+      padding: 13px 16px;
+      line-height: 1.3;
+    }
 
     /* text input bar */
     .input-bar { display: flex; align-items: center; gap: 8px; }
@@ -309,7 +320,7 @@
     .loading-step { font-size: 12.5px; color: var(--text-dim); display: flex; align-items: center; gap: 7px; }
     .loading-step svg { width: 13px; height: 13px; stroke: var(--lime); fill: none; stroke-width: 2; flex-shrink: 0; }
 
-    /* vagas highlight card */
+    /* card do concurso escolhido */
     .vagas-card {
       border: 1px solid rgba(233,30,140,.3);
       background:
@@ -320,10 +331,18 @@
       display: flex; flex-direction: column; gap: 10px;
       margin-top: 2px;
     }
-    .vagas-head { display: flex; align-items: center; gap: 9px; }
-    .vagas-head svg { width: 17px; height: 17px; stroke: var(--lime); fill: none; stroke-width: 2; flex-shrink: 0; }
-    .vagas-head b { font-family: var(--display); font-size: 14px; font-weight: 700; color: var(--text); }
-    .vagas-count { font-family: var(--display); font-size: 26px; font-weight: 800; color: var(--lime); line-height: 1; }
+    .vagas-head { display: flex; align-items: flex-start; gap: 9px; }
+    .vagas-head svg { width: 17px; height: 17px; stroke: var(--lime); fill: none; stroke-width: 2; flex-shrink: 0; margin-top: 2px; }
+    .vagas-head b { font-family: var(--display); font-size: 14.5px; font-weight: 700; color: var(--text); line-height: 1.25; }
+    .vagas-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+    .badge {
+      font-size: 10.5px; font-weight: 600;
+      padding: 4px 9px; border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      color: var(--text-mute); background: var(--bg-soft);
+    }
+    .badge.open { color: #16a34a; border-color: rgba(22,163,74,.35); background: rgba(22,163,74,.08); }
+    .badge.soon { color: var(--lime); border-color: rgba(233,30,140,.3); background: rgba(233,30,140,.06); }
     .vagas-text { font-size: 13.5px; line-height: 1.55; color: var(--text-mute); }
     .vagas-text strong { color: var(--text); font-weight: 600; }
     .vagas-salary {
@@ -335,6 +354,49 @@
       padding: 7px 12px; border-radius: 999px;
     }
     .vagas-salary svg { width: 14px; height: 14px; stroke: #16a34a; fill: none; stroke-width: 2; }
+    .vagas-date {
+      display: inline-flex; align-items: center; gap: 7px; align-self: flex-start;
+      font-size: 13px; font-weight: 700; color: var(--text);
+      border: 1px solid var(--line-strong);
+      background: var(--bg-soft);
+      padding: 7px 12px; border-radius: 999px;
+    }
+    .vagas-date svg { width: 14px; height: 14px; stroke: var(--lime); fill: none; stroke-width: 2; }
+
+    /* card de outras oportunidades */
+    .opps-card {
+      border: 1px solid rgba(233,30,140,.3);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(233,30,140,.08), transparent 60%),
+        rgba(233,30,140,.03);
+      border-radius: 14px;
+      padding: 16px 18px;
+      display: flex; flex-direction: column; gap: 10px;
+      margin-top: 2px;
+    }
+    .opps-head { display: flex; align-items: center; gap: 9px; }
+    .opps-head svg { width: 17px; height: 17px; stroke: var(--lime); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .opps-head b { font-family: var(--display); font-size: 14px; font-weight: 700; color: var(--text); }
+    .opp-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 11px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 11px;
+    }
+    .opp-icon {
+      width: 30px; height: 30px; flex-shrink: 0;
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(233,30,140,.08);
+      border: 1px solid rgba(233,30,140,.2);
+    }
+    .opp-icon svg { width: 15px; height: 15px; stroke: var(--lime); fill: none; stroke-width: 2; }
+    .opp-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+    .opp-name { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.25; }
+    .opp-meta { font-size: 11px; color: var(--text-dim); }
+    .opp-uf { font-weight: 800; color: var(--lime); }
+    .opp-sal { font-size: 11.5px; font-weight: 700; color: #16a34a; text-align: right; flex-shrink: 0; max-width: 38%; line-height: 1.3; }
 
     /* summary card (final) */
     .summary {
@@ -349,22 +411,65 @@
     .summary-row svg { width: 15px; height: 15px; stroke: var(--lime); fill: none; stroke-width: 2; flex-shrink: 0; }
     .summary-row b { color: var(--text); font-weight: 600; }
 
-    /* CTA link button */
+    /* ─── cupom ─── */
+    .coupon {
+      position: relative;
+      border: 1.5px dashed var(--lime);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(233,30,140,.12), transparent 55%),
+        rgba(233,30,140,.05);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      display: flex; flex-direction: column; gap: 8px;
+      margin-top: 2px;
+      overflow: hidden;
+    }
+    .coupon::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+      background: repeating-linear-gradient(90deg, var(--lime) 0 11px, transparent 11px 22px);
+      background-size: 22px 5px;
+      animation: dash 1.2s linear infinite;
+      opacity: .8;
+    }
+    .coupon-tag {
+      align-self: flex-start;
+      font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; font-weight: 800;
+      color: var(--lime);
+      border: 1px solid rgba(233,30,140,.4);
+      background: rgba(233,30,140,.08);
+      padding: 4px 10px; border-radius: 999px;
+    }
+    .coupon-title { font-family: var(--display); font-size: 17px; font-weight: 800; color: var(--text); line-height: 1.2; }
+    .coupon-sub { font-size: 13px; line-height: 1.5; color: var(--text-mute); }
+    .coupon-sub strong { color: var(--text); font-weight: 700; }
+    .coupon-code {
+      align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--display); font-size: 15px; font-weight: 800; letter-spacing: .06em;
+      color: var(--text);
+      border: 1.5px solid rgba(233,30,140,.4);
+      background: #fff;
+      padding: 8px 14px; border-radius: 10px;
+      margin-top: 2px;
+    }
+    .coupon-code svg { width: 15px; height: 15px; stroke: var(--lime); fill: none; stroke-width: 2; }
+
+    /* CTA WhatsApp */
     .cta-link {
       display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-      margin-top: 2px;
-      padding: 14px 20px;
+      margin-top: 4px;
+      padding: 15px 20px;
       border-radius: 14px;
-      background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--orange) 0, var(--orange-2) 100%);
+      background: linear-gradient(92deg, #25D366 0%, #1ebe5b 100%);
       color: #fff;
       font-family: var(--sans);
-      font-size: 14px; font-weight: 700;
+      font-size: 14.5px; font-weight: 800;
       text-decoration: none;
-      box-shadow: 0 8px 22px rgba(233,30,140,.30);
+      box-shadow: 0 8px 22px rgba(37,211,102,.35);
       transition: filter .2s, transform .12s;
     }
-    .cta-link svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2.2; }
-    .cta-link:hover { filter: brightness(1.07); transform: translateY(-1px); }
+    .cta-link svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 2.2; }
+    .cta-link:hover { filter: brightness(1.05); transform: translateY(-1px); }
     .cta-link:active { transform: scale(.98); }
 
     @media (max-width: 520px) {
@@ -390,7 +495,7 @@
         <div class="chat-name">Equipe OdonConcursos</div>
         <div class="chat-status"><b>● online</b> · responde na hora</div>
       </div>
-      <span class="chat-tag">Região Sul</span>
+      <span class="chat-tag">Região Sudeste</span>
     </header>
 
     <div class="chat-log" id="log" aria-live="polite"></div>
@@ -424,25 +529,153 @@
        CONFIGURAÇÃO  —  edite aqui
        ════════════════════════════════════════════════════════════════ */
 
-    // 1) Webhook que vai receber os dados (Make / n8n / Zapier / CRM…)
-    //    Cole a URL do seu webhook entre as aspas abaixo.
-    const WEBHOOK_URL = 'https://hook.us2.make.com/c2wkeh4emj5df7gxoes21g0tkopvjam1';
+    // 1) ►► COLE AQUI a URL do seu webhook (Make / n8n / Zapier / CRM…)
+    //    É pra cá que os dados são enviados quando o usuário conclui o chat.
+    //    Deixe entre as aspas. Ex.: 'https://hook.us2.make.com/xxxxxxxx'
+    const WEBHOOK_URL = '';
 
-    // 2) Pixel do Meta Ads (já configurado no <head>)
+    // 2) Pixel do Meta Ads — dispara PageView no <head> ao carregar a página
     const META_PIXEL_ID = '3213093405602824';
 
-    // 3) Link com todos os concursos
-    const CONCURSOS_URL = 'https://odonconcursospage.com/rs/';
+    // 3) ► NÚMERO DO WHATSAPP que vai receber o lead/cupom.
+    //    Formato internacional, só dígitos: 55 + DDD + número.
+    //    >>> TROQUE pelo seu número real <<<
+    const WHATSAPP_NUMERO = '5519994565534';
 
     // 4) Identificador deste formulário (enviado ao webhook).
-    //    Em cada página/landing, altere este valor para diferenciar a origem.
-    const FORMULARIO = 'Região Sul';
+    const FORMULARIO = 'Região Sudeste · Cupom';
 
-    // Estados da Região Sul
+    /* Concursos ABERTOS e PREVISTOS da Região Sudeste, por estado.
+       Cada concurso tem um cupom específico (campo "cupom"). */
     const ESTADOS = {
-      'Rio Grande do Sul': { sigla: 'RS' },
-      'Santa Catarina':    { sigla: 'SC' },
-      'Paraná':            { sigla: 'PR' }
+      'Rio de Janeiro': {
+        sigla: 'RJ',
+        concursos: [
+          {
+            id: 'ses-rj',
+            nome: 'SES RJ — Secretaria de Estado de Saúde',
+            status: 'soon', statusLabel: 'Previsto · iminente', banca: 'IBDO',
+            cupom: 'ODON-SESRJ',
+            texto: '<strong>11 vagas para Odontólogo</strong> (4 na SES + 7 no IASERJ), dentro de 287 vagas no total. Edital confirmado para o 1º semestre de 2026 — primeiro concurso da saúde estadual fluminense em mais de 15 anos. O mais relevante do Sudeste.',
+            salario: '',
+            prova: 'a definir (edital 1º sem/2026)'
+          }
+        ]
+      },
+      'Minas Gerais': {
+        sigla: 'MG',
+        concursos: [
+          {
+            id: 'ipatinga',
+            nome: 'Ipatinga Saúde',
+            status: 'open', statusLabel: 'Inscrições abertas', banca: 'IMAM',
+            cupom: 'ODON-IPATINGA',
+            texto: '<strong>18 vagas para Odontólogo</strong> em várias frentes. Inscrições a partir de 17/06/2026.',
+            salario: 'até R$ 5.636,18',
+            prova: '15, 16, 22 e 23/08/2026'
+          },
+          {
+            id: 'agua-comprida',
+            nome: 'Prefeitura de Água Comprida',
+            status: 'open', statusLabel: 'Inscrições abertas', banca: 'FAFIPA',
+            cupom: 'ODON-AGUACOMPRIDA',
+            texto: '<strong>1 vaga para Cirurgião-Dentista 20h.</strong> Inscrições de 28/07 a 27/08. Salário forte para meia jornada.',
+            salario: 'R$ 6.483,93',
+            prova: '27/09/2026'
+          },
+          {
+            id: 'hob-mg',
+            nome: 'HOB MG — Hospital Odilon Behrens (BH)',
+            status: 'soon', statusLabel: 'Previsto', banca: 'IBGP',
+            cupom: 'ODON-HOBMG',
+            texto: '<strong>5 vagas para Cirurgião-Dentista</strong> — carga horária de 24h semanais.',
+            salario: 'R$ 4.194,73 a R$ 4.404,46',
+            prova: 'a definir'
+          },
+          {
+            id: 'santa-luzia',
+            nome: 'Prefeitura de Santa Luzia',
+            status: 'soon', statusLabel: 'Previsto · iminente', banca: 'FADENOR',
+            cupom: 'ODON-SANTALUZIA',
+            texto: 'Banca <strong>FADENOR já contratada</strong> — sinal forte de que a abertura está próxima. Vaga para <strong>Cirurgião-Dentista</strong> na saúde do município (Região Metropolitana de BH).',
+            salario: 'até R$ 7.700',
+            prova: 'a definir'
+          }
+        ]
+      },
+      'São Paulo': {
+        sigla: 'SP',
+        concursos: [
+          {
+            id: 'amparo',
+            nome: 'Prefeitura de Amparo',
+            status: 'open', statusLabel: 'Inscrições abertas', banca: 'AvançaSP',
+            cupom: 'ODON-AMPARO',
+            texto: 'Vagas para <strong>Odontologia</strong> (regime CLT). Inscrições até 06/07.',
+            salario: 'até R$ 11.572,50',
+            prova: '02/08/2026'
+          },
+          {
+            id: 'franca',
+            nome: 'Prefeitura de Franca',
+            status: 'open', statusLabel: 'Inscrições abertas', banca: 'IBAM',
+            cupom: 'ODON-FRANCA',
+            texto: '<strong>Cirurgião-Dentista 20h</strong> (cadastro de reserva) — o maior salário do edital de saúde. Inscrições de 10/06 a 09/07.',
+            salario: 'R$ 6.267,26',
+            prova: '02/08/2026 (prevista)'
+          },
+          {
+            id: 'tambau',
+            nome: 'Prefeitura de Tambaú',
+            status: 'open', statusLabel: 'Inscrições abertas', banca: 'INDEPAC',
+            cupom: 'ODON-TAMBAU',
+            texto: 'Vaga para <strong>Cirurgião-Dentista.</strong> Inscrições de 04/06 a 03/07.',
+            salario: 'até R$ 6.917,04',
+            prova: '26/07/2026 (prevista)'
+          },
+          {
+            id: 'bom-sucesso-itarare',
+            nome: 'Prefeitura de Bom Sucesso de Itararé',
+            status: 'open', statusLabel: 'Aberto · encerrando', banca: 'a definir',
+            cupom: 'ODON-BOMSUCESSO',
+            texto: '<strong>16 vagas em vários cargos</strong>, incluindo Cirurgião-Dentista. Inscrições até <strong>26/06/2026</strong> — encerrando em breve.',
+            salario: 'até R$ 7.617,00',
+            prova: '12/07/2026 (prevista)'
+          },
+          {
+            id: 'ouro-verde',
+            nome: 'Prefeitura de Ouro Verde',
+            status: 'open', statusLabel: 'Aberto · encerrando', banca: 'a definir',
+            cupom: 'ODON-OUROVERDE',
+            texto: '<strong>Cadastro de reserva</strong> incluindo dentista. Inscrições até <strong>21/06/2026</strong> — encerrando em breve.',
+            salario: 'até R$ 10.564,44',
+            prova: '12/07/2026 (prevista)'
+          },
+          {
+            id: 'olimpia',
+            nome: 'Prefeitura de Olímpia',
+            status: 'open', statusLabel: 'Aberto · prorrogado', banca: 'Nosso Rumo',
+            cupom: 'ODON-OLIMPIA',
+            texto: 'Vaga para <strong>dentista</strong> (regime estatutário). Inscrições até 23/07.',
+            salario: 'R$ 2.155,71 a R$ 9.581,64',
+            prova: '23/08/2026'
+          }
+        ]
+      },
+      'Espírito Santo': {
+        sigla: 'ES',
+        concursos: [
+          {
+            id: 'ses-es',
+            nome: 'SES ES — Secretaria de Saúde',
+            status: 'soon', statusLabel: 'Previsto · fase inicial', banca: 'a definir',
+            cupom: 'ODON-SESES',
+            texto: 'Após <strong>12 anos sem concurso</strong>, previsto no orçamento de 2026. Ainda sem banca nem edital definidos — o concurso capixaba a monitorar.',
+            salario: 'pode ultrapassar R$ 8.250,00',
+            prova: 'a definir'
+          }
+        ]
+      }
     };
 
     /* ════════════════════════════════════════════════════════════════ */
@@ -452,7 +685,12 @@
     const field    = document.getElementById('field');
     const country  = document.getElementById('country');
 
-    const data = { estado: '', sigla: '', nome: '', telefone: '', email: '' };
+    const data = {
+      estado: '', sigla: '',
+      concurso_id: '', concurso: '', cupom: '',
+      q_remuneracao: '', q_preparo: '', q_direcionada: '', q_interesse: '',
+      nome: '', telefone: '', email: ''
+    };
 
     // Captura UTMs e IDs de clique da URL no carregamento da página
     const tracking = (() => {
@@ -507,7 +745,7 @@
       inputBar.classList.add('hidden');
     }
 
-    function showChips(options) {
+    function showChips(options, { wide = false } = {}) {
       hideInputs();
       const m = document.createElement('div');
       m.className = 'msg options';
@@ -516,11 +754,11 @@
       options.forEach(opt => {
         const b = document.createElement('button');
         b.type = 'button';
-        b.className = 'chip';
-        b.innerHTML = `<i data-lucide="${opt.icon}"></i>${opt.label}`;
+        b.className = 'chip' + (wide ? ' chip-wide' : '');
+        b.innerHTML = `<i data-lucide="${opt.icon}"></i><span>${opt.label}</span>`;
         b.addEventListener('click', () => {
           m.remove();
-          opt.onPick(opt.value, opt.label);
+          opt.onPick(opt.value, opt.pickLabel || opt.label);
         });
         wrap.appendChild(b);
       });
@@ -528,6 +766,18 @@
       log.appendChild(m);
       lucide.createIcons();
       scrollDown();
+    }
+
+    // pergunta com chips que devolve uma Promise com a opção escolhida
+    function askChips(options) {
+      return new Promise(resolve => {
+        showChips(options.map(o => ({
+          label: o.label,
+          value: o.value,
+          icon: o.icon || 'circle',
+          onPick: (value, label) => resolve({ value, label })
+        })));
+      });
     }
 
     let activeHandler = null;
@@ -538,6 +788,7 @@
       field.placeholder = placeholder;
       field.value = '';
       field.inputMode = (type === 'tel') ? 'numeric' : (type === 'email' ? 'email' : 'text');
+      field.dataset.mask = phone ? 'tel' : '';
       country.classList.toggle('hidden', !phone);
       activeHandler = onSubmit;
       setTimeout(() => field.focus(), 60);
@@ -549,23 +800,44 @@
       if (activeHandler) activeHandler(field.value.trim());
     });
 
+    // máscara de telefone (formato brasileiro) enquanto digita: (XX) XXXXX-XXXX
+    function maskTelBR(v) {
+      const d = v.replace(/\D/g, '').slice(0, 11);
+      const len = d.length;
+      if (len === 0)  return '';
+      if (len <= 2)   return '(' + d;
+      if (len <= 6)   return '(' + d.slice(0, 2) + ') ' + d.slice(2);
+      if (len <= 10)  return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
+      return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+    }
+    field.addEventListener('input', () => {
+      if (field.dataset.mask !== 'tel') return;
+      // só mascara para o Brasil (+55); outros países ficam livres
+      if (country.value === '55') field.value = maskTelBR(field.value);
+    });
+    country.addEventListener('change', () => {
+      if (field.dataset.mask !== 'tel') return;
+      field.value = (country.value === '55') ? maskTelBR(field.value) : field.value.replace(/[()\-\s]/g, '');
+    });
+
     /* ─── validators ─── */
     const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
     const phoneDigits = (v) => v.replace(/\D/g, '');
 
     /* ─── conversation flow ─── */
     async function start() {
-      await botSay('Olá. Aqui é a equipe do <strong>OdonConcursos</strong>.', 650);
-      await botSay('Identificamos que você é da <strong>Região Sul</strong>, atualmente uma das regiões com maior número de <strong>concursos de Odontologia</strong>. Vamos verificar as oportunidades disponíveis para o seu estado.', 1300);
+      await botSay('Olá! Aqui é a equipe do <strong>OdonConcursos</strong>. 👋', 650);
+      await botSay('A <strong>Região Sudeste</strong> está vivendo um dos melhores momentos para <strong>concursos públicos de Odontologia</strong> — são vários editais abertos e previstos, com ótimas remunerações.', 1400);
       await askEstado();
     }
 
     async function askEstado() {
-      await botSay('Para começar, em qual <strong>estado da Região Sul</strong> você atua?', 850);
+      await botSay('Vou te mostrar as oportunidades do seu estado. Em qual <strong>estado da Região Sudeste</strong> você atua?', 850);
       showChips([
-        { label: 'Rio Grande do Sul', value: 'Rio Grande do Sul', icon: 'map-pin', onPick: pickEstado },
-        { label: 'Santa Catarina',    value: 'Santa Catarina',    icon: 'map-pin', onPick: pickEstado },
-        { label: 'Paraná',            value: 'Paraná',            icon: 'map-pin', onPick: pickEstado },
+        { label: 'São Paulo',      value: 'São Paulo',      icon: 'map-pin', onPick: pickEstado },
+        { label: 'Rio de Janeiro', value: 'Rio de Janeiro', icon: 'map-pin', onPick: pickEstado },
+        { label: 'Minas Gerais',   value: 'Minas Gerais',   icon: 'map-pin', onPick: pickEstado },
+        { label: 'Espírito Santo', value: 'Espírito Santo', icon: 'map-pin', onPick: pickEstado },
       ]);
     }
 
@@ -574,20 +846,100 @@
       data.sigla = (ESTADOS[value] && ESTADOS[value].sigla) || '';
       addUser(label);
       hideInputs();
-
-      await botSay(`Certo. Vou consultar as <strong>oportunidades disponíveis no ${escapeHtml(value)}</strong>.`, 900);
-      await loadVagas(value);
+      await askNome();
     }
 
-    async function loadVagas(value) {
-      // card animado de "carregando vagas"
+    async function askNome() {
+      await botSay('Boa escolha! E como posso te chamar?', 850);
+      showInput({
+        type: 'text',
+        placeholder: 'Seu nome',
+        onSubmit: async (v) => {
+          const nome = v.trim();
+          if (nome.replace(/\s/g, '').length < 2) {
+            await botSay('Pode me dizer o seu nome? 🙂', 600);
+            return;
+          }
+          data.nome = nome;
+          addUser(nome);
+          hideInputs();
+          await botSay(`Prazer, <strong>${escapeHtml(nome.split(' ')[0])}</strong>! 😃`, 700);
+          await searchConcursos(data.estado);
+        }
+      });
+    }
+
+    // preposição correta por estado: "em" São Paulo / Minas Gerais · "no" Rio / Espírito Santo
+    function prepEstado(estado) {
+      return ({ 'São Paulo': 'em', 'Minas Gerais': 'em', 'Rio de Janeiro': 'no', 'Espírito Santo': 'no' })[estado] || 'em';
+    }
+
+    async function searchConcursos(estado) {
+      await botSay(`Certo. Vou <strong>pesquisar os concursos disponíveis ${prepEstado(estado)} ${escapeHtml(estado)}</strong>.`, 850);
+
       const card = document.createElement('div');
       card.className = 'msg bot';
       card.innerHTML = `
         <div class="loading-card">
-          <div class="loading-head"><span class="spin"></span><b>Consultando oportunidades no ${escapeHtml(value)}</b></div>
+          <div class="loading-head"><span class="spin"></span><b>Buscando concursos ${prepEstado(estado)} ${escapeHtml(estado)}</b></div>
           <div class="loading-track"><div class="loading-fill"></div></div>
-          <div class="loading-step" id="loadStep"><i data-lucide="search"></i><span>Consultando editais abertos</span></div>
+          <div class="loading-step" id="loadStepEstado"><i data-lucide="search"></i><span>Varrendo editais abertos</span></div>
+        </div>`;
+      log.appendChild(card);
+      lucide.createIcons();
+      scrollDown();
+
+      const stepEl = card.querySelector('#loadStepEstado span');
+      await sleep(800);
+      stepEl.textContent = 'Verificando editais previstos';
+      await sleep(800);
+      stepEl.textContent = 'Filtrando vagas para Cirurgião-Dentista';
+      await sleep(800);
+
+      await askConcurso(estado);
+    }
+
+    async function askConcurso(estado) {
+      const lista = (ESTADOS[estado] && ESTADOS[estado].concursos) || [];
+      await botSay(`${prepEstado(estado) === 'em' ? 'Em' : 'No'} <strong>${escapeHtml(estado)}</strong>, estes são alguns dos <strong>principais concursos</strong> abertos e previstos — <strong>há outros além desses</strong>. Qual deles te interessa?`, 950);
+      showChips(
+        lista.map(c => ({
+          label: `${c.nome} <span style="display:block;font-size:11.5px;font-weight:600;color:var(--lime);margin-top:3px;">${c.statusLabel}</span>`,
+          pickLabel: c.nome,
+          value: c.id,
+          icon: 'briefcase',
+          onPick: (id) => pickConcurso(estado, id)
+        })),
+        { wide: true }
+      );
+    }
+
+    function findConcurso(estado, id) {
+      const lista = (ESTADOS[estado] && ESTADOS[estado].concursos) || [];
+      return lista.find(c => c.id === id) || null;
+    }
+
+    async function pickConcurso(estado, id) {
+      const c = findConcurso(estado, id);
+      if (!c) return;
+      data.concurso_id = c.id;
+      data.concurso = c.nome;
+      data.cupom = c.cupom;
+      addUser(c.nome);
+      hideInputs();
+
+      await botSay(`Ótima escolha. Vou puxar os detalhes do <strong>${escapeHtml(c.nome)}</strong>.`, 850);
+      await loadConcurso(c);
+    }
+
+    async function loadConcurso(c) {
+      const card = document.createElement('div');
+      card.className = 'msg bot';
+      card.innerHTML = `
+        <div class="loading-card">
+          <div class="loading-head"><span class="spin"></span><b>Consultando ${escapeHtml(c.nome)}</b></div>
+          <div class="loading-track"><div class="loading-fill"></div></div>
+          <div class="loading-step" id="loadStep"><i data-lucide="search"></i><span>Verificando edital e vagas</span></div>
         </div>`;
       log.appendChild(card);
       lucide.createIcons();
@@ -597,56 +949,155 @@
       await sleep(800);
       stepEl.textContent = 'Filtrando vagas para Cirurgião-Dentista';
       await sleep(800);
-      stepEl.textContent = 'Verificando remuneração e benefícios';
+      stepEl.textContent = 'Localizando cupom exclusivo';
       await sleep(800);
 
-      await revealVagas(value);
+      await revealConcurso(c);
     }
 
-    async function revealVagas(value) {
-      await botSay(`Consulta concluída. Há <strong>diversas vagas abertas para dentistas no ${escapeHtml(value)}</strong>.`, 950);
+    async function revealConcurso(c) {
+      await botSay('Encontrei. Veja o resumo:', 800);
 
       const m = document.createElement('div');
       m.className = 'msg bot';
       m.innerHTML = `
         <div class="vagas-card">
-          <div class="vagas-head"><i data-lucide="briefcase"></i><b>Vagas para dentista · ${escapeHtml(value)}</b></div>
-          <div class="vagas-text">A <strong>Região Sul</strong> conta com <strong>vagas abertas para Cirurgião-Dentista</strong> em prefeituras, secretarias de saúde e órgãos estaduais.</div>
-          <span class="vagas-salary"><i data-lucide="trending-up"></i>Remuneração acima de R$ 10 mil/mês</span>
+          <div class="vagas-head"><i data-lucide="briefcase"></i><b>${escapeHtml(c.nome)}</b></div>
+          <div class="vagas-badges">
+            <span class="badge ${c.status}">${escapeHtml(c.statusLabel)}</span>
+            ${c.banca && c.banca !== '—' ? `<span class="badge">Banca ${escapeHtml(c.banca)}</span>` : ''}
+          </div>
+          <div class="vagas-text">${c.texto}</div>
+          ${c.salario ? `<span class="vagas-salary"><i data-lucide="trending-up"></i>${escapeHtml(c.salario)}</span>` : ''}
+          <span class="vagas-date"><i data-lucide="calendar"></i>Prova: ${escapeHtml(c.prova || 'a definir')}</span>
         </div>`;
       log.appendChild(m);
       lucide.createIcons();
       scrollDown();
       await sleep(500);
 
-      await botSay('Para encaminhar essas oportunidades e <strong>conectá-lo(a) com a nossa equipe</strong>, precisamos de algumas informações. Leva menos de um minuto.', 1100);
-      await askNome();
+      await qualificar(c);
     }
 
-    async function askNome() {
-      await botSay('Qual é o seu <strong>nome completo</strong>?', 750);
-      showInput({
-        type: 'text',
-        placeholder: 'Seu nome completo',
-        onSubmit: async (v) => {
-          if (v.replace(/\s/g, '').length < 3) {
-            await botSay('Por favor, informe o seu nome completo.', 600);
-            return;
-          }
-          data.nome = v;
-          addUser(v);
-          hideInputs();
-          await askTelefone();
-        }
+    /* ─── outras oportunidades do Sudeste ─── */
+    function allConcursos() {
+      const out = [];
+      Object.keys(ESTADOS).forEach(estado => {
+        const e = ESTADOS[estado];
+        (e.concursos || []).forEach(c => out.push({ ...c, estado, sigla: e.sigla }));
       });
+      return out;
+    }
+
+    function outrasOportunidades(excludeId, n = 5) {
+      const todos = allConcursos().filter(c => c.id !== excludeId);
+      const comSalario = todos.filter(c => c.salario);
+      const semSalario = todos.filter(c => !c.salario);
+      return comSalario.concat(semSalario).slice(0, n);
+    }
+
+    async function mostrarOportunidades(c) {
+      await botSay(`E não é só esse: a <strong>Região Sudeste está cheia de boas oportunidades</strong> para dentista — vagas abertas e previstas em vários municípios. Veja alguns exemplos além do ${escapeHtml(c.nome)}:`, 1200);
+
+      const itens = outrasOportunidades(c.id, 5).map(o => `
+        <div class="opp-item">
+          <div class="opp-icon"><i data-lucide="briefcase"></i></div>
+          <div class="opp-body">
+            <div class="opp-name">${escapeHtml(o.nome)}</div>
+            <div class="opp-meta"><span class="opp-uf">${escapeHtml(o.sigla)}</span> · ${escapeHtml(o.statusLabel)}</div>
+          </div>
+          ${o.salario ? `<span class="opp-sal">${escapeHtml(o.salario)}</span>` : ''}
+        </div>`).join('');
+
+      const m = document.createElement('div');
+      m.className = 'msg bot';
+      m.innerHTML = `
+        <div class="opps-card">
+          <div class="opps-head"><i data-lucide="layers"></i><b>Outras oportunidades no Sudeste</b></div>
+          ${itens}
+        </div>`;
+      log.appendChild(m);
+      lucide.createIcons();
+      scrollDown();
+      await sleep(600);
+
+      await botSay('O Sudeste está vivendo o <strong>melhor momento pra Odontologia em anos</strong>.', 950);
+    }
+
+    // monta a frase da banca (trata "a definir" / "várias")
+    function bancaFrase(c) {
+      const b = (c.banca || '').trim();
+      if (!b || b === 'a definir' || b === 'várias' || b === '—') return 'pra essa banca';
+      return `pra banca <strong>${escapeHtml(b)}</strong>`;
+    }
+
+    /* ─── sequência de qualificação (antes de coletar os dados) ─── */
+    async function qualificar(c) {
+      // ── DESEJO: status do edital + a remuneração como prêmio ──
+      const statusFrase = c.status === 'open'
+        ? `Boa notícia: o edital da <strong>${escapeHtml(c.nome)}</strong> está <strong>com as inscrições abertas</strong> — dá pra entrar agora.`
+        : `O edital da <strong>${escapeHtml(c.nome)}</strong> está <strong>${escapeHtml(c.statusLabel.toLowerCase())}</strong> — ou seja, ainda dá tempo de sair na frente da concorrência.`;
+      await botSay(statusFrase, 1000);
+
+      if (c.salario) {
+        await botSay(`E olha a remuneração: <strong>${escapeHtml(c.salario)}</strong>. É um dos melhores salários pra dentista na região.`, 1150);
+      } else {
+        await botSay('E a remuneração pra Cirurgião-Dentista no Sudeste está entre as <strong>mais atrativas do país</strong>.', 1150);
+      }
+      await botSay('Uma vaga dessas mudaria a sua rotina, né?', 900);
+      let a = await askChips([
+        { label: 'Mudaria muito', value: 'mudaria_muito', icon: 'trending-up' },
+        { label: 'Com certeza',   value: 'com_certeza',   icon: 'thumbs-up' },
+      ]);
+      addUser(a.label); data.q_remuneracao = a.label;
+
+      // ── AMPLIAÇÃO: a região está cheia de oportunidades ──
+      await mostrarOportunidades(c);
+
+      // ── PROBLEMA / GAP: o que separa quem passa de quem não passa ──
+      await botSay('Agora vou ser direto com você: <strong>a concorrência por essas vagas só cresce</strong>. Quem é aprovado não é quem estuda mais — é quem estuda <strong>direcionado pra banca certa</strong>.', 1300);
+
+      await botSay('Me conta: você <strong>já está se preparando</strong> para esse concurso?', 950);
+      a = await askChips([
+        { label: 'Já estou estudando', value: 'sim', icon: 'book-open' },
+        { label: 'Ainda não comecei',  value: 'nao', icon: 'clock' },
+      ]);
+      addUser(a.label); data.q_preparo = a.label;
+      const jaEstuda = (a.value === 'sim');
+
+      await botSay(
+        jaEstuda
+          ? `E o seu estudo já está <strong>focado ${bancaFrase(c)}</strong> desse concurso?`
+          : `Tranquilo — e é justamente aí que a maioria escorrega. O caminho é estudar <strong>focado ${bancaFrase(c)}</strong>, em vez de estudar tudo solto.`,
+        1100
+      );
+      a = await askChips([
+        { label: 'Já está direcionado', value: 'sim', icon: 'check' },
+        { label: 'Ainda não',           value: 'nao', icon: 'x' },
+      ]);
+      addUser(a.label); data.q_direcionada = a.label;
+
+      // ── SOLUÇÃO: orientação da equipe + cupom ──
+      await botSay(`A nossa equipe pode te ajudar a focar no que <strong>realmente cai ${bancaFrase(c)}</strong> do ${escapeHtml(c.nome)} — e ainda liberar um <strong>cupom exclusivo</strong> pra você.`, 1250);
+      await botSay('Quer aproveitar?', 850);
+      a = await askChips([
+        { label: 'Quero sim',   value: 'sim',  icon: 'sparkles' },
+        { label: 'Pode chamar', value: 'sim2', icon: 'arrow-right' },
+      ]);
+      addUser(a.label); data.q_interesse = a.label;
+
+      // ── PONTE: pedir os dados como consequência lógica do "sim" ──
+      const primeiro = data.nome.split(' ')[0];
+      await botSay(`Combinado, <strong>${escapeHtml(primeiro)}</strong>! Vou garantir o seu <strong>cupom exclusivo do ${escapeHtml(c.nome)}</strong> e o contato com a nossa equipe. Me passa só mais dois dados 👇`, 1250);
+      await askTelefone();
     }
 
     async function askTelefone() {
-      await botSay('Informe o seu <strong>telefone (WhatsApp)</strong> para contato.', 900);
+      await botSay('Qual o seu <strong>WhatsApp</strong>? É por lá que a nossa equipe fala com você e libera o cupom.', 900);
       showInput({
         type: 'tel',
         phone: true,
-        placeholder: '(DDD) 9 0000-0000',
+        placeholder: '(11) 90000-0000',
         onSubmit: async (v) => {
           const digits = phoneDigits(v);
           if (digits.length < 8) {
@@ -662,7 +1113,7 @@
     }
 
     async function askEmail() {
-      await botSay('Por fim, informe o seu melhor <strong>e-mail</strong>.', 900);
+      await botSay('E o seu melhor <strong>e-mail</strong>, pra registrar o seu contato.', 900);
       showInput({
         type: 'email',
         placeholder: 'seu@email.com',
@@ -691,6 +1142,7 @@
       m.innerHTML = `
         <div class="summary">
           <div class="summary-row"><i data-lucide="user"></i><span><b>${escapeHtml(data.nome)}</b></span></div>
+          <div class="summary-row"><i data-lucide="briefcase"></i><span>${escapeHtml(data.concurso)}</span></div>
           <div class="summary-row"><i data-lucide="map-pin"></i><span>${escapeHtml(data.estado)}</span></div>
           <div class="summary-row"><i data-lucide="phone"></i><span>${escapeHtml(data.telefone)}</span></div>
           <div class="summary-row"><i data-lucide="mail"></i><span>${escapeHtml(data.email)}</span></div>
@@ -699,18 +1151,25 @@
       lucide.createIcons();
       scrollDown();
 
-      await botSay(`Obrigado. Em breve <strong>um membro da equipe do OdonConcursos entrará em contato</strong> para apresentar as <strong>melhores oportunidades</strong> de concurso no ${escapeHtml(data.estado)}.`, 1300);
+      await botSay(`Tudo certo, ${escapeHtml(data.nome.split(' ')[0])}! Liberamos o seu <strong>cupom exclusivo do ${escapeHtml(data.concurso)}</strong>. 🎟️`, 1100);
 
-      await botSay('Enquanto isso, você já pode <strong>consultar todos os concursos</strong> disponíveis:', 900);
+      // monta o link do WhatsApp com a mensagem padrão (já com o nome do concurso)
+      const msg = `Olá! Recebi um anúncio sobre o concurso ${data.concurso} e tenho interesse em mais informações. Poderia me ajudar?`;
+      const waLink = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(msg)}`;
 
-      // botão CTA com o link de concursos
-      const cta = document.createElement('div');
-      cta.className = 'msg bot';
-      cta.innerHTML = `
-        <a class="cta-link" href="${CONCURSOS_URL}" target="_blank" rel="noopener">
-          <i data-lucide="external-link"></i>Ver todos os concursos
-        </a>`;
-      log.appendChild(cta);
+      const cupomEl = document.createElement('div');
+      cupomEl.className = 'msg bot';
+      cupomEl.innerHTML = `
+        <div class="coupon">
+          <span class="coupon-tag">Cupom exclusivo</span>
+          <div class="coupon-title">${escapeHtml(data.concurso)}</div>
+          <div class="coupon-sub">Clique abaixo pra <strong>resgatar o cupom</strong> com a nossa equipe no WhatsApp. <strong>Válido por tempo limitado.</strong></div>
+          <span class="coupon-code"><i data-lucide="ticket"></i>${escapeHtml(data.cupom)}</span>
+          <a class="cta-link" href="${waLink}" target="_blank" rel="noopener">
+            <i data-lucide="message-circle"></i>Resgatar cupom no WhatsApp
+          </a>
+        </div>`;
+      log.appendChild(cupomEl);
       lucide.createIcons();
       scrollDown();
     }
@@ -720,7 +1179,7 @@
       try {
         if (typeof fbq === 'function') {
           fbq('track', 'Lead', {
-            content_name: 'Concursos Odontologia - Região Sul',
+            content_name: 'Concurso - ' + data.concurso,
             content_category: data.estado
           });
         }
@@ -729,7 +1188,7 @@
       }
     }
 
-    /* ─── Webhook: envia nome, email, telefone, estado ─── */
+    /* ─── Webhook: envia nome, email, telefone, estado, concurso, cupom ─── */
     async function sendWebhook() {
       const now = new Date();
       const payload = {
@@ -739,8 +1198,15 @@
         telefone: data.telefone,
         estado: data.estado,
         sigla_estado: data.sigla,
-        regiao: 'Sul',
-        origem: 'Chat captura OdonConcursos - Sul',
+        regiao: 'Sudeste',
+        concurso: data.concurso,
+        concurso_id: data.concurso_id,
+        cupom: data.cupom,
+        q_remuneracao: data.q_remuneracao,
+        q_preparo: data.q_preparo,
+        q_direcionada: data.q_direcionada,
+        q_interesse: data.q_interesse,
+        origem: 'Chat captura OdonConcursos - Sudeste (cupom)',
         data_contato: now.toISOString(),
         data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
         ...tracking
