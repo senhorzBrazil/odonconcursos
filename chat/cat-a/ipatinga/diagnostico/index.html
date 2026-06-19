@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico · Concurso Ipatinga Saúde (Odontologia) · OdonConcursos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3213093405602824');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3213093405602824&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+
+    :root {
+      --bg:#eef1f7; --bg-soft:#f1f3f9; --bg-card:#fff;
+      --line:rgba(11,21,53,0.10); --line-strong:rgba(11,21,53,0.18);
+      --text:#0b1535; --text-mute:#475569; --text-dim:#64748b; --text-faint:#94a3b8;
+      --lime:#e91e8c; --lime-soft:#f472b6; --orange:#e91e8c; --orange-2:#f0309a;
+      --green:#16a34a; --amber:#d97706;
+      --sans:'Roboto',system-ui,sans-serif; --display:'Roboto Slab','Roboto',system-ui,serif;
+    }
+
+    @keyframes pulseGlow { 0%,100%{opacity:.5;} 50%{opacity:1;} }
+    @keyframes bubbleIn  { from{opacity:0;transform:translateY(12px) scale(.98);} to{opacity:1;transform:translateY(0) scale(1);} }
+    @keyframes blink     { 0%,80%,100%{opacity:.25;transform:translateY(0);} 40%{opacity:1;transform:translateY(-3px);} }
+    @keyframes barPulse  { 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
+    @keyframes spin      { to{transform:rotate(360deg);} }
+    @keyframes loadFill  { from{width:4%;} to{width:100%;} }
+    @keyframes scoreFill { from{width:0;} }
+    @keyframes dash      { to{background-position:22px 0;} }
+
+    body {
+      font-family:var(--sans); background:var(--bg); color:var(--text);
+      min-height:100vh; min-height:100svh; overflow-x:hidden; font-weight:400;
+      display:flex; align-items:center; justify-content:center; padding:20px;
+    }
+    html::before {
+      content:''; position:fixed; inset:0;
+      background-image:radial-gradient(at 20% 80%, #0b1535 1px, transparent 0);
+      background-size:3px 3px; pointer-events:none; opacity:.05; z-index:1;
+    }
+    .bg-orb { position:fixed; border-radius:50%; filter:blur(120px); pointer-events:none; z-index:0; }
+    .orb-1 { width:700px; height:700px; top:-240px; right:-120px; background:radial-gradient(circle, rgba(233,30,140,.10), transparent 70%); animation:pulseGlow 8s ease-in-out infinite; }
+    .orb-2 { width:500px; height:500px; bottom:6%; left:-160px; background:radial-gradient(circle, rgba(26,58,110,.06), transparent 70%); animation:pulseGlow 12s ease-in-out infinite reverse; }
+
+    .chat {
+      position:relative; z-index:2; width:100%; max-width:460px;
+      height:min(760px, 92svh); display:flex; flex-direction:column;
+      background:var(--bg-card); border:1px solid var(--line); border-radius:22px;
+      overflow:hidden; box-shadow:0 24px 60px rgba(11,21,53,.16), 0 0 30px rgba(233,30,140,.08);
+    }
+    .chat-bar { height:4px; background:linear-gradient(90deg, var(--lime), var(--lime-soft), var(--lime)); background-size:200% 100%; animation:barPulse 4s ease-in-out infinite; }
+
+    .chat-head { display:flex; align-items:center; gap:12px; padding:16px 20px; border-bottom:1px solid var(--line); background:#fff; }
+    .chat-logo-plate { height:44px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .chat-logo-plate img { height:28px; width:auto; display:block; }
+    .chat-logo-fallback { font-family:var(--display); font-size:16px; font-weight:800; color:var(--lime); line-height:1; }
+    .chat-id { display:flex; flex-direction:column; gap:4px; min-width:0; }
+    .chat-name { font-family:var(--display); font-size:14px; font-weight:700; color:var(--text); line-height:1.1; }
+    .chat-status { font-size:11px; color:var(--text-dim); display:flex; align-items:center; gap:6px; }
+    .chat-status b { color:#16a34a; font-weight:600; }
+    .chat-tag { margin-left:auto; flex-shrink:0; font-size:9px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--lime); border:1px solid rgba(233,30,140,.3); background:rgba(233,30,140,.06); padding:5px 10px; border-radius:999px; }
+
+    .chat-log { flex:1; overflow-y:auto; padding:22px 18px 8px; display:flex; flex-direction:column; gap:12px; scroll-behavior:smooth; }
+    .chat-log::-webkit-scrollbar { width:6px; }
+    .chat-log::-webkit-scrollbar-thumb { background:rgba(11,21,53,.14); border-radius:999px; }
+
+    .msg { display:flex; max-width:84%; animation:bubbleIn .35s ease-out both; }
+    .msg.bot { align-self:flex-start; }
+    .msg.user { align-self:flex-end; justify-content:flex-end; }
+    .bubble { padding:12px 16px; font-size:14.5px; line-height:1.55; border-radius:18px; }
+    .bubble strong { font-weight:700; color:var(--text); }
+    .msg.user .bubble strong { color:#fff; }
+    .msg.bot .bubble { background:var(--bg-soft); border:1px solid var(--line); color:var(--text); border-bottom-left-radius:6px; }
+    .msg.user .bubble { background:linear-gradient(92deg, var(--lime) 0%, var(--lime-soft) 100%); color:#fff; border-bottom-right-radius:6px; box-shadow:0 4px 14px rgba(233,30,140,.25); }
+    .q-count { display:block; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--lime); margin-bottom:5px; }
+
+    .typing .bubble { display:flex; gap:5px; padding:15px 18px; }
+    .typing .dot { width:7px; height:7px; border-radius:50%; background:var(--text-dim); animation:blink 1.3s infinite; }
+    .typing .dot:nth-child(2){ animation-delay:.18s; } .typing .dot:nth-child(3){ animation-delay:.36s; }
+
+    .chat-foot { border-top:1px solid var(--line); padding:14px 16px 16px; background:#f7f9fc; }
+
+    .msg.options { align-self:stretch; max-width:100%; justify-content:flex-end; }
+    .options-wrap { display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end; width:100%; }
+    .chip {
+      flex:0 1 auto; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 18px; border:1.5px solid rgba(233,30,140,.5); background:rgba(233,30,140,.08);
+      color:var(--text); border-radius:999px; font-family:var(--sans); font-size:13.5px; font-weight:600;
+      cursor:pointer; transition:background .18s, border-color .18s, transform .12s, box-shadow .18s;
+      white-space:nowrap; text-align:left;
+    }
+    .chip svg { width:15px; height:15px; stroke:var(--lime); fill:none; stroke-width:2.2; flex-shrink:0; }
+    .chip:hover { background:rgba(233,30,140,.18); border-color:var(--lime); transform:translateY(-1px); box-shadow:0 4px 14px rgba(233,30,140,.22); }
+    .chip:active { transform:scale(.97); }
+    .chip.chip-wide { flex:1 1 100%; white-space:normal; justify-content:flex-start; border-radius:14px; padding:13px 16px; line-height:1.3; }
+
+    .input-bar { display:flex; align-items:center; gap:8px; }
+    .input-bar.hidden { display:none; }
+    .country-select { flex-shrink:0; width:84px; background:#fff; border:1px solid var(--line-strong); border-radius:12px; padding:13px 8px; color:var(--text); font-family:var(--sans); font-size:13px; text-align:center; outline:none; }
+    .country-select.hidden { display:none; }
+    .field { flex:1; background:#fff; border:1px solid var(--line-strong); border-radius:999px; padding:14px 18px; color:var(--text); font-family:var(--sans); font-size:14.5px; outline:none; transition:border-color .2s; }
+    .field::placeholder { color:var(--text-faint); }
+    .field:focus { border-color:rgba(233,30,140,.5); }
+    .send-btn { flex-shrink:0; width:48px; height:48px; border:none; border-radius:50%; background:radial-gradient(38.67% 91.17% at 50% 8.83%, var(--orange) 0, var(--orange-2) 100%); color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 0 16px rgba(233,30,140,.4); transition:filter .2s, transform .12s; }
+    .send-btn svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:2.2; }
+    .send-btn:hover { filter:brightness(1.1); transform:scale(1.05); }
+
+    .foot-secure { display:flex; align-items:center; justify-content:center; gap:7px; font-size:11px; color:var(--text-faint); margin-top:12px; }
+    .foot-secure svg { width:12px; height:12px; stroke:currentColor; fill:none; stroke-width:2; }
+
+    /* loading card */
+    .loading-card { border:1px solid rgba(233,30,140,.3); background:radial-gradient(circle at 15% 0%, rgba(233,30,140,.10), transparent 60%), rgba(233,30,140,.04); border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:12px; margin-top:2px; }
+    .loading-head { display:flex; align-items:center; gap:10px; }
+    .loading-head .spin { width:18px; height:18px; flex-shrink:0; border:2.5px solid rgba(233,30,140,.22); border-top-color:var(--lime); border-radius:50%; animation:spin .8s linear infinite; }
+    .loading-head b { font-family:var(--display); font-size:14px; font-weight:700; color:var(--text); }
+    .loading-track { height:8px; border-radius:999px; background:rgba(11,21,53,.08); overflow:hidden; }
+    .loading-fill { height:100%; border-radius:999px; background:linear-gradient(90deg, var(--lime), var(--lime-soft)); animation:loadFill 2.1s ease-out forwards; }
+    .loading-step { font-size:12.5px; color:var(--text-dim); display:flex; align-items:center; gap:7px; }
+    .loading-step svg { width:13px; height:13px; stroke:var(--lime); fill:none; stroke-width:2; flex-shrink:0; }
+
+    /* card do concurso (intro) */
+    .info-card { border:1px solid rgba(233,30,140,.3); background:radial-gradient(circle at 15% 0%, rgba(233,30,140,.10), transparent 60%), rgba(233,30,140,.04); border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:9px; margin-top:2px; }
+    .info-head { display:flex; align-items:flex-start; gap:9px; }
+    .info-head svg { width:17px; height:17px; stroke:var(--lime); fill:none; stroke-width:2; flex-shrink:0; margin-top:2px; }
+    .info-head b { font-family:var(--display); font-size:14.5px; font-weight:700; color:var(--text); line-height:1.25; }
+    .info-row { display:flex; align-items:center; gap:9px; font-size:13px; color:var(--text-mute); }
+    .info-row svg { width:15px; height:15px; stroke:var(--lime); fill:none; stroke-width:2; flex-shrink:0; }
+    .info-row b { color:var(--text); font-weight:600; }
+    .info-badges { display:flex; flex-wrap:wrap; gap:6px; }
+    .badge { font-size:10.5px; font-weight:600; padding:4px 9px; border-radius:999px; border:1px solid var(--line-strong); color:var(--text-mute); background:var(--bg-soft); }
+    .badge.open { color:var(--green); border-color:rgba(22,163,74,.35); background:rgba(22,163,74,.08); }
+    .info-desc { font-size:13px; line-height:1.55; color:var(--text-mute); }
+    .info-desc strong { color:var(--text); font-weight:600; }
+    .info-salary { display:inline-flex; align-items:center; gap:7px; align-self:flex-start; font-size:13px; font-weight:700; color:var(--text); border:1px solid rgba(22,163,74,.35); background:rgba(22,163,74,.08); padding:7px 12px; border-radius:999px; }
+    .info-salary svg { width:14px; height:14px; stroke:var(--green); fill:none; stroke-width:2; }
+    .info-date { display:inline-flex; align-items:center; gap:7px; align-self:flex-start; font-size:13px; font-weight:700; color:var(--text); border:1px solid var(--line-strong); background:var(--bg-soft); padding:7px 12px; border-radius:999px; }
+    .info-date svg { width:14px; height:14px; stroke:var(--lime); fill:none; stroke-width:2; }
+
+    /* card de diagnóstico (resultado) */
+    .diag-card { border:1px solid rgba(233,30,140,.3); background:radial-gradient(circle at 15% 0%, rgba(233,30,140,.10), transparent 60%), rgba(233,30,140,.05); border-radius:16px; padding:18px; display:flex; flex-direction:column; gap:11px; margin-top:2px; }
+    .diag-head { display:flex; align-items:center; gap:9px; }
+    .diag-head svg { width:18px; height:18px; stroke:var(--lime); fill:none; stroke-width:2; flex-shrink:0; }
+    .diag-head b { font-family:var(--display); font-size:14.5px; font-weight:700; color:var(--text); }
+    .diag-score { font-family:var(--display); font-size:42px; font-weight:800; color:var(--lime); line-height:1; }
+    .diag-score small { font-size:18px; font-weight:700; }
+    .diag-bar { height:12px; border-radius:999px; background:rgba(11,21,53,.08); overflow:hidden; }
+    .diag-fill { height:100%; border-radius:999px; background:linear-gradient(90deg, var(--lime), var(--lime-soft)); animation:scoreFill 1.1s ease-out; }
+    .diag-level { align-self:flex-start; font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:5px 12px; border-radius:999px; }
+    .diag-level.low { color:var(--amber); border:1px solid rgba(217,119,6,.35); background:rgba(217,119,6,.08); }
+    .diag-level.mid { color:var(--lime); border:1px solid rgba(233,30,140,.35); background:rgba(233,30,140,.08); }
+    .diag-level.high { color:var(--green); border:1px solid rgba(22,163,74,.35); background:rgba(22,163,74,.08); }
+    .diag-text { font-size:13.5px; line-height:1.55; color:var(--text-mute); }
+    .diag-text strong { color:var(--text); font-weight:600; }
+    .diag-count { display:inline-flex; align-items:center; gap:7px; align-self:flex-start; font-size:13px; font-weight:700; color:var(--text); border:1px solid var(--line-strong); background:var(--bg-soft); padding:7px 12px; border-radius:999px; }
+    .diag-count svg { width:14px; height:14px; stroke:var(--lime); fill:none; stroke-width:2; }
+
+    /* summary */
+    .summary { border:1px solid rgba(233,30,140,.3); background:rgba(233,30,140,.05); border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:10px; margin-top:2px; }
+    .summary-row { display:flex; align-items:center; gap:11px; font-size:13.5px; color:var(--text-mute); }
+    .summary-row svg { width:15px; height:15px; stroke:var(--lime); fill:none; stroke-width:2; flex-shrink:0; }
+    .summary-row b { color:var(--text); font-weight:600; }
+
+    /* cupom */
+    .coupon { position:relative; border:1.5px dashed var(--lime); background:radial-gradient(circle at 12% 0%, rgba(233,30,140,.12), transparent 55%), rgba(233,30,140,.05); border-radius:16px; padding:18px 18px 16px; display:flex; flex-direction:column; gap:8px; margin-top:2px; overflow:hidden; }
+    .coupon::before { content:''; position:absolute; top:0; left:0; right:0; height:5px; background:repeating-linear-gradient(90deg, var(--lime) 0 11px, transparent 11px 22px); background-size:22px 5px; animation:dash 1.2s linear infinite; opacity:.8; }
+    .coupon-tag { align-self:flex-start; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; color:var(--lime); border:1px solid rgba(233,30,140,.4); background:rgba(233,30,140,.08); padding:4px 10px; border-radius:999px; }
+    .coupon-title { font-family:var(--display); font-size:17px; font-weight:800; color:var(--text); line-height:1.2; }
+    .coupon-sub { font-size:13px; line-height:1.5; color:var(--text-mute); }
+    .coupon-sub strong { color:var(--text); font-weight:700; }
+    .coupon-code { align-self:flex-start; display:inline-flex; align-items:center; gap:8px; font-family:var(--display); font-size:15px; font-weight:800; letter-spacing:.06em; color:var(--text); border:1.5px solid rgba(233,30,140,.4); background:#fff; padding:8px 14px; border-radius:10px; margin-top:2px; }
+    .coupon-code svg { width:15px; height:15px; stroke:var(--lime); fill:none; stroke-width:2; }
+
+    .cta-link { display:inline-flex; align-items:center; justify-content:center; gap:9px; margin-top:4px; padding:15px 20px; border-radius:14px; background:linear-gradient(92deg, #25D366 0%, #1ebe5b 100%); color:#fff; font-family:var(--sans); font-size:14.5px; font-weight:800; text-decoration:none; box-shadow:0 8px 22px rgba(37,211,102,.35); transition:filter .2s, transform .12s; }
+    .cta-link svg { width:19px; height:19px; stroke:currentColor; fill:none; stroke-width:2.2; }
+    .cta-link:hover { filter:brightness(1.05); transform:translateY(-1px); }
+
+    @media (max-width:520px) { body{padding:0;} .chat{max-width:100%; height:100svh; border-radius:0; border:none;} }
+  </style>
+</head>
+<body>
+
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <div class="chat" role="dialog" aria-label="Diagnóstico OdonConcursos">
+    <div class="chat-bar"></div>
+
+    <header class="chat-head">
+      <div class="chat-logo-plate">
+        <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos"
+             onerror="this.outerHTML='<span class=&quot;chat-logo-fallback&quot;>ODON</span>'">
+      </div>
+      <div class="chat-id">
+        <div class="chat-name">Equipe OdonConcursos</div>
+        <div class="chat-status"><b>● online</b> · responde na hora</div>
+      </div>
+      <span class="chat-tag">Ipatinga Saúde · MG</span>
+    </header>
+
+    <div class="chat-log" id="log" aria-live="polite"></div>
+
+    <footer class="chat-foot">
+      <form class="input-bar hidden" id="inputBar" autocomplete="off">
+        <select class="country-select hidden" id="country">
+          <option value="55" selected>🇧🇷 +55</option>
+          <option value="351">🇵🇹 +351</option>
+          <option value="1">🇺🇸 +1</option>
+          <option value="44">🇬🇧 +44</option>
+          <option value="54">🇦🇷 +54</option>
+        </select>
+        <input class="field" id="field" type="text" placeholder="Digite aqui…" aria-label="Sua resposta" />
+        <button class="send-btn" id="send" type="submit" aria-label="Enviar">
+          <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+      <div class="foot-secure">
+        <i data-lucide="lock"></i><span>Seus dados estão seguros</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    /* ════════════════════════════════════════════════════════════════
+       CONFIGURAÇÃO — edite aqui
+       ════════════════════════════════════════════════════════════════ */
+
+    // ►► COLE AQUI a URL do seu webhook (Make / n8n / Zapier / CRM…)
+    const WEBHOOK_URL = '';
+
+    // Pixel do Meta Ads — dispara PageView no <head>
+    const META_PIXEL_ID = '3213093405602824';
+
+    // Número do WhatsApp (55 + DDD + número, só dígitos)
+    const WHATSAPP_NUMERO = '5519994565534';
+
+    // Identificador do formulário (vai pro webhook)
+    const FORMULARIO = 'Ipatinga Saúde · Diagnóstico';
+
+    // Dados do concurso
+    const CONCURSO   = 'Ipatinga Saúde (MG)';
+    const CUPOM      = 'ODON-IPATINGA';
+    const PROVA_DATA = '2026-08-15';   // 1ª data de prova (15/08/2026)
+
+    // Quiz de diagnóstico — cada opção tem um peso (pts)
+    const QUIZ = [
+      {
+        q: 'Você já se inscreveu no concurso da <strong>Ipatinga Saúde</strong>?',
+        opts: [
+          { label: 'Já me inscrevi',            pts: 15 },
+          { label: 'Vou me inscrever',          pts: 10 },
+          { label: 'Ainda não conhecia',        pts: 0  },
+        ]
+      },
+      {
+        q: 'Há quanto tempo você estuda para <strong>concursos de Odontologia</strong>?',
+        opts: [
+          { label: 'Mais de 1 ano',     pts: 20 },
+          { label: 'De 3 a 12 meses',   pts: 12 },
+          { label: 'Menos de 3 meses',  pts: 6  },
+          { label: 'Ainda não comecei', pts: 0  },
+        ]
+      },
+      {
+        q: 'Você já estudou no estilo da banca <strong>IMAM</strong>?',
+        opts: [
+          { label: 'Sim, conheço bem', pts: 15 },
+          { label: 'Já ouvi falar',    pts: 7  },
+          { label: 'Não conheço',      pts: 0  },
+        ]
+      },
+      {
+        q: 'Como está o seu domínio dos <strong>conhecimentos específicos</strong> (SUS, clínica, saúde pública)?',
+        opts: [
+          { label: 'Confiante',            pts: 20 },
+          { label: 'Mais ou menos',        pts: 10 },
+          { label: 'Preciso melhorar',     pts: 3  },
+        ]
+      },
+      {
+        q: 'Você segue um <strong>cronograma de estudos</strong> até a prova?',
+        opts: [
+          { label: 'Sigo um plano',        pts: 15 },
+          { label: 'Tenho, mas falho',     pts: 8  },
+          { label: 'Não tenho',            pts: 0  },
+        ]
+      },
+      {
+        q: 'Quantas <strong>horas por semana</strong> você consegue estudar?',
+        opts: [
+          { label: 'Mais de 15h',     pts: 15 },
+          { label: 'Entre 5 e 15h',   pts: 9  },
+          { label: 'Menos de 5h',     pts: 3  },
+        ]
+      },
+    ];
+
+    /* ════════════════════════════════════════════════════════════════ */
+
+    const log      = document.getElementById('log');
+    const inputBar = document.getElementById('inputBar');
+    const field    = document.getElementById('field');
+    const country  = document.getElementById('country');
+
+    const data = {
+      nome: '', telefone: '', email: '',
+      score: 0, pct: 0, nivel: '', cupom: CUPOM,
+      respostas: {}
+    };
+
+    const tracking = (() => {
+      const p = new URLSearchParams(window.location.search);
+      const g = (k) => p.get(k) || '';
+      return {
+        utm_source:g('utm_source'), utm_medium:g('utm_medium'), utm_campaign:g('utm_campaign'),
+        utm_content:g('utm_content'), utm_term:g('utm_term'),
+        fbclid:g('fbclid'), gclid:g('gclid'),
+        referrer:document.referrer||'', landing_url:window.location.href
+      };
+    })();
+
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    const scrollDown = () => { log.scrollTop = log.scrollHeight; };
+
+    function addUser(text) {
+      const m = document.createElement('div'); m.className = 'msg user';
+      m.innerHTML = `<div class="bubble"></div>`;
+      m.querySelector('.bubble').textContent = text;
+      log.appendChild(m); scrollDown();
+    }
+    function addBotHTML(html) {
+      const m = document.createElement('div'); m.className = 'msg bot';
+      m.innerHTML = `<div class="bubble">${html}</div>`;
+      log.appendChild(m); lucide.createIcons(); scrollDown();
+    }
+    async function botSay(html, delay = 750) {
+      const t = document.createElement('div'); t.className = 'msg bot typing';
+      t.innerHTML = `<div class="bubble"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>`;
+      log.appendChild(t); scrollDown();
+      await sleep(delay); t.remove(); addBotHTML(html);
+    }
+    function hideInputs() { inputBar.classList.add('hidden'); }
+
+    function showChips(options, { wide = false } = {}) {
+      hideInputs();
+      const m = document.createElement('div'); m.className = 'msg options';
+      const wrap = document.createElement('div'); wrap.className = 'options-wrap';
+      options.forEach(opt => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'chip' + (wide ? ' chip-wide' : '');
+        b.innerHTML = `<i data-lucide="${opt.icon || 'circle'}"></i><span>${opt.label}</span>`;
+        b.addEventListener('click', () => { m.remove(); opt.onPick(opt.value, opt.label); });
+        wrap.appendChild(b);
+      });
+      m.appendChild(wrap); log.appendChild(m); lucide.createIcons(); scrollDown();
+    }
+    function askChips(options, opts) {
+      return new Promise(resolve => {
+        showChips(options.map(o => ({
+          label: o.label, value: o.value, icon: o.icon,
+          onPick: (value, label) => resolve({ value, label })
+        })), opts);
+      });
+    }
+
+    let activeHandler = null;
+    function showInput({ type = 'text', placeholder = 'Digite aqui…', phone = false, onSubmit }) {
+      hideInputs(); inputBar.classList.remove('hidden');
+      field.type = type; field.placeholder = placeholder; field.value = '';
+      field.inputMode = (type === 'tel') ? 'numeric' : (type === 'email' ? 'email' : 'text');
+      field.dataset.mask = phone ? 'tel' : '';
+      country.classList.toggle('hidden', !phone);
+      activeHandler = onSubmit;
+      setTimeout(() => field.focus(), 60); scrollDown();
+    }
+    inputBar.addEventListener('submit', (e) => { e.preventDefault(); if (activeHandler) activeHandler(field.value.trim()); });
+
+    // máscara de telefone (Brasil): (XX) XXXXX-XXXX
+    function maskTelBR(v) {
+      const d = v.replace(/\D/g, '').slice(0, 11); const len = d.length;
+      if (len === 0)  return '';
+      if (len <= 2)   return '(' + d;
+      if (len <= 6)   return '(' + d.slice(0,2) + ') ' + d.slice(2);
+      if (len <= 10)  return '(' + d.slice(0,2) + ') ' + d.slice(2,6) + '-' + d.slice(6);
+      return '(' + d.slice(0,2) + ') ' + d.slice(2,7) + '-' + d.slice(7);
+    }
+    field.addEventListener('input', () => {
+      if (field.dataset.mask === 'tel' && country.value === '55') field.value = maskTelBR(field.value);
+    });
+    country.addEventListener('change', () => {
+      if (field.dataset.mask !== 'tel') return;
+      field.value = (country.value === '55') ? maskTelBR(field.value) : field.value.replace(/[()\-\s]/g, '');
+    });
+
+    const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+    const phoneDigits = (v) => v.replace(/\D/g, '');
+
+    function diasAteProva() {
+      const hoje = new Date();
+      const prova = new Date(PROVA_DATA + 'T00:00:00');
+      return Math.max(0, Math.ceil((prova - hoje) / 86400000));
+    }
+
+    /* ─── fluxo ─── */
+    async function start() {
+      await botSay('Olá! Aqui é a equipe do <strong>OdonConcursos</strong>. 👋', 650);
+
+      const m = document.createElement('div'); m.className = 'msg bot';
+      m.innerHTML = `
+        <div class="info-card">
+          <div class="info-head"><i data-lucide="briefcase"></i><b>Ipatinga Saúde · Odontologia</b></div>
+          <div class="info-badges">
+            <span class="badge open">Inscrições abertas</span>
+            <span class="badge">Banca IMAM</span>
+          </div>
+          <div class="info-desc"><strong>18 vagas para Odontólogo</strong> em várias frentes — Concurso Público de Provas e Títulos (Edital 001/2026). Inscrições de <strong>17/06 a 17/07/2026</strong>.</div>
+          <span class="info-salary"><i data-lucide="trending-up"></i>Remuneração: até R$ 5.636,18</span>
+          <span class="info-date"><i data-lucide="calendar"></i>Provas: 15, 16, 22 e 23/08/2026</span>
+        </div>`;
+      log.appendChild(m); lucide.createIcons(); scrollDown();
+      await sleep(600);
+
+      await botSay('Preparei um <strong>diagnóstico rápido</strong> (6 perguntas) pra te mostrar o seu <strong>nível de preparação</strong> para essa prova. Leva 1 minutinho.', 1200);
+      const a = await askChips([
+        { label: 'Quero meu diagnóstico', value: 'go', icon: 'activity' },
+        { label: 'Bora!',                 value: 'go', icon: 'zap' },
+      ]);
+      addUser(a.label);
+      await runQuiz();
+    }
+
+    async function runQuiz() {
+      let score = 0, max = 0;
+      for (let i = 0; i < QUIZ.length; i++) {
+        const Q = QUIZ[i];
+        max += Math.max(...Q.opts.map(o => o.pts));
+        await botSay(`<span class="q-count">Pergunta ${i + 1} de ${QUIZ.length}</span>${Q.q}`, 800);
+        const a = await askChips(Q.opts.map(o => ({ label: o.label, value: o.pts, icon: 'circle' })), { wide: true });
+        addUser(a.label);
+        score += a.value;
+        data.respostas['q' + (i + 1)] = a.label;
+      }
+      data.score = score;
+      data.pct = Math.round((score / max) * 100);
+      await askNome();
+    }
+
+    async function askNome() {
+      await botSay('Boa! Por último, <strong>como te chamo</strong>? (é pra montar o seu diagnóstico personalizado)', 950);
+      showInput({
+        type: 'text', placeholder: 'Seu nome',
+        onSubmit: async (v) => {
+          const nome = v.trim();
+          if (nome.replace(/\s/g, '').length < 2) { await botSay('Pode me dizer o seu nome? 🙂', 600); return; }
+          data.nome = nome; addUser(nome); hideInputs();
+          await calcularDiagnostico();
+        }
+      });
+    }
+
+    async function calcularDiagnostico() {
+      const card = document.createElement('div'); card.className = 'msg bot';
+      card.innerHTML = `
+        <div class="loading-card">
+          <div class="loading-head"><span class="spin"></span><b>Montando o seu diagnóstico</b></div>
+          <div class="loading-track"><div class="loading-fill"></div></div>
+          <div class="loading-step" id="ls"><i data-lucide="search"></i><span>Analisando suas respostas</span></div>
+        </div>`;
+      log.appendChild(card); lucide.createIcons(); scrollDown();
+      const step = card.querySelector('#ls span');
+      await sleep(800); step.textContent = 'Comparando com o perfil dos aprovados';
+      await sleep(800); step.textContent = 'Calculando o seu nível de preparação';
+      await sleep(800);
+      await mostrarResultado();
+    }
+
+    async function mostrarResultado() {
+      const pct = data.pct;
+      let nivel, cls, msg;
+      if (pct < 40) {
+        nivel = 'Começando agora'; cls = 'low';
+        msg = 'Você está no <strong>início da preparação</strong> — e a boa notícia é que ainda dá tempo de chegar pronto(a) na prova, desde que comece com foco <strong>na banca IMAM</strong> agora.';
+      } else if (pct < 70) {
+        nivel = 'Em desenvolvimento'; cls = 'mid';
+        msg = 'Você já tem uma <strong>base</strong>, mas falta <strong>direcionamento</strong> pra transformar esse esforço em aprovação. Com ajustes certos, a vaga fica ao seu alcance.';
+      } else {
+        nivel = 'Reta final'; cls = 'high';
+        msg = 'Mandou bem! Você está <strong>bem encaminhado(a)</strong>. Com ajustes finos e foco no estilo da <strong>banca IMAM</strong>, essa vaga está logo ali.';
+      }
+      data.nivel = nivel;
+
+      // dispara o lead parcial (Pixel) — conversão de diagnóstico concluído
+      fireMetaLead('Diagnostico');
+
+      await botSay(`Pronto, <strong>${escapeHtml(data.nome.split(' ')[0])}</strong>! Aqui está o seu diagnóstico:`, 950);
+
+      const dias = diasAteProva();
+      const m = document.createElement('div'); m.className = 'msg bot';
+      m.innerHTML = `
+        <div class="diag-card">
+          <div class="diag-head"><i data-lucide="activity"></i><b>Seu nível de preparação</b></div>
+          <div class="diag-score">${pct}<small>%</small></div>
+          <div class="diag-bar"><div class="diag-fill" style="width:${pct}%"></div></div>
+          <span class="diag-level ${cls}">${nivel}</span>
+          <div class="diag-text">${msg}</div>
+          <div class="diag-count"><i data-lucide="clock"></i>Faltam ${dias} dias para a 1ª prova (15/08)</div>
+        </div>`;
+      log.appendChild(m); lucide.createIcons(); scrollDown();
+      await sleep(600);
+
+      await botSay(`Com base nesse resultado, a <strong>nossa equipe</strong> pode te ajudar a focar no que falta até a prova — e liberar um <strong>cupom exclusivo do ${escapeHtml(CONCURSO)}</strong> pra você.`, 1250);
+      await botSay('Quer aproveitar? É só me passar seu contato 👇', 850);
+      await askTelefone();
+    }
+
+    async function askTelefone() {
+      await botSay('Qual o seu <strong>WhatsApp</strong>? É por lá que a nossa equipe fala com você e libera o cupom.', 900);
+      showInput({
+        type: 'tel', phone: true, placeholder: '(11) 90000-0000',
+        onSubmit: async (v) => {
+          const digits = phoneDigits(v);
+          if (digits.length < 8) { await botSay('O número parece incompleto. Confira o DDD e o número, por favor.', 650); return; }
+          data.telefone = '+' + country.value + digits;
+          addUser('+' + country.value + ' ' + v); hideInputs();
+          await askEmail();
+        }
+      });
+    }
+
+    async function askEmail() {
+      await botSay('E o seu melhor <strong>e-mail</strong>, pra registrar o seu contato.', 900);
+      showInput({
+        type: 'email', placeholder: 'seu@email.com',
+        onSubmit: async (v) => {
+          if (!isEmail(v)) { await botSay('O e-mail informado não parece válido. Por favor, confira.', 650); return; }
+          data.email = v; addUser(v); hideInputs();
+          await finish();
+        }
+      });
+    }
+
+    async function finish() {
+      fireMetaLead('Lead');
+      sendWebhook();
+
+      await botSay('Recebemos as suas informações. Confira abaixo:', 950);
+      const m = document.createElement('div'); m.className = 'msg bot';
+      m.innerHTML = `
+        <div class="summary">
+          <div class="summary-row"><i data-lucide="user"></i><span><b>${escapeHtml(data.nome)}</b></span></div>
+          <div class="summary-row"><i data-lucide="activity"></i><span>Diagnóstico: <b>${data.pct}% · ${escapeHtml(data.nivel)}</b></span></div>
+          <div class="summary-row"><i data-lucide="phone"></i><span>${escapeHtml(data.telefone)}</span></div>
+          <div class="summary-row"><i data-lucide="mail"></i><span>${escapeHtml(data.email)}</span></div>
+        </div>`;
+      log.appendChild(m); lucide.createIcons(); scrollDown();
+
+      await botSay(`Tudo certo, <strong>${escapeHtml(data.nome.split(' ')[0])}</strong>! Liberamos o seu <strong>cupom exclusivo do ${escapeHtml(CONCURSO)}</strong>. 🎟️`, 1100);
+
+      const msg = `Olá! Fiz o diagnóstico de preparação para o concurso da ${CONCURSO} (Odontologia), meu nível deu ${data.pct}% e quero falar com a equipe e resgatar o meu cupom. Pode me ajudar?`;
+      const waLink = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(msg)}`;
+
+      const cup = document.createElement('div'); cup.className = 'msg bot';
+      cup.innerHTML = `
+        <div class="coupon">
+          <span class="coupon-tag">Cupom exclusivo</span>
+          <div class="coupon-title">${escapeHtml(CONCURSO)}</div>
+          <div class="coupon-sub">Clique abaixo pra <strong>resgatar o cupom</strong> e falar com a nossa equipe no WhatsApp. <strong>Válido por tempo limitado.</strong></div>
+          <span class="coupon-code"><i data-lucide="ticket"></i>${escapeHtml(CUPOM)}</span>
+          <a class="cta-link" href="${waLink}" target="_blank" rel="noopener">
+            <i data-lucide="message-circle"></i>Resgatar cupom no WhatsApp
+          </a>
+        </div>`;
+      log.appendChild(cup); lucide.createIcons(); scrollDown();
+    }
+
+    /* ─── Meta Ads ─── */
+    function fireMetaLead(evento) {
+      try {
+        if (typeof fbq === 'function') {
+          fbq('track', evento === 'Lead' ? 'Lead' : 'CompleteRegistration', {
+            content_name: 'Diagnóstico ' + CONCURSO,
+            content_category: data.nivel || '',
+            value: data.pct
+          });
+        }
+      } catch (err) { console.error('Meta Pixel error:', err); }
+    }
+
+    /* ─── Webhook ─── */
+    async function sendWebhook() {
+      const now = new Date();
+      const payload = {
+        formulario: FORMULARIO,
+        nome: data.nome, email: data.email, telefone: data.telefone,
+        concurso: CONCURSO, cupom: data.cupom,
+        diagnostico_pct: data.pct, diagnostico_nivel: data.nivel, diagnostico_score: data.score,
+        ...data.respostas,
+        origem: 'Chat diagnóstico OdonConcursos - Ipatinga',
+        data_contato: now.toISOString(),
+        data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
+        ...tracking
+      };
+      try {
+        if (WEBHOOK_URL) {
+          await fetch(WEBHOOK_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+        } else {
+          console.log('Lead (configure WEBHOOK_URL):', payload);
+        }
+      } catch (err) { console.error('Webhook error:', err); }
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+    }
+
+    start();
+  </script>
+</body>
+</html>
