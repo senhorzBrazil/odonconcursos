@@ -19,11 +19,11 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '3213093405602824');
+    fbq('init', '1038030425232337');
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=3213093405602824&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=1038030425232337&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
 
@@ -532,10 +532,10 @@
     // 1) ►► COLE AQUI a URL do seu webhook (Make / n8n / Zapier / CRM…)
     //    É pra cá que os dados são enviados quando o usuário conclui o chat.
     //    Deixe entre as aspas. Ex.: 'https://hook.us2.make.com/xxxxxxxx'
-    const WEBHOOK_URL = '';
+    const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
     // 2) Pixel do Meta Ads — dispara PageView no <head> ao carregar a página
-    const META_PIXEL_ID = '3213093405602824';
+    const META_PIXEL_ID = '1038030425232337';
 
     // 3) ► NÚMERO DO WHATSAPP que vai receber o lead/cupom.
     //    Formato internacional, só dígitos: 55 + DDD + número.
@@ -1193,6 +1193,8 @@
       const now = new Date();
       const payload = {
         formulario: FORMULARIO,
+        produto: 'Sudeste',
+        metodo: 'Chat Lp',
         nome: data.nome,
         email: data.email,
         telefone: data.telefone,
