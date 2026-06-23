@@ -672,7 +672,7 @@
   (function () {
     "use strict";
     const proxy = n => 'https://wsrv.nl/?url=odonconcursospage.com/wp-content/uploads/2026/02/' + n + '.webp&w=400&q=55';
-    const profImg = n => n + '.jpg';
+    const profImg = n => '/odonto-pro/' + n + '.jpg';
     const up = (y,m,f) => 'https://odonconcursospage.com/wp-content/uploads/' + y + '/' + m + '/' + f;
     const el = (html) => { const t=document.createElement('template'); t.innerHTML=html.trim(); return t.content.firstElementChild; };
 
@@ -884,7 +884,7 @@
     });
 
     /* ── Carrossel de professores ──
-       EDITE AQUI: 'foto' = número do arquivo na mesma pasta odonto-pro/ (1..11 -> 1.jpg..11.jpg),
+       EDITE AQUI: 'foto' = número do arquivo em /odonto-pro/ (1..11 -> /odonto-pro/1.jpg..11.jpg),
        'nome' e 'materia' de cada professor. */
     const professores = [
       { foto: 1,  nome: 'Prof. Fulano', materia: 'Periodontia' },
