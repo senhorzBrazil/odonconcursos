@@ -136,6 +136,22 @@
     .tl-tx b { display:block; font-size:14.5px; font-weight:800; color:var(--navy); line-height:1.3; }
     .tl-tx span { font-size:13px; color:var(--mute); }
 
+    /* ── DEPOIMENTOS ── */
+    .depo-lead { text-align:center; color:var(--mute); font-size:15px; line-height:1.6; margin-bottom:20px; }
+    .depo-videos { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:14px; }
+    .depo-video { aspect-ratio:9/16; border-radius:16px; overflow:hidden; border:1px solid var(--line); background:#000; box-shadow:0 10px 30px rgba(11,21,53,.18); }
+    .depo-video iframe { width:100%; height:100%; border:0; display:block; }
+    .depo-imgs { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:22px; }
+    .depo-imgs img { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:12px; border:1px solid var(--line); background:var(--bg-soft); }
+    .depo-cta { text-align:center; }
+    .depo-cta a { display:inline-flex; align-items:center; gap:9px; background:var(--pink); color:#fff; font-weight:800; font-size:15px; padding:14px 26px; border-radius:12px; text-decoration:none; box-shadow:0 8px 22px rgba(233,30,140,.32); transition:.15s; }
+    .depo-cta a:hover { background:var(--pink-2); transform:translateY(-1px); }
+    .depo-cta a i { width:18px; height:18px; }
+    @media (max-width:520px){
+      .depo-videos { grid-template-columns:repeat(2,1fr); }
+      .depo-imgs { grid-template-columns:repeat(2,1fr); }
+    }
+
     .box { border-radius:12px; padding:16px 18px; margin:22px 0; font-size:14.5px; }
     .box.warn { background:var(--red-lt); border:1px solid #fca5a5; }
     .box.warn strong { color:#b91c1c; }
@@ -346,6 +362,32 @@
 
     <div class="box tip">
       <strong>💡 Dica:</strong> o edital tem anexos com conteúdo programático, quadro de provas e critérios da prova de títulos. Fale com a Odon e receba a análise completa do que estudar para o cargo de Cirurgião-Dentista do HOB.
+    </div>
+
+    <!-- DEPOIMENTOS -->
+    <h2>Veja quem já foi <span>aprovado</span> com o Odon</h2>
+    <p class="depo-lead">Histórias reais de dentistas que estudaram com o nosso método e conquistaram a vaga.</p>
+
+    <div class="depo-videos">
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Lp6OBEG7wbs?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Akkp0nC0fKA?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/bSponCOMkY0?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Cv5sQndeBqo?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    </div>
+
+    <div class="depo-imgs">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-1.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-2.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-3.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-5.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-6.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-8.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/aprov-4.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-16.webp" alt="Prova de aprovação">
+    </div>
+
+    <div class="depo-cta">
+      <a href="#captura">Quero entrar no preparatório <i data-lucide="arrow-right"></i></a>
     </div>
 
     <!-- LEAD CAPTURE PRINCIPAL -->
