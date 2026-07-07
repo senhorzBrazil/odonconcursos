@@ -89,6 +89,57 @@
       min-height: 100vh;
       overflow-x: hidden;
       font-weight: 400;
+      padding-top: 38px;
+    }
+
+    /* ─── TOPBAR — edital publicado ─── */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 300;
+      background: #04101c;
+      border-bottom: 1px solid var(--line-strong);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 9px 16px;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: .2px;
+      text-align: center;
+    }
+    .topbar b { color: var(--lime-soft); }
+    .topbar .live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #16a34a;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 30px;
+      white-space: nowrap;
+    }
+    .topbar .live .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 0 0 rgba(255,255,255,.7);
+      animation: topbarPulse 1.8s infinite;
+    }
+    @keyframes topbarPulse {
+      70% { box-shadow: 0 0 0 8px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+    @media (max-width:520px) {
+      body { padding-top: 44px; }
+      .topbar { font-size: 11px; padding: 8px 10px; gap: 6px; }
+      .nav { top: 44px; }
     }
 
     /* Starfield dot grid */
@@ -126,7 +177,7 @@
     /* ─── NAV ─── */
     .nav {
       position: sticky;
-      top: 0;
+      top: 38px;
       z-index: 200;
       border-bottom: 1px solid var(--line);
       background: rgba(3,7,18,.78);
@@ -1043,6 +1094,12 @@
   </style>
 </head>
 <body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <span class="live"><span class="dot"></span> Edital publicado</span>
+    <span>Concurso <b>Hospital Odilon Behrens (BH)</b> · Edital nº 01/2026 · Vagas para Cirurgião-Dentista</span>
+  </div>
 
   <!-- BG ORBS -->
   <div class="bg-orb orb-1"></div>
