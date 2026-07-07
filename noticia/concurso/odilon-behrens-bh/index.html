@@ -428,16 +428,6 @@
           <label>Seu nome</label>
           <input type="text" name="nome" placeholder="Ex.: Ana Oliveira" autocomplete="name" />
         </div>
-        <div class="field" data-f="cargo">
-          <label>Cargo de interesse</label>
-          <select name="cargo">
-            <option value="">Selecione…</option>
-            <option value="Cirurgião Dentista Clínico Geral">Cirurgião Dentista Clínico Geral</option>
-            <option value="Cirurgião Dentista B — DTM e Dor Orofacial">Cirurgião Dentista B — DTM e Dor Orofacial</option>
-            <option value="Cirurgião Dentista B — Odontologia Hospitalar">Cirurgião Dentista B — Odontologia Hospitalar</option>
-            <option value="Ainda não decidi">Ainda não decidi</option>
-          </select>
-        </div>
         <div class="field" data-f="whats">
           <label>Seu WhatsApp (com DDD)</label>
           <input type="tel" name="whats" inputmode="numeric" placeholder="(31) 99999-9999" autocomplete="tel" />
@@ -474,22 +464,17 @@
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         const nome   = form.querySelector('[name=nome]').value.trim();
-        const cargo  = form.querySelector('[name=cargo]').value;
         const digits = whats.value.replace(/\D/g,'');
 
         let ok = true;
         const flag = (sel, bad) => { form.querySelector(`[data-f=${sel}]`).classList.toggle('err', bad); if(bad) ok=false; };
         flag('nome', nome.length < 2);
-        flag('cargo', !cargo);
         flag('whats', digits.length < 10);
-        if(!ok){ form.querySelector('.field.err input, .field.err select')?.focus(); return; }
+        if(!ok){ form.querySelector('.field.err input')?.focus(); return; }
 
-        if (window.fbq) fbq('track', 'Lead', { content_name: FORMULARIO, content_category: cargo });
+        if (window.fbq) fbq('track', 'Lead', { content_name: FORMULARIO });
 
-        const msg =
-          `Olá, Odon! Quero *começar minha preparação* para o concurso do Hospital Odilon Behrens (BH). 🦷\n\n` +
-          `*Nome:* ${nome}\n*Cargo de interesse:* ${cargo}\n\n` +
-          `Vi a matéria sobre o Edital nº 01/2026. Pode me ajudar com o plano de estudos para a banca IBGP?`;
+        const msg = `Olá! Quero saber mais sobre o preparatório para o concurso do Hospital Odilon Behrens - BH (${nome}).`;
         const link = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(msg)}`;
         window.location.href = link;
       });
