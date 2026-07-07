@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concurso Odontologia Brigada Militar-RS · Preparatório direcionado | OdonConcursos</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1038030425232337');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1038030425232337&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shinery {
+      0%, 100% { left: -10%; opacity: 0; }
+      20%      { opacity: 1; }
+      48%      { left: 110%; opacity: 1; }
+      51%      { opacity: 0; }
+    }
+    @keyframes ping {
+      75%, 100% { transform: scale(2); opacity: 0; }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: .5; }
+      50%      { opacity: 1; }
+    }
+    .fade-in { animation: fadeSlideIn .7s ease-out both; }
+    .delay-1 { animation-delay: .10s; }
+    .delay-2 { animation-delay: .22s; }
+    .delay-3 { animation-delay: .34s; }
+    .delay-4 { animation-delay: .46s; }
+    .delay-5 { animation-delay: .58s; }
+
+    /* ─── BASE ─── */
+    :root {
+      --bg:           #060a18;
+      --bg-soft:      #0b1535;
+      --bg-card:      #0e1838;
+      --line:         rgba(255,255,255,0.08);
+      --line-strong:  rgba(255,255,255,0.16);
+      --text:         #ffffff;
+      --text-mute:    #9aa3bf;
+      --text-dim:     #6b7395;
+      --text-faint:   #4b5273;
+
+      /* primary accent — OdonConcursos pink family */
+      --lime:         #e91e8c;
+      --lime-soft:    #f472b6;
+      --green:        #1a3a6e;
+      --mint:         #fce8f3;
+      --orange:       #e91e8c;
+      --orange-2:     #f0309a;
+
+      --sans:    'Roboto', system-ui, sans-serif;
+      --display: 'Roboto Slab', 'Roboto', system-ui, serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-weight: 400;
+    }
+
+    /* Starfield dot grid */
+    html::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(at 20% 80%, #fff 1px, transparent 0);
+      background-size: 3px 3px;
+      pointer-events: none;
+      opacity: .04;
+      z-index: 1;
+    }
+
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      width: 700px; height: 700px;
+      top: -240px; right: -120px;
+      background: radial-gradient(circle, rgba(233,30,140,.08), transparent 70%);
+      animation: pulseGlow 8s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: 500px; height: 500px;
+      bottom: 10%; left: -160px;
+      background: radial-gradient(circle, rgba(26,58,110,.05), transparent 70%);
+      animation: pulseGlow 12s ease-in-out infinite reverse;
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      border-bottom: 1px solid var(--line);
+      background: rgba(3,7,18,.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 0 clamp(20px,5vw,64px);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo { display: flex; align-items: center; }
+    .logo-img { height: 34px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .logo-main {
+      font-family: var(--display);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      line-height: 1;
+    }
+    .logo-sub {
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--lime);
+      opacity: .85;
+      font-weight: 600;
+    }
+    .nav-pill {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background .18s, border-color .18s;
+    }
+    .nav-pill:hover { background: rgba(233,30,140,.08); border-color: rgba(233,30,140,.4); }
+    .nav-pill svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    /* ─── G1 — gradient text ─── */
+    .g1 {
+      background: linear-gradient(92deg, var(--lime) 18.78%, var(--lime-soft) 79.67%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.25;
+      padding-bottom: .22em;
+      padding-right: .12em;
+    }
+
+    /* ─── HERO ─── */
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 0%, rgba(233,30,140,.12), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 10% 80%, rgba(26,58,110,.07), transparent 60%),
+        var(--bg);
+      display: flex;
+      align-items: center;
+    }
+    /* degradê na base para integrar com a próxima seção */
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-wrap {
+      position: relative;
+      z-index: 2;
+      padding: clamp(56px,8vh,96px) clamp(20px,5vw,64px);
+      width: min(1200px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: clamp(32px,5vw,72px);
+      align-items: center;
+      text-align: left;
+    }
+    .hero-left { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; position: relative; z-index: 2; margin-top: clamp(56px, 14vh, 170px); }
+    /* reserved for background carousel */
+    .hero-right { position: relative; min-height: 540px; }
+    @media (max-width: 900px) {
+      .hero-wrap { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-section {
+        align-items: flex-start;
+        min-height: 100svh;
+        /* mobile: foto como faixa no topo (largura total, altura proporcional);
+           o rodapé claro da própria foto funde com o branco da página */
+        background:
+          linear-gradient(to top, #ffffff 44%, rgba(255,255,255,.6) 60%, rgba(255,255,255,0) 78%),
+          url("LP_mobile_Dentista.jpg") top center / 100% auto no-repeat,
+          #ffffff;
+      }
+      /* empurra o texto para baixo da pessoa, sobre a área branca da foto */
+      .hero-left { margin-top: 0; padding-top: clamp(270px, 92vw, 500px); }
+    }
+    /* desktop: imagem de fundo da marca (pessoa à direita, esquerda preta) */
+    @media (min-width: 901px) {
+      .hero-section {
+        min-height: 90vh;
+        background:
+          linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,.94) 22%, rgba(255,255,255,.5) 42%, rgba(255,255,255,0) 60%),
+          url("LP_desktop_Dentista.jpg") center right / cover no-repeat,
+          #ffffff;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(233,30,140,.25);
+      background: rgba(233,30,140,.05);
+      border-radius: 999px;
+      padding: 7px 16px;
+      width: fit-content;
+    }
+    .hero-badge span {
+      font-size: 10.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--lime-soft);
+    }
+    .hero-badge svg { width: 14px; height: 14px; stroke: var(--lime); fill: none; stroke-width: 1.7; }
+
+    .hero-h1 {
+      font-family: var(--display);
+      font-size: clamp(30px, 3.2vw, 46px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -.025em;
+      color: var(--text);
+      max-width: 560px;
+    }
+
+    .hero-h2 {
+      font-family: var(--display);
+      font-size: clamp(18px, 2.4vw, 24px);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--text);
+      max-width: 680px;
+    }
+
+    .hero-desc {
+      font-size: clamp(15px,1.5vw,17px);
+      line-height: 1.75;
+      color: var(--text-mute);
+      font-weight: 400;
+      max-width: 640px;
+    }
+    .hero-desc strong { color: var(--text); font-weight: 600; }
+    .hero-desc em { color: var(--lime-soft); font-style: italic; }
+
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: center; margin-top: 4px; }
+    .hero-left .hero-ctas, .hero-left .cta-micro { justify-content: flex-start; }
+
+    .cta-micro {
+      display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: center;
+      margin-top: 6px;
+    }
+    .cta-micro span {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--text-mute); font-weight: 500;
+    }
+    .cta-micro .check-square { color: var(--lime); display: inline-flex; }
+    .cta-micro svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ─── CTA COUNTDOWN (evergreen 3 dias) ─── */
+    .cta-timer { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin-top: 8px; }
+    .cta-timer-label { font-size: 13px; font-weight: 700; color: var(--lime); line-height: 1.45; max-width: 440px; }
+    .cta-timer-clock { display: inline-flex; gap: 8px; }
+    .cta-timer-box {
+      display: inline-flex; flex-direction: column; align-items: center;
+      min-width: 56px; padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(233,30,140,.4);
+      background: rgba(233,30,140,.07);
+    }
+    .cta-timer-box b { font-family: var(--display); font-size: 22px; font-weight: 800; color: #fff; line-height: 1; font-variant-numeric: tabular-nums; }
+    .cta-timer-box i { font-style: normal; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.65); margin-top: 5px; font-weight: 600; }
+    /* hero é fundo claro → números em navy */
+    .hero-section .cta-timer-label { color: #d6177e; }
+    .hero-section .cta-timer-box b { color: #0b1535; }
+    .hero-section .cta-timer-box i { color: #475569; }
+    /* final-cta é centralizado */
+    .final-cta .cta-timer { align-items: center; }
+    .final-cta .cta-timer-label { text-align: center; }
+
+    /* ─── HERO LIGHT THEME (fundo claro com a dentista) ─── */
+    .hero-h1 { color: #0b1535; }
+    .hero-desc { color: #475569; }
+    .hero-desc strong { color: #0b1535; }
+    .hero-badge {
+      border-color: rgba(233,30,140,.3);
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .hero-badge span { color: #d6177e; }
+    .hero-section .cta-micro span { color: #475569; }
+
+    /* ─── SHINY CTA (orange) ─── */
+    .bnt1 {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 17px 36px;
+      font-family: var(--sans);
+      font-size: 14.5px;
+      font-weight: 700;
+      letter-spacing: .01em;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--orange) 0, var(--orange-2) 100%);
+      box-shadow:
+        0 0 20px rgba(233,30,140,.5),
+        0 0 40px rgba(240,48,154,.4),
+        0 10px 25px rgba(233,30,140,.25);
+      overflow: hidden;
+      transition: all .35s ease;
+      isolation: isolate;
+      border: none;
+      cursor: pointer;
+    }
+    .bnt1:hover {
+      background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--orange-2) 0, var(--orange) 100%);
+      box-shadow:
+        0 0 25px rgba(233,30,140,.6),
+        0 0 60px rgba(240,48,154,.5),
+        0 15px 35px rgba(233,30,140,.3);
+      transform: scale(1.04);
+    }
+    .bnt1::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 90px;
+      height: 160%;
+      background: linear-gradient(10deg, #ffd9ec 12.81%, rgba(255,217,236,0) 66.66%);
+      transform: translateX(-50%) skew(-25deg);
+      animation: shinery 3s ease-in-out infinite;
+      filter: blur(4px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bnt1::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 999px;
+      border: 2px solid var(--orange);
+      pointer-events: none;
+    }
+    .bnt1 span, .bnt1 svg { position: relative; z-index: 2; }
+    .bnt1 svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; }
+
+    .bnt-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 17px 28px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,.03);
+      transition: background .2s, border-color .2s;
+      cursor: pointer;
+    }
+    .bnt-ghost:hover { background: rgba(233,30,140,.06); border-color: rgba(233,30,140,.4); }
+
+    .bnt-lime {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 999px;
+      background: linear-gradient(92deg, var(--lime) 0%, var(--lime-soft) 100%);
+      box-shadow: 0 0 20px rgba(233,30,140,.3), 0 8px 22px rgba(233,30,140,.18);
+      transition: filter .2s, transform .12s;
+      cursor: pointer;
+      border: none;
+    }
+    .bnt-lime:hover { filter: brightness(1.08); }
+    .bnt-lime svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2.4; fill: none; }
+
+    /* ─── SECTION ─── */
+    .section {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 88px clamp(20px,5vw,64px);
+    }
+    .section.tight { padding-top: 0; }
+    .section-hr { max-width: 1100px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px); }
+    .section-hr hr { border: none; border-top: 1px solid var(--line); }
+
+    /* ─── DEPOIMENTOS ─── */
+    .depo-lead { max-width: 640px; margin: 0 auto 28px; text-align: center; color: var(--text-mute); font-size: clamp(15px,2.4vw,17px); line-height: 1.6; }
+    .depo-videos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1100px; margin: 0 auto 22px; }
+    .depo-video { aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-strong); background: #000; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+    .depo-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .depo-imgs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1100px; margin: 0 auto 32px; }
+    .depo-imgs img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); background: var(--bg-card); }
+    @media (max-width: 820px) {
+      .depo-videos { grid-template-columns: repeat(2, 1fr); }
+      .depo-imgs { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .s-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--lime);
+      margin-bottom: 24px;
+    }
+    .s-label::before {
+      content: '';
+      display: block;
+      width: 28px; height: 1px;
+      background: var(--lime);
+      opacity: .6;
+    }
+
+    .sec-title {
+      font-family: var(--display);
+      font-size: clamp(26px, 3.6vw, 42px);
+      font-weight: 800;
+      letter-spacing: -.025em;
+      line-height: 1.15;
+      color: var(--text);
+      max-width: 720px;
+      margin-bottom: 14px;
+    }
+    .sec-title em { font-style: italic; }
+    .sec-intro {
+      font-size: 16px; line-height: 1.8; color: var(--text-mute); font-weight: 400; max-width: 640px;
+    }
+    .sec-intro strong { color: var(--text); font-weight: 600; }
+
+    /* ─── LIGHT SECTIONS (white band, navy text) ─── */
+    .light {
+      position: relative;
+      --text:       #0b1535;
+      --text-mute:  #475569;
+      --text-dim:   #64748b;
+      --text-faint: #94a3b8;
+      --bg-card:    #f7f9fc;
+      --line:        rgba(11,21,53,0.10);
+      --line-strong: rgba(11,21,53,0.18);
+    }
+    .light::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 100vw;
+      transform: translateX(-50%);
+      background: #ffffff;
+      z-index: -1;
+    }
+    .light .value-card::before,
+    .light .event-item::before {
+      background: linear-gradient(135deg, rgba(233,30,140,.45), rgba(11,21,53,.07) 55%, rgba(233,30,140,.18));
+    }
+    .light .value-card:hover {
+      box-shadow: 0 12px 32px rgba(11,21,53,.12), 0 0 24px rgba(233,30,140,.12);
+    }
+    .light .faq-item::before {
+      background: linear-gradient(to right, rgba(11,21,53,.14), rgba(11,21,53,.05));
+    }
+    .light .faq-toggle { border-color: rgba(11,21,53,.18); }
+
+    /* ─── PRA QUEM É ─── */
+    .forwho-item {
+      display: flex; gap: 18px; align-items: flex-start;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .forwho-item:last-child { border-bottom: none; }
+    .forwho-icon {
+      width: 40px; height: 40px; min-width: 40px;
+      border-radius: 11px;
+      background: rgba(233,30,140,.08);
+      border: 1px solid rgba(233,30,140,.22);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--lime);
+    }
+    .forwho-icon svg { width: 17px; height: 17px; stroke-width: 2; }
+    .forwho-text { font-size: 16px; line-height: 1.6; color: var(--text-mute); font-weight: 400; padding-top: 9px; }
+    .forwho-text strong { color: var(--text); font-weight: 600; }
+
+    /* ─── O QUE VOCÊ VAI VER (bento) ─── */
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    @media (max-width: 760px) { .value-grid { grid-template-columns: 1fr; } }
+    .value-card {
+      position: relative;
+      padding: 30px 28px;
+      border-radius: 18px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(233,30,140,.06), transparent 60%),
+        var(--bg-card);
+      transition: transform .35s ease, box-shadow .35s ease;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .value-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      padding: 1.5px;
+      background: linear-gradient(135deg, rgba(233,30,140,.4), rgba(255,255,255,.05) 50%, rgba(233,30,140,.16));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .value-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(0,0,0,.5), 0 0 24px rgba(233,30,140,.1);
+    }
+    .value-icon {
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      background: rgba(233,30,140,.08);
+      border: 1px solid rgba(233,30,140,.22);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--lime);
+    }
+    .value-icon svg { width: 21px; height: 21px; stroke-width: 1.8; }
+    .value-title {
+      font-family: var(--display);
+      font-size: 18px; font-weight: 700; letter-spacing: -.01em;
+      color: var(--text); line-height: 1.3;
+    }
+    .value-desc { font-size: 14.5px; line-height: 1.7; color: var(--text-mute); font-weight: 400; }
+
+    /* ─── QUEM VAI TE GUIAR ─── */
+    .hosts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    @media (max-width: 760px) { .hosts-grid { grid-template-columns: 1fr; } }
+    .host-card {
+      position: relative;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(233,30,140,.06), transparent 55%),
+        var(--bg-card);
+      padding: 32px 28px;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .host-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      padding: 1.5px;
+      background: linear-gradient(135deg, rgba(233,30,140,.4), rgba(255,255,255,.05) 50%, rgba(233,30,140,.16));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .host-avatar {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(233,30,140,.2), rgba(26,58,110,.08));
+      border: 1px solid rgba(233,30,140,.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--lime);
+      margin-bottom: 18px;
+    }
+    .host-avatar svg { width: 26px; height: 26px; stroke-width: 1.7; }
+    .host-tag {
+      font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase;
+      font-weight: 700; color: var(--lime); opacity: .9; margin-bottom: 6px;
+    }
+    .host-name {
+      font-family: var(--display);
+      font-size: 21px; font-weight: 700; letter-spacing: -.01em;
+      color: var(--text); margin-bottom: 12px; line-height: 1.2;
+    }
+    .host-desc { font-size: 14.5px; line-height: 1.75; color: var(--text-mute); font-weight: 400; }
+    .host-desc strong { color: var(--text); font-weight: 600; }
+
+    /* ─── DESTAQUE / RESULTADO ─── */
+    .gift-section {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px clamp(20px,5vw,64px);
+      z-index: 2;
+    }
+    .gift-card {
+      position: relative;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(233,30,140,.08), transparent 55%),
+        radial-gradient(circle at 90% 90%, rgba(233,30,140,.07), transparent 55%),
+        var(--bg-card);
+      padding: 52px clamp(28px,5vw,56px);
+      z-index: 1;
+      overflow: hidden;
+    }
+    .gift-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      padding: 1.5px;
+      background: linear-gradient(135deg, rgba(240,48,154,.5), rgba(255,255,255,.06) 50%, rgba(233,30,140,.3));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .gift-h2 {
+      font-family: var(--display);
+      font-size: clamp(24px, 3.4vw, 38px);
+      font-weight: 800;
+      letter-spacing: -.025em;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 14px;
+      max-width: 640px;
+    }
+    .gift-lead { font-size: 16px; line-height: 1.7; color: var(--text-mute); margin-bottom: 32px; max-width: 580px; }
+    .gift-lead strong { color: var(--text); font-weight: 600; }
+
+    .gift-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+    .gift-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 18px 20px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+    }
+    .gift-emoji {
+      font-size: 22px; line-height: 1; flex-shrink: 0;
+      filter: drop-shadow(0 0 12px rgba(233,30,140,.3));
+    }
+    .gift-item-text { font-size: 15px; line-height: 1.6; color: var(--text-mute); padding-top: 2px; }
+    .gift-item-text strong { color: var(--text); font-weight: 700; }
+
+    .gift-warn {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 20px 22px;
+      border-radius: 14px;
+      background: rgba(233,30,140,.06);
+      border: 1px solid rgba(240,48,154,.3);
+      margin-bottom: 32px;
+    }
+    .gift-warn svg { width: 20px; height: 20px; min-width: 20px; stroke: var(--orange-2); fill: none; stroke-width: 2; margin-top: 1px; }
+    .gift-warn-text { font-size: 14.5px; line-height: 1.7; color: var(--text); font-weight: 400; }
+    .gift-warn-text strong { color: #f9a8d4; font-weight: 700; }
+
+    /* ─── DETALHES DO EVENTO ─── */
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 40px;
+    }
+    @media (max-width: 760px) { .event-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 440px) { .event-grid { grid-template-columns: 1fr; } }
+    .event-item {
+      position: relative;
+      border-radius: 16px;
+      background: var(--bg-card);
+      padding: 26px 22px;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .event-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(233,30,140,.35), rgba(255,255,255,.04) 55%, rgba(233,30,140,.14));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .event-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: rgba(233,30,140,.08);
+      border: 1px solid rgba(233,30,140,.22);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--lime);
+      margin-bottom: 16px;
+    }
+    .event-icon svg { width: 17px; height: 17px; stroke-width: 1.9; }
+    .event-label {
+      font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase;
+      font-weight: 700; color: var(--text-dim); margin-bottom: 6px;
+    }
+    .event-value {
+      font-family: var(--display);
+      font-size: 17px; font-weight: 700; color: var(--text); line-height: 1.3; letter-spacing: -.01em;
+    }
+    .event-value small { display: block; font-family: var(--sans); font-size: 12px; font-weight: 400; color: var(--text-dim); margin-top: 4px; letter-spacing: 0; }
+
+    /* ─── FAQ ─── */
+    .faq-list {
+      display: flex; flex-direction: column; gap: 12px; margin-top: 40px;
+      max-width: 860px;
+    }
+    .faq-item {
+      position: relative;
+      border-radius: 14px;
+      background: var(--bg-card);
+      overflow: hidden;
+      z-index: 1;
+      transition: background .25s;
+    }
+    .faq-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      padding: 1px;
+      background: linear-gradient(to right, rgba(255,255,255,.12), rgba(255,255,255,.04));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      z-index: 10;
+      transition: background .25s;
+    }
+    .faq-item[open] { background: rgba(233,30,140,.025); }
+    .faq-item[open]::before {
+      background: linear-gradient(to right, rgba(233,30,140,.4), rgba(233,30,140,.1));
+    }
+    .faq-q {
+      list-style: none;
+      padding: 22px 26px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -.005em;
+      line-height: 1.4;
+      user-select: none;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-toggle {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--line-strong);
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: transform .3s ease, border-color .25s, background .25s;
+      color: var(--text-mute);
+    }
+    .faq-toggle svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2.2; fill: none; stroke-linecap: round; }
+    .faq-item[open] .faq-toggle {
+      transform: rotate(45deg);
+      border-color: var(--lime);
+      background: rgba(233,30,140,.12);
+      color: var(--lime);
+    }
+    .faq-a {
+      padding: 0 26px 24px;
+      font-size: 14.5px;
+      line-height: 1.8;
+      color: var(--text-mute);
+      font-weight: 400;
+    }
+    .faq-a strong { color: var(--text); font-weight: 600; }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: clamp(72px,11vh,120px) clamp(20px,5vw,64px);
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+    .final-cta h2 {
+      font-family: var(--display);
+      font-size: clamp(30px,4.6vw,54px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.08;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+    .final-cta p { font-size: 17px; color: var(--text-mute); font-weight: 400; line-height: 1.75; max-width: 560px; margin: 0 auto 36px; }
+    .final-cta .cta-micro { margin-top: 24px; }
+
+    /* ─── MODAL CAPTURA ─── */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(3,7,18,.92);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all .3s ease;
+      overflow-y: auto;
+    }
+    .modal.is-open { opacity: 1; visibility: visible; }
+    .modal-content {
+      width: 100%;
+      max-width: 440px;
+      margin: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      transform: scale(.96) translateY(20px);
+      transition: transform .3s ease;
+      position: relative;
+    }
+    .modal.is-open .modal-content { transform: scale(1) translateY(0); }
+    .modal-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--lime), var(--lime-soft), var(--lime));
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 32px; height: 32px;
+      border: none;
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      transition: color .2s, background .2s;
+      z-index: 5;
+    }
+    .modal-close:hover { color: var(--text); background: rgba(255,255,255,.05); }
+    .modal-close svg { width: 18px; height: 18px; stroke-width: 2; }
+    .modal-body { padding: 30px; }
+    .modal h3 { font-family: var(--display); font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .modal-text { font-size: 13.5px; color: var(--text-mute); line-height: 1.6; margin-bottom: 24px; }
+
+    .form-row { margin-bottom: 16px; }
+    .form-row label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-mute);
+      margin-bottom: 8px;
+    }
+    .form-input, .form-select {
+      width: 100%;
+      background: #050507;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 14px;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-input:focus, .form-select:focus { border-color: rgba(233,30,140,.5); }
+    .form-input::placeholder { color: var(--text-faint); }
+    .phone-row { display: flex; gap: 8px; }
+    .phone-row .form-select { width: 100px; flex-shrink: 0; padding: 14px 10px; text-align: center; }
+    .phone-row .form-input { flex: 1; }
+
+    /* radio segmented */
+    .seg-group { display: flex; gap: 8px; }
+    .seg-opt { flex: 1; position: relative; }
+    .seg-opt input { position: absolute; opacity: 0; pointer-events: none; }
+    .seg-opt label {
+      display: flex; align-items: center; justify-content: center;
+      padding: 13px 8px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #050507;
+      color: var(--text-mute);
+      font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none;
+      cursor: pointer;
+      margin: 0;
+      transition: all .18s;
+    }
+    .seg-opt input:checked + label {
+      border-color: rgba(233,30,140,.6);
+      background: rgba(233,30,140,.1);
+      color: var(--lime);
+    }
+
+    .form-submit { width: 100%; margin-top: 8px; padding: 16px; }
+
+    .modal-secure {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 11px; color: var(--text-faint); margin-top: 16px;
+    }
+    .modal-secure svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 640px) {
+      .nav { padding: 0 20px; height: 56px; }
+      .logo-sub { display: none; }
+      .nav-pill { padding: 7px 14px; font-size: 10px; }
+      .nav-pill svg { display: none; }
+
+      .hero-wrap { padding: 56px 20px 48px; }
+      .hero-left { gap: 22px; }
+      .hero-h1 { font-size: clamp(30px, 9vw, 44px); line-height: 1.08; }
+      .hero-h2 { font-size: 17px; }
+      .hero-desc { font-size: 15px; }
+      .hero-ctas { flex-direction: column; gap: 12px; align-items: stretch; width: 100%; }
+      .bnt1, .bnt-ghost { width: 100%; justify-content: center; }
+      .cta-timer { align-items: center; width: 100%; }
+      .cta-timer-label { text-align: center; }
+      .cta-timer-clock { justify-content: center; }
+
+      .section { padding: 60px 20px; }
+      .section.tight { padding-top: 0; }
+      .section-hr { padding: 0 20px; }
+      .s-label { margin-bottom: 20px; font-size: 9px; }
+      .sec-title { font-size: clamp(24px, 7vw, 32px); }
+      .sec-intro { font-size: 15px; }
+
+      .value-grid, .hosts-grid { gap: 12px; margin-top: 28px; }
+      .value-card, .host-card { padding: 24px 22px; }
+
+      .gift-section { padding: 60px 20px; }
+      .gift-card { padding: 36px 24px; }
+      .gift-h2 { font-size: clamp(22px, 6.5vw, 30px); }
+
+      .event-grid { margin-top: 28px; }
+
+      .final-cta { padding: 60px 20px; }
+      .final-cta h2 { font-size: clamp(26px, 8vw, 38px); }
+      .final-cta p { font-size: 15px; }
+
+      .modal-body { padding: 26px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BG ORBS -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="logo">
+      <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img">
+    </div>
+    <a onclick="openModal()" class="nav-pill">
+      Quero minha vaga
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="hero-wrap">
+      <div class="hero-left">
+        <div class="hero-badge fade-in delay-1">
+          <i data-lucide="map-pin"></i>
+          <span>Concurso de Odontologia</span>
+        </div>
+
+        <h1 class="hero-h1 fade-in delay-2">
+          Descubra o caminho para a sua aprovação no <span class="g1">Concurso de Dentista da Brigada Militar-RS</span>
+        </h1>
+
+        <p class="hero-desc fade-in delay-3">
+          Salário de <strong>R$ 12.963,80</strong> — o maior do momento para dentista concursado — e <strong>22 vagas + cadastro de reserva</strong> na Brigada Militar do Rio Grande do Sul. No nosso <strong>preparatório direcionado</strong>, você foca no que a prova realmente cobra e chega na reta final com estratégia — sem estudar no escuro.
+        </p>
+
+        <div class="hero-ctas fade-in delay-4">
+          <a onclick="openModal()" class="bnt1">
+            <span>Quero garantir minha vaga</span>
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="cta-timer fade-in delay-4">
+          <span class="cta-timer-label">Condição exclusiva para preparação para a Brigada Militar disponível até:</span>
+          <span class="cta-timer-clock js-cta-timer">
+            <span class="cta-timer-box"><b data-dd>00</b><i>dias</i></span>
+            <span class="cta-timer-box"><b data-hh>00</b><i>horas</i></span>
+            <span class="cta-timer-box"><b data-mm>00</b><i>min</i></span>
+            <span class="cta-timer-box"><b data-ss>00</b><i>seg</i></span>
+          </span>
+        </div>
+
+        <div class="cta-micro fade-in delay-4">
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Salário de R$ 12.963,80</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Reta final direcionada à prova</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Atendimento no WhatsApp</span>
+        </div>
+      </div>
+
+      <!-- coluna direita: vazia (BG com a pessoa via imagem de fundo) -->
+      <div class="hero-right" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- PRA QUEM É -->
+  <section class="section">
+    <div class="s-label">Identificou?</div>
+    <h2 class="sec-title">O concurso da Brigada Militar-RS é pra você que…</h2>
+    <div style="max-width:760px;">
+      <div class="forwho-item">
+        <div class="forwho-icon"><i data-lucide="graduation-cap"></i></div>
+        <div class="forwho-text">É <strong>recém-formado</strong> e quer começar a carreira já com estabilidade</div>
+      </div>
+      <div class="forwho-item">
+        <div class="forwho-icon"><i data-lucide="calendar-clock"></i></div>
+        <div class="forwho-text">É <strong>clínico que depende de agenda cheia</strong> e quer segurança financeira</div>
+      </div>
+      <div class="forwho-item">
+        <div class="forwho-icon"><i data-lucide="trending-up"></i></div>
+        <div class="forwho-text">Já é <strong>concursado em cargo menor</strong> e quer algo melhor</div>
+      </div>
+      <div class="forwho-item">
+        <div class="forwho-icon"><i data-lucide="compass"></i></div>
+        <div class="forwho-text">É <strong>iniciante em concursos</strong> e não sabe por onde começar</div>
+      </div>
+      <div class="forwho-item">
+        <div class="forwho-icon"><i data-lucide="rotate-ccw"></i></div>
+        <div class="forwho-text">Já <strong>tentou antes</strong>, mas ainda não conseguiu a aprovação</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- O QUE VOCÊ VAI APRENDER -->
+  <section class="section light">
+    <div class="s-label">O que entra no preparatório</div>
+    <h2 class="sec-title">O que você vai <em class="g1">aprender</em></h2>
+    <p class="sec-intro">No preparatório você entende exatamente o que precisa fazer para ser aprovado no concurso da Brigada Militar-RS e estuda direcionado para a prova.</p>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-icon"><i data-lucide="scan-search"></i></div>
+        <div class="value-title">Como a banca da Brigada Militar cobra e o que ela realmente exige</div>
+        <div class="value-desc">Você vai entender o perfil das provas da Brigada Militar, o estilo das questões e por que quem tem boa base e treino direcionado já sai na frente.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i data-lucide="layout-list"></i></div>
+        <div class="value-title">Quais disciplinas têm mais peso na prova de Odontologia</div>
+        <div class="value-desc">De Dentística a Cirurgia, de SUS a Português. Você vai saber exatamente quais conteúdos priorizar para não perder tempo com o que não cai.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i data-lucide="alert-triangle"></i></div>
+        <div class="value-title">O erro que elimina a maioria dos candidatos antes do edital sair</div>
+        <div class="value-desc">A maioria espera o edital para começar a estudar. Quem é aprovado já estudou antes, já tem base e já está treinado em questões da banca.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i data-lucide="target"></i></div>
+        <div class="value-title">Por que a Brigada Militar é uma oportunidade real de aprovação</div>
+        <div class="value-desc">Salário de R$ 12.963,80 — a maior remuneração do momento para dentista em concurso — com 22 vagas + CR. Esse é o tipo de concurso que premia quem está preparado.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i data-lucide="award"></i></div>
+        <div class="value-title">Um método com mais de 1.100 dentistas aprovados pelo Brasil</div>
+        <div class="value-desc">O Odon é especializado exclusivamente em Odontologia e já levou mais de 1.100 dentistas à aprovação. Não é teoria. É resultado comprovado.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i data-lucide="route"></i></div>
+        <div class="value-title">A estratégia de 4 passos para chegar preparado na prova</div>
+        <div class="value-desc">Fortalecer a base, resolver questões da banca, estudar com direcionamento e fazer revisões constantes. O caminho completo para não estudar no escuro.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- RESULTADO / PROVA SOCIAL -->
+  <div class="gift-section">
+    <div class="gift-card">
+      <div class="s-label">Resultado comprovado</div>
+      <h2 class="gift-h2">Mais de 1.100 alunos já foram <span class="g1">aprovados</span> com o Odon</h2>
+      <p class="gift-lead">O Odon Concursos é um ecossistema completo e especializado <strong>exclusivamente em concursos de Odontologia</strong>, criado para dentistas que buscam aprovação com método claro e direcionamento.</p>
+
+      <div class="gift-list">
+        <div class="gift-item">
+          <span class="gift-emoji">🏆</span>
+          <div class="gift-item-text"><strong>Mais de 1.100 aprovações</strong> de dentistas em concursos por todo o Brasil</div>
+        </div>
+        <div class="gift-item">
+          <span class="gift-emoji">📍</span>
+          <div class="gift-item-text">Aprovados em <strong>concursos por todo o Brasil</strong>, incluindo carreiras militares e da área da saúde</div>
+        </div>
+        <div class="gift-item">
+          <span class="gift-emoji">🎯</span>
+          <div class="gift-item-text">Método pensado para quem <strong>concilia trabalho, estudos e tem pouco tempo</strong> disponível</div>
+        </div>
+      </div>
+
+      <div class="gift-warn">
+        <svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <div class="gift-warn-text"><strong>Atenção:</strong> as inscrições encerraram em <strong>02/07</strong> e agora é a <strong>reta final até a prova</strong>. As turmas do preparatório têm vagas limitadas — garanta a sua agora.</div>
+      </div>
+
+      <a onclick="openModal()" class="bnt1">
+        <span>Quero entrar no preparatório</span>
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section">
+    <div class="s-label">Depoimentos</div>
+    <h2 class="sec-title">Veja quem já foi <em class="g1">aprovado</em> com o Odon</h2>
+    <p class="depo-lead">Histórias reais de dentistas que estudaram com o nosso método e conquistaram a vaga.</p>
+
+    <div class="depo-videos">
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Lp6OBEG7wbs?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Akkp0nC0fKA?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/bSponCOMkY0?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Cv5sQndeBqo?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    </div>
+
+    <div class="depo-imgs">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-1.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-2.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-3.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-5.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-6.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-8.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/aprov-4.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-16.webp" alt="Prova de aprovação">
+    </div>
+
+    <div style="text-align:center;">
+      <a onclick="openModal()" class="bnt1">
+        <span>Quero entrar no preparatório</span>
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- DETALHES DO EVENTO -->
+  <section class="section tight light" style="padding-top:0;">
+    <div class="s-label">Detalhes do preparatório</div>
+    <h2 class="sec-title">Como <em class="g1">funciona</em></h2>
+    <div class="event-grid">
+      <div class="event-item">
+        <div class="event-icon"><i data-lucide="map-pin"></i></div>
+        <div class="event-label">Concurso</div>
+        <div class="event-value">Brigada Militar-RS<small>Cargo: Dentista · Militar</small></div>
+      </div>
+      <div class="event-item">
+        <div class="event-icon"><i data-lucide="trending-up"></i></div>
+        <div class="event-label">Remuneração</div>
+        <div class="event-value">R$ 12.963,80<small>maior salário do momento</small></div>
+      </div>
+      <div class="event-item">
+        <div class="event-icon"><i data-lucide="calendar"></i></div>
+        <div class="event-label">Datas</div>
+        <div class="event-value">Prova em breve<small>inscrições encerradas em 02/07</small></div>
+      </div>
+      <div class="event-item">
+        <div class="event-icon"><i data-lucide="badge-dollar-sign"></i></div>
+        <div class="event-label">Investimento</div>
+        <div class="event-value">Sob consulta<small>valores e turmas com o nosso time</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <h2>A vaga na Brigada Militar <span class="g1">pode ser sua.</span></h2>
+    <p>Garanta sua vaga no preparatório agora, fale com o nosso time no WhatsApp e siga o caminho exato para ser aprovado no concurso de Dentista da Brigada Militar-RS. Quem se prepara antes sai na frente.</p>
+    <a onclick="openModal()" class="bnt1" style="margin:0 auto;">
+      <span>Quero entrar no preparatório</span>
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+
+    <div class="cta-timer" style="margin-top:24px;">
+      <span class="cta-timer-label">Condição exclusiva para preparação para a Brigada Militar disponível até:</span>
+      <span class="cta-timer-clock js-cta-timer">
+        <span class="cta-timer-box"><b data-dd>00</b><i>dias</i></span>
+        <span class="cta-timer-box"><b data-hh>00</b><i>horas</i></span>
+        <span class="cta-timer-box"><b data-mm>00</b><i>min</i></span>
+        <span class="cta-timer-box"><b data-ss>00</b><i>seg</i></span>
+      </span>
+    </div>
+
+    <div class="cta-micro">
+      <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Turmas limitadas</span>
+      <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Reta final direcionada à prova</span>
+    </div>
+  </div>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- FAQ -->
+  <section class="section light">
+    <div class="s-label">Perguntas frequentes</div>
+    <h2 class="sec-title">Ainda com <em class="g1">dúvida?</em></h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">
+          Como faço para entrar no preparatório?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
+        </summary>
+        <div class="faq-a">Basta preencher seus dados. O nosso time entra em contato pelo <strong>WhatsApp</strong> para te apresentar as <strong>turmas, valores e condições</strong> do preparatório da Brigada Militar-RS.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">
+          Preciso já estar estudando para o concurso?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
+        </summary>
+        <div class="faq-a">Não. O preparatório atende tanto quem <strong>está começando agora</strong> quanto quem já estuda. Você sai com um direcionamento claro do que fazer.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">
+          As inscrições da Brigada Militar ainda estão abertas?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
+        </summary>
+        <div class="faq-a">As inscrições <strong>encerraram em 02/07</strong> e agora é a reta final até a prova. Se você se inscreveu, é hora de acelerar com preparação direcionada. Se não, o preparatório já te deixa pronto para os próximos editais militares e da região.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">
+          Como funciona o acesso às aulas?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
+        </summary>
+        <div class="faq-a">O preparatório é <strong>100% online</strong>. Após a matrícula, você recebe os acessos no <strong>WhatsApp e e-mail</strong> cadastrados.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- MODAL INSCRIÇÃO -->
+  <div class="modal" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <div class="modal-bar"></div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="modal-body">
+        <h3 id="modalTitle">Garanta sua vaga</h3>
+        <p class="modal-text">Preencha seus dados e o nosso time vai te apresentar o preparatório para o concurso da Brigada Militar-RS pelo WhatsApp. As turmas têm vagas limitadas.</p>
+
+        <form id="signupForm">
+          <div class="form-row">
+            <label for="su-name">Nome completo</label>
+            <input class="form-input" type="text" id="su-name" required placeholder="Seu nome" autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="su-phone">WhatsApp</label>
+            <div class="phone-row">
+              <select class="form-select" id="su-country">
+                <option value="55" selected>🇧🇷 +55</option>
+                <option value="351">🇵🇹 +351</option>
+                <option value="1">🇺🇸 +1</option>
+                <option value="44">🇬🇧 +44</option>
+                <option value="54">🇦🇷 +54</option>
+              </select>
+              <input class="form-input" type="tel" id="su-phone" required placeholder="(DDD) 9 0000-0000" inputmode="numeric" autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="su-email">E-mail</label>
+            <input class="form-input" type="email" id="su-email" required placeholder="seu@email.com" autocomplete="email">
+          </div>
+          <button type="submit" id="su-submit" class="bnt-lime form-submit">
+            Quero minha vaga
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+
+        <div class="modal-secure">
+          <i data-lucide="lock"></i>
+          <span>Seus dados estão seguros</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Webhook que recebe os dados do formulário (Make)
+    const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
+
+    // Número do comercial da OdonConcursos (55 + DDD + número) — destino do redirect pós-cadastro
+    const COMERCIAL_WHATSAPP = '5519994565534';
+
+    // Captura UTMs e IDs de clique da URL no carregamento da página
+    const tracking = (() => {
+      const p = new URLSearchParams(window.location.search);
+      const get = (k) => p.get(k) || '';
+      return {
+        utm_source:   get('utm_source'),
+        utm_medium:   get('utm_medium'),
+        utm_campaign: get('utm_campaign'),
+        utm_content:  get('utm_content'),
+        utm_term:     get('utm_term'),
+        fbclid:       get('fbclid'),
+        gclid:        get('gclid'),
+        referrer:     document.referrer || '',
+        landing_url:  window.location.href
+      };
+    })();
+
+    function openModal() {
+      document.getElementById('signupModal').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('signupModal').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('signupModal').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    document.getElementById('signupForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn = document.getElementById('su-submit');
+      const originalHTML = btn.innerHTML;
+      btn.textContent = 'Processando...';
+      btn.disabled = true;
+
+      const countryCode = document.getElementById('su-country').value;
+      const phoneDigits = document.getElementById('su-phone').value.replace(/\D/g, '');
+
+      const now = new Date();
+      const nome = document.getElementById('su-name').value;
+      const payload = {
+        formulario: 'Brigada Militar RS · Preparatório',
+        produto: 'Brigada Militar RS',
+        metodo: 'Landing Page',
+        nome: nome,
+        email: document.getElementById('su-email').value,
+        telefone: '+' + countryCode + phoneDigits,
+        evento: 'Preparação Concurso Odontologia Brigada Militar-RS',
+        origem: 'LP captura Brigada Militar RS dentista',
+        data_contato: now.toISOString(),
+        data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
+        ...tracking
+      };
+
+      try {
+        if (WEBHOOK_URL) {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } else {
+          console.log('Inscrição (configure WEBHOOK_URL):', payload);
+        }
+      } catch (err) {
+        console.error('Webhook error:', err);
+      }
+
+      // Evento de Lead no Meta Pixel (pessoa virou lead)
+      try {
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', { content_name: 'LP Brigada Militar RS Dentista', content_category: 'Brigada Militar RS' });
+        }
+      } catch (err) { console.error('Meta Pixel error:', err); }
+
+      // Confirmação + redirecionamento pro comercial da OdonConcursos
+      this.style.display = 'none';
+      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te redirecionando para o nosso comercial no WhatsApp…';
+      document.getElementById('modalTitle').textContent = 'Inscrição confirmada ✓';
+      lucide.createIcons();
+
+      const msg = `Olá! Quero saber mais sobre o preparatório para o concurso de Dentista da Brigada Militar-RS (${nome}).`;
+      const waLink = `https://wa.me/${COMERCIAL_WHATSAPP}?text=${encodeURIComponent(msg)}`;
+      setTimeout(() => { window.location.href = waLink; }, 1200);
+    });
+
+    /* ─── Contador evergreen: ciclos FIXOS de 3 dias, terminando 23h59 ───
+       Ancorado a uma data fixa → o prazo é o mesmo para todos os visitantes.
+       Quando zera, avança automaticamente +3 dias (23h59) e segue reiniciando. */
+    (function () {
+      const CYCLE_MS = 3 * 24 * 60 * 60 * 1000; // 3 dias
+      // Âncora: um término às 23:59:59 (horário local). A partir daqui o prazo
+      // anda de 3 em 3 dias. (Brasil não tem horário de verão → fica sempre 23h59.)
+      const ANCHOR = new Date(2026, 0, 1, 23, 59, 59, 0).getTime(); // 01/01/2026 23:59:59
+
+      function nextDeadline() {
+        const elapsed = Date.now() - ANCHOR;
+        const cycles = Math.floor(elapsed / CYCLE_MS) + 1; // sempre no futuro
+        return ANCHOR + cycles * CYCLE_MS;
+      }
+
+      const clocks = document.querySelectorAll('.js-cta-timer');
+      if (!clocks.length) return;
+      let deadline = nextDeadline();
+      const pad = (n) => String(n).padStart(2, '0');
+
+      function tick() {
+        let diff = deadline - Date.now();
+        if (diff <= 0) { deadline = nextDeadline(); diff = deadline - Date.now(); }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        clocks.forEach(c => {
+          c.querySelector('[data-dd]').textContent = pad(d);
+          c.querySelector('[data-hh]').textContent = pad(h);
+          c.querySelector('[data-mm]').textContent = pad(m);
+          c.querySelector('[data-ss]').textContent = pad(s);
+        });
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+
+</body>
+</html>
