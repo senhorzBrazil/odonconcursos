@@ -398,7 +398,7 @@
       <div class="fq-i"><div class="fq">Preciso ser especialista para concorrer?<i data-lucide="chevron-down"></i></div><div class="fa">Para o cargo de Cirurgião Dentista Clínico Geral basta o diploma de graduação em Odontologia e registro no CRO. Os cargos de Cirurgião Dentista B exigem especialização (DTM e Dor Orofacial ou Odontologia Hospitalar) — a Odon confirma os requisitos exatos do edital para você.</div></div>
       <div class="fq-i"><div class="fq">Quando abrem as inscrições?<i data-lucide="chevron-down"></i></div><div class="fa">De 9 de setembro a 8 de outubro de 2026, pela internet, no site da banca IBGP. A taxa para Cirurgião-Dentista é de R$ 110,00, com possibilidade de isenção para quem se enquadrar nos critérios do edital.</div></div>
       <div class="fq-i"><div class="fq">Como é a prova?<i data-lucide="chevron-down"></i></div><div class="fa">Prova objetiva de múltipla escolha, eliminatória e classificatória, no dia 29/11/2026 em Belo Horizonte, às 14h30, com 3 horas de duração. Para nível superior há também prova de títulos.</div></div>
-      <div class="fq-i"><div class="fq">Como começo minha preparação?<i data-lucide="chevron-down"></i></div><div class="fa">Preencha nome e WhatsApp no formulário acima. Nossa equipe entra em contato com um plano de estudos focado na banca IBGP e no cargo de Cirurgião-Dentista do Odilon Behrens.</div></div>
+      <div class="fq-i"><div class="fq">Como começo minha preparação?<i data-lucide="chevron-down"></i></div><div class="fa">Preencha nome, e-mail e WhatsApp no formulário acima. Nossa equipe entra em contato com um plano de estudos focado na banca IBGP e no cargo de Cirurgião-Dentista do Odilon Behrens.</div></div>
       <div class="fq-i"><div class="fq">Tem algum custo para falar com a equipe?<i data-lucide="chevron-down"></i></div><div class="fa">O contato inicial e o alerta de atualizações do edital são gratuitos. A partir daí, a Odon apresenta as opções de preparação de acordo com o seu objetivo, sem compromisso.</div></div>
     </div>
 
@@ -422,11 +422,15 @@
     <div class="capture-in">
       <span class="seal"><i data-lucide="badge-check"></i> Odon · especialista em dentistas</span>
       <h3>Comece sua preparação para o <em>Odilon Behrens</em></h3>
-      <p class="sub">A Odon é especializada em concursos públicos para dentistas. Deixe seu nome e WhatsApp — montamos um plano de estudos focado na banca IBGP e no cargo que você quer.</p>
+      <p class="sub">A Odon é especializada em concursos públicos para dentistas. Deixe seu nome, e-mail e WhatsApp — montamos um plano de estudos focado na banca IBGP e no concurso do Odilon Behrens.</p>
       <form class="lead-form" novalidate>
         <div class="field" data-f="nome">
           <label>Seu nome</label>
           <input type="text" name="nome" placeholder="Ex.: Ana Oliveira" autocomplete="name" />
+        </div>
+        <div class="field" data-f="email">
+          <label>Seu melhor e-mail</label>
+          <input type="email" name="email" placeholder="Ex.: ana@email.com" autocomplete="email" />
         </div>
         <div class="field" data-f="whats">
           <label>Seu WhatsApp (com DDD)</label>
@@ -442,6 +446,26 @@
     /* ════ CONFIG ════ */
     const WHATSAPP_NUMERO = '5519994565534';
     const FORMULARIO = 'Notícia HOB Odilon Behrens · Comece com a Odon';
+
+    // Webhook que recebe os dados do formulário (Make)
+    const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
+
+    // Captura UTMs e IDs de clique da URL no carregamento da página
+    const tracking = (() => {
+      const p = new URLSearchParams(window.location.search);
+      const get = (k) => p.get(k) || '';
+      return {
+        utm_source:   get('utm_source'),
+        utm_medium:   get('utm_medium'),
+        utm_campaign: get('utm_campaign'),
+        utm_content:  get('utm_content'),
+        utm_term:     get('utm_term'),
+        fbclid:       get('fbclid'),
+        gclid:        get('gclid'),
+        referrer:     document.referrer || '',
+        landing_url:  window.location.href
+      };
+    })();
 
     /* ── monta os blocos de captura a partir do template ── */
     const tpl = document.getElementById('capture-tpl');
@@ -461,19 +485,52 @@
       const whats = form.querySelector('[name=whats]');
       whats.addEventListener('input', () => { whats.value = maskPhone(whats.value); });
 
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const nome   = form.querySelector('[name=nome]').value.trim();
+        const email  = form.querySelector('[name=email]').value.trim();
         const digits = whats.value.replace(/\D/g,'');
 
         let ok = true;
         const flag = (sel, bad) => { form.querySelector(`[data-f=${sel}]`).classList.toggle('err', bad); if(bad) ok=false; };
         flag('nome', nome.length < 2);
+        flag('email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
         flag('whats', digits.length < 10);
         if(!ok){ form.querySelector('.field.err input')?.focus(); return; }
 
+        const btn = form.querySelector('.btn-wa');
+        const originalHTML = btn.innerHTML;
+        btn.textContent = 'Processando...';
+        btn.disabled = true;
+
+        const now = new Date();
+        const payload = {
+          formulario: FORMULARIO,
+          produto: 'HOB Odilon Behrens',
+          metodo: 'Landing Page',
+          nome: nome,
+          email: email,
+          telefone: '+55' + digits,
+          evento: 'Preparação Concurso Odontologia HOB Odilon Behrens BH',
+          origem: 'Notícia HOB Odilon Behrens (captura)',
+          data_contato: now.toISOString(),
+          data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
+          ...tracking
+        };
+
+        try {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } catch (err) {
+          console.error('Webhook error:', err);
+        }
+
         if (window.fbq) fbq('track', 'Lead', { content_name: FORMULARIO });
 
+        btn.innerHTML = originalHTML;
         const msg = `Olá! Quero saber mais sobre o preparatório para o concurso do Hospital Odilon Behrens - BH (${nome}).`;
         const link = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(msg)}`;
         window.location.href = link;
