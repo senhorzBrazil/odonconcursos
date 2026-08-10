@@ -960,7 +960,7 @@
         <div class="cta-micro fade-in delay-4">
           <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>50 questões comentadas</span>
           <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>100% gratuito</span>
-          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Envio pelo WhatsApp</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Download imediato</span>
         </div>
       </div>
 
@@ -1030,7 +1030,7 @@
         <span class="value-badge">Grátis</span>
         <div class="value-icon"><i data-lucide="gift"></i></div>
         <div class="value-title">Material completo, sem custo</div>
-        <div class="value-desc">São 40 páginas de correção enviadas gratuitamente. Você só precisa dizer para onde mandar — a gente entrega no seu WhatsApp.</div>
+        <div class="value-desc">São 40 páginas de correção, totalmente gratuitas. É só preencher seus dados que você baixa o material na hora.</div>
       </div>
     </div>
   </section>
@@ -1091,7 +1091,7 @@
 
       <div class="gift-warn">
         <svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <div class="gift-warn-text"><strong>Corra:</strong> o material é enviado enquanto a correção está em alta. Garanta o seu agora e receba direto no WhatsApp.</div>
+        <div class="gift-warn-text"><strong>Corra:</strong> aproveite enquanto a correção está em alta. Garanta a sua agora e baixe o material na hora.</div>
       </div>
 
       <a onclick="openModal()" class="bnt1">
@@ -1111,12 +1111,12 @@
       <div class="event-item">
         <div class="event-step">PASSO 1</div>
         <div class="event-icon"><i data-lucide="user-round"></i></div>
-        <div class="event-value">Preencha seus dados<small>Nome, WhatsApp e e-mail — leva menos de 30 segundos.</small></div>
+        <div class="event-value">Preencha seus dados<small>Nome, celular e e-mail — leva menos de 30 segundos.</small></div>
       </div>
       <div class="event-item">
         <div class="event-step">PASSO 2</div>
-        <div class="event-icon"><i data-lucide="message-circle"></i></div>
-        <div class="event-value">Confirme no WhatsApp<small>Você é direcionado para o nosso WhatsApp para receber o material.</small></div>
+        <div class="event-icon"><i data-lucide="send"></i></div>
+        <div class="event-value">Abra sua correção<small>Ao enviar, você vai direto para a página com o material.</small></div>
       </div>
       <div class="event-item">
         <div class="event-step">PASSO 3</div>
@@ -1153,7 +1153,7 @@
           O material é realmente gratuito?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Sim. A correção comentada da prova de Varginha-MG é <strong>100% gratuita</strong>. Você só precisa informar seus dados para a gente enviar o material no seu WhatsApp.</div>
+        <div class="faq-a">Sim. A correção comentada da prova de Varginha-MG é <strong>100% gratuita</strong>. Você só precisa informar seus dados e o material fica disponível para download na hora.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1167,7 +1167,7 @@
           Como eu recebo o material?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Depois de preencher o formulário, você é direcionado para o nosso <strong>WhatsApp</strong>, onde o material é enviado. Simples e rápido.</div>
+        <div class="faq-a">Depois de preencher o formulário, você vai direto para a página de download e baixa o PDF na hora. Simples e rápido.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1193,7 +1193,7 @@
       </button>
       <div class="modal-body">
         <h3 id="modalTitle">Receba a correção grátis</h3>
-        <p class="modal-text">Preencha seus dados e a gente envia a correção comentada da prova de Varginha-MG (AVANÇA SP) direto no seu WhatsApp.</p>
+        <p class="modal-text">Preencha seus dados e você recebe a correção comentada da prova de Varginha-MG (AVANÇA SP) para download em seguida.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -1201,7 +1201,7 @@
             <input class="form-input" type="text" id="su-name" required placeholder="Seu nome" autocomplete="name">
           </div>
           <div class="form-row">
-            <label for="su-phone">WhatsApp</label>
+            <label for="su-phone">Celular</label>
             <div class="phone-row">
               <select class="form-select" id="su-country">
                 <option value="55" selected>🇧🇷 +55</option>
@@ -1237,8 +1237,6 @@
     // Webhook que recebe os dados do formulário (Make)
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
-    // Número do comercial da OdonConcursos (55 + DDD + número) — usado como fallback
-    const COMERCIAL_WHATSAPP = '5519994565534';
 
     // Página de obrigado/download onde o lead baixa o material
     const DOWNLOAD_PAGE = 'obrigado.html';

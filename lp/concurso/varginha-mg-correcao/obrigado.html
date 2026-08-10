@@ -224,7 +224,7 @@
 
     <div class="dl-hint fade-in delay-4">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-      O download começa automático. Não iniciou? <a href="correcao-varginha-avanca-sp.pdf" target="_blank" rel="noopener">Clique aqui</a>.
+      Clique no botão acima para baixar o seu material em PDF.
     </div>
 
     <!-- WHATSAPP -->
@@ -262,13 +262,6 @@
     const msg = `Olá! Baixei a correção da prova de Varginha-MG (AVANÇA SP) e quero saber mais sobre o preparatório de Odontologia${nome ? ' — ' + nome : ''}.`;
     document.getElementById('waBtn').href = `https://wa.me/${COMERCIAL_WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
-    // Dispara o download automaticamente ao abrir a página
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const a = document.getElementById('dlBtn');
-        a.click();
-      }, 800);
-    });
   </script>
 
 </body>
