@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sua correção está pronta · Varginha-MG (AVANÇA SP) | OdonConcursos</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1038030425232337');
+    fbq('track', 'PageView');
+    fbq('track', 'CompleteRegistration', { content_name: 'Correção Varginha AVANÇA SP' });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1038030425232337&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* ─── ARQUIVO DO MATERIAL (troque aqui se mudar o nome/host do PDF) ─── */
+    /* Caminho relativo → funciona local e no deploy, desde que o PDF esteja na mesma pasta. */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes shinery { 0%,100%{ left:-10%; opacity:0; } 20%{ opacity:1; } 48%{ left:110%; opacity:1; } 51%{ opacity:0; } }
+    @keyframes pulseGlow { 0%,100%{ opacity:.5; } 50%{ opacity:1; } }
+    @keyframes floatY { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-10px); } }
+    @keyframes popIn { 0%{ transform: scale(.7); opacity:0; } 60%{ transform: scale(1.06); } 100%{ transform: scale(1); opacity:1; } }
+    .fade-in { animation: fadeSlideIn .7s ease-out both; }
+    .delay-1 { animation-delay:.10s; } .delay-2 { animation-delay:.22s; } .delay-3 { animation-delay:.34s; } .delay-4 { animation-delay:.46s; }
+
+    :root {
+      --bg:#060a18; --bg-card:#0e1838;
+      --line:rgba(255,255,255,0.08); --line-strong:rgba(255,255,255,0.16);
+      --text:#ffffff; --text-mute:#9aa3bf; --text-dim:#6b7395; --text-faint:#4b5273;
+      --lime:#e91e8c; --lime-soft:#f472b6; --orange:#e91e8c; --orange-2:#f0309a;
+      --sans:'Roboto',system-ui,sans-serif; --display:'Roboto Slab','Roboto',system-ui,serif;
+    }
+
+    body {
+      font-family: var(--sans); background: var(--bg); color: var(--text);
+      min-height: 100vh; overflow-x: hidden; font-weight: 400;
+      display: flex; flex-direction: column;
+    }
+    html::before {
+      content:''; position: fixed; inset:0;
+      background-image: radial-gradient(at 20% 80%, #fff 1px, transparent 0);
+      background-size: 3px 3px; pointer-events:none; opacity:.04; z-index:1;
+    }
+    .bg-orb { position: fixed; border-radius:50%; filter: blur(120px); pointer-events:none; z-index:0; }
+    .orb-1 { width:700px; height:700px; top:-240px; right:-120px; background: radial-gradient(circle, rgba(233,30,140,.12), transparent 70%); animation: pulseGlow 8s ease-in-out infinite; }
+    .orb-2 { width:500px; height:500px; bottom:6%; left:-160px; background: radial-gradient(circle, rgba(26,58,110,.08), transparent 70%); animation: pulseGlow 12s ease-in-out infinite reverse; }
+
+    /* NAV */
+    .nav {
+      position: sticky; top:0; z-index:200; border-bottom:1px solid var(--line);
+      background: rgba(3,7,18,.78); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      padding: 0 clamp(20px,5vw,64px); height:64px; display:flex; align-items:center; justify-content: space-between; gap:16px;
+    }
+    .logo-img { height:34px; width:auto; display:block; filter: brightness(0) invert(1); }
+    .nav-tag { font-size:11px; letter-spacing:.1em; text-transform: uppercase; font-weight:600; color: var(--text-mute); }
+
+    .g1 {
+      background: linear-gradient(92deg, var(--lime) 18.78%, var(--lime-soft) 79.67%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      line-height:1.25; padding-bottom:.12em;
+    }
+
+    /* WRAP */
+    .wrap {
+      position: relative; z-index:2; flex:1;
+      width: min(760px, 100%); margin:0 auto;
+      padding: clamp(48px,8vh,90px) clamp(20px,5vw,40px);
+      display:flex; flex-direction:column; align-items:center; text-align:center;
+    }
+
+    .check-badge {
+      width:78px; height:78px; border-radius:50%;
+      background: radial-gradient(38% 91% at 50% 9%, var(--orange) 0, var(--orange-2) 100%);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 0 30px rgba(233,30,140,.5), 0 0 60px rgba(240,48,154,.35);
+      margin-bottom: 26px; animation: popIn .6s ease-out both;
+    }
+    .check-badge svg { width:38px; height:38px; stroke:#fff; fill:none; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; }
+
+    .kicker { font-size:11px; letter-spacing:.22em; text-transform:uppercase; font-weight:700; color: var(--lime); margin-bottom:16px; }
+    h1 {
+      font-family: var(--display); font-size: clamp(28px,4.4vw,44px); font-weight:800;
+      letter-spacing:-.025em; line-height:1.12; color: var(--text); margin-bottom:16px; max-width:600px;
+    }
+    .lead { font-size: clamp(15px,1.6vw,17.5px); line-height:1.75; color: var(--text-mute); max-width:520px; margin-bottom:36px; }
+    .lead strong { color: var(--text); font-weight:600; }
+
+    /* DOWNLOAD CARD */
+    .dl-card {
+      position: relative; width:100%; max-width:520px;
+      border-radius:20px; background: var(--bg-card);
+      padding: 30px clamp(22px,4vw,34px); overflow:hidden; z-index:1;
+      display:flex; align-items:center; gap:20px; text-align:left;
+      margin-bottom: 22px;
+    }
+    .dl-card::before {
+      content:''; position:absolute; inset:0; border-radius:20px; padding:1.5px;
+      background: linear-gradient(135deg, rgba(240,48,154,.55), rgba(255,255,255,.06) 50%, rgba(233,30,140,.3));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none; z-index:5;
+    }
+    .dl-thumb {
+      width:64px; height:82px; min-width:64px; border-radius:9px; overflow:hidden;
+      background: linear-gradient(150deg, #241269 0%, #3a1a7a 45%, #9c1f74 78%, #e91e8c 100%);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.45); position:relative;
+    }
+    .dl-thumb b { font-family: var(--display); font-weight:800; color:#f9a8d4; font-size:11px; letter-spacing:.02em; }
+    .dl-thumb small { font-size:8px; color:#fff; font-weight:700; letter-spacing:.03em; }
+    .dl-thumb .pdf-pill { font-size:7.5px; background: rgba(255,255,255,.9); color:#0b1535; font-weight:800; padding:1px 6px; border-radius:4px; margin-top:2px; }
+    .dl-info { flex:1; }
+    .dl-info h3 { font-family: var(--display); font-size:16.5px; font-weight:700; color: var(--text); line-height:1.3; margin-bottom:5px; }
+    .dl-info p { font-size:13px; color: var(--text-dim); line-height:1.5; }
+
+    .bnt1 {
+      position: relative; display: inline-flex; align-items: center; justify-content: center; gap:10px;
+      padding: 18px 40px; font-family: var(--sans); font-size:15px; font-weight:700; letter-spacing:.01em;
+      color:#fff; text-decoration:none; border-radius:999px;
+      background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--orange) 0, var(--orange-2) 100%);
+      box-shadow: 0 0 20px rgba(233,30,140,.5), 0 0 40px rgba(240,48,154,.4), 0 10px 25px rgba(233,30,140,.25);
+      overflow:hidden; transition: all .35s ease; isolation:isolate; border:none; cursor:pointer;
+    }
+    .bnt1:hover { background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--orange-2) 0, var(--orange) 100%); box-shadow: 0 0 25px rgba(233,30,140,.6), 0 0 60px rgba(240,48,154,.5), 0 15px 35px rgba(233,30,140,.3); transform: scale(1.04); }
+    .bnt1::before { content:''; position:absolute; bottom:0; width:90px; height:160%; background: linear-gradient(10deg, #ffd9ec 12.81%, rgba(255,217,236,0) 66.66%); transform: translateX(-50%) skew(-25deg); animation: shinery 3s ease-in-out infinite; filter: blur(4px); pointer-events:none; z-index:0; }
+    .bnt1::after { content:''; position:absolute; inset:-2px; border-radius:999px; border:2px solid var(--orange); pointer-events:none; }
+    .bnt1 span, .bnt1 svg { position:relative; z-index:2; }
+    .bnt1 svg { width:18px; height:18px; stroke: currentColor; stroke-width:2.4; fill:none; }
+
+    .dl-hint { font-size:12.5px; color: var(--text-faint); margin-top:16px; display:flex; align-items:center; gap:7px; }
+    .dl-hint a { color: var(--lime-soft); text-decoration: underline; text-underline-offset:2px; }
+    .dl-hint svg { width:13px; height:13px; stroke: currentColor; fill:none; stroke-width:2; }
+
+    /* WHATSAPP SECONDARY */
+    .wa-box {
+      margin-top: 44px; width:100%; max-width:520px;
+      border-top:1px solid var(--line); padding-top:34px;
+      display:flex; flex-direction:column; align-items:center; gap:16px;
+    }
+    .wa-box p { font-size:14.5px; color: var(--text-mute); line-height:1.6; max-width:420px; }
+    .wa-box p strong { color: var(--text); font-weight:600; }
+    .bnt-wa {
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:15px 30px; border-radius:999px; text-decoration:none; cursor:pointer;
+      font-family: var(--sans); font-size:14px; font-weight:700; color:#fff;
+      background: linear-gradient(92deg, #1fae52, #25d366); border:none;
+      box-shadow: 0 8px 22px rgba(37,211,102,.22); transition: filter .2s, transform .12s;
+    }
+    .bnt-wa:hover { filter: brightness(1.06); transform: scale(1.02); }
+    .bnt-wa svg { width:18px; height:18px; fill:#fff; }
+
+    .foot { position: relative; z-index:2; border-top:1px solid var(--line); padding:30px clamp(20px,5vw,64px); text-align:center; }
+    .foot p { font-size:12px; color: var(--text-faint); line-height:1.7; max-width:640px; margin:0 auto; }
+
+    @media (max-width:520px) {
+      .dl-card { flex-direction:column; text-align:center; }
+      .dl-info { text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="logo">
+      <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img">
+    </div>
+    <span class="nav-tag">Material gratuito</span>
+  </nav>
+
+  <!-- CONTEÚDO -->
+  <main class="wrap">
+    <div class="check-badge">
+      <svg viewBox="0 0 24 24"><polyline points="4 12.5 9.5 18 20 6.5"/></svg>
+    </div>
+
+    <div class="kicker fade-in delay-1" id="kicker">Cadastro confirmado</div>
+    <h1 class="fade-in delay-1">Sua <span class="g1">correção comentada</span> está pronta<span id="hi"></span></h1>
+    <p class="lead fade-in delay-2">
+      Prova de <strong>Cirurgião Dentista de Varginha-MG (AVANÇA SP)</strong> — as <strong>50 questões resolvidas e comentadas</strong> pela equipe do OdonConcursos. É só baixar abaixo.
+    </p>
+
+    <div class="dl-card fade-in delay-3">
+      <div class="dl-thumb">
+        <b>CORREÇÃO</b>
+        <small>VARGINHA</small>
+        <span class="pdf-pill">PDF</span>
+      </div>
+      <div class="dl-info">
+        <h3>Correção Comentada — Varginha / AVANÇA SP</h3>
+        <p>Cirurgião Dentista · 50 questões · 40 páginas · PDF</p>
+      </div>
+    </div>
+
+    <a href="correcao-varginha-avanca-sp.pdf" download="Correcao-Varginha-AVANCA-SP-OdonConcursos.pdf" class="bnt1 fade-in delay-3" id="dlBtn">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span>Baixar a correção (PDF)</span>
+    </a>
+
+    <div class="dl-hint fade-in delay-4">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      O download começa automático. Não iniciou? <a href="correcao-varginha-avanca-sp.pdf" target="_blank" rel="noopener">Clique aqui</a>.
+    </div>
+
+    <!-- WHATSAPP -->
+    <div class="wa-box fade-in delay-4">
+      <p>Quer <strong>estudar direcionado</strong> para o próximo concurso de Odontologia? Fale com o nosso time no WhatsApp.</p>
+      <a class="bnt-wa" id="waBtn" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        Falar com o time no WhatsApp
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <p>OdonConcursos · Preparatório especializado em concursos de Odontologia. Este material é uma correção comentada elaborada pela equipe OdonConcursos e não possui vínculo com a banca AVANÇA SP ou com a Prefeitura Municipal de Varginha-MG.</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Número do comercial da OdonConcursos
+    const COMERCIAL_WHATSAPP = '5519994565534';
+
+    // Nome vindo da página de captura (?nome=...)
+    const params = new URLSearchParams(window.location.search);
+    const nome = (params.get('nome') || '').trim();
+    if (nome) {
+      const first = nome.split(' ')[0];
+      document.getElementById('hi').textContent = ', ' + first + '!';
+    } else {
+      document.getElementById('hi').textContent = '!';
+    }
+
+    // Link do WhatsApp
+    const msg = `Olá! Baixei a correção da prova de Varginha-MG (AVANÇA SP) e quero saber mais sobre o preparatório de Odontologia${nome ? ' — ' + nome : ''}.`;
+    document.getElementById('waBtn').href = `https://wa.me/${COMERCIAL_WHATSAPP}?text=${encodeURIComponent(msg)}`;
+
+    // Dispara o download automaticamente ao abrir a página
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const a = document.getElementById('dlBtn');
+        a.click();
+      }, 800);
+    });
+  </script>
+
+</body>
+</html>
