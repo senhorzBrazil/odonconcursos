@@ -392,33 +392,55 @@
     <!-- ═══ OFERTA / CHECKOUT ═══ -->
     <section id="oferta" class="py-12 md:py-20 px-5 md:px-8 bg-dark-section relative z-10 overflow-hidden border-t border-dark-border/50">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[700px] md:h-[700px] bg-brand/10 blur-[150px] md:blur-[200px] -z-10 rounded-full pointer-events-none"></div>
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 uppercase reveal">Garanta sua preparação para a <span class="gtext">Transpetro</span></h2>
-        <p class="text-gray-400 mb-10 md:mb-12 max-w-2xl mx-auto reveal delay-100">Acesso completo ao Preparatório Transpetro, direcionado para a prova da banca Cesgranrio, do começo ao fim da sua preparação.</p>
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 uppercase reveal">Escolha como se preparar para a <span class="gtext">Transpetro</span></h2>
+        <p class="text-gray-400 mb-10 md:mb-12 max-w-2xl mx-auto reveal delay-100">Dois caminhos para a sua aprovação: o <strong class="text-white">Preparatório específico da Transpetro</strong> ou o <strong class="text-white">Concurseiro PRO</strong> — o ecossistema completo do Odon para todos os concursos de Odontologia.</p>
 
-        <div class="bg-dark-card border border-brand/50 rounded-3xl p-6 md:p-10 shadow-[0_0_40px_rgba(238,42,123,0.25)] relative reveal card-hover text-left">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-brand font-black text-xs md:text-sm uppercase px-4 md:px-6 py-1 md:py-2 rounded-full shadow-lg whitespace-nowrap">Turmas limitadas</div>
+        <div class="grid md:grid-cols-2 gap-5 md:gap-6 text-left items-stretch">
 
-          <h3 class="text-xl md:text-2xl font-black text-white mb-6 uppercase text-center mt-3">Preparatório Transpetro<br><span class="text-sm md:text-base opacity-80 block mt-1 font-bold">Dentista · Grupo Petrobras · Banca Cesgranrio</span></h3>
-
-          <ul class="space-y-3 md:space-y-4 text-xs md:text-sm text-gray-300 mb-8" id="offerItems"></ul>
-
-          <div class="text-center border-t border-dark-border pt-8">
-            <p class="text-xs md:text-sm text-gray-400 uppercase tracking-widest mb-1">Investimento:</p>
-            <div class="text-[#25d366] font-black text-4xl md:text-5xl mb-2">12x DE R$ 74,75</div>
-            <p class="text-gray-400 mb-6 text-sm">ou R$ 897,00 à vista · cartão em até 12x ou Pix</p>
-
-            <a href="#" id="buyBtn" data-plan="Preparatório Transpetro" data-value="897"
-               class="cta-buy cta w-full text-white text-center" style="background:#25d366 !important; box-shadow:0 0 22px rgba(37,211,102,.4), 0 10px 26px rgba(37,211,102,.25) !important;">
-              <i class="fa-solid fa-lock text-base"></i> QUERO GARANTIR MINHA PREPARAÇÃO
-            </a>
-            <p class="flex items-center justify-center gap-2 text-[11px] text-gray-500 mt-4">
-              <i class="fa-solid fa-shield-halved"></i> Compra 100% segura · Garantia de 7 dias
-            </p>
+          <!-- Plano 1: Preparatório específico -->
+          <div class="bg-dark-card border border-dark-border rounded-3xl p-6 md:p-8 relative reveal card-hover flex flex-col">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-blue font-black text-xs md:text-sm uppercase px-4 md:px-6 py-1 md:py-2 rounded-full shadow-lg whitespace-nowrap">Foco na Transpetro</div>
+            <h3 class="text-xl md:text-2xl font-black text-white mb-1 uppercase text-center mt-3">Preparatório Transpetro</h3>
+            <p class="text-center text-sm opacity-80 font-bold mb-6 text-gray-300">Dentista · Grupo Petrobras · Banca Cesgranrio</p>
+            <ul class="space-y-3 text-xs md:text-sm text-gray-300 mb-8" id="offerItems"></ul>
+            <div class="text-center border-t border-dark-border pt-8 mt-auto">
+              <p class="text-xs md:text-sm text-gray-400 uppercase tracking-widest mb-1">Investimento:</p>
+              <div class="text-[#25d366] font-black text-3xl md:text-4xl mb-2">12x DE R$ 74,75</div>
+              <p class="text-gray-400 mb-6 text-sm">ou R$ 897,00 à vista · cartão em até 12x ou Pix</p>
+              <a href="#" id="buyBtn" data-plan="Preparatório Transpetro" data-value="897"
+                 class="cta-buy cta w-full text-white text-center" style="background:#25d366 !important; box-shadow:0 0 22px rgba(37,211,102,.4), 0 10px 26px rgba(37,211,102,.25) !important;">
+                <i class="fa-solid fa-lock text-base"></i> QUERO O PREPARATÓRIO
+              </a>
+              <p class="flex items-center justify-center gap-2 text-[11px] text-gray-500 mt-4">
+                <i class="fa-solid fa-shield-halved"></i> Compra 100% segura · Garantia de 7 dias
+              </p>
+            </div>
           </div>
+
+          <!-- Plano 2: Concurseiro PRO -->
+          <div class="bg-dark-card border border-brand/60 rounded-3xl p-6 md:p-8 shadow-[0_0_40px_rgba(238,42,123,0.25)] relative reveal card-hover flex flex-col">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand text-white font-black text-xs md:text-sm uppercase px-4 md:px-6 py-1 md:py-2 rounded-full shadow-lg whitespace-nowrap">Mais completo</div>
+            <h3 class="text-xl md:text-2xl font-black text-white mb-1 uppercase text-center mt-3">Concurseiro PRO</h3>
+            <p class="text-center text-sm opacity-80 font-bold mb-6 text-gray-300">Todos os concursos de Odontologia do Brasil</p>
+            <ul class="space-y-3 text-xs md:text-sm text-gray-300 mb-8" id="offerItemsPro"></ul>
+            <div class="text-center border-t border-dark-border pt-8 mt-auto">
+              <p class="text-xs md:text-sm text-gray-400 uppercase tracking-widest mb-1">Investimento:</p>
+              <div class="text-[#25d366] font-black text-3xl md:text-4xl mb-2">12x DE R$ 216,42</div>
+              <p class="text-gray-400 mb-6 text-sm">ou R$ 2.597,00 à vista · cartão em até 12x ou Pix</p>
+              <a href="#" id="buyBtnPro" data-plan="Concurseiro PRO" data-value="2597"
+                 class="cta-buy cta w-full text-white text-center" style="background:#25d366 !important; box-shadow:0 0 22px rgba(37,211,102,.4), 0 10px 26px rgba(37,211,102,.25) !important;">
+                <i class="fa-solid fa-lock text-base"></i> QUERO O CONCURSEIRO PRO
+              </a>
+              <p class="flex items-center justify-center gap-2 text-[11px] text-gray-500 mt-4">
+                <i class="fa-solid fa-shield-halved"></i> Compra 100% segura · Garantia de 7 dias
+              </p>
+            </div>
+          </div>
+
         </div>
 
-        <a href="https://api.whatsapp.com/send?phone=5519994565534&text=Tenho%20uma%20d%C3%BAvida%20sobre%20o%20preparat%C3%B3rio%20para%20o%20concurso%20da%20Transpetro%20(Odontologia)."
+        <a href="https://api.whatsapp.com/send?phone=5519994565534&text=Tenho%20d%C3%BAvida%20sobre%20os%20planos%20(Preparat%C3%B3rio%20Transpetro%20e%20Concurseiro%20PRO)."
            target="_blank" rel="noopener"
            class="inline-flex items-center gap-2 mt-8 text-sm text-gray-400 hover:text-white transition-colors reveal">
           <i class="fa-brands fa-whatsapp text-[#25D366] text-lg"></i> Tenho dúvidas? Falar com o time no WhatsApp
@@ -490,10 +512,10 @@
   <!-- Barra fixa de compra (mobile) -->
   <div class="buybar" id="buyBar">
     <div class="leading-tight">
-      <span class="block text-[10px] text-gray-400 uppercase tracking-wide">12x de</span>
-      <span class="block text-lg font-black text-[#25d366]">R$ 74,75</span>
+      <span class="block text-[10px] text-gray-400 uppercase tracking-wide">a partir de</span>
+      <span class="block text-lg font-black text-[#25d366]">12x R$ 74,75</span>
     </div>
-    <a href="#oferta" class="cta flex-1 text-center" style="padding:12px 18px !important; font-size:14px !important;">GARANTIR VAGA</a>
+    <a href="#oferta" class="cta flex-1 text-center" style="padding:12px 18px !important; font-size:14px !important;">VER PLANOS</a>
   </div>
 
   <script>
@@ -504,7 +526,10 @@
        ⚠️  COLE AQUI O LINK DO CHECKOUT (quando você tiver).
        Ex.: 'https://pay.kiwify.com.br/xxxxxxx' ou o carrinho do Odon.
        Enquanto estiver vazio, o botão rola para a oferta e avisa no console. */
-    const CHECKOUT_URL = '';
+    const CHECKOUT_URLS = {
+      'buyBtn':    '',  // Preparatório Transpetro (R$ 897) — cole o link do checkout
+      'buyBtnPro': ''   // Concurseiro PRO (R$ 2.597)      — cole o link do checkout
+    };
     /* ═══════════════════════════════════════════════════════════ */
 
     const up  = (y,m,f) => 'https://odonconcursospage.com/wp-content/uploads/' + y + '/' + m + '/' + f;
@@ -614,6 +639,18 @@
     const oi = document.getElementById('offerItems');
     offer.forEach(t => oi.appendChild(el(`<li class="flex gap-3 items-start"><i class="fa-solid fa-check text-[#25d366] text-base shrink-0 mt-1"></i><span>${t}</span></li>`)));
 
+    /* ── Offer items: Concurseiro PRO ── */
+    const offerPro = [
+      "Tudo do Preparatório da Transpetro incluído",
+      "Acesso a TODOS os concursos de Odontologia do Brasil",
+      "Videoaulas de todas as disciplinas e bancas",
+      "Banco de questões completo, com provas de várias bancas",
+      "Mapas mentais, planejamento de estudos e materiais em PDF",
+      "Tira-dúvidas com professores e novos concursos enquanto durar o acesso"
+    ];
+    const oiPro = document.getElementById('offerItemsPro');
+    if (oiPro) offerPro.forEach(t => oiPro.appendChild(el(`<li class="flex gap-3 items-start"><i class="fa-solid fa-check text-[#25d366] text-base shrink-0 mt-1"></i><span>${t}</span></li>`)));
+
     /* ── Image grids ── */
     document.querySelectorAll('[data-img-grid]').forEach(grid => {
       const dark = grid.closest('.bg-dark-bg, .bg-dark-section');
@@ -662,23 +699,26 @@
     }, { threshold: .1, rootMargin: "0px 0px -50px 0px" });
     document.querySelectorAll('.reveal').forEach(e => revObs.observe(e));
 
-    /* ── Checkout ── */
-    const buyBtn = document.getElementById('buyBtn');
-    buyBtn.addEventListener('click', (e) => {
-      const plan  = buyBtn.getAttribute('data-plan');
-      const value = parseFloat(buyBtn.getAttribute('data-value')) || undefined;
-      if (window.fbq) fbq('track', 'InitiateCheckout', { content_name: plan, value: value, currency: 'BRL' });
-      window.dataLayer = window.dataLayer || [];
-      dataLayer.push({ event: 'initiate_checkout', plan: plan, value: value });
-
-      if (CHECKOUT_URL) {
-        buyBtn.setAttribute('href', CHECKOUT_URL);
-        // deixa o link seguir normalmente
-      } else {
-        e.preventDefault();
-        console.warn('[Odon] CHECKOUT_URL ainda não configurado: cole o link no topo do script.');
-        document.getElementById('oferta').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+    /* ── Checkout (dois planos) ── */
+    ['buyBtn','buyBtnPro'].forEach(function (id) {
+      const b = document.getElementById(id);
+      if (!b) return;
+      b.addEventListener('click', (e) => {
+        const plan  = b.getAttribute('data-plan');
+        const value = parseFloat(b.getAttribute('data-value')) || undefined;
+        if (window.fbq) fbq('track', 'InitiateCheckout', { content_name: plan, value: value, currency: 'BRL' });
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({ event: 'initiate_checkout', plan: plan, value: value });
+        const url = CHECKOUT_URLS[id];
+        if (url) {
+          b.setAttribute('href', url);
+          // deixa o link seguir normalmente
+        } else {
+          e.preventDefault();
+          console.warn('[Odon] Checkout de "' + plan + '" ainda não configurado (' + id + ').');
+          document.getElementById('oferta').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     });
 
     /* ── Barra fixa de compra (mobile): aparece após rolar o hero ── */
