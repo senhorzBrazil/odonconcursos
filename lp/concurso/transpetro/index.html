@@ -227,6 +227,28 @@
       .cta-timer-label { text-align:center; }
       .cta-timer-clock { justify-content:center; }
     }
+
+    /* ─── MODAL DE CAPTURA (pré-checkout) ─── */
+    .cap-modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(5,5,5,.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease;overflow-y:auto;}
+    .cap-modal.open{opacity:1;visibility:visible;}
+    .cap-box{width:100%;max-width:430px;margin:auto;background:#111;border:1px solid #222;border-radius:20px;overflow:hidden;position:relative;transform:translateY(16px) scale(.98);transition:transform .25s ease;}
+    .cap-modal.open .cap-box{transform:none;}
+    .cap-bar{height:4px;background:linear-gradient(90deg,#EE2A7B,#ff7ab3,#EE2A7B);}
+    .cap-close{position:absolute;top:12px;right:12px;width:34px;height:34px;border:none;background:transparent;color:#9aa3bf;cursor:pointer;border-radius:50%;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s;}
+    .cap-close:hover{background:rgba(255,255,255,.06);color:#fff;}
+    .cap-body{padding:28px 26px;}
+    .cap-body h3{font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;}
+    .cap-text{font-size:14px;color:#9aa3bf;line-height:1.55;margin-bottom:22px;}
+    .cap-row{margin-bottom:14px;}
+    .cap-row label{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#9aa3bf;margin-bottom:7px;}
+    .cap-input{width:100%;background:#050505;border:1px solid #222;border-radius:10px;padding:13px 14px;color:#fff;font-size:14px;outline:none;transition:border-color .2s;font-family:'Inter',sans-serif;}
+    .cap-input:focus{border-color:rgba(238,42,123,.6);}
+    .cap-input::placeholder{color:#4b5273;}
+    .cap-phone{display:flex;gap:8px;}
+    .cap-ddi{width:96px;flex-shrink:0;text-align:center;padding:13px 6px;}
+    .cap-phone input{flex:1;}
+    #capSubmit{width:100%;}
+    .cap-secure{display:flex;align-items:center;justify-content:center;gap:7px;font-size:11px;color:#6b7395;margin-top:14px;}
   </style>
 </head>
 
@@ -518,6 +540,45 @@
     <a href="#oferta" class="cta flex-1 text-center" style="padding:12px 18px !important; font-size:14px !important;">VER PLANOS</a>
   </div>
 
+  <!-- ═══ MODAL DE CAPTURA (pré-checkout) ═══ -->
+  <div class="cap-modal" id="capModal" role="dialog" aria-modal="true" aria-labelledby="capTitle">
+    <div class="cap-box">
+      <div class="cap-bar"></div>
+      <button class="cap-close" id="capClose" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+      <div class="cap-body">
+        <h3 id="capTitle">Falta pouco!</h3>
+        <p class="cap-text" id="capText">Preencha seus dados para liberar o checkout com a condição especial.</p>
+        <form id="capForm">
+          <div class="cap-row">
+            <label for="cap-name">Nome completo</label>
+            <input class="cap-input" type="text" id="cap-name" required placeholder="Seu nome" autocomplete="name">
+          </div>
+          <div class="cap-row">
+            <label for="cap-email">E-mail</label>
+            <input class="cap-input" type="email" id="cap-email" required placeholder="seu@email.com" autocomplete="email">
+          </div>
+          <div class="cap-row">
+            <label for="cap-phone">WhatsApp</label>
+            <div class="cap-phone">
+              <select class="cap-input cap-ddi" id="cap-ddi">
+                <option value="55" selected>🇧🇷 +55</option>
+                <option value="351">🇵🇹 +351</option>
+                <option value="1">🇺🇸 +1</option>
+                <option value="44">🇬🇧 +44</option>
+                <option value="54">🇦🇷 +54</option>
+              </select>
+              <input class="cap-input" type="tel" id="cap-phone" required placeholder="(DDD) 9 0000-0000" inputmode="numeric" autocomplete="tel">
+            </div>
+          </div>
+          <button type="submit" id="capSubmit" class="cta cta-buy" style="background:#25d366 !important; box-shadow:0 0 22px rgba(37,211,102,.4), 0 10px 26px rgba(37,211,102,.25) !important; margin-top:6px;">
+            <i class="fa-solid fa-lock"></i> IR PARA O CHECKOUT
+          </button>
+        </form>
+        <p class="cap-secure"><i class="fa-solid fa-shield-halved"></i> Seus dados estão seguros</p>
+      </div>
+    </div>
+  </div>
+
   <script>
   (function () {
     "use strict";
@@ -699,27 +760,76 @@
     }, { threshold: .1, rootMargin: "0px 0px -50px 0px" });
     document.querySelectorAll('.reveal').forEach(e => revObs.observe(e));
 
-    /* ── Checkout (dois planos) ── */
-    ['buyBtn','buyBtnPro'].forEach(function (id) {
-      const b = document.getElementById(id);
-      if (!b) return;
-      b.addEventListener('click', (e) => {
-        const plan  = b.getAttribute('data-plan');
-        const value = parseFloat(b.getAttribute('data-value')) || undefined;
-        if (window.fbq) fbq('track', 'InitiateCheckout', { content_name: plan, value: value, currency: 'BRL' });
-        window.dataLayer = window.dataLayer || [];
-        dataLayer.push({ event: 'initiate_checkout', plan: plan, value: value });
-        const url = CHECKOUT_URLS[id];
-        if (url) {
-          b.setAttribute('href', url);
-          // deixa o link seguir normalmente
-        } else {
+    /* ── Checkout com captura de dados (dois planos) ── */
+    (function () {
+      const modal = document.getElementById('capModal');
+      const form  = document.getElementById('capForm');
+      const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
+      let current = { id:null, plan:null, value:undefined, url:'' };
+
+      const tracking = (function () {
+        const p = new URLSearchParams(window.location.search);
+        const g = function (k) { return p.get(k) || ''; };
+        return { utm_source:g('utm_source'), utm_medium:g('utm_medium'), utm_campaign:g('utm_campaign'),
+                 utm_content:g('utm_content'), utm_term:g('utm_term'), fbclid:g('fbclid'), gclid:g('gclid'),
+                 referrer:document.referrer || '', landing_url:window.location.href };
+      })();
+
+      function openCap(){ modal.classList.add('open'); document.body.style.overflow='hidden'; setTimeout(function(){var n=document.getElementById('cap-name'); if(n) n.focus();}, 120); }
+      function closeCap(){ modal.classList.remove('open'); document.body.style.overflow=''; }
+      document.getElementById('capClose').addEventListener('click', closeCap);
+      modal.addEventListener('click', function (e) { if (e.target === modal) closeCap(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeCap(); });
+
+      ['buyBtn','buyBtnPro'].forEach(function (id) {
+        const b = document.getElementById(id);
+        if (!b) return;
+        b.addEventListener('click', function (e) {
           e.preventDefault();
-          console.warn('[Odon] Checkout de "' + plan + '" ainda não configurado (' + id + ').');
-          document.getElementById('oferta').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          current = { id:id, plan:b.getAttribute('data-plan'),
+                      value: parseFloat(b.getAttribute('data-value')) || undefined,
+                      url: CHECKOUT_URLS[id] || '' };
+          if (window.fbq) fbq('track','InitiateCheckout',{ content_name:current.plan, value:current.value, currency:'BRL' });
+          window.dataLayer = window.dataLayer || [];
+          dataLayer.push({ event:'initiate_checkout', plan:current.plan, value:current.value });
+          document.getElementById('capText').textContent = 'Preencha seus dados para liberar o checkout do ' + current.plan + '.';
+          openCap();
+        });
+      });
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const btn = document.getElementById('capSubmit');
+        const orig = btn.innerHTML; btn.disabled = true; btn.textContent = 'Processando...';
+        const ddi = document.getElementById('cap-ddi').value;
+        const phone = document.getElementById('cap-phone').value.replace(/\D/g,'');
+        const nome = document.getElementById('cap-name').value;
+        const now = new Date();
+        const payload = {
+          formulario: 'Transpetro - Checkout', produto: current.plan, valor: current.value,
+          metodo: 'Landing Page', nome: nome,
+          email: document.getElementById('cap-email').value,
+          telefone: '+' + ddi + phone,
+          evento: 'Checkout Concurso Transpetro (Grupo Petrobras)',
+          origem: 'LP vendas Transpetro', plano_escolhido: current.plan,
+          data_contato: now.toISOString(),
+          data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR')
+        };
+        Object.assign(payload, tracking);
+        try { if (WEBHOOK_URL) await fetch(WEBHOOK_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) }); }
+        catch (err) { console.error('Webhook error:', err); }
+        try { if (typeof fbq === 'function') fbq('track','Lead',{ content_name:current.plan, content_category:'Transpetro', value:current.value, currency:'BRL' }); } catch (err) {}
+
+        if (current.url) {
+          window.location.href = current.url;
+        } else {
+          btn.innerHTML = orig; btn.disabled = false;
+          document.getElementById('capTitle').textContent = 'Recebemos seus dados ✓';
+          document.getElementById('capText').textContent = 'O link de checkout do ' + current.plan + ' ainda será ativado — nosso time entra em contato pelo WhatsApp.';
+          console.warn('[Odon] Checkout de "' + current.plan + '" ainda não configurado (' + current.id + ').');
         }
       });
-    });
+    })();
 
     /* ── Barra fixa de compra (mobile): aparece após rolar o hero ── */
     const buyBar = document.getElementById('buyBar');
