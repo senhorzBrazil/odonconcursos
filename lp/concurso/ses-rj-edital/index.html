@@ -452,7 +452,7 @@
       <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img">
     </div>
     <a onclick="openModal()" class="nav-pill">
-      Quero minha vaga
+      Entrar na lista de espera
       <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </nav>
@@ -471,19 +471,19 @@
         </h1>
 
         <p class="hero-desc fade-in delay-3">
-          Preparatório <strong>direcionado à prova da SES-RJ</strong>, com o método que já levou <strong>mais de 1.100 dentistas à aprovação</strong>. Você estuda exatamente o que o edital cobra, prioriza as disciplinas de maior peso e chega na prova pronto — sem perder tempo com o que não cai.
+          Preparatório <strong>direcionado à prova da SES-RJ</strong>, com o método que já levou <strong>mais de 1.200 dentistas à aprovação</strong>. Você estuda exatamente o que o edital cobra, prioriza as disciplinas de maior peso e chega na prova pronto — sem perder tempo com o que não cai.
         </p>
 
         <div class="hero-ctas fade-in delay-4">
           <a onclick="openModal()" class="bnt1">
-            <span>Quero garantir minha vaga</span>
+            <span>Entrar na lista de espera</span>
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
 
         <div class="cta-micro fade-in delay-5">
           <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Direcionado ao edital</span>
-          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>+1.100 aprovados</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>+1.200 aprovados</span>
           <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Atendimento no WhatsApp</span>
         </div>
       </div>
@@ -501,8 +501,8 @@
         <i data-lucide="x"></i>
       </button>
       <div class="modal-body">
-        <h3 id="modalTitle">Garanta sua vaga</h3>
-        <p class="modal-text">Preencha seus dados e o nosso time vai te apresentar o preparatório para o concurso da SES-RJ pelo WhatsApp. As turmas têm vagas limitadas.</p>
+        <h3 id="modalTitle">Entrar na lista de espera</h3>
+        <p class="modal-text">Preencha seus dados para entrar na lista de espera do preparatório para o concurso da SES-RJ. Quem está na lista é avisado <strong>primeiro</strong> quando as turmas abrirem — as vagas são limitadas.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -527,7 +527,7 @@
             <input class="form-input" type="email" id="su-email" required placeholder="seu@email.com" autocomplete="email">
           </div>
           <button type="submit" id="su-submit" class="bnt-lime form-submit">
-            Quero minha vaga
+            Entrar na lista de espera
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </form>
@@ -591,14 +591,14 @@
       const now = new Date();
       const nome = document.getElementById('su-name').value;
       const payload = {
-        formulario: 'SES-RJ · Preparatório',
+        formulario: 'SES-RJ · Lista de espera',
         produto: 'SES-RJ',
         metodo: 'Landing Page',
         nome: nome,
         email: document.getElementById('su-email').value,
         telefone: '+' + countryCode + phoneDigits,
-        evento: 'Preparação Concurso Odontologia SES-RJ',
-        origem: 'LP captura SES-RJ 1 dobra (edital publicado)',
+        evento: 'Lista de espera · Preparatório Odontologia SES-RJ',
+        origem: 'LP captura SES-RJ (Lista de espera)',
         data_contato: now.toISOString(),
         data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
         ...tracking
@@ -621,17 +621,17 @@
       // Evento de Lead no Meta Pixel
       try {
         if (typeof fbq === 'function') {
-          fbq('track', 'Lead', { content_name: 'LP SES-RJ Dentista 1 dobra', content_category: 'SES-RJ' });
+          fbq('track', 'Lead', { content_name: 'LP SES-RJ Dentista (Lista de espera)', content_category: 'SES-RJ' });
         }
       } catch (err) { console.error('Meta Pixel error:', err); }
 
       // Confirmação + redirecionamento pro comercial da OdonConcursos
       this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te redirecionando para o nosso comercial no WhatsApp…';
-      document.getElementById('modalTitle').textContent = 'Inscrição confirmada ✓';
+      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Você está na lista de espera. Estamos te redirecionando para o nosso WhatsApp…';
+      document.getElementById('modalTitle').textContent = 'Você está na lista ✓';
       lucide.createIcons();
 
-      const msg = `Olá! Quero saber mais sobre o preparatório para o concurso de Odontologia da SES-RJ (${nome}).`;
+      const msg = `Olá! Quero entrar na lista de espera do preparatório para o concurso de Odontologia da SES-RJ (${nome}).`;
       const waLink = `https://wa.me/${COMERCIAL_WHATSAPP}?text=${encodeURIComponent(msg)}`;
       setTimeout(() => { window.location.href = waLink; }, 1200);
     });
