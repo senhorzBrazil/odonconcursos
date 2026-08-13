@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concurso Transpetro 2026 · Dentista (Grupo Petrobras) · Preparatório Direcionado | Odon Concursos</title>
+  <meta name="description" content="Preparatório direcionado para a ênfase Odontologia do concurso Transpetro 2026 (Grupo Petrobras): vaga imediata + cadastro de reserva, salário de nível superior de até R$ 15 mil, banca Cesgranrio. Método com +1.100 dentistas aprovados.">
+
+  <!-- ═══ TRACKING ═══ -->
+  <script>window.dataLayer = window.dataLayer || [];</script>
+
+  <!-- Meta (Facebook) Pixel · mesma conta das demais LPs do Odon -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1038030425232337');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=1038030425232337&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: { DEFAULT: '#EE2A7B', dark: '#c92066' },
+            blue: { DEFAULT: '#0E0740' },
+            dark: { bg: '#050505', section: '#0a0a0a', card: '#111111', border: '#222222' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *:not(i) { font-family: 'Inter', sans-serif; }
+    * { line-height: 1.2em; }
+    body { background-color: #050505; color: #fff; overflow-x: hidden; }
+
+    .section-divider { width: 40px; height: 4px; background: #EE2A7B; border-radius: 9999px; margin: 16px auto; }
+
+    /* Reveal */
+    .reveal { opacity:0; transform:translateY(20px); transition:all .5s cubic-bezier(.16,1,.3,1); }
+    .reveal.active { opacity:1; transform:translateY(0); }
+    .delay-100 { transition-delay:100ms; } .delay-200 { transition-delay:200ms; } .delay-300 { transition-delay:300ms; }
+
+    /* Cards */
+    .card-hover { transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s, border-color .35s; }
+    .card-hover:hover {
+      border-color: rgba(238,42,123,.55) !important;
+      box-shadow: 0 14px 40px rgba(0,0,0,.45), 0 0 26px rgba(238,42,123,.18) !important;
+      transform: translateY(-5px);
+    }
+
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary ~ * { animation: slideDown .3s ease-in-out; }
+    @keyframes slideDown { from { opacity:0; transform:translateY(-10px);} to {opacity:1;transform:translateY(0);} }
+
+    /* ─── HERO: imagem Petrobras à direita, texto escuro à esquerda ─── */
+    .hero-section {
+      position:relative; overflow:hidden; display:flex; align-items:center;
+      min-height:92vh; min-height:92svh; background:#ffffff;
+    }
+    .hero-wrap {
+      position:relative; z-index:4; width:min(1200px,100%); margin:0 auto;
+      padding:clamp(48px,9vh,110px) clamp(20px,5vw,64px);
+    }
+    .hero-left { display:flex; flex-direction:column; align-items:flex-start; gap:22px; max-width:600px; text-align:left; }
+    .hero-left h1 { color:#0E0740; }
+    .hero-p { color:#334155; }
+    .hero-p strong { color:#0E0740; font-weight:700; }
+    .hero-checks { color:#475569 !important; }
+    .hero-section .cta-timer-label { color:#c92066; }
+    .hero-section .cta-timer-box { border-color:rgba(238,42,123,.35); background:rgba(238,42,123,.06); }
+    .hero-section .cta-timer-box b { color:#0E0740; }
+    .hero-section .cta-timer-box i { color:#64748b; }
+    .hero-photo-m { display:none; }
+    @media (min-width:901px){
+      .hero-section {
+        background:
+          linear-gradient(90deg,#fff 0%,rgba(255,255,255,.96) 24%,rgba(255,255,255,.6) 44%,rgba(255,255,255,0) 64%),
+          url("lp_desk_petrobras.jpg") center right / cover no-repeat, #fff;
+      }
+    }
+    @media (max-width:900px){
+      .hero-section { flex-direction:column; align-items:stretch; min-height:0; background:#fff; }
+      .hero-photo-m {
+        display:block; width:100%; height:46svh; min-height:300px; max-height:470px;
+        background:
+          linear-gradient(to bottom, rgba(255,255,255,0) 66%, #fff 100%),
+          url("lp_mobile_petrobras.jpg") top center / cover no-repeat;
+      }
+      .hero-wrap { padding:6px clamp(20px,5vw,40px) clamp(40px,6vh,52px); }
+      .hero-left { max-width:100%; }
+    }
+
+    /* Texto em gradiente */
+    .gtext {
+      background:linear-gradient(92deg, #EE2A7B 10%, #ff7ab3 90%);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+      padding-bottom:.04em;
+    }
+
+    /* CTA */
+    .cta {
+      position:relative; isolation:isolate; overflow:hidden;
+      display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+      padding:clamp(15px,2.2vw,19px) clamp(24px,4.5vw,42px) !important;
+      font-weight:800 !important; font-size:clamp(14px,1.5vw,18px) !important;
+      letter-spacing:.01em; line-height:1.15 !important; text-align:center;
+      color:#fff !important; text-decoration:none; border:none !important; border-radius:999px !important; cursor:pointer;
+      background:radial-gradient(120% 130% at 50% 0%, #ff4f99 0%, #EE2A7B 46%, #c92066 100%) !important;
+      box-shadow:0 0 22px rgba(238,42,123,.5), 0 0 46px rgba(238,42,123,.32), 0 12px 28px rgba(238,42,123,.25) !important;
+      transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    }
+    .cta:hover { transform:translateY(-2px) scale(1.03); box-shadow:0 0 30px rgba(238,42,123,.65), 0 0 70px rgba(238,42,123,.45), 0 16px 38px rgba(238,42,123,.32) !important; }
+    .cta:active { transform:scale(.97); }
+    .cta::before {
+      content:''; position:absolute; bottom:0; left:-14%; z-index:-1; width:80px; height:170%;
+      background:linear-gradient(10deg, #ffd9ec 12%, rgba(255,217,236,0) 66%);
+      transform:skew(-25deg); filter:blur(5px); pointer-events:none;
+      animation:ctaShine 3.2s ease-in-out infinite;
+    }
+    .cta::after { content:''; position:absolute; inset:0; z-index:-1; border-radius:999px; border:1.5px solid rgba(255,255,255,.22); pointer-events:none; }
+    @keyframes ctaShine { 0%,100%{ left:-14%; opacity:0; } 20%{ opacity:1; } 48%{ left:110%; opacity:1; } 51%{ opacity:0; } }
+
+    .cta-light {
+      position:relative; overflow:hidden; isolation:isolate;
+      display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+      padding:clamp(15px,2.2vw,19px) clamp(28px,5vw,48px); border-radius:999px;
+      background:#fff; color:#EE2A7B; font-weight:800; font-size:clamp(14px,1.5vw,18px);
+      text-decoration:none; box-shadow:0 10px 30px rgba(0,0,0,.25); transition:transform .25s, box-shadow .25s;
+    }
+    .cta-light:hover { transform:translateY(-2px) scale(1.03); box-shadow:0 14px 38px rgba(0,0,0,.3); }
+
+    .cta-buy {
+      display:block; width:100%;
+      padding:clamp(15px,2.2vw,18px) 1rem !important;
+      font-size:clamp(15px,1.5vw,18px) !important;
+      box-shadow:0 0 22px rgba(37,211,102,.4), 0 10px 26px rgba(37,211,102,.25) !important;
+      transition:transform .2s, box-shadow .2s;
+    }
+    .cta-buy:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 0 30px rgba(37,211,102,.55), 0 14px 32px rgba(37,211,102,.3) !important; }
+    .cta-buy:active { transform:scale(.98); }
+    @media (prefers-reduced-motion:reduce){ .cta::before{ animation:none; opacity:0; } }
+
+    /* Countdown */
+    .cta-timer { display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
+    .cta-timer-label { font-size:13px; font-weight:700; color:#ff7ab3; line-height:1.45; max-width:460px; }
+    .cta-timer-clock { display:inline-flex; gap:8px; }
+    .cta-timer-box {
+      display:inline-flex; flex-direction:column; align-items:center; min-width:58px; padding:9px 10px;
+      border-radius:12px; border:1px solid rgba(238,42,123,.4); background:rgba(238,42,123,.08);
+    }
+    .cta-timer-box b { font-size:22px; font-weight:800; color:#fff; line-height:1; font-variant-numeric:tabular-nums; }
+    .cta-timer-box i { font-style:normal; font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.65); margin-top:5px; font-weight:600; }
+    .final-cta-timer .cta-timer { align-items:center; }
+    .final-cta-timer .cta-timer-label { text-align:center; }
+
+    /* Barra fixa mobile de compra */
+    .buybar {
+      position:fixed; left:0; right:0; bottom:0; z-index:60;
+      display:flex; gap:10px; align-items:center; justify-content:space-between;
+      padding:10px 14px; background:rgba(10,10,10,.92); backdrop-filter:blur(10px);
+      border-top:1px solid #222; transform:translateY(120%); transition:transform .35s ease;
+    }
+    .buybar.show { transform:translateY(0); }
+    @media (min-width:768px){ .buybar { display:none; } }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-brand selection:text-white relative overflow-x-hidden">
+
+  <!-- WhatsApp flutuante -->
+  <a href="https://api.whatsapp.com/send?phone=5519994565534&text=Vi%20a%20p%C3%A1gina%20do%20preparat%C3%B3rio%20para%20o%20concurso%20da%20Transpetro%20(Odontologia)%20e%20quero%20saber%20mais."
+     target="_blank" rel="noopener"
+     class="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-[#25D366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.5)] hover:scale-110 transition-transform flex items-center justify-center z-50">
+    <i class="fa-brands fa-whatsapp text-3xl md:text-4xl"></i>
+  </a>
+
+  <main class="w-full overflow-x-hidden">
+
+    <!-- ═══ HERO ═══ -->
+    <header class="hero-section">
+      <div class="hero-photo-m" aria-hidden="true"></div>
+      <div class="hero-wrap">
+        <div class="hero-left">
+          <div class="reveal">
+            <img decoding="async" src="https://odonconcursos.com.br/assets/img/logo.png" alt="Odon Concursos" class="w-[160px] md:w-[190px] h-auto object-contain">
+          </div>
+
+          <span class="reveal delay-100 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand/30 bg-brand/10 text-brand text-xs md:text-sm font-bold tracking-wide uppercase">
+            <i class="fa-solid fa-oil-well"></i> Concurso Transpetro · Grupo Petrobras · Odontologia
+          </span>
+
+          <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold reveal delay-200">
+            Preparação completa para o concurso de dentista da
+            <span class="gtext">Petrobras / Transpetro</span>
+          </h1>
+
+          <p class="hero-p text-base md:text-xl font-medium reveal delay-300">
+            A ênfase <strong>Odontologia</strong> abre <strong>vaga imediata + cadastro de reserva</strong>,
+            com remuneração de nível superior que <strong>chega a R$ 15 mil</strong> e prova da banca
+            <strong>Cesgranrio</strong>. No preparatório direcionado do <strong>Odon Concursos</strong>,
+            método com <strong>+1.100 dentistas aprovados</strong>, você estuda exatamente o que essa prova cobra.
+          </p>
+
+          <a href="#oferta" class="reveal delay-300 cta w-full sm:w-auto">
+            QUERO GARANTIR MINHA PREPARAÇÃO
+            <i class="fa-solid fa-arrow-right ml-2 text-lg"></i>
+          </a>
+
+          <div class="cta-timer reveal delay-300">
+            <span class="cta-timer-label">Inscrições abertas na Cesgranrio até 14/09. Condição especial de preparação disponível até:</span>
+            <span class="cta-timer-clock js-cta-timer">
+              <span class="cta-timer-box"><b data-dd>00</b><i>dias</i></span>
+              <span class="cta-timer-box"><b data-hh>00</b><i>horas</i></span>
+              <span class="cta-timer-box"><b data-mm>00</b><i>min</i></span>
+              <span class="cta-timer-box"><b data-ss>00</b><i>seg</i></span>
+            </span>
+          </div>
+
+          <div class="hero-checks reveal delay-300 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Vaga + cadastro de reserva</span>
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Inscrições até 14/09</span>
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Prova em 29/11</span>
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> 100% online</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ DETALHES DO CONCURSO ═══ -->
+    <section class="py-10 md:py-16 px-5 md:px-8 bg-dark-section relative z-10 border-t border-dark-border/50">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-center text-xl sm:text-2xl md:text-3xl font-bold mb-8 md:mb-10 uppercase reveal">
+          Os números do <span class="gtext">concurso da Transpetro</span>
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5" id="concursoGrid"></div>
+        <p class="text-center text-xs md:text-sm text-gray-500 mt-6 reveal">
+          Cargo: Profissional Júnior · Ênfase Odontologia · Banca: Cesgranrio · Fonte: Edital nº 04 (TRANSPETRO/PSP/TERRA/NÍVEL SUPERIOR-2026.4).
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ DORES ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-dark-bg relative z-10 border-t border-dark-border/50">
+      <div class="absolute top-1/2 -left-20 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-brand/10 blur-[120px] rounded-full -z-10 pointer-events-none -translate-y-1/2"></div>
+      <div class="max-w-5xl mx-auto text-center flex flex-col items-center">
+        <h2 class="text-xl sm:text-2xl md:text-4xl font-bold mb-3 md:mb-4 uppercase max-w-4xl reveal">
+          A vaga na Transpetro vai para quem <span class="gtext">chega preparado</span>, não para quem começa depois do edital detalhado
+        </h2>
+        <p class="text-base md:text-xl text-gray-400 mb-8 md:mb-12 max-w-3xl reveal delay-100">
+          Se você se identifica com isso, você não está sozinho, e tem solução:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 w-full text-left mb-10 md:mb-12" id="painCards"></div>
+        <a href="#oferta" class="cta w-full sm:w-auto reveal">QUERO ME PREPARAR PARA A TRANSPETRO</a>
+      </div>
+    </section>
+
+    <!-- ═══ A OPORTUNIDADE ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-white text-black relative z-10">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-2xl md:text-4xl font-bold mb-4 md:mb-6 text-blue uppercase reveal">Por que a Transpetro é a oportunidade da carreira</h2>
+        <div class="section-divider"></div>
+        <p class="text-base md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto reveal delay-100">
+          Um cargo de Dentista no Grupo Petrobras, com salário de nível superior de <strong>até R$ 15 mil</strong>,
+          cadastro de reserva e um dos <strong>melhores pacotes de benefícios do país</strong>, é o tipo de vaga
+          que <strong>premia quem já está treinado no estilo Cesgranrio</strong>. E é exatamente aí que a maioria perde:
+          estuda no escuro, sem saber o que cai. O preparatório direcionado resolve isso.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10" id="oppCards"></div>
+        <a href="#oferta" class="inline-flex cta w-full sm:w-auto reveal">QUERO ESTUDAR DIRECIONADO</a>
+      </div>
+    </section>
+
+    <!-- ═══ O MÉTODO / PREPARATÓRIO ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-dark-bg relative z-10 border-t border-dark-border/50">
+      <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 md:gap-16 items-center">
+        <div class="w-full lg:w-1/2 reveal">
+          <img decoding="async" loading="lazy" src="https://odonconcursospage.com/wp-content/uploads/2026/03/celular.webp" alt="Preparatório Odon Concursos" class="w-full h-auto">
+        </div>
+        <div class="w-full lg:w-1/2 reveal delay-100">
+          <h3 class="text-3xl md:text-4xl font-black mb-4 md:mb-6 text-brand tracking-tight">PREPARATÓRIO TRANSPETRO</h3>
+          <p class="text-base md:text-lg text-gray-300 mb-6">Se o seu objetivo é conquistar a vaga de Dentista da Transpetro (Grupo Petrobras), esse curso foi feito pra você. Aqui você estuda com método, estratégia e foco total no que a Cesgranrio realmente cobra:</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-8" id="methodCards"></div>
+          <a href="#oferta" class="inline-flex cta w-full sm:w-auto">QUERO SER APROVADO NA TRANSPETRO</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ APROVADOS (prova social · prints) ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-dark-section text-center relative z-10 border-t border-dark-border/50">
+      <div class="absolute top-0 right-0 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-brand/10 blur-[150px] rounded-full -z-10 pointer-events-none translate-x-1/4 -translate-y-1/4"></div>
+      <div class="max-w-6xl mx-auto">
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand/30 bg-brand/10 text-brand text-xs md:text-sm font-bold tracking-wide uppercase mb-6 reveal">
+          <i class="fa-solid fa-trophy"></i> +1.100 dentistas aprovados
+        </span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 uppercase max-w-4xl mx-auto reveal">
+          Provas reais de quem foi <span class="gtext">aprovado com o nosso método</span>
+        </h2>
+        <p class="text-base md:text-lg text-gray-400 mb-8 md:mb-12 max-w-3xl mx-auto reveal delay-100">
+          Não é promessa. São dentistas de todo o Brasil que estudaram com o Odon e conquistaram a vaga em concursos de Odontologia.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 mb-8 md:mb-12 reveal delay-100"
+             data-img-grid='["prova-1","prova-2","prova-5","prova-3","prova-8","prova-6","aprov-4","prova-16"]'></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8 reveal"
+             data-video-grid='["Lp6OBEG7wbs","Akkp0nC0fKA","bSponCOMkY0","Cv5sQndeBqo"]'></div>
+        <a href="#oferta" class="inline-flex cta w-full sm:w-auto reveal">QUERO ENTRAR PARA ESSA LISTA</a>
+      </div>
+    </section>
+
+    <!-- ═══ DENTRO DO PREPARATÓRIO ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-white text-black relative z-10">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-10 md:gap-12 items-center">
+        <div class="w-full md:w-1/2 reveal">
+          <img decoding="async" loading="lazy" src="https://odonconcursospage.com/wp-content/uploads/2026/03/celular-1.webp" alt="Conteúdo do preparatório" class="w-full h-auto transform scale-[1.2] md:scale-[1.6]">
+        </div>
+        <div class="w-full md:w-1/2 reveal delay-100">
+          <h2 class="text-2xl md:text-4xl font-bold mb-6 md:mb-8 uppercase text-blue">Dentro do preparatório você terá:</h2>
+          <ul class="space-y-4 md:space-y-5 text-gray-800 text-sm md:text-base font-medium" id="insideList"></ul>
+          <div class="mt-8">
+            <a href="#oferta" class="inline-flex cta w-full sm:w-auto">QUERO GARANTIR MINHA PREPARAÇÃO</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ OFERTA / CHECKOUT ═══ -->
+    <section id="oferta" class="py-12 md:py-20 px-5 md:px-8 bg-dark-section relative z-10 overflow-hidden border-t border-dark-border/50">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[700px] md:h-[700px] bg-brand/10 blur-[150px] md:blur-[200px] -z-10 rounded-full pointer-events-none"></div>
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 uppercase reveal">Garanta sua preparação para a <span class="gtext">Transpetro</span></h2>
+        <p class="text-gray-400 mb-10 md:mb-12 max-w-2xl mx-auto reveal delay-100">Acesso completo ao Preparatório Transpetro, direcionado para a prova da banca Cesgranrio, do começo ao fim da sua preparação.</p>
+
+        <div class="bg-dark-card border border-brand/50 rounded-3xl p-6 md:p-10 shadow-[0_0_40px_rgba(238,42,123,0.25)] relative reveal card-hover text-left">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-brand font-black text-xs md:text-sm uppercase px-4 md:px-6 py-1 md:py-2 rounded-full shadow-lg whitespace-nowrap">Turmas limitadas</div>
+
+          <h3 class="text-xl md:text-2xl font-black text-white mb-6 uppercase text-center mt-3">Preparatório Transpetro<br><span class="text-sm md:text-base opacity-80 block mt-1 font-bold">Dentista · Grupo Petrobras · Banca Cesgranrio</span></h3>
+
+          <ul class="space-y-3 md:space-y-4 text-xs md:text-sm text-gray-300 mb-8" id="offerItems"></ul>
+
+          <div class="text-center border-t border-dark-border pt-8">
+            <p class="text-xs md:text-sm text-gray-400 uppercase tracking-widest mb-1">Investimento:</p>
+            <div class="text-[#25d366] font-black text-4xl md:text-5xl mb-2">12x DE R$ 74,75</div>
+            <p class="text-gray-400 mb-6 text-sm">ou R$ 897,00 à vista · cartão em até 12x ou Pix</p>
+
+            <a href="#" id="buyBtn" data-plan="Preparatório Transpetro" data-value="897"
+               class="cta-buy cta w-full text-white text-center" style="background:#25d366 !important; box-shadow:0 0 22px rgba(37,211,102,.4), 0 10px 26px rgba(37,211,102,.25) !important;">
+              <i class="fa-solid fa-lock text-base"></i> QUERO GARANTIR MINHA PREPARAÇÃO
+            </a>
+            <p class="flex items-center justify-center gap-2 text-[11px] text-gray-500 mt-4">
+              <i class="fa-solid fa-shield-halved"></i> Compra 100% segura · Garantia de 7 dias
+            </p>
+          </div>
+        </div>
+
+        <a href="https://api.whatsapp.com/send?phone=5519994565534&text=Tenho%20uma%20d%C3%BAvida%20sobre%20o%20preparat%C3%B3rio%20para%20o%20concurso%20da%20Transpetro%20(Odontologia)."
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 mt-8 text-sm text-gray-400 hover:text-white transition-colors reveal">
+          <i class="fa-brands fa-whatsapp text-[#25D366] text-lg"></i> Tenho dúvidas? Falar com o time no WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══ MAIS APROVADOS (2ª leva) ═══ -->
+    <section class="py-10 md:py-20 px-5 md:px-8 bg-white text-black border-t border-gray-200 text-center">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-10 uppercase max-w-4xl mx-auto reveal text-blue">Veja mais alguns dos nossos +1.100 aprovados</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 mb-8 md:mb-10 reveal delay-100"
+             data-img-grid='["prova-4","prova-7","prova-10","foto-1","prova-11","prova-12","prova-13","prova-17"]'></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 reveal"
+             data-video-grid='["et96cp-ksKY","s0fbBTfHeZA","xrlSo5IctBY","kYyPd7u1HP8"]'></div>
+      </div>
+    </section>
+
+    <!-- ═══ GARANTIA ═══ -->
+    <section class="py-12 md:py-20 px-5 md:px-8 bg-dark-bg text-center flex flex-col items-center border-t border-dark-border/50">
+      <div class="max-w-3xl mx-auto flex flex-col items-center reveal">
+        <div class="w-20 h-20 md:w-24 md:h-24 bg-brand rounded-full flex items-center justify-center mb-6 md:mb-8 shadow-xl shadow-brand/30">
+          <i class="fa-solid fa-shield-halved text-white text-4xl md:text-5xl"></i>
+        </div>
+        <h2 class="text-4xl md:text-6xl font-black mb-2 tracking-tight uppercase">RISCO ZERO!</h2>
+        <h3 class="text-xl md:text-2xl font-bold text-gray-300 mb-6 md:mb-8 uppercase">Garantia incondicional de 7 dias</h3>
+        <p class="text-base md:text-xl text-gray-400 mb-6 font-medium">Entre, conheça todo o preparatório e, se dentro de 7 dias você achar que não é para você, basta enviar um e-mail ao suporte que devolvemos 100% do valor investido. O risco é todo nosso.</p>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="py-12 md:py-20 px-5 md:px-8 bg-dark-section relative z-10 border-t border-dark-border/50">
+      <div class="absolute top-0 left-0 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-brand/10 blur-[150px] rounded-full -z-10 pointer-events-none -translate-y-1/2"></div>
+      <div class="max-w-4xl mx-auto flex flex-col items-center">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center uppercase reveal">Perguntas frequentes</h2>
+        <div class="w-full space-y-3 md:space-y-4 reveal delay-100" id="faq"></div>
+        <a href="#oferta" class="mt-10 md:mt-12 inline-flex cta w-full sm:w-auto reveal">QUERO GARANTIR MINHA PREPARAÇÃO</a>
+      </div>
+    </section>
+
+    <!-- ═══ CTA FINAL ═══ -->
+    <section class="py-12 md:py-20 px-5 md:px-8 bg-brand text-center flex flex-col items-center final-cta-timer">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-4 md:mb-6 text-white uppercase tracking-tight reveal">A vaga na Transpetro pode ser sua</h2>
+      <p class="text-base md:text-xl text-white/90 mb-8 max-w-2xl font-medium reveal delay-100">Quem se prepara antes sai na frente. Garanta seu acesso agora e comece a estudar direcionado para a prova de 29/11.</p>
+      <a href="#oferta" class="cta-light uppercase tracking-wide w-full sm:w-auto reveal delay-200">
+        QUERO GARANTIR MINHA PREPARAÇÃO <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <div class="cta-timer mt-8 reveal delay-300" style="align-items:center;">
+        <span class="cta-timer-label" style="color:#fff;">Condição especial disponível até:</span>
+        <span class="cta-timer-clock js-cta-timer">
+          <span class="cta-timer-box" style="border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.12);"><b data-dd>00</b><i>dias</i></span>
+          <span class="cta-timer-box" style="border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.12);"><b data-hh>00</b><i>horas</i></span>
+          <span class="cta-timer-box" style="border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.12);"><b data-mm>00</b><i>min</i></span>
+          <span class="cta-timer-box" style="border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.12);"><b data-ss>00</b><i>seg</i></span>
+        </span>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="py-8 md:py-10 px-5 md:px-8 bg-dark-bg border-t border-dark-border">
+      <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+        <img decoding="async" loading="lazy" src="https://odonconcursospage.com/wp-content/uploads/2024/07/MarcaDagua-OdonConcursos-variacao-06-1.png" alt="Odon Concursos" class="w-[180px] h-auto object-contain mb-6">
+        <p class="text-gray-500 text-xs md:text-sm max-w-2xl">O Odon Concursos é uma edtech especializada exclusivamente em concursos de Odontologia. Esta página não tem vínculo com a Transpetro, a Petrobras ou a banca organizadora; trata-se de um preparatório particular.</p>
+        <p class="text-gray-600 text-xs md:text-sm mt-4">&copy; 2026 Odon Concursos. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Barra fixa de compra (mobile) -->
+  <div class="buybar" id="buyBar">
+    <div class="leading-tight">
+      <span class="block text-[10px] text-gray-400 uppercase tracking-wide">12x de</span>
+      <span class="block text-lg font-black text-[#25d366]">R$ 74,75</span>
+    </div>
+    <a href="#oferta" class="cta flex-1 text-center" style="padding:12px 18px !important; font-size:14px !important;">GARANTIR VAGA</a>
+  </div>
+
+  <script>
+  (function () {
+    "use strict";
+
+    /* ═══════════════════════════════════════════════════════════
+       ⚠️  COLE AQUI O LINK DO CHECKOUT (quando você tiver).
+       Ex.: 'https://pay.kiwify.com.br/xxxxxxx' ou o carrinho do Odon.
+       Enquanto estiver vazio, o botão rola para a oferta e avisa no console. */
+    const CHECKOUT_URL = '';
+    /* ═══════════════════════════════════════════════════════════ */
+
+    const up  = (y,m,f) => 'https://odonconcursospage.com/wp-content/uploads/' + y + '/' + m + '/' + f;
+    const prova = n => up('2026','02', n + '.webp');
+    const el = (html) => { const t=document.createElement('template'); t.innerHTML=html.trim(); return t.content.firstElementChild; };
+
+    /* ── Detalhes do concurso ── */
+    const concurso = [
+      ["fa-user-doctor","Vagas","1 + cadastro de reserva","Ênfase Odontologia · polo RJ"],
+      ["fa-sack-dollar","Remuneração","Até R$ 15 mil","nível superior + benefícios"],
+      ["fa-file-signature","Banca","Cesgranrio","perfil de prova consolidado"],
+      ["fa-calendar-days","Datas-chave","Inscrições até 14/09","Prova: 29/11"]
+    ];
+    const cg = document.getElementById('concursoGrid');
+    concurso.forEach((c,i) => cg.appendChild(el(
+      `<div class="bg-dark-card border border-dark-border rounded-2xl p-5 md:p-6 reveal ${i?('delay-'+Math.min(i*100,300)):''} card-hover">
+        <div class="w-11 h-11 rounded-xl bg-brand/10 border border-brand/25 flex items-center justify-center text-brand mb-4"><i class="fa-solid ${c[0]} text-lg"></i></div>
+        <p class="text-[10px] tracking-[.16em] uppercase text-gray-500 font-bold mb-1">${c[1]}</p>
+        <p class="text-lg md:text-xl font-black text-white leading-tight">${c[2]}</p>
+        <p class="text-xs text-gray-400 mt-1">${c[3]}</p>
+      </div>`)));
+
+    /* ── Pain cards ── */
+    const pains = [
+      "Estuda por meses, mas continua sem saber se está focando no que a Cesgranrio realmente cobra",
+      "Se sente sobrecarregado com o conteúdo extenso e a sensação de que nunca vai dar tempo",
+      "Concilia clínica e plantões e tem pouco tempo para se preparar com consistência",
+      "Tem medo de perder a vaga por estudar no escuro, sem direcionamento para a prova da Petrobras"
+    ];
+    const painGrid = document.getElementById('painCards');
+    const painIcons = ["fa-circle-question","fa-book-open-reader","fa-clock","fa-triangle-exclamation"];
+    pains.forEach((t, i) => painGrid.appendChild(el(
+      `<div class="bg-dark-card border border-dark-border border-b-[5px] border-b-brand rounded-2xl p-6 reveal ${i?('delay-'+Math.min(i*100,300)):''} card-hover flex flex-col gap-4">
+        <i class="fa-solid ${painIcons[i]} text-brand text-2xl"></i>
+        <p class="text-white text-sm md:text-[15px] font-medium leading-snug">${t}</p>
+      </div>`)));
+
+    /* ── Oportunidade cards ── */
+    const opp = [
+      ["fa-award","Método com +1.100 aprovados","O Odon é especializado só em Odontologia e já levou mais de 1.100 dentistas à aprovação. Resultado comprovado, não teoria."],
+      ["fa-crosshairs","Estudo direcionado para a Cesgranrio","Você aprende como a Cesgranrio cobra, quais disciplinas têm mais peso e treina com questões no padrão da prova."],
+      ["fa-bolt","Quem se prepara antes larga na frente","A maioria só corre quando sai o edital detalhado. Quem já tem base e treino chega no dia da prova muito à frente."],
+      ["fa-building-shield","Carreira no Grupo Petrobras","Estabilidade, salário de nível superior e um dos melhores pacotes de benefícios do país (plano de saúde, PLR, previdência)."]
+    ];
+    const oppWrap = document.getElementById('oppCards');
+    opp.forEach((o,i) => oppWrap.appendChild(el(
+      `<div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 reveal ${i?('delay-'+Math.min(i*100,300)):''} card-hover flex gap-4">
+        <div class="w-11 h-11 rounded-xl bg-brand/10 border border-brand/25 flex items-center justify-center text-brand shrink-0"><i class="fa-solid ${o[0]}"></i></div>
+        <div><h3 class="font-bold text-blue text-base md:text-lg mb-1 leading-tight">${o[1]}</h3><p class="text-gray-600 text-sm md:text-base">${o[2]}</p></div>
+      </div>`)));
+
+    /* ── Method checks ── */
+    const methods = ["Estudo direcionado ao estilo Cesgranrio","Treino constante com questões reais comentadas","Correção de erros e revisões constantes","Rotina realista para quem tem pouco tempo"];
+    const mc = document.getElementById('methodCards');
+    methods.forEach(t => mc.appendChild(el(
+      `<div class="bg-dark-card border border-dark-border p-4 rounded-xl flex items-center gap-3 card-hover">
+        <i class="fa-solid fa-check text-brand text-xl shrink-0"></i>
+        <span class="text-sm md:text-base text-gray-200 font-medium">${t}</span>
+      </div>`)));
+
+    /* ── Inside list ── */
+    const inside = [
+      "Videoaulas de Odontologia (Conhecimentos Específicos) no foco da prova da Cesgranrio",
+      "Língua Portuguesa e Língua Inglesa conforme o padrão de cobrança da banca",
+      "Materiais em PDF para acompanhar as aulas e revisar com facilidade",
+      "Banco de questões com provas anteriores da Cesgranrio",
+      "Tira-dúvidas com os professores por e-mail durante a preparação",
+      "Planejamento de estudos para organizar sua rotina até a prova de 29/11",
+      "Mapas mentais de Odontologia para acelerar a memorização",
+      "Correção pós-prova e auxílio com recursos"
+    ];
+    const il = document.getElementById('insideList');
+    inside.forEach(t => il.appendChild(el(`<li class="flex gap-3 md:gap-4 items-start"><i class="fa-regular fa-circle-check text-brand text-2xl md:text-3xl shrink-0"></i><span class="mt-1 md:mt-0">${t}</span></li>`)));
+
+    /* ── Offer items ── */
+    const offer = [
+      "Videoaulas de Odontologia no foco da Cesgranrio",
+      "Língua Portuguesa e Inglês no padrão da banca",
+      "Materiais em PDF para acompanhar as aulas",
+      "Banco de questões com provas anteriores da Cesgranrio",
+      "Tira-dúvidas com professores por e-mail",
+      "Planejamento de estudos até a prova de 29/11",
+      "Mapas Mentais de Odontologia",
+      "Correção pós-prova e auxílio com recursos"
+    ];
+    const oi = document.getElementById('offerItems');
+    offer.forEach(t => oi.appendChild(el(`<li class="flex gap-3 items-start"><i class="fa-solid fa-check text-[#25d366] text-base shrink-0 mt-1"></i><span>${t}</span></li>`)));
+
+    /* ── Image grids ── */
+    document.querySelectorAll('[data-img-grid]').forEach(grid => {
+      const dark = grid.closest('.bg-dark-bg, .bg-dark-section');
+      JSON.parse(grid.getAttribute('data-img-grid')).forEach(name => {
+        grid.appendChild(el(
+          `<div class="aspect-[4/5] rounded-xl overflow-hidden card-hover shadow-lg relative ${dark?'bg-gray-800':'bg-gray-200'}">
+            <img loading="lazy" decoding="async" src="${prova(name)}" alt="Prova de aprovação" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+          </div>`));
+      });
+    });
+
+    /* ── Video grids (YouTube) ── */
+    document.querySelectorAll('[data-video-grid]').forEach(grid => {
+      const dark = grid.closest('.bg-dark-bg, .bg-dark-section');
+      JSON.parse(grid.getAttribute('data-video-grid')).forEach(id => {
+        grid.appendChild(el(
+          `<div class="aspect-[9/16] rounded-2xl overflow-hidden shadow-lg border ${dark?'border-dark-border bg-black':'border-gray-100 bg-gray-50'} card-hover">
+            <iframe class="w-full h-full" loading="lazy" src="https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1" title="Depoimento de aprovado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>`));
+      });
+    });
+
+    /* ── FAQ ── */
+    const faqs = [
+      ["Preciso já estar estudando para o concurso da Transpetro?","Não. O preparatório atende tanto quem está começando agora quanto quem já estuda há tempo. O estudo é sempre direcionado por banca e padrão de cobrança da Cesgranrio."],
+      ["O conteúdo é específico para a prova da Transpetro (Grupo Petrobras)?","Sim. Além do método completo de Odontologia, você recebe o direcionamento para o perfil da banca Cesgranrio, focando no que tem mais peso na prova."],
+      ["As aulas são online? Já estão disponíveis?","É 100% online e o conteúdo base já está gravado e liberado imediatamente após o pagamento. O acesso chega no seu e-mail logo após a confirmação."],
+      ["Quais são as formas de pagamento?","Cartão de crédito em até 12x (pode usar 2 cartões) ou Pix. Trabalhamos com todos os bancos e bandeiras. Acesso imediato no cartão ou Pix."],
+      ["Tenho pouco tempo até a prova de 29/11. Ainda vale a pena?","Sim. O método foi pensado para quem tem pouco tempo. Com o cronograma personalizado e o estudo direcionado, você foca no essencial e chega mais preparado do que a maioria."],
+      ["E se eu não gostar? Posso cancelar?","Sim. Você tem 7 dias de garantia total. Dentro desse período, por qualquer motivo, basta enviar um e-mail ao suporte que devolvemos 100% do valor."],
+      ["Terei acesso aos professores para tirar dúvidas?","Sim. Suas dúvidas são respondidas dentro da área de membros pelos nossos professores, sem limite de mensagens durante o período de acesso."]
+    ];
+    const faqWrap = document.getElementById('faq');
+    faqs.forEach(f => faqWrap.appendChild(el(
+      `<details class="group bg-dark-card border border-dark-border rounded-xl md:rounded-2xl overflow-hidden card-hover">
+        <summary class="p-5 md:p-6 font-bold text-base md:text-lg cursor-pointer flex justify-between items-center hover:text-brand transition-colors select-none">
+          <span class="pr-4 text-white">${f[0]}</span>
+          <span class="group-open:rotate-180 transition-transform shrink-0"><i class="fa-solid fa-chevron-down text-brand text-lg"></i></span>
+        </summary>
+        <div class="p-5 md:p-6 pt-0 text-sm md:text-base text-gray-400">${f[1]}</div>
+      </details>`)));
+
+    /* ── Reveal observer ── */
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); revObs.unobserve(e.target); } });
+    }, { threshold: .1, rootMargin: "0px 0px -50px 0px" });
+    document.querySelectorAll('.reveal').forEach(e => revObs.observe(e));
+
+    /* ── Checkout ── */
+    const buyBtn = document.getElementById('buyBtn');
+    buyBtn.addEventListener('click', (e) => {
+      const plan  = buyBtn.getAttribute('data-plan');
+      const value = parseFloat(buyBtn.getAttribute('data-value')) || undefined;
+      if (window.fbq) fbq('track', 'InitiateCheckout', { content_name: plan, value: value, currency: 'BRL' });
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({ event: 'initiate_checkout', plan: plan, value: value });
+
+      if (CHECKOUT_URL) {
+        buyBtn.setAttribute('href', CHECKOUT_URL);
+        // deixa o link seguir normalmente
+      } else {
+        e.preventDefault();
+        console.warn('[Odon] CHECKOUT_URL ainda não configurado: cole o link no topo do script.');
+        document.getElementById('oferta').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+
+    /* ── Barra fixa de compra (mobile): aparece após rolar o hero ── */
+    const buyBar = document.getElementById('buyBar');
+    const heroEnd = document.querySelector('.hero-section');
+    const oferta = document.getElementById('oferta');
+    const barObs = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.target === heroEnd || en.target === oferta) {
+          if (en.isIntersecting) buyBar.classList.remove('show');
+        }
+      });
+      const heroVisible = heroEnd.getBoundingClientRect().bottom > 0;
+      const ofertaVisible = oferta.getBoundingClientRect().top < window.innerHeight && oferta.getBoundingClientRect().bottom > 0;
+      if (!heroVisible && !ofertaVisible) buyBar.classList.add('show'); else buyBar.classList.remove('show');
+    }, { threshold: 0 });
+    barObs.observe(heroEnd); barObs.observe(oferta);
+    window.addEventListener('scroll', () => {
+      const heroVisible = heroEnd.getBoundingClientRect().bottom > 0;
+      const r = oferta.getBoundingClientRect();
+      const ofertaVisible = r.top < window.innerHeight && r.bottom > 0;
+      if (!heroVisible && !ofertaVisible) buyBar.classList.add('show'); else buyBar.classList.remove('show');
+    }, { passive: true });
+
+    /* ── Contador evergreen: ciclos de 3 dias, terminando 23h59 ── */
+    (function () {
+      const CYCLE_MS = 3 * 24 * 60 * 60 * 1000;
+      const ANCHOR = new Date(2026, 0, 1, 23, 59, 59, 0).getTime();
+      function nextDeadline() {
+        const elapsed = Date.now() - ANCHOR;
+        const cycles = Math.floor(elapsed / CYCLE_MS) + 1;
+        return ANCHOR + cycles * CYCLE_MS;
+      }
+      const clocks = document.querySelectorAll('.js-cta-timer');
+      if (!clocks.length) return;
+      let deadline = nextDeadline();
+      const pad = (n) => String(n).padStart(2, '0');
+      function tick() {
+        let diff = deadline - Date.now();
+        if (diff <= 0) { deadline = nextDeadline(); diff = deadline - Date.now(); }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        clocks.forEach(c => {
+          c.querySelector('[data-dd]').textContent = pad(d);
+          c.querySelector('[data-hh]').textContent = pad(h);
+          c.querySelector('[data-mm]').textContent = pad(m);
+          c.querySelector('[data-ss]').textContent = pad(s);
+        });
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  })();
+  </script>
+</body>
+</html>
