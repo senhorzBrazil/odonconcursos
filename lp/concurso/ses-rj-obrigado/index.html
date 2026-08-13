@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro confirmado · Lista de espera SES-RJ | OdonConcursos</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1038030425232337');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1038030425232337&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulseGlow { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
+    @keyframes popIn { 0% { transform: scale(.6); opacity: 0; } 60% { transform: scale(1.08); } 100% { transform: scale(1); opacity: 1; } }
+    @keyframes ringPulse { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.9); opacity: 0; } }
+    .fade-in { animation: fadeSlideIn .7s ease-out both; }
+    .delay-1 { animation-delay: .10s; }
+    .delay-2 { animation-delay: .22s; }
+    .delay-3 { animation-delay: .34s; }
+    .delay-4 { animation-delay: .46s; }
+    .delay-5 { animation-delay: .58s; }
+
+    :root {
+      --bg:           #060a18;
+      --bg-card:      #0e1838;
+      --line:         rgba(255,255,255,0.08);
+      --line-strong:  rgba(255,255,255,0.16);
+      --text:         #ffffff;
+      --text-mute:    #9aa3bf;
+      --text-faint:   #4b5273;
+      --lime:         #e91e8c;
+      --lime-soft:    #f472b6;
+      --wa:           #25D366;
+      --wa-2:         #1ebe5a;
+      --sans:    'Roboto', system-ui, sans-serif;
+      --display: 'Roboto Slab', 'Roboto', system-ui, serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(233,30,140,.14), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 50% 100%, rgba(37,211,102,.08), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-weight: 400;
+    }
+
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 620px; height: 620px; top: -220px; right: -140px; background: radial-gradient(circle, rgba(233,30,140,.10), transparent 70%); animation: pulseGlow 8s ease-in-out infinite; }
+    .orb-2 { width: 520px; height: 520px; bottom: -180px; left: -160px; background: radial-gradient(circle, rgba(37,211,102,.07), transparent 70%); animation: pulseGlow 12s ease-in-out infinite reverse; }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 200;
+      border-bottom: 1px solid var(--line);
+      background: rgba(3,7,18,.78);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      padding: 0 clamp(20px,5vw,64px); height: 64px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-img { height: 34px; width: auto; display: block; filter: brightness(0) invert(1); }
+
+    /* WRAP */
+    .wrap {
+      position: relative; z-index: 2;
+      min-height: calc(100vh - 64px);
+      display: flex; align-items: center; justify-content: center;
+      padding: clamp(40px,8vh,90px) clamp(20px,5vw,64px);
+    }
+    .card {
+      width: min(600px, 100%);
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 22px;
+    }
+
+    /* CHECK */
+    .check {
+      position: relative;
+      width: 88px; height: 88px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: radial-gradient(circle at 50% 30%, rgba(37,211,102,.25), rgba(37,211,102,.08));
+      border: 1px solid rgba(37,211,102,.45);
+      animation: popIn .6s cubic-bezier(.2,.9,.3,1.4) both;
+    }
+    .check::after {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      border: 2px solid rgba(37,211,102,.5);
+      animation: ringPulse 2.4s ease-out infinite;
+    }
+    .check svg { width: 42px; height: 42px; stroke: var(--wa); fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(37,211,102,.3);
+      background: rgba(37,211,102,.06);
+      border-radius: 999px; padding: 7px 16px; width: fit-content;
+    }
+    .badge span { font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: #34e07a; }
+    .badge svg { width: 14px; height: 14px; stroke: var(--wa); fill: none; stroke-width: 2; }
+
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800; line-height: 1.1; letter-spacing: -.025em;
+      color: var(--text); max-width: 15ch;
+    }
+    .g1 {
+      background: linear-gradient(92deg, var(--lime) 18%, var(--lime-soft) 80%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .lead {
+      font-size: clamp(15px,1.6vw,18px); line-height: 1.7; color: var(--text-mute);
+      max-width: 480px; font-weight: 400;
+    }
+    .lead strong { color: var(--text); font-weight: 600; }
+
+    /* Passos */
+    .steps { display: flex; flex-direction: column; gap: 12px; width: min(440px,100%); margin-top: 4px; text-align: left; }
+    .step {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 18px; border-radius: 14px;
+      background: rgba(255,255,255,.03); border: 1px solid var(--line);
+    }
+    .step-num {
+      flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+      background: rgba(233,30,140,.12); border: 1px solid rgba(233,30,140,.4);
+      color: var(--lime-soft); font-weight: 800; font-size: 13px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--display);
+    }
+    .step-text { font-size: 14px; line-height: 1.55; color: var(--text-mute); padding-top: 2px; }
+    .step-text strong { color: var(--text); font-weight: 600; }
+
+    /* WhatsApp CTA */
+    .wa-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      padding: 19px 40px; margin-top: 6px;
+      font-family: var(--sans); font-size: 16px; font-weight: 700; letter-spacing: .01em;
+      color: #06331a; text-decoration: none; border-radius: 999px;
+      background: linear-gradient(180deg, #2ee36f 0%, var(--wa) 55%, var(--wa-2) 100%);
+      box-shadow: 0 0 24px rgba(37,211,102,.5), 0 12px 30px rgba(37,211,102,.28);
+      border: none; cursor: pointer;
+      transition: transform .15s ease, box-shadow .3s ease, filter .2s;
+    }
+    .wa-btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 0 32px rgba(37,211,102,.65), 0 16px 40px rgba(37,211,102,.35); }
+    .wa-btn svg { width: 22px; height: 22px; fill: #06331a; }
+
+    .fineprint { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--text-faint); margin-top: 2px; }
+    .fineprint svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    @media (max-width: 640px) {
+      .nav { height: 56px; }
+      .wrap { padding: 44px 20px 56px; }
+      .card { gap: 20px; }
+      .wa-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <nav class="nav">
+    <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img">
+  </nav>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="check">
+        <svg viewBox="0 0 24 24"><polyline points="4 12.5 9.5 18 20 6.5"/></svg>
+      </div>
+
+      <div class="badge fade-in delay-1">
+        <i data-lucide="check-circle-2"></i>
+        <span>Cadastro confirmado</span>
+      </div>
+
+      <h1 class="fade-in delay-2">Falta 1 passo: entre no <span class="g1">grupo do WhatsApp</span></h1>
+
+      <p class="lead fade-in delay-3">
+        As <strong>condições especiais</strong> e os avisos das turmas serão enviados no <strong>grupo do WhatsApp da lista de espera</strong>. Entre agora para garantir a sua condição e ser avisado <strong>primeiro</strong> quando o preparatório da SES-RJ abrir.
+      </p>
+
+      <div class="steps fade-in delay-3">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">Toque no botão abaixo e <strong>entre no grupo oficial</strong> da lista de espera.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">Ative as notificações: as <strong>condições especiais</strong> e os avisos chegam por lá.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">Quando as turmas abrirem, <strong>quem está na lista entra primeiro</strong>.</div>
+        </div>
+      </div>
+
+      <a href="https://sndflw.com/i/7GKc0vvQ4J5VHsiQWUR6" id="waCta" class="wa-btn fade-in delay-4" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.04c-.25.7-1.44 1.33-1.99 1.38-.53.05-1.02.24-3.42-.72-2.9-1.14-4.75-4.09-4.9-4.28-.14-.19-1.17-1.56-1.17-2.97 0-1.41.74-2.11 1-2.4.25-.29.55-.36.73-.36l.52.01c.17.01.4-.06.62.48.25.6.85 2.07.92 2.22.07.15.12.33.02.52-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.17.29.75 1.23 1.61 1.99 1.1.98 2.03 1.29 2.32 1.43.29.14.46.12.63-.07.17-.19.72-.85.91-1.14.19-.29.39-.24.65-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.39Z"/></svg>
+        Entrar no grupo do WhatsApp
+      </a>
+
+      <span class="fineprint fade-in delay-5">
+        <i data-lucide="lock"></i>
+        Grupo oficial OdonConcursos · vagas limitadas
+      </span>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    // Evento de conversão do grupo ao clicar no CTA
+    document.getElementById('waCta').addEventListener('click', function () {
+      try { if (typeof fbq === 'function') fbq('track', 'Contact', { content_name: 'Grupo WhatsApp Lista de espera SES-RJ' }); } catch (e) {}
+    });
+  </script>
+
+</body>
+</html>

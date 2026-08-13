@@ -546,8 +546,8 @@
     // Webhook que recebe os dados do formulário (Make)
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
-    // Grupo de WhatsApp da lista de espera (Sendflow) — destino do redirect pós-cadastro
-    const GRUPO_URL = 'https://sndflw.com/i/HXIT7a7PmBvys0DODzZs';
+    // Página de obrigado da lista de espera — destino do redirect pós-cadastro
+    const REDIRECT_URL = 'https://mkt.odonconcursospage.com/lp/concurso/ses-rj-obrigado/';
 
     // Captura UTMs e IDs de clique da URL no carregamento da página
     const tracking = (() => {
@@ -627,11 +627,11 @@
 
       // Confirmação + redirecionamento pro comercial da OdonConcursos
       this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Você está na lista de espera. Estamos te levando para o grupo no WhatsApp…';
+      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Você está na lista de espera. Estamos te levando para o último passo…';
       document.getElementById('modalTitle').textContent = 'Você está na lista ✓';
       lucide.createIcons();
 
-      setTimeout(() => { window.location.href = GRUPO_URL; }, 1200);
+      setTimeout(() => { window.location.href = REDIRECT_URL; }, 1200);
     });
   </script>
 
