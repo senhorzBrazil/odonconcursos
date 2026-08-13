@@ -570,8 +570,8 @@
     // Webhook que recebe os dados do formulário (Make) — mesmo das demais capturas
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
-    // Destino do redirect pós-cadastro (troque pelo link do simulado quando tiver)
-    const REDIRECT_URL = 'https://odonconcursos.com.br/editais.aspx?id=L1lpdXNqaS9sNTg9&utm_source=ss';
+    // Destino do redirect pós-cadastro (página de obrigado → grupo do WhatsApp)
+    const REDIRECT_URL = 'https://mkt.odonconcursospage.com/lp/concurso/petrobras-simulado-obrigado/';
 
     // Captura UTMs e IDs de clique da URL no carregamento da página
     const tracking = (() => {
@@ -651,7 +651,7 @@
 
       // Confirmação + redirecionamento
       this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te redirecionando para o simulado da Petrobras…';
+      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o grupo do WhatsApp do simulado…';
       document.getElementById('modalTitle').textContent = 'Tudo certo ✓';
       lucide.createIcons();
 
