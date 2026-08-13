@@ -180,6 +180,10 @@
     }
     .buybar.show { transform:translateY(0); }
     @media (min-width:768px){ .buybar { display:none; } }
+    /* WhatsApp flutuante acima da barra de compra no mobile */
+    @media (max-width:767px){
+      a.fixed[href*="whatsapp"]{ bottom: 90px !important; }
+    }
     /* contador centralizado no mobile */
     @media (max-width:768px){
       .cta-timer { align-items:center; width:100%; }
