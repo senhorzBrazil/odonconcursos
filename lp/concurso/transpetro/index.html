@@ -217,6 +217,12 @@
     }
     .buybar.show { transform:translateY(0); }
     @media (min-width:768px){ .buybar { display:none; } }
+    /* contador centralizado no mobile */
+    @media (max-width:768px){
+      .cta-timer { align-items:center; width:100%; }
+      .cta-timer-label { text-align:center; }
+      .cta-timer-clock { justify-content:center; }
+    }
   </style>
 </head>
 
