@@ -546,8 +546,8 @@
     // Webhook que recebe os dados do formulário (Make)
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
-    // Número do comercial da OdonConcursos — destino do redirect pós-cadastro
-    const COMERCIAL_WHATSAPP = '5519994565534';
+    // Grupo de WhatsApp da lista de espera (Sendflow) — destino do redirect pós-cadastro
+    const GRUPO_URL = 'https://sndflw.com/i/HXIT7a7PmBvys0DODzZs';
 
     // Captura UTMs e IDs de clique da URL no carregamento da página
     const tracking = (() => {
@@ -627,13 +627,11 @@
 
       // Confirmação + redirecionamento pro comercial da OdonConcursos
       this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Você está na lista de espera. Estamos te redirecionando para o nosso WhatsApp…';
+      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Você está na lista de espera. Estamos te levando para o grupo no WhatsApp…';
       document.getElementById('modalTitle').textContent = 'Você está na lista ✓';
       lucide.createIcons();
 
-      const msg = `Olá! Quero entrar na lista de espera do preparatório para o concurso de Odontologia da SES-RJ (${nome}).`;
-      const waLink = `https://wa.me/${COMERCIAL_WHATSAPP}?text=${encodeURIComponent(msg)}`;
-      setTimeout(() => { window.location.href = waLink; }, 1200);
+      setTimeout(() => { window.location.href = GRUPO_URL; }, 1200);
     });
   </script>
 
