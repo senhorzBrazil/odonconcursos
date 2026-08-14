@@ -650,15 +650,14 @@
         }
       } catch (err) { console.error('Meta Pixel error:', err); }
 
-      // Confirmação + redirecionamento pro comercial da OdonConcursos
+      // Confirmação + redirecionamento para a página de obrigado (grupo do WhatsApp)
       this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o WhatsApp do simulado…';
+      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o grupo do simulado…';
       document.getElementById('modalTitle').textContent = 'Vaga garantida ✓';
       lucide.createIcons();
 
-      const msg = `Olá! Quero garantir minha vaga no simulado com ranking da SES-RJ para Odontologia (22 e 23/08) — ${nome}.`;
-      const waLink = `https://wa.me/${COMERCIAL_WHATSAPP}?text=${encodeURIComponent(msg)}`;
-      setTimeout(() => { window.location.href = waLink; }, 1200);
+      const REDIRECT_URL = 'https://mkt.odonconcursospage.com/lp/concurso/ses-rj-simulado-obrigado/';
+      setTimeout(() => { window.location.href = REDIRECT_URL; }, 1200);
     });
 
     /* ─── Contador para a abertura do simulado: 22/08/2026 08:00 (horário local) ─── */
