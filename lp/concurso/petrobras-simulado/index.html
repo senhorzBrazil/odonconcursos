@@ -651,8 +651,8 @@
 
       // Confirmação + redirecionamento
       this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o grupo do WhatsApp do simulado…';
-      document.getElementById('modalTitle').textContent = 'Tudo certo ✓';
+      document.querySelector('#signupModal .modal-text').textContent = 'Aguarde um instante, estamos te redirecionando…';
+      document.getElementById('modalTitle').textContent = 'Enviando suas informações';
       lucide.createIcons();
 
       setTimeout(() => { window.location.href = REDIRECT_URL; }, 1200);
