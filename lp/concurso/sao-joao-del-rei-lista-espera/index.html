@@ -4,6 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Preparatório Concurso São João del-Rei/MG · Odontologia | OdonConcursos</title>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1038030425232337');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1038030425232337&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -1537,7 +1554,7 @@
       </button>
       <div class="modal-body">
         <h3 id="modalTitle">Entre na lista de espera</h3>
-        <p class="modal-text">Preencha seus dados e nosso time comercial entra em contato pelo WhatsApp para apresentar a preparação para o concurso de São João del-Rei/MG e as condições da turma. Sem compromisso.</p>
+        <p class="modal-text">Entre na lista de espera do preparatório para o concurso de <strong>São João del-Rei/MG</strong> e <strong>garanta condições especiais</strong>. Quem está na lista é avisado <strong>primeiro</strong> quando as turmas abrirem. As vagas são limitadas.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -1561,32 +1578,8 @@
             <label for="su-email">E-mail</label>
             <input class="form-input" type="email" id="su-email" required placeholder="seu@email.com" autocomplete="email">
           </div>
-          <div class="form-row">
-            <label>Você já é aluno OdonConcursos?</label>
-            <div class="seg-group">
-              <div class="seg-opt">
-                <input type="radio" name="aluno" id="aluno-sim" value="Sim" required>
-                <label for="aluno-sim">Sim</label>
-              </div>
-              <div class="seg-opt">
-                <input type="radio" name="aluno" id="aluno-nao" value="Não">
-                <label for="aluno-nao">Não</label>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <label for="su-momento">Em que momento você está hoje?</label>
-            <select class="form-select" id="su-momento" required>
-              <option value="" disabled selected>Selecione</option>
-              <option value="Recém-formado">Recém-formado</option>
-              <option value="Clínico / consultório">Clínico / consultório</option>
-              <option value="Já sou concursado">Já sou concursado</option>
-              <option value="Iniciante em concursos">Iniciante em concursos</option>
-              <option value="Já tentei antes">Já tentei antes</option>
-            </select>
-          </div>
           <button type="submit" id="su-submit" class="bnt-lime form-submit">
-            Quero entrar na lista de espera
+            Entrar na lista de espera
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </form>
@@ -1602,8 +1595,28 @@
   <script>
     lucide.createIcons();
 
-    // TODO: troque pela URL real do seu webhook/CRM (Make / n8n / Zapier / RD Station etc.)
-    const WEBHOOK_URL = '';
+    // Webhook que recebe os dados do formulário (Make) — mesmo do SES-RJ
+    const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
+
+    // Página de obrigado da lista de espera (defina quando existir; vazio = confirmação inline)
+    const REDIRECT_URL = '';
+
+    // Captura UTMs e IDs de clique da URL no carregamento da página
+    const tracking = (() => {
+      const p = new URLSearchParams(window.location.search);
+      const get = (k) => p.get(k) || '';
+      return {
+        utm_source:   get('utm_source'),
+        utm_medium:   get('utm_medium'),
+        utm_campaign: get('utm_campaign'),
+        utm_content:  get('utm_content'),
+        utm_term:     get('utm_term'),
+        fbclid:       get('fbclid'),
+        gclid:        get('gclid'),
+        referrer:     document.referrer || '',
+        landing_url:  window.location.href
+      };
+    })();
 
     function openModal() {
       document.getElementById('signupModal').classList.add('is-open');
@@ -1621,25 +1634,26 @@
     document.getElementById('signupForm').addEventListener('submit', async function (e) {
       e.preventDefault();
       const btn = document.getElementById('su-submit');
-      const originalHTML = btn.innerHTML;
-      btn.textContent = 'Enviando...';
+      btn.textContent = 'Processando...';
       btn.disabled = true;
 
       const countryCode = document.getElementById('su-country').value;
       const phoneDigits = document.getElementById('su-phone').value.replace(/\D/g, '');
-      const aluno = document.querySelector('input[name="aluno"]:checked');
 
       const now = new Date();
+      const nome = document.getElementById('su-name').value;
       const payload = {
-        nome: document.getElementById('su-name').value,
-        whatsapp: '+' + countryCode + phoneDigits,
+        formulario: 'São João del-Rei · Lista de espera',
+        produto: 'São João del-Rei/MG',
+        metodo: 'Landing Page',
+        nome: nome,
         email: document.getElementById('su-email').value,
-        ja_aluno: aluno ? aluno.value : '',
-        momento: document.getElementById('su-momento').value,
-        produto: 'Preparatório Concurso Odontologia São João del-Rei/MG',
-        origem: 'LP lista de espera São João del-Rei/MG dentista (lead)',
-        data_lead: now.toISOString(),
-        data_lead_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR')
+        telefone: '+' + countryCode + phoneDigits,
+        evento: 'Lista de espera · Preparatório Odontologia São João del-Rei/MG',
+        origem: 'LP captura São João del-Rei/MG (Lista de espera)',
+        data_contato: now.toISOString(),
+        data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
+        ...tracking
       };
 
       try {
@@ -1650,20 +1664,29 @@
             body: JSON.stringify(payload)
           });
         } else {
-          console.log('Lead (configure WEBHOOK_URL):', payload);
+          console.log('Inscrição (configure WEBHOOK_URL):', payload);
         }
       } catch (err) {
         console.error('Webhook error:', err);
       }
 
-      // Confirmação
-      this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Recebemos seus dados. Nosso time comercial vai entrar em contato pelo WhatsApp para falar sobre a preparação para São João del-Rei/MG e as condições da turma.';
-      document.getElementById('modalTitle').textContent = 'Contato enviado ✓';
+      try {
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', { content_name: 'LP São João del-Rei/MG Dentista (Lista de espera)', content_category: 'São João del-Rei/MG' });
+        }
+      } catch (err) { console.error('Meta Pixel error:', err); }
 
+      this.style.display = 'none';
+      document.getElementById('modalTitle').textContent = 'Você está na lista ✓';
+      const okMsg = REDIRECT_URL
+        ? 'Pronto! Você está na lista de espera. Estamos te levando para o último passo…'
+        : 'Pronto! Você está na lista de espera. Nosso time entra em contato pelo WhatsApp com as condições da turma de São João del-Rei/MG.';
+      document.querySelector('#signupModal .modal-text').textContent = okMsg;
       lucide.createIcons();
-      btn.innerHTML = originalHTML;
-      btn.disabled = false;
+
+      if (REDIRECT_URL) {
+        setTimeout(() => { window.location.href = REDIRECT_URL; }, 1200);
+      }
     });
   </script>
 
