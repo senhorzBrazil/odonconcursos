@@ -546,8 +546,8 @@
     // Webhook que recebe os dados do formulário (Make)
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
-    // Página de obrigado da lista de espera — destino do redirect pós-cadastro
-    const REDIRECT_URL = 'https://mkt.odonconcursospage.com/lp/concurso/ses-rj-obrigado/';
+    // Página de vendas do preparatório — destino do redirect pós-cadastro
+    const REDIRECT_URL = 'https://mkt.odonconcursospage.com/lp/concurso/ses-rj-vendas/';
 
     // Captura UTMs e IDs de clique da URL no carregamento da página
     const tracking = (() => {
@@ -627,11 +627,13 @@
 
       // Confirmação + redirecionamento pro comercial da OdonConcursos
       this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Você está na lista de espera. Estamos te levando para o último passo…';
+      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Você está na lista de espera. Estamos te levando para a página do preparatório da SES-RJ…';
       document.getElementById('modalTitle').textContent = 'Você está na lista ✓';
       lucide.createIcons();
 
-      setTimeout(() => { window.location.href = REDIRECT_URL; }, 1200);
+      const qs = window.location.search.replace(/^\?/, '');
+      const destino = qs ? REDIRECT_URL + (REDIRECT_URL.includes('?') ? '&' : '?') + qs : REDIRECT_URL;
+      setTimeout(() => { window.location.href = destino; }, 1200);
     });
   </script>
 
