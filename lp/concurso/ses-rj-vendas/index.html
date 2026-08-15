@@ -575,45 +575,15 @@
     }
 
     /* ─── DEPOIMENTOS ─── */
-    .testi-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 40px;
+    .depo-videos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1100px; margin: 40px auto 22px; }
+    .depo-video { aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-strong); background: #000; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+    .depo-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .depo-imgs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1100px; margin: 0 auto 32px; }
+    .depo-imgs img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); background: var(--bg-card); }
+    @media (max-width: 820px) {
+      .depo-videos { grid-template-columns: repeat(2, 1fr); }
+      .depo-imgs { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 600px) { .testi-grid { grid-template-columns: 1fr; } }
-    .testi-card {
-      position: relative;
-      border-radius: 18px;
-      background: var(--bg-card);
-      padding: 28px 26px;
-      z-index: 1;
-      overflow: hidden;
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .testi-card::before {
-      content: '';
-      position: absolute; inset: 0; border-radius: 18px; padding: 1.5px;
-      background: linear-gradient(135deg, rgba(233,30,140,.4), rgba(255,255,255,.05) 50%, rgba(233,30,140,.16));
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-              mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor; mask-composite: exclude;
-      pointer-events: none; z-index: 10;
-    }
-    .testi-stars { display: flex; gap: 3px; color: var(--gold); }
-    .testi-stars svg { width: 16px; height: 16px; fill: currentColor; stroke: none; }
-    .testi-quote { font-size: 15px; line-height: 1.7; color: var(--text); font-weight: 400; }
-    .testi-quote strong { color: var(--lime-soft); font-weight: 600; }
-    .testi-who { display: flex; align-items: center; gap: 12px; margin-top: auto; }
-    .testi-avatar {
-      width: 42px; height: 42px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--lime), var(--lime-soft));
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 15px; color: #fff; flex-shrink: 0;
-      font-family: var(--display);
-    }
-    .testi-name { font-weight: 700; font-size: 14px; color: var(--text); }
-    .testi-role { font-size: 12px; color: var(--text-dim); }
 
     /* ─── QUEM VAI TE GUIAR ─── */
     .hosts-grid {
@@ -1046,28 +1016,6 @@
     .phone-row .form-select { width: 100px; flex-shrink: 0; padding: 14px 10px; text-align: center; }
     .phone-row .form-input { flex: 1; }
 
-    /* radio segmented */
-    .seg-group { display: flex; gap: 8px; }
-    .seg-opt { flex: 1; position: relative; }
-    .seg-opt input { position: absolute; opacity: 0; pointer-events: none; }
-    .seg-opt label {
-      display: flex; align-items: center; justify-content: center;
-      padding: 13px 8px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: #050507;
-      color: var(--text-mute);
-      font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none;
-      cursor: pointer;
-      margin: 0;
-      transition: all .18s;
-    }
-    .seg-opt input:checked + label {
-      border-color: rgba(233,30,140,.6);
-      background: rgba(233,30,140,.1);
-      color: var(--lime);
-    }
-
     .form-submit { width: 100%; margin-top: 8px; padding: 16px; }
 
     .modal-secure {
@@ -1086,7 +1034,6 @@
       .sec-title { font-size: clamp(26px, 4.6vw, 36px); }
       .hero-ctas { width: 100%; }
       .hero-ctas .bnt1 { width: 100%; justify-content: center; }
-      .testi-grid { grid-template-columns: 1fr 1fr; }
       .final-cta { padding: 84px clamp(20px,5vw,48px); }
     }
 
@@ -1095,7 +1042,6 @@
       .sticky-cta { display: flex; }
       body { padding-bottom: 78px; }
       .final-cta { padding-bottom: 108px; }
-      .testi-grid { grid-template-columns: 1fr; }
     }
 
     /* ─── MOBILE ─── */
@@ -1121,8 +1067,10 @@
       .sec-title { font-size: clamp(24px, 7vw, 32px); }
       .sec-intro { font-size: 15px; }
 
-      .value-grid, .hosts-grid, .testi-grid { gap: 12px; margin-top: 28px; }
-      .value-card, .host-card, .testi-card { padding: 24px 22px; }
+      .value-grid, .hosts-grid { gap: 12px; margin-top: 28px; }
+      .value-card, .host-card { padding: 24px 22px; }
+      .depo-videos { gap: 12px; margin-top: 28px; }
+      .depo-imgs { gap: 10px; }
 
       .offer-section { padding: 60px 20px; }
       .offer-card { padding: 30px 22px; }
@@ -1151,7 +1099,7 @@
   <!-- ANNOUNCEMENT BAR -->
   <div class="topbar">
     <span class="dot"></span>
-    <span><b>Preparação SES-RJ aberta</b> · 11 vagas para Odontólogo · concurso autorizado</span>
+    <span><b>Inscrições abertas</b> · 11 vagas para Odontólogo · prova em 01/11/2026</span>
   </div>
 
   <!-- NAV -->
@@ -1160,7 +1108,7 @@
       <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img">
     </div>
     <a onclick="openModal()" class="nav-pill">
-      Falar com o time
+      Quero me inscrever
       <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </nav>
@@ -1176,15 +1124,15 @@
         </div>
 
         <h1 class="hero-h1 fade-in delay-2">
-          O preparatório que já aprovou <span class="g1">+1.100 dentistas</span> agora é o seu caminho para a SES-RJ
+          O preparatório que já aprovou <span class="g1">+1.200 dentistas</span> agora é o seu caminho para a SES-RJ
         </h1>
 
         <p class="hero-desc fade-in delay-3">
-          São <strong>11 vagas para Odontólogo</strong> e a concorrência começa agora. Deixe seu contato e nosso time mostra <strong>como funciona a preparação direcionada à banca IBDO</strong> e qual o melhor caminho para você chegar na prova treinado e à frente.
+          São <strong>11 vagas para Odontólogo</strong> e a prova é em <strong>01/11/2026</strong>. São <strong>213 horas de aula</strong> nas disciplinas do edital — Português, SUS e Odontologia — com banco de questões da <strong>banca IBDO</strong> e acesso liberado até o dia da prova.
         </p>
 
         <div class="hero-trust fade-in delay-3">
-          <span class="ht-num">+1.100</span>
+          <span class="ht-num">+1.200</span>
           <span class="ht-txt"><strong>dentistas aprovados</strong> com o Odon em concursos por todo o Brasil</span>
         </div>
 
@@ -1196,8 +1144,8 @@
         </div>
 
         <div class="cta-micro fade-in delay-4">
-          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Atendimento personalizado</span>
-          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Sem compromisso</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>213 horas de aula</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Acesso até o dia da prova</span>
           <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Foco na banca IBDO</span>
         </div>
       </div>
@@ -1242,43 +1190,55 @@
   <section class="section light">
     <div class="s-label">O que está incluído</div>
     <h2 class="sec-title">Tudo o que entra no <em class="g1">preparatório</em></h2>
-    <p class="sec-intro">Não é uma aula solta. É o <strong>caminho completo</strong> — do conteúdo à banca — para você chegar na prova da SES-RJ preparado de verdade.</p>
+    <p class="sec-intro">Não é uma aula solta. É o <strong>preparatório completo da SES-RJ</strong> — as disciplinas do edital, o treino na banca IBDO e o acompanhamento até o dia da prova.</p>
     <div class="value-grid">
       <div class="value-card">
-        <span class="value-tag">Módulo 1</span>
-        <div class="value-icon"><i data-lucide="library"></i></div>
-        <div class="value-title">Curso completo de Odontologia para concursos</div>
-        <div class="value-desc">Videoaulas de Dentística, Endodontia, Cirurgia, Periodontia, Prótese, Saúde Coletiva e SUS — organizadas por peso na prova, do essencial ao avançado.</div>
+        <span class="value-tag">Videoaulas</span>
+        <div class="value-icon"><i data-lucide="play-circle"></i></div>
+        <div class="value-title">Videoaulas das disciplinas do edital</div>
+        <div class="value-desc">Português, SUS e Odontologia — <strong>213 horas de aula</strong> gravadas, para você estudar no seu ritmo e voltar quantas vezes precisar.</div>
       </div>
       <div class="value-card">
-        <span class="value-tag">Módulo 2</span>
-        <div class="value-icon"><i data-lucide="scan-search"></i></div>
-        <div class="value-title">Estratégia específica para a banca IBDO</div>
-        <div class="value-desc">Você estuda direcionado ao perfil da banca IBDO — do jeito que ela cobra — priorizando o que realmente pesa na prova e sem perder tempo com o que não cai.</div>
+        <span class="value-tag">Material</span>
+        <div class="value-icon"><i data-lucide="file-text"></i></div>
+        <div class="value-title">PDFs de acompanhamento + complementares</div>
+        <div class="value-desc">Material em PDF para acompanhar cada aula, mais os materiais complementares de cada disciplina para aprofundar onde você tem mais dificuldade.</div>
       </div>
       <div class="value-card">
-        <span class="value-tag">Módulo 3</span>
+        <span class="value-tag">Questões</span>
         <div class="value-icon"><i data-lucide="clipboard-check"></i></div>
-        <div class="value-title">Banco de questões e simulados da banca</div>
-        <div class="value-desc">Centenas de questões no estilo da banca IBDO e simulados cronometrados para você treinar prova, medir evolução e chegar no dia confiante.</div>
+        <div class="value-title">Banco de questões da IBDO</div>
+        <div class="value-desc">Questões da <strong>banca IBDO e de bancas semelhantes</strong>, para você treinar no formato exato que vai encontrar na prova da SES-RJ.</div>
       </div>
       <div class="value-card">
-        <span class="value-tag">Módulo 4</span>
-        <div class="value-icon"><i data-lucide="route"></i></div>
-        <div class="value-title">Plano de estudos de 4 passos</div>
-        <div class="value-desc">Fortalecer a base, resolver questões da banca, estudar com direcionamento e revisar com constância — um cronograma pronto pra seguir.</div>
-      </div>
-      <div class="value-card">
-        <span class="value-tag">Acompanhamento</span>
+        <span class="value-tag">Suporte</span>
         <div class="value-icon"><i data-lucide="messages-square"></i></div>
-        <div class="value-title">Tira-dúvidas e comunidade de alunos</div>
-        <div class="value-desc">Você não estuda sozinho. Tire dúvidas com a equipe e estude junto com outros dentistas que também vão prestar a SES-RJ.</div>
+        <div class="value-title">Tira-dúvidas com os professores</div>
+        <div class="value-desc">Ficou travado em algum ponto? Você envia sua dúvida por e-mail e recebe a resposta direto dos professores das disciplinas.</div>
       </div>
       <div class="value-card">
-        <span class="value-tag">Atualização</span>
-        <div class="value-icon"><i data-lucide="file-check-2"></i></div>
-        <div class="value-title">Ajuste de rota quando o edital sair</div>
-        <div class="value-desc">Quando o edital da SES-RJ for publicado, o direcionamento é ajustado ao conteúdo programático — você já chega com a base pronta.</div>
+        <span class="value-tag">Organização</span>
+        <div class="value-icon"><i data-lucide="route"></i></div>
+        <div class="value-title">Planejamento de estudos</div>
+        <div class="value-desc">Um plano pronto para seguir até a data da prova — o que estudar, em que ordem e com que peso, sem perder tempo decidindo por onde começar.</div>
+      </div>
+      <div class="value-card">
+        <span class="value-tag">Revisão</span>
+        <div class="value-icon"><i data-lucide="network"></i></div>
+        <div class="value-title">Mapas mentais de SUS e Odontologia</div>
+        <div class="value-desc">Mapas mentais para revisar rápido o que mais cai, fixar o conteúdo e chegar na semana da prova com a memória fresca.</div>
+      </div>
+      <div class="value-card">
+        <span class="value-tag">Pós-prova</span>
+        <div class="value-icon"><i data-lucide="file-search"></i></div>
+        <div class="value-title">Correção pós-prova e auxílio com recursos</div>
+        <div class="value-desc">Depois da prova o trabalho continua: correção do que caiu e <strong>auxílio na hora de entrar com recursos</strong> contra questões passíveis de anulação.</div>
+      </div>
+      <div class="value-card">
+        <span class="value-tag">Acesso</span>
+        <div class="value-icon"><i data-lucide="calendar-check"></i></div>
+        <div class="value-title">Liberado até o dia da prova</div>
+        <div class="value-desc">O curso fica disponível até <strong>01/11/2026</strong>, o dia da prova da SES-RJ. Depois dessa data o conteúdo é desativado — e, se quiser seguir estudando para outros concursos, você pode migrar para o <strong>Concurseiro PRO</strong> com condição especial de aluno ativo (migração paga).</div>
       </div>
     </div>
   </section>
@@ -1288,51 +1248,24 @@
   <!-- PROVA SOCIAL / DEPOIMENTOS -->
   <section class="section">
     <div class="s-label">Quem estudou, aprovou</div>
-    <h2 class="sec-title">Mais de 1.100 dentistas já foram <span class="g1">aprovados</span> com o Odon</h2>
+    <h2 class="sec-title">Mais de 1.200 dentistas já foram <span class="g1">aprovados</span> com o Odon</h2>
     <p class="sec-intro">O Odon Concursos é um ecossistema especializado <strong>exclusivamente em concursos de Odontologia</strong>, com aprovados em <strong>secretarias estaduais e municipais de saúde por todo o Brasil</strong> — exatamente o perfil do concurso da SES-RJ.</p>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-        </div>
-        <p class="testi-quote">"Eu estudava sozinha e me sentia perdida. Com o direcionamento do Odon eu soube exatamente o que priorizar e <strong>passei na minha primeira tentativa</strong>."</p>
-        <div class="testi-who">
-          <div class="testi-avatar">CA</div>
-          <div><div class="testi-name">Camila A.</div><div class="testi-role">Aprovada — secretaria de saúde</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-        </div>
-        <p class="testi-quote">"Concilio consultório o dia inteiro. O material é objetivo e os simulados no estilo da banca <strong>fizeram toda a diferença</strong> no dia da prova."</p>
-        <div class="testi-who">
-          <div class="testi-avatar">RM</div>
-          <div><div class="testi-name">Rafael M.</div><div class="testi-role">Aprovado — concurso estadual de saúde</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg>
-        </div>
-        <p class="testi-quote">"Já tinha tentado antes e travava nas questões. Aqui aprendi a <strong>resolver no estilo da banca</strong> e finalmente veio a aprovação."</p>
-        <div class="testi-who">
-          <div class="testi-avatar">JP</div>
-          <div><div class="testi-name">Juliana P.</div><div class="testi-role">Aprovada — concurso municipal MG</div></div>
-        </div>
-      </div>
+    <div class="depo-videos">
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Lp6OBEG7wbs?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Akkp0nC0fKA?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/bSponCOMkY0?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Cv5sQndeBqo?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    </div>
+
+    <div class="depo-imgs">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-1.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-2.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-3.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-5.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-6.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-8.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/aprov-4.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-16.webp" alt="Prova de aprovação">
     </div>
   </section>
 
@@ -1352,7 +1285,7 @@
       <div class="host-card">
         <div class="host-avatar"><i data-lucide="trophy"></i></div>
         <div class="host-tag">Resultado comprovado</div>
-        <div class="host-name">+1.100 aprovações por todo o Brasil</div>
+        <div class="host-name">+1.200 aprovações por todo o Brasil</div>
         <div class="host-desc">O Odon é <strong>especializado só em Odontologia</strong>. Não é teoria — é um método já validado por mais de mil dentistas aprovados em concursos.</div>
       </div>
     </div>
@@ -1365,36 +1298,36 @@
     <div class="s-label" style="justify-content:center;margin:0 auto 26px;width:fit-content;">Próximo passo</div>
     <div class="offer-card">
       <div>
-        <h2 class="offer-h2">Fale com nosso time e garanta sua vaga na turma da SES-RJ</h2>
+        <h2 class="offer-h2">Garanta sua vaga na turma da SES-RJ</h2>
         <div class="stack-list">
           <div class="stack-item">
-            <span class="stack-name"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Curso completo de Odontologia</span>
+            <span class="stack-name"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Videoaulas de Português, SUS e Odontologia (213h)</span>
           </div>
           <div class="stack-item">
-            <span class="stack-name"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Estratégia específica para a banca IBDO</span>
+            <span class="stack-name"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>PDFs das aulas + materiais complementares</span>
           </div>
           <div class="stack-item">
-            <span class="stack-name"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Banco de questões + simulados</span>
+            <span class="stack-name"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Banco de questões da IBDO e bancas semelhantes</span>
           </div>
           <div class="stack-item">
-            <span class="stack-name"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Plano de estudos de 4 passos</span>
+            <span class="stack-name"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Mapas mentais de SUS e Odontologia</span>
           </div>
           <div class="stack-item">
-            <span class="stack-name"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Comunidade + tira-dúvidas com a equipe</span>
+            <span class="stack-name"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Planejamento de estudos + tira-dúvidas por e-mail</span>
           </div>
           <div class="stack-item">
-            <span class="stack-name"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Condições especiais e formas de pagamento facilitadas</span>
+            <span class="stack-name"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Correção pós-prova e auxílio com recursos</span>
           </div>
         </div>
       </div>
 
       <div class="lead-box">
-        <div class="lead-flag">Vagas limitadas</div>
-        <div class="lead-icon"><i data-lucide="message-circle"></i></div>
-        <div class="lead-title">Atendimento pelo WhatsApp</div>
-        <div class="lead-text">Deixe seus dados. Nosso time entra em contato, tira suas dúvidas e apresenta as condições da turma da SES-RJ — <strong>sem compromisso</strong>.</div>
+        <div class="lead-flag">Condição até 21/08</div>
+        <div class="lead-icon"><i data-lucide="graduation-cap"></i></div>
+        <div class="lead-title">De <s style="opacity:.55;font-weight:600">R$ 1.197</s> por R$ 697</div>
+        <div class="lead-text">À vista, ou em <strong>até 12x de R$ 58,08</strong>. Preencha seus dados e conclua a matrícula na plataforma da OdonConcursos — <strong>acesso liberado na hora</strong>.</div>
         <a onclick="openModal()" class="bnt1">
-          <span>Quero falar com o time</span>
+          <span>Quero garantir minha vaga</span>
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <div class="lead-secure">
@@ -1406,7 +1339,7 @@
 
     <div class="offer-warn">
       <svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <div class="offer-warn-text"><strong>Atenção:</strong> são apenas 11 vagas no concurso e as turmas têm número limitado de alunos. Quem se prepara antes do edital larga na frente.</div>
+      <div class="offer-warn-text"><strong>Atenção:</strong> a condição de R$ 697 à vista vale <strong>até 21/08/2026</strong>. São apenas 11 vagas no concurso e a prova é em 01/11/2026 — cada semana de estudo conta.</div>
     </div>
   </div>
 
@@ -1414,12 +1347,12 @@
   <div class="guarantee">
     <div class="guarantee-card">
       <div class="guarantee-seal">
-        <i data-lucide="hand-heart"></i>
-        <small>sem compromisso</small>
+        <i data-lucide="calendar-check"></i>
+        <small>até 01/11/2026</small>
       </div>
       <div>
-        <div class="guarantee-title">Conversa sem compromisso, no seu tempo</div>
-        <div class="guarantee-text">Você deixa o contato e nosso time entra em contato pelo <strong>WhatsApp</strong> para entender seu momento e mostrar como funciona a preparação. <strong>Sem pressão e sem cobrança</strong> — você decide com calma se faz sentido pra você.</div>
+        <div class="guarantee-title">Acesso liberado até o dia da prova</div>
+        <div class="guarantee-text">Você estuda <strong>100% online</strong>, no seu ritmo, com o conteúdo disponível até <strong>01/11/2026</strong> — o dia da prova da SES-RJ. Depois da prova, se quiser seguir estudando para outros concursos, pode <strong>migrar para o Concurseiro PRO</strong> com condição especial de aluno ativo.</div>
       </div>
     </div>
   </div>
@@ -1448,8 +1381,8 @@
       </div>
       <div class="event-item">
         <div class="event-icon"><i data-lucide="file-clock"></i></div>
-        <div class="event-label">Situação</div>
-        <div class="event-value">Edital em breve<small>banca IBDO definida</small></div>
+        <div class="event-label">Data da prova</div>
+        <div class="event-value">01/11/2026<small>banca IBDO</small></div>
       </div>
     </div>
   </section>
@@ -1457,14 +1390,14 @@
   <!-- FINAL CTA -->
   <div class="final-cta">
     <h2>A vaga na SES-RJ <span class="g1">pode ser sua.</span></h2>
-    <p>Deixe seu contato agora, fale com nosso time e descubra o caminho exato para ser aprovado no concurso de Odontologia da SES-RJ. Quem se prepara antes do edital sai na frente.</p>
+    <p>Preencha seus dados e conclua sua matrícula no preparatório da SES-RJ: 213 horas de aula nas disciplinas do edital, banco de questões da IBDO e acesso até o dia da prova. Faltam poucos meses para 01/11/2026.</p>
     <a onclick="openModal()" class="bnt1 big" style="margin:0 auto;">
       <span>Quero garantir minha vaga</span>
       <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
     <div class="cta-micro">
-      <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Atendimento personalizado</span>
-      <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Sem compromisso</span>
+      <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Matrícula 100% online</span>
+      <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Em até 12x de R$ 58,08</span>
     </div>
   </div>
 
@@ -1477,38 +1410,38 @@
     <div class="faq-list">
       <details class="faq-item">
         <summary class="faq-q">
-          O que acontece depois que eu deixo meu contato?
+          Como faço para me inscrever?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Nosso <strong>time comercial entra em contato pelo WhatsApp</strong> para entender seu momento de carreira, tirar suas dúvidas e apresentar as condições da turma da SES-RJ. Tudo <strong>sem compromisso</strong>.</div>
+        <div class="faq-a">Você preenche seus dados no formulário e é levado direto para a <strong>página oficial do preparatório</strong>, na plataforma da OdonConcursos, para concluir a matrícula e liberar o acesso às aulas.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
-          Preciso esperar o edital sair para começar?
+          Até quando eu tenho acesso ao curso?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Não — e essa é justamente a vantagem. Quem espera o edital para começar a estudar <strong>larga em desvantagem</strong>. Você já fortalece a base e treina na banca IBDO, e o direcionamento é ajustado quando o edital da SES-RJ for publicado.</div>
+        <div class="faq-a">O curso fica disponível <strong>até o dia da prova — 01/11/2026</strong>. Depois dessa data o conteúdo é desativado. Se quiser continuar estudando para outros concursos, é possível <strong>migrar para o Concurseiro PRO</strong> (migração paga, com condição especial para quem é aluno ativo).</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
           Serve para quem está começando do zero?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Sim. O preparatório atende tanto <strong>iniciantes</strong> quanto quem já estuda. O plano de 4 passos te mostra exatamente por onde começar e o que priorizar.</div>
+        <div class="faq-a">Sim. O preparatório atende tanto <strong>iniciantes</strong> quanto quem já estuda. O planejamento de estudos mostra exatamente por onde começar e o que priorizar, e o tira-dúvidas com os professores destrava o que você não entender no caminho.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
           Quanto custa o preparatório?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">As condições e formas de pagamento são apresentadas pelo nosso time de acordo com o seu momento. Deixe seu contato que explicamos tudo <strong>sem compromisso</strong> e com as <strong>melhores condições</strong> para a turma da SES-RJ.</div>
+        <div class="faq-a">De R$ 1.197 por <strong>R$ 697 à vista</strong> — condição válida até <strong>21/08/2026</strong> — ou em <strong>até 12x de R$ 58,08</strong> no cartão. O pagamento é feito direto na plataforma da OdonConcursos.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
           O preparatório é online?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Sim, <strong>100% online</strong>. Você estuda de onde estiver, no seu ritmo, com acesso às aulas, questões e simulados da banca.</div>
+        <div class="faq-a">Sim, <strong>100% online</strong> e gravado. São 213 horas de aula que você assiste de onde estiver, no seu ritmo, com os PDFs, os mapas mentais e o banco de questões da banca sempre à mão.</div>
       </details>
     </div>
   </section>
@@ -1536,8 +1469,8 @@
         <i data-lucide="x"></i>
       </button>
       <div class="modal-body">
-        <h3 id="modalTitle">Garanta sua vaga</h3>
-        <p class="modal-text">Preencha seus dados e nosso time comercial entra em contato pelo WhatsApp para apresentar a preparação para o concurso da SES-RJ e as condições da turma. Sem compromisso.</p>
+        <h3 id="modalTitle">Falta pouco para sua vaga</h3>
+        <p class="modal-text">Preencha seus dados para liberar sua inscrição. Em seguida você é levado para a página oficial do preparatório da SES-RJ, na plataforma da OdonConcursos, para concluir a matrícula.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -1561,32 +1494,8 @@
             <label for="su-email">E-mail</label>
             <input class="form-input" type="email" id="su-email" required placeholder="seu@email.com" autocomplete="email">
           </div>
-          <div class="form-row">
-            <label>Você já é aluno OdonConcursos?</label>
-            <div class="seg-group">
-              <div class="seg-opt">
-                <input type="radio" name="aluno" id="aluno-sim" value="Sim" required>
-                <label for="aluno-sim">Sim</label>
-              </div>
-              <div class="seg-opt">
-                <input type="radio" name="aluno" id="aluno-nao" value="Não">
-                <label for="aluno-nao">Não</label>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <label for="su-momento">Em que momento você está hoje?</label>
-            <select class="form-select" id="su-momento" required>
-              <option value="" disabled selected>Selecione</option>
-              <option value="Recém-formado">Recém-formado</option>
-              <option value="Clínico / consultório">Clínico / consultório</option>
-              <option value="Já sou concursado">Já sou concursado</option>
-              <option value="Iniciante em concursos">Iniciante em concursos</option>
-              <option value="Já tentei antes">Já tentei antes</option>
-            </select>
-          </div>
           <button type="submit" id="su-submit" class="bnt-lime form-submit">
-            Quero garantir minha vaga
+            Ir para a matrícula
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </form>
@@ -1602,8 +1511,28 @@
   <script>
     lucide.createIcons();
 
-    // TODO: troque pela URL real do seu webhook/CRM (Make / n8n / Zapier / RD Station etc.)
-    const WEBHOOK_URL = '';
+    // Webhook que recebe os leads (Make) — o mesmo das demais LPs da SES-RJ
+    const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
+
+    // Página oficial do preparatório — destino do redirect depois da captura
+    const CURSO_URL = 'https://odonconcursos.com.br/curso/preparatorio-sesrj-ibdo';
+
+    // Captura UTMs e IDs de clique da URL no carregamento da página
+    const tracking = (() => {
+      const p = new URLSearchParams(window.location.search);
+      const get = (k) => p.get(k) || '';
+      return {
+        utm_source:   get('utm_source'),
+        utm_medium:   get('utm_medium'),
+        utm_campaign: get('utm_campaign'),
+        utm_content:  get('utm_content'),
+        utm_term:     get('utm_term'),
+        fbclid:       get('fbclid'),
+        gclid:        get('gclid'),
+        referrer:     document.referrer || '',
+        landing_url:  window.location.href
+      };
+    })();
 
     function openModal() {
       document.getElementById('signupModal').classList.add('is-open');
@@ -1621,25 +1550,27 @@
     document.getElementById('signupForm').addEventListener('submit', async function (e) {
       e.preventDefault();
       const btn = document.getElementById('su-submit');
-      const originalHTML = btn.innerHTML;
       btn.textContent = 'Enviando...';
       btn.disabled = true;
 
       const countryCode = document.getElementById('su-country').value;
       const phoneDigits = document.getElementById('su-phone').value.replace(/\D/g, '');
-      const aluno = document.querySelector('input[name="aluno"]:checked');
 
       const now = new Date();
+      const nome = document.getElementById('su-name').value;
       const payload = {
-        nome: document.getElementById('su-name').value,
-        whatsapp: '+' + countryCode + phoneDigits,
+        formulario: 'SES-RJ · Página de Vendas',
+        referencia: 'Página de Vendas SES-RJ',
+        produto: 'SES-RJ',
+        metodo: 'Landing Page',
+        nome: nome,
         email: document.getElementById('su-email').value,
-        ja_aluno: aluno ? aluno.value : '',
-        momento: document.getElementById('su-momento').value,
-        produto: 'Preparatório Concurso Odontologia SES-RJ',
-        origem: 'LP vendas SES-RJ dentista (lead comercial)',
-        data_lead: now.toISOString(),
-        data_lead_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR')
+        telefone: '+' + countryCode + phoneDigits,
+        evento: 'Preparatório Concurso Odontologia SES-RJ',
+        origem: 'Página de Vendas SES-RJ',
+        data_contato: now.toISOString(),
+        data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
+        ...tracking
       };
 
       try {
@@ -1656,14 +1587,23 @@
         console.error('Webhook error:', err);
       }
 
-      // Confirmação
-      this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Recebemos seus dados. Nosso time comercial vai entrar em contato pelo WhatsApp para falar sobre a preparação para a SES-RJ e as condições da turma.';
-      document.getElementById('modalTitle').textContent = 'Contato enviado ✓';
+      // Evento de Lead no Meta Pixel (se o pixel estiver na página)
+      try {
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', { content_name: 'Página de Vendas SES-RJ', content_category: 'SES-RJ' });
+        }
+      } catch (err) { console.error('Meta Pixel error:', err); }
 
+      // Confirmação + redirecionamento para a página oficial do preparatório,
+      // repassando os parâmetros de campanha da URL (se houver).
+      this.style.display = 'none';
+      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para a página do preparatório da SES-RJ para você concluir a matrícula…';
+      document.getElementById('modalTitle').textContent = 'Dados recebidos ✓';
       lucide.createIcons();
-      btn.innerHTML = originalHTML;
-      btn.disabled = false;
+
+      const qs = window.location.search.replace(/^\?/, '');
+      const destino = qs ? CURSO_URL + (CURSO_URL.includes('?') ? '&' : '?') + qs : CURSO_URL;
+      setTimeout(() => { window.location.href = destino; }, 1200);
     });
   </script>
 
