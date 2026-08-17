@@ -221,7 +221,7 @@
         max-height: 440px;
         background:
           linear-gradient(to bottom, rgba(255,255,255,0) 70%, #ffffff 100%),
-          url("LP_mobile_Dentista.jpg") top center / cover no-repeat;
+          url("hero-mobile-rio.jpg") top center / cover no-repeat;
       }
     }
     @media (min-width: 901px) {
@@ -229,7 +229,7 @@
         min-height: 90vh;
         background:
           linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,.94) 22%, rgba(255,255,255,.5) 42%, rgba(255,255,255,0) 60%),
-          url("LP_desktop_Dentista.jpg") center right / cover no-repeat,
+          url("hero-desktop-rio.jpg") center right / cover no-repeat,
           #ffffff;
       }
     }
@@ -763,7 +763,7 @@
     /* ─── DETALHES (event grid) ─── */
     .event-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
       gap: 14px;
       margin-top: 40px;
     }
@@ -935,95 +935,6 @@
     .footer p { font-size: 12.5px; color: var(--text-dim); line-height: 1.7; max-width: 720px; margin: 0 auto 8px; }
     .footer a { color: var(--text-mute); text-decoration: none; }
 
-    /* ─── MODAL CAPTURA ─── */
-    .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 300;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      background: rgba(3,7,18,.92);
-      backdrop-filter: blur(8px);
-      opacity: 0;
-      visibility: hidden;
-      transition: all .3s ease;
-      overflow-y: auto;
-    }
-    .modal.is-open { opacity: 1; visibility: visible; }
-    .modal-content {
-      width: 100%;
-      max-width: 440px;
-      margin: auto;
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      overflow: hidden;
-      transform: scale(.96) translateY(20px);
-      transition: transform .3s ease;
-      position: relative;
-    }
-    .modal.is-open .modal-content { transform: scale(1) translateY(0); }
-    .modal-bar {
-      height: 4px;
-      background: linear-gradient(90deg, var(--lime), var(--lime-soft), var(--lime));
-    }
-    .modal-close {
-      position: absolute;
-      top: 14px; right: 14px;
-      width: 32px; height: 32px;
-      border: none;
-      background: transparent;
-      color: var(--text-dim);
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%;
-      transition: color .2s, background .2s;
-      z-index: 5;
-    }
-    .modal-close:hover { color: var(--text); background: rgba(255,255,255,.05); }
-    .modal-close svg { width: 18px; height: 18px; stroke-width: 2; }
-    .modal-body { padding: 30px; }
-    .modal h3 { font-family: var(--display); font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-    .modal-text { font-size: 13.5px; color: var(--text-mute); line-height: 1.6; margin-bottom: 24px; }
-
-    .form-row { margin-bottom: 16px; }
-    .form-row label {
-      display: block;
-      font-size: 10px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--text-mute);
-      margin-bottom: 8px;
-    }
-    .form-input, .form-select {
-      width: 100%;
-      background: #050507;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 14px 16px;
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 14px;
-      outline: none;
-      transition: border-color .2s;
-    }
-    .form-input:focus, .form-select:focus { border-color: rgba(233,30,140,.5); }
-    .form-input::placeholder { color: var(--text-faint); }
-    .phone-row { display: flex; gap: 8px; }
-    .phone-row .form-select { width: 100px; flex-shrink: 0; padding: 14px 10px; text-align: center; }
-    .phone-row .form-input { flex: 1; }
-
-    .form-submit { width: 100%; margin-top: 8px; padding: 16px; }
-
-    .modal-secure {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      font-size: 11px; color: var(--text-faint); margin-top: 16px;
-    }
-    .modal-secure svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; }
-
     /* ─── TABLET / CELULAR NA HORIZONTAL ─── */
     @media (max-width: 900px) {
       .section { padding: 70px clamp(20px,5vw,48px); }
@@ -1085,8 +996,6 @@
 
       .sticky-cta { display: flex; }
       body { padding-bottom: 76px; }
-
-      .modal-body { padding: 26px 22px; }
     }
   </style>
 </head>
@@ -1107,7 +1016,7 @@
     <div class="logo">
       <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img">
     </div>
-    <a onclick="openModal()" class="nav-pill">
+    <a href="https://odonconcursos.com.br/curso/preparatorio-sesrj-ibdo" class="nav-pill cta-curso">
       Quero me inscrever
       <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
@@ -1137,7 +1046,7 @@
         </div>
 
         <div class="hero-ctas fade-in delay-4">
-          <a onclick="openModal()" class="bnt1">
+          <a href="https://odonconcursos.com.br/curso/preparatorio-sesrj-ibdo" class="bnt1 cta-curso">
             <span>Quero garantir minha vaga</span>
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -1325,14 +1234,14 @@
         <div class="lead-flag">Condição até 21/08</div>
         <div class="lead-icon"><i data-lucide="graduation-cap"></i></div>
         <div class="lead-title">De <s style="opacity:.55;font-weight:600">R$ 1.197</s> por R$ 697</div>
-        <div class="lead-text">À vista, ou em <strong>até 12x de R$ 58,08</strong>. Preencha seus dados e conclua a matrícula na plataforma da OdonConcursos — <strong>acesso liberado na hora</strong>.</div>
-        <a onclick="openModal()" class="bnt1">
+        <div class="lead-text">À vista, ou em <strong>até 12x de R$ 58,08</strong>. Conclua a matrícula na plataforma da OdonConcursos — <strong>acesso liberado na hora</strong>.</div>
+        <a href="https://odonconcursos.com.br/curso/preparatorio-sesrj-ibdo" class="bnt1 cta-curso">
           <span>Quero garantir minha vaga</span>
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <div class="lead-secure">
           <i data-lucide="lock"></i>
-          <span>Seus dados estão seguros</span>
+          <span>Compra segura na plataforma oficial</span>
         </div>
       </div>
     </div>
@@ -1377,7 +1286,12 @@
       <div class="event-item">
         <div class="event-icon"><i data-lucide="wallet"></i></div>
         <div class="event-label">Remuneração</div>
-        <div class="event-value">R$ 3.811,80<small>base + gratificações</small></div>
+        <div class="event-value">R$ 4.026,02<small>vencimento-base + gratificações</small></div>
+      </div>
+      <div class="event-item">
+        <div class="event-icon"><i data-lucide="clock"></i></div>
+        <div class="event-label">Jornada</div>
+        <div class="event-value">24h semanais<small>carga horária do cargo</small></div>
       </div>
       <div class="event-item">
         <div class="event-icon"><i data-lucide="file-clock"></i></div>
@@ -1390,8 +1304,8 @@
   <!-- FINAL CTA -->
   <div class="final-cta">
     <h2>A vaga na SES-RJ <span class="g1">pode ser sua.</span></h2>
-    <p>Preencha seus dados e conclua sua matrícula no preparatório da SES-RJ: 213 horas de aula nas disciplinas do edital, banco de questões da IBDO e acesso até o dia da prova. Faltam poucos meses para 01/11/2026.</p>
-    <a onclick="openModal()" class="bnt1 big" style="margin:0 auto;">
+    <p>Conclua sua matrícula no preparatório da SES-RJ: 213 horas de aula nas disciplinas do edital, banco de questões da IBDO e acesso até o dia da prova. Faltam poucos meses para 01/11/2026.</p>
+    <a href="https://odonconcursos.com.br/curso/preparatorio-sesrj-ibdo" class="bnt1 big cta-curso" style="margin:0 auto;">
       <span>Quero garantir minha vaga</span>
       <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
@@ -1413,7 +1327,7 @@
           Como faço para me inscrever?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Você preenche seus dados no formulário e é levado direto para a <strong>página oficial do preparatório</strong>, na plataforma da OdonConcursos, para concluir a matrícula e liberar o acesso às aulas.</div>
+        <div class="faq-a">É só clicar em qualquer botão de inscrição desta página: você vai direto para a <strong>página oficial do preparatório</strong>, na plataforma da OdonConcursos, para concluir a matrícula e liberar o acesso às aulas.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1458,153 +1372,31 @@
       <b>Garanta sua vaga</b>
       <small>11 vagas · turma da SES-RJ</small>
     </div>
-    <a onclick="openModal()" class="bnt1"><span>Quero minha vaga</span></a>
-  </div>
-
-  <!-- MODAL CAPTURA -->
-  <div class="modal" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-content">
-      <div class="modal-bar"></div>
-      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">
-        <i data-lucide="x"></i>
-      </button>
-      <div class="modal-body">
-        <h3 id="modalTitle">Falta pouco para sua vaga</h3>
-        <p class="modal-text">Preencha seus dados para liberar sua inscrição. Em seguida você é levado para a página oficial do preparatório da SES-RJ, na plataforma da OdonConcursos, para concluir a matrícula.</p>
-
-        <form id="signupForm">
-          <div class="form-row">
-            <label for="su-name">Nome completo</label>
-            <input class="form-input" type="text" id="su-name" required placeholder="Seu nome" autocomplete="name">
-          </div>
-          <div class="form-row">
-            <label for="su-phone">WhatsApp</label>
-            <div class="phone-row">
-              <select class="form-select" id="su-country">
-                <option value="55" selected>🇧🇷 +55</option>
-                <option value="351">🇵🇹 +351</option>
-                <option value="1">🇺🇸 +1</option>
-                <option value="44">🇬🇧 +44</option>
-                <option value="54">🇦🇷 +54</option>
-              </select>
-              <input class="form-input" type="tel" id="su-phone" required placeholder="(DDD) 9 0000-0000" inputmode="numeric" autocomplete="tel">
-            </div>
-          </div>
-          <div class="form-row">
-            <label for="su-email">E-mail</label>
-            <input class="form-input" type="email" id="su-email" required placeholder="seu@email.com" autocomplete="email">
-          </div>
-          <button type="submit" id="su-submit" class="bnt-lime form-submit">
-            Ir para a matrícula
-            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </button>
-        </form>
-
-        <div class="modal-secure">
-          <i data-lucide="lock"></i>
-          <span>Seus dados estão seguros</span>
-        </div>
-      </div>
-    </div>
+    <a href="https://odonconcursos.com.br/curso/preparatorio-sesrj-ibdo" class="bnt1 cta-curso"><span>Quero minha vaga</span></a>
   </div>
 
   <script>
     lucide.createIcons();
 
-    // Webhook que recebe os leads (Make) — o mesmo das demais LPs da SES-RJ
-    const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
-
-    // Página oficial do preparatório — destino do redirect depois da captura
+    // Página oficial do preparatório — destino dos botões de inscrição
     const CURSO_URL = 'https://odonconcursos.com.br/curso/preparatorio-sesrj-ibdo';
 
-    // Captura UTMs e IDs de clique da URL no carregamento da página
-    const tracking = (() => {
-      const p = new URLSearchParams(window.location.search);
-      const get = (k) => p.get(k) || '';
-      return {
-        utm_source:   get('utm_source'),
-        utm_medium:   get('utm_medium'),
-        utm_campaign: get('utm_campaign'),
-        utm_content:  get('utm_content'),
-        utm_term:     get('utm_term'),
-        fbclid:       get('fbclid'),
-        gclid:        get('gclid'),
-        referrer:     document.referrer || '',
-        landing_url:  window.location.href
-      };
-    })();
-
-    function openModal() {
-      document.getElementById('signupModal').classList.add('is-open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-      document.getElementById('signupModal').classList.remove('is-open');
-      document.body.style.overflow = '';
-    }
-    document.getElementById('signupModal').addEventListener('click', function (e) {
-      if (e.target === this) closeModal();
-    });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
-    document.getElementById('signupForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const btn = document.getElementById('su-submit');
-      btn.textContent = 'Enviando...';
-      btn.disabled = true;
-
-      const countryCode = document.getElementById('su-country').value;
-      const phoneDigits = document.getElementById('su-phone').value.replace(/\D/g, '');
-
-      const now = new Date();
-      const nome = document.getElementById('su-name').value;
-      const payload = {
-        formulario: 'SES-RJ · Página de Vendas',
-        referencia: 'Página de Vendas SES-RJ',
-        produto: 'SES-RJ',
-        metodo: 'Landing Page',
-        nome: nome,
-        email: document.getElementById('su-email').value,
-        telefone: '+' + countryCode + phoneDigits,
-        evento: 'Preparatório Concurso Odontologia SES-RJ',
-        origem: 'Página de Vendas SES-RJ',
-        data_contato: now.toISOString(),
-        data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
-        ...tracking
-      };
-
-      try {
-        if (WEBHOOK_URL) {
-          await fetch(WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-        } else {
-          console.log('Lead (configure WEBHOOK_URL):', payload);
-        }
-      } catch (err) {
-        console.error('Webhook error:', err);
-      }
-
-      // Evento de Lead no Meta Pixel (se o pixel estiver na página)
-      try {
-        if (typeof fbq === 'function') {
-          fbq('track', 'Lead', { content_name: 'Página de Vendas SES-RJ', content_category: 'SES-RJ' });
-        }
-      } catch (err) { console.error('Meta Pixel error:', err); }
-
-      // Confirmação + redirecionamento para a página oficial do preparatório,
-      // repassando os parâmetros de campanha da URL (se houver).
-      this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para a página do preparatório da SES-RJ para você concluir a matrícula…';
-      document.getElementById('modalTitle').textContent = 'Dados recebidos ✓';
-      lucide.createIcons();
-
+    // Repassa os parâmetros de campanha da URL (UTMs, fbclid, gclid) para a página do curso
+    (() => {
       const qs = window.location.search.replace(/^\?/, '');
       const destino = qs ? CURSO_URL + (CURSO_URL.includes('?') ? '&' : '?') + qs : CURSO_URL;
-      setTimeout(() => { window.location.href = destino; }, 1200);
-    });
+
+      document.querySelectorAll('.cta-curso').forEach((cta) => {
+        cta.href = destino;
+        cta.addEventListener('click', () => {
+          try {
+            if (typeof fbq === 'function') {
+              fbq('track', 'InitiateCheckout', { content_name: 'Página de Vendas SES-RJ', content_category: 'SES-RJ' });
+            }
+          } catch (err) { console.error('Meta Pixel error:', err); }
+        });
+      });
+    })();
   </script>
 
 </body>
