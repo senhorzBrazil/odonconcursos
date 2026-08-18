@@ -721,6 +721,53 @@
     }
     .lead-secure svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
 
+    /* ─── CARD DE COMBO (oferta secundária) ─── */
+    .combo-card {
+      position: relative;
+      margin-top: 22px;
+      border-radius: 22px;
+      background: linear-gradient(120deg, rgba(26,58,110,.55), rgba(14,24,56,.75));
+      border: 1px solid var(--line-strong);
+      padding: clamp(26px,3.4vw,38px) clamp(22px,3vw,42px);
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: clamp(24px,3vw,40px);
+      align-items: center;
+    }
+    @media (max-width: 820px) { .combo-card { grid-template-columns: 1fr; gap: 24px; text-align: center; } }
+    .combo-flag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(233,30,140,.14);
+      border: 1px solid rgba(233,30,140,.4);
+      color: var(--lime-soft);
+      font-size: 10.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 999px; margin-bottom: 14px;
+    }
+    .combo-title {
+      font-family: var(--display);
+      font-size: clamp(21px,2.6vw,27px); font-weight: 800; letter-spacing: -.02em;
+      color: var(--text); line-height: 1.2; margin-bottom: 12px;
+    }
+    .combo-text { font-size: 14.5px; line-height: 1.65; color: var(--text-mute); }
+    .combo-items { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    @media (max-width: 820px) { .combo-items { justify-content: center; } }
+    .combo-chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 12.5px; font-weight: 600; color: var(--text);
+    }
+    .combo-chip svg { width: 13px; height: 13px; stroke: var(--lime); fill: none; stroke-width: 2.6; }
+    .combo-price { text-align: center; margin-bottom: 18px; }
+    .combo-price-from { font-size: 13px; color: var(--text-dim); text-decoration: line-through; }
+    .combo-price-main { font-family: var(--display); font-size: clamp(26px,3.2vw,33px); font-weight: 800; letter-spacing: -.02em; color: var(--lime-soft); line-height: 1.1; margin: 4px 0 2px; }
+    .combo-price-cash { font-size: 13.5px; color: var(--text-mute); }
+    .combo-cta { text-align: center; }
+    .combo-cta .bnt1 { width: 100%; }
+    .combo-note { font-size: 11.5px; color: var(--text-dim); margin-top: 12px; }
+
     .offer-warn {
       display: flex; gap: 14px; align-items: flex-start;
       max-width: 1000px; margin: 22px auto 0;
@@ -1137,8 +1184,8 @@
         </div>
 
         <div class="hero-ctas fade-in delay-4">
-          <a onclick="openModal()" class="bnt1">
-            <span>Quero garantir minha vaga</span>
+          <a href="#oferta" class="bnt1">
+            <span>Ver valores e condições</span>
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
@@ -1337,6 +1384,32 @@
       </div>
     </div>
 
+
+    <div class="combo-card">
+      <div>
+        <span class="combo-flag">Combo</span>
+        <div class="combo-title">SES-RJ + Petrobras + assinatura do Concurseiro PRO</div>
+        <div class="combo-text">Vai prestar os dois concursos? No combo você leva os <strong>dois preparatórios</strong> e ainda a <strong>assinatura do Concurseiro PRO por 12 meses</strong> — todos os módulos liberados, cronograma personalizado, 15.000 questões, simulados, mapas mentais e acompanhamento contínuo para continuar estudando depois das provas.</div>
+        <div class="combo-items">
+          <span class="combo-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Preparatório SES-RJ</span>
+          <span class="combo-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Preparatório Petrobras</span>
+          <span class="combo-chip"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Assinatura Concurseiro PRO</span>
+        </div>
+      </div>
+      <div class="combo-cta">
+        <div class="combo-price">
+          <div class="combo-price-from">De R$ 5.270,00</div>
+          <div class="combo-price-main">12x de R$ 133,09</div>
+          <div class="combo-price-cash">ou R$ 1.597,00 à vista</div>
+        </div>
+        <a onclick="openModal('combo')" class="bnt1">
+          <span>Quero o combo</span>
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <div class="combo-note">Você preenche seus dados e vai para a matrícula do combo.</div>
+      </div>
+    </div>
+
     <div class="offer-warn">
       <svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       <div class="offer-warn-text"><strong>Atenção:</strong> a condição de R$ 697 à vista vale <strong>até 21/08/2026</strong>. São apenas 11 vagas no concurso e a prova é em 01/11/2026 — cada semana de estudo conta.</div>
@@ -1519,8 +1592,25 @@
     // Webhook que recebe os leads (Make) — o mesmo das demais LPs da SES-RJ
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
-    // Carrinho do preparatório — destino do redirect depois da captura
+    // Carrinhos de matrícula — cada CTA abre a captura e leva para a oferta certa
     const CURSO_URL = 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=M1Z4Y2x2WjlERWM9';
+    const COMBO_URL = 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=RGZkVEF4Qzh5M3M9&vch=concurseiropro3';
+
+    const OFERTAS = {
+      sesrj: {
+        nome: 'Preparatório SES-RJ',
+        url: CURSO_URL,
+        titulo: 'Falta pouco para sua vaga',
+        texto: 'Preencha seus dados para liberar sua inscrição. Em seguida você é levado para a página oficial do preparatório da SES-RJ, na plataforma da OdonConcursos, para concluir a matrícula.'
+      },
+      combo: {
+        nome: 'Combo SES-RJ + Petrobras + Concurseiro PRO',
+        url: COMBO_URL,
+        titulo: 'Combo SES-RJ + Petrobras',
+        texto: 'Preencha seus dados para liberar sua inscrição no combo. Em seguida você é levado para a página oficial da matrícula, na plataforma da OdonConcursos.'
+      }
+    };
+    let ofertaAtual = OFERTAS.sesrj;
 
     // Captura UTMs e IDs de clique da URL no carregamento da página
     const tracking = (() => {
@@ -1539,7 +1629,11 @@
       };
     })();
 
-    function openModal() {
+    function openModal(oferta) {
+      ofertaAtual = OFERTAS[oferta] || OFERTAS.sesrj;
+      document.getElementById('modalTitle').textContent = ofertaAtual.titulo;
+      document.querySelector('#signupModal .modal-text').textContent = ofertaAtual.texto;
+      document.getElementById('signupForm').style.display = '';
       document.getElementById('signupModal').classList.add('is-open');
       document.body.style.overflow = 'hidden';
     }
@@ -1566,6 +1660,7 @@
       const payload = {
         formulario: 'SES-RJ · Página de Vendas',
         referencia: 'Página de Vendas SES-RJ',
+        oferta: ofertaAtual.nome,
         produto: 'SES-RJ',
         metodo: 'Landing Page',
         nome: nome,
@@ -1607,7 +1702,8 @@
       lucide.createIcons();
 
       const qs = window.location.search.replace(/^\?/, '');
-      const destino = qs ? CURSO_URL + (CURSO_URL.includes('?') ? '&' : '?') + qs : CURSO_URL;
+      const base = ofertaAtual.url || CURSO_URL;
+      const destino = qs ? base + (base.includes('?') ? '&' : '?') + qs : base;
       setTimeout(() => { window.location.href = destino; }, 1200);
     });
   </script>
