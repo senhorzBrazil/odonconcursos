@@ -690,14 +690,15 @@
     .prova-nota strong { color: var(--text); font-weight: 700; }
     @media (max-width: 620px) { .prova-table th, .prova-table td { padding: 11px 10px; font-size: 13px; } }
 
-    /* ─── PLANOS (PM BA x COMBO) ─── */
+    /* ─── PLANO (PM BA) ─── */
     .plans-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       gap: 20px;
       align-items: stretch;
+      max-width: 560px;
+      margin: 0 auto;
     }
-    @media (max-width: 900px) { .plans-grid { grid-template-columns: 1fr; gap: 34px; } }
     .plan-card {
       position: relative;
       display: flex;
@@ -718,11 +719,6 @@
       -webkit-mask-composite: xor; mask-composite: exclude;
       pointer-events: none; z-index: 5;
     }
-    .plan-card--combo {
-      background:
-        radial-gradient(circle at 80% 0%, rgba(26,58,110,.55), transparent 60%),
-        linear-gradient(180deg, rgba(14,24,56,.9), var(--bg-card));
-    }
     .plan-flag {
       position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
       background: linear-gradient(92deg, var(--lime), var(--orange-2));
@@ -731,7 +727,6 @@
       box-shadow: 0 6px 18px rgba(233,30,140,.35);
       z-index: 6;
     }
-    .plan-flag--combo { background: linear-gradient(92deg, #1a3a6e, #2b5ea8); box-shadow: 0 6px 18px rgba(26,58,110,.5); }
     .plan-head { text-align: center; margin-bottom: 22px; }
     .plan-kicker { font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--lime); margin-bottom: 8px; }
     .plan-title { font-family: var(--display); font-size: clamp(21px,2.4vw,26px); font-weight: 800; letter-spacing: -.02em; color: var(--text); line-height: 1.2; }
@@ -753,10 +748,8 @@
 
     .plan-foot { margin-top: auto; padding-top: 26px; }
     .plan-price { text-align: center; margin-bottom: 18px; }
-    .plan-from { font-size: 13px; color: var(--text-dim); text-decoration: line-through; }
     .plan-main { font-family: var(--display); font-size: clamp(28px,3.4vw,36px); font-weight: 800; letter-spacing: -.025em; color: var(--text); line-height: 1.1; margin: 5px 0 4px; }
     .plan-main span { font-size: 15px; font-weight: 600; color: var(--text-mute); letter-spacing: 0; }
-    .plan-main--combo { color: var(--lime-soft); }
     .plan-cash { font-size: 13.5px; color: var(--text-mute); }
     .plan-cash strong { color: var(--text); }
     .plan-card .bnt1 { width: 100%; }
@@ -766,7 +759,6 @@
     }
     .plan-note svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
 
-    /* ─── CARD DE COMBO (oferta secundária) ─── */
 
     .offer-warn {
       display: flex; gap: 14px; align-items: flex-start;
@@ -1284,7 +1276,7 @@
         <span class="value-tag">Acesso</span>
         <div class="value-icon"><i data-lucide="calendar-check"></i></div>
         <div class="value-title">Liberado até o dia da prova</div>
-        <div class="value-desc">O curso fica disponível <strong>até 17/01/2027</strong>, o dia da prova da PM BA. Depois dessa data o conteúdo é desativado — e, se quiser seguir estudando para outros concursos, você pode migrar para o <strong>Concurseiro PRO</strong> com condição especial de aluno ativo (migração paga).</div>
+        <div class="value-desc">O curso fica disponível <strong>até 17/01/2027</strong>, o dia da prova da PM BA. Depois dessa data o conteúdo é desativado.</div>
       </div>
     </div>
   </section>
@@ -1378,7 +1370,7 @@
     <div class="plans-grid">
 
       <div class="plan-card">
-        <span class="plan-flag">Condição de lançamento · até 31/08</span>
+        <span class="plan-flag">Condição especial · até 21/09</span>
         <div class="plan-head">
           <div class="plan-kicker">Preparatório</div>
           <h3 class="plan-title">PM BA · Odontologia</h3>
@@ -1395,9 +1387,8 @@
         </ul>
         <div class="plan-foot">
           <div class="plan-price">
-            <div class="plan-from">De R$ 1.197,00</div>
-            <div class="plan-main">R$ 697,00 <span>à vista</span></div>
-            <div class="plan-cash">ou em até <strong>12x de R$ 58,08</strong></div>
+            <div class="plan-main">R$ 997,00 <span>à vista</span></div>
+            <div class="plan-cash">ou em até <strong>12x de R$ 83,08</strong></div>
           </div>
           <a onclick="openModal()" class="bnt1">
             <span>Quero garantir minha vaga</span>
@@ -1407,44 +1398,11 @@
         </div>
       </div>
 
-      <div class="plan-card plan-card--combo">
-        <span class="plan-flag plan-flag--combo">Combo · mais completo</span>
-        <div class="plan-head">
-          <div class="plan-kicker">PM BA +</div>
-          <h3 class="plan-title">Assinatura Concurseiro PRO</h3>
-          <p class="plan-sub">O preparatório da PM BA e a <strong>assinatura completa</strong>, para seguir estudando depois da prova.</p>
-        </div>
-        <ul class="plan-stack">
-          <li class="plan-row"><span class="plan-row-name">Acesso completo (12 meses)</span><span class="plan-row-val">R$ 1.997,00</span></li>
-          <li class="plan-row"><span class="plan-row-name">BÔNUS #1 – Suporte</span><span class="plan-row-val">R$ 497,00</span></li>
-          <li class="plan-row"><span class="plan-row-name">BÔNUS #2 – Mapas Mentais</span><span class="plan-row-val">R$ 297,00</span></li>
-          <li class="plan-row"><span class="plan-row-name">BÔNUS #3 – 15.000 Questões</span><span class="plan-row-val">R$ 497,00</span></li>
-          <li class="plan-row"><span class="plan-row-name">BÔNUS #4 – Vídeos</span><span class="plan-row-val">R$ 297,00</span></li>
-          <li class="plan-row"><span class="plan-row-name">BÔNUS #5 – Cronograma</span><span class="plan-row-val">R$ 497,00</span></li>
-          <li class="plan-row"><span class="plan-row-name">BÔNUS #6 – Atualizações</span><span class="plan-row-val">R$ 397,00</span></li>
-          <li class="plan-row"><span class="plan-row-name">BÔNUS #7 – Simulados</span><span class="plan-row-val">R$ 297,00</span></li>
-          <li class="plan-row"><span class="plan-row-name">BÔNUS #8 – Sorteios</span><span class="plan-row-val">R$ 197,00</span></li>
-          <li class="plan-row"><span class="plan-row-name">BÔNUS #9 – Atualidades</span><span class="plan-row-val">R$ 297,00</span></li>
-        </ul>
-        <div class="plan-foot">
-          <div class="plan-price">
-            <div class="plan-from">De R$ 5.270,00</div>
-            <div class="plan-main plan-main--combo">12x de R$ 133,09</div>
-            <div class="plan-cash">ou <strong>R$ 1.597,00 à vista</strong></div>
-          </div>
-          <a onclick="openModal('combo')" class="bnt1">
-            <span>Quero o combo</span>
-            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-          <div class="plan-note"><i data-lucide="calendar-check"></i><span>Acesso por 1 ano</span></div>
-        </div>
-      </div>
-
     </div>
 
     <div class="offer-warn">
       <svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <div class="offer-warn-text"><strong>Atenção:</strong> a condição de R$ 697 à vista vale <strong>até 31/08/2026</strong>. As inscrições no concurso vão até <strong>21/09</strong> e a prova é em <strong>17/01/2027</strong> — são 12 vagas, e a nota de corte é de <strong>70 pontos em 100</strong> na objetiva.</div>
+      <div class="offer-warn-text"><strong>Atenção:</strong> a condição especial vale <strong>até 21/09/2026</strong>, o último dia de inscrição no concurso. Depois dessa data ela não volta. São 12 vagas, a prova é em <strong>17/01/2027</strong> e a nota de corte é de <strong>70 pontos em 100</strong> na objetiva.</div>
     </div>
   </div>
 
@@ -1457,7 +1415,7 @@
       </div>
       <div>
         <div class="guarantee-title">Acesso liberado até o dia da prova</div>
-        <div class="guarantee-text">Você estuda <strong>100% online</strong>, no seu ritmo, com o conteúdo disponível <strong>até 17/01/2027</strong> — o dia da prova da PM BA. Depois da prova, se quiser seguir estudando para outros concursos, pode <strong>migrar para o Concurseiro PRO</strong> com condição especial de aluno ativo.</div>
+        <div class="guarantee-text">Você estuda <strong>100% online</strong>, no seu ritmo, com o conteúdo disponível <strong>até 17/01/2027</strong> — o dia da prova da PM BA — tempo de sobra para cobrir o programa inteiro e ainda revisar.</div>
       </div>
     </div>
   </div>
@@ -1552,7 +1510,7 @@
     </a>
     <div class="cta-micro">
       <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Matrícula 100% online</span>
-      <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Em até 12x de R$ 58,08</span>
+      <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Em até 12x de R$ 83,08</span>
     </div>
   </div>
 
@@ -1582,7 +1540,7 @@
           Até quando eu tenho acesso ao curso?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">O curso fica disponível <strong>até 17/01/2027</strong>, o dia da prova da PM BA. Depois dessa data o conteúdo é desativado. Se quiser continuar estudando para outros concursos, é possível <strong>migrar para o Concurseiro PRO</strong> (migração paga, com condição especial para quem é aluno ativo).</div>
+        <div class="faq-a">O curso fica disponível <strong>até 17/01/2027</strong>, o dia da prova da PM BA. Depois dessa data o conteúdo é desativado.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1603,7 +1561,7 @@
           Quanto custa o preparatório?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">De R$ 1.197 por <strong>R$ 697 à vista</strong> — condição válida até <strong>31/08/2026</strong> — ou em <strong>até 12x de R$ 58,08</strong> no cartão. O pagamento é feito direto na plataforma da OdonConcursos.</div>
+        <div class="faq-a"><strong>R$ 997,00 à vista</strong> ou em <strong>até 12x de R$ 83,08</strong> no cartão. A condição especial vale <strong>até 21/09/2026</strong>, o último dia de inscrição no concurso. O pagamento é feito direto na plataforma da OdonConcursos.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1685,10 +1643,8 @@
     // Os leads da PM BA se distinguem pelos campos `produto` / `origem` do payload.
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
-    // ⚠️ TROCAR: carrinho de matrícula do preparatório da PM BA.
-    // Enquanto o produto não estiver criado, o link abaixo leva para a lista de cursos.
-    const CURSO_URL = 'https://odonconcursos.com.br/cursos.aspx';
-    const COMBO_URL = 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=RGZkVEF4Qzh5M3M9&vch=concurseiropro3';
+    // Checkout do preparatório da PM BA
+    const CURSO_URL = 'https://odonconcursos.com.br/checkout.aspx?fbidp=a05jeTVGelVzOUk9';
 
     const OFERTAS = {
       pmba: {
@@ -1696,12 +1652,6 @@
         url: CURSO_URL,
         titulo: 'Falta pouco para sua vaga',
         texto: 'Preencha seus dados para liberar sua inscrição. Em seguida você é levado para a página oficial do preparatório da PM BA, na plataforma da OdonConcursos, para concluir a matrícula.'
-      },
-      combo: {
-        nome: 'Combo PM BA + Concurseiro PRO',
-        url: COMBO_URL,
-        titulo: 'Combo PM BA + Concurseiro PRO',
-        texto: 'Preencha seus dados para liberar sua inscrição no combo. Em seguida você é levado para a página oficial da matrícula, na plataforma da OdonConcursos.'
       }
     };
     let ofertaAtual = OFERTAS.pmba;
