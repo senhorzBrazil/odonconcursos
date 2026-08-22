@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulados com Ranking · Concurso PM BA e CBM BA Odontologia · até a prova de 17/01/2027 | OdonConcursos</title>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1038030425232337');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1038030425232337&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shinery {
+      0%, 100% { left: -10%; opacity: 0; }
+      20%      { opacity: 1; }
+      48%      { left: 110%; opacity: 1; }
+      51%      { opacity: 0; }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: .5; }
+      50%      { opacity: 1; }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: .25; }
+    }
+    .fade-in { animation: fadeSlideIn .7s ease-out both; }
+    .delay-1 { animation-delay: .10s; }
+    .delay-2 { animation-delay: .22s; }
+    .delay-3 { animation-delay: .34s; }
+    .delay-4 { animation-delay: .46s; }
+    .delay-5 { animation-delay: .58s; }
+
+    /* ─── BASE ─── */
+    :root {
+      --bg:           #060a18;
+      --bg-soft:      #0b1535;
+      --bg-card:      #0e1838;
+      --line:         rgba(255,255,255,0.08);
+      --line-strong:  rgba(255,255,255,0.16);
+      --text:         #ffffff;
+      --text-mute:    #9aa3bf;
+      --text-dim:     #6b7395;
+      --text-faint:   #4b5273;
+
+      /* primary accent — OdonConcursos pink family */
+      --lime:         #e91e8c;
+      --lime-soft:    #f472b6;
+      --green:        #1a3a6e;
+      --mint:         #fce8f3;
+      --orange:       #e91e8c;
+      --orange-2:     #f0309a;
+      --gold:         #f5b942;
+
+      --sans:    'Roboto', system-ui, sans-serif;
+      --display: 'Roboto Slab', 'Roboto', system-ui, serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-weight: 400;
+    }
+
+    /* Starfield dot grid */
+    html::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(at 20% 80%, #fff 1px, transparent 0);
+      background-size: 3px 3px;
+      pointer-events: none;
+      opacity: .04;
+      z-index: 1;
+    }
+
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      width: 700px; height: 700px;
+      top: -240px; right: -120px;
+      background: radial-gradient(circle, rgba(233,30,140,.08), transparent 70%);
+      animation: pulseGlow 8s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: 500px; height: 500px;
+      bottom: 10%; left: -160px;
+      background: radial-gradient(circle, rgba(26,58,110,.05), transparent 70%);
+      animation: pulseGlow 12s ease-in-out infinite reverse;
+    }
+
+    /* ─── ANNOUNCEMENT BAR ─── */
+    .topbar {
+      position: relative;
+      z-index: 210;
+      background: linear-gradient(92deg, var(--lime) 0%, var(--orange-2) 100%);
+      color: #fff;
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      padding: 9px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .topbar b { font-weight: 800; }
+    .topbar .dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: blink 1.1s ease-in-out infinite; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      border-bottom: 1px solid var(--line);
+      background: rgba(3,7,18,.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 0 clamp(20px,5vw,64px);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo { display: flex; align-items: center; }
+    .logo-img { height: 34px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .nav-pill {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background .18s, border-color .18s;
+    }
+    .nav-pill:hover { background: rgba(233,30,140,.08); border-color: rgba(233,30,140,.4); }
+    .nav-pill svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    .nowrap { white-space: nowrap; }
+
+    /* ─── G1 — gradient text ─── */
+    .g1 {
+      background: linear-gradient(92deg, var(--lime) 18.78%, var(--lime-soft) 79.67%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.25;
+      padding-bottom: .22em;
+      padding-right: .12em;
+    }
+
+    /* ─── HERO ─── */
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 0%, rgba(233,30,140,.12), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 10% 80%, rgba(26,58,110,.07), transparent 60%),
+        var(--bg);
+      display: flex;
+      align-items: center;
+    }
+    .hero-wrap {
+      position: relative;
+      z-index: 2;
+      padding: clamp(56px,8vh,96px) clamp(20px,5vw,64px);
+      width: min(1200px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: clamp(32px,5vw,72px);
+      align-items: center;
+      text-align: left;
+    }
+    .hero-left { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; position: relative; z-index: 2; }
+    .hero-right { position: relative; min-height: 540px; }
+    /* mobile/tablet: foto da mulher no topo, texto abaixo (sem sobreposição) */
+    .hero-photo-m { display: none; }
+    @media (max-width: 900px) {
+      .hero-wrap { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-section {
+        flex-direction: column;
+        align-items: stretch;
+        min-height: 0;
+        background: #000000;
+      }
+      .hero-photo-m {
+        display: block;
+        width: 100%;
+        height: 46svh;
+        min-height: 300px;
+        max-height: 460px;
+        background:
+          linear-gradient(to bottom, rgba(0,0,0,0) 62%, #000000 100%),
+          url("/lp/concurso/pm-ba-vendas/hero-mobile.jpg") top center / cover no-repeat;
+      }
+    }
+    @media (min-width: 901px) {
+      .hero-section {
+        min-height: 90vh;
+        background:
+          linear-gradient(90deg, #000000 0%, rgba(0,0,0,.94) 30%, rgba(0,0,0,.6) 44%, rgba(0,0,0,0) 54%),
+          url("/lp/concurso/pm-ba-vendas/hero-desktop.jpg") center right / cover no-repeat,
+          #000000;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(233,30,140,.25);
+      background: rgba(233,30,140,.05);
+      border-radius: 999px;
+      padding: 7px 16px;
+      width: fit-content;
+    }
+    .hero-badge span {
+      font-size: 10.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--lime-soft);
+    }
+    .hero-badge svg { width: 14px; height: 14px; stroke: var(--lime); fill: none; stroke-width: 1.7; }
+
+    .hero-h1 {
+      font-family: var(--display);
+      font-size: clamp(30px, 3.2vw, 46px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -.025em;
+      color: var(--text);
+      max-width: 560px;
+    }
+
+    .hero-desc {
+      font-size: clamp(15px,1.5vw,17px);
+      line-height: 1.75;
+      color: var(--text-mute);
+      font-weight: 400;
+      max-width: 560px;
+    }
+    .hero-desc strong { color: var(--text); font-weight: 600; }
+    .hero-desc em { color: var(--lime-soft); font-style: italic; }
+
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: flex-start; margin-top: 4px; }
+
+    .cta-micro {
+      display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: flex-start;
+      margin-top: 6px;
+    }
+    .cta-micro span {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--text-mute); font-weight: 500;
+    }
+    .cta-micro .check-square { color: var(--lime); display: inline-flex; }
+    .cta-micro svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ─── HERO DARK THEME (fundo preto com o brasão da PM BA) ─── */
+    .hero-h1 { color: #ffffff; text-shadow: 0 2px 24px rgba(0,0,0,.6); }
+    .hero-desc { color: #c7cee0; text-shadow: 0 1px 16px rgba(0,0,0,.6); }
+    .hero-desc strong { color: #ffffff; }
+    .hero-badge {
+      border-color: rgba(233,30,140,.45);
+      background: rgba(233,30,140,.12);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .hero-badge span { color: #f9a8d4; }
+    .hero-section .cta-micro span { color: #c7cee0; }
+
+    /* prova social inline no hero */
+    .hero-trust {
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+      padding: 13px 18px; border-radius: 14px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(233,30,140,.35);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .hero-trust .ht-num { font-family: var(--display); font-weight: 800; font-size: 26px; letter-spacing: -.02em; color: #ffffff; line-height: 1; }
+    .hero-trust .ht-txt { font-size: 13px; color: #c7cee0; font-weight: 500; line-height: 1.35; max-width: 230px; }
+    .hero-trust .ht-txt strong { color: #ffffff; font-weight: 700; }
+
+    /* ─── SHINY CTA (orange) ─── */
+    .bnt1 {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 17px 36px;
+      font-family: var(--sans);
+      font-size: 14.5px;
+      font-weight: 700;
+      letter-spacing: .01em;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--orange) 0, var(--orange-2) 100%);
+      box-shadow:
+        0 0 20px rgba(233,30,140,.5),
+        0 0 40px rgba(240,48,154,.4),
+        0 10px 25px rgba(233,30,140,.25);
+      overflow: hidden;
+      transition: all .35s ease;
+      isolation: isolate;
+      border: none;
+      cursor: pointer;
+    }
+    .bnt1:hover {
+      background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--orange-2) 0, var(--orange) 100%);
+      box-shadow:
+        0 0 25px rgba(233,30,140,.6),
+        0 0 60px rgba(240,48,154,.5),
+        0 15px 35px rgba(233,30,140,.3);
+      transform: scale(1.04);
+    }
+    .bnt1::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 90px;
+      height: 160%;
+      background: linear-gradient(10deg, #ffd9ec 12.81%, rgba(255,217,236,0) 66.66%);
+      transform: translateX(-50%) skew(-25deg);
+      animation: shinery 3s ease-in-out infinite;
+      filter: blur(4px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bnt1::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 999px;
+      border: 2px solid var(--orange);
+      pointer-events: none;
+    }
+    .bnt1 span, .bnt1 svg { position: relative; z-index: 2; }
+    .bnt1 svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; }
+    .bnt1.big { padding: 21px 48px; font-size: 16px; }
+
+    .bnt-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 17px 28px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,.03);
+      transition: background .2s, border-color .2s;
+      cursor: pointer;
+    }
+    .bnt-ghost:hover { background: rgba(233,30,140,.06); border-color: rgba(233,30,140,.4); }
+
+    .bnt-lime {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 999px;
+      background: linear-gradient(92deg, var(--lime) 0%, var(--lime-soft) 100%);
+      box-shadow: 0 0 20px rgba(233,30,140,.3), 0 8px 22px rgba(233,30,140,.18);
+      transition: filter .2s, transform .12s;
+      cursor: pointer;
+      border: none;
+    }
+    .bnt-lime:hover { filter: brightness(1.08); }
+    .bnt-lime svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2.4; fill: none; }
+
+    /* ─── SECTION ─── */
+    .section {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 88px clamp(20px,5vw,64px);
+    }
+    .section.tight { padding-top: 0; }
+    .section-hr { max-width: 1100px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px); }
+    .section-hr hr { border: none; border-top: 1px solid var(--line); }
+
+    .s-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--lime);
+      margin-bottom: 24px;
+    }
+    .s-label::before {
+      content: '';
+      display: block;
+      width: 28px; height: 1px;
+      background: var(--lime);
+      opacity: .6;
+    }
+
+    .sec-title {
+      font-family: var(--display);
+      font-size: clamp(26px, 3.6vw, 42px);
+      font-weight: 800;
+      letter-spacing: -.025em;
+      line-height: 1.15;
+      color: var(--text);
+      max-width: 720px;
+      margin-bottom: 14px;
+    }
+    .sec-title em { font-style: italic; }
+    .sec-intro {
+      font-size: 16px; line-height: 1.8; color: var(--text-mute); font-weight: 400; max-width: 640px;
+    }
+    .sec-intro strong { color: var(--text); font-weight: 600; }
+
+    /* ─── LIGHT SECTIONS (white band, navy text) ─── */
+    .light {
+      position: relative;
+      --text:       #0b1535;
+      --text-mute:  #475569;
+      --text-dim:   #64748b;
+      --text-faint: #94a3b8;
+      --bg-card:    #f7f9fc;
+      --line:        rgba(11,21,53,0.10);
+      --line-strong: rgba(11,21,53,0.18);
+    }
+    .light::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 100vw;
+      transform: translateX(-50%);
+      background: #ffffff;
+      z-index: -1;
+    }
+    .light .value-card::before,
+    .light .event-item::before {
+      background: linear-gradient(135deg, rgba(233,30,140,.45), rgba(11,21,53,.07) 55%, rgba(233,30,140,.18));
+    }
+    .light .value-card:hover {
+      box-shadow: 0 12px 32px rgba(11,21,53,.12), 0 0 24px rgba(233,30,140,.12);
+    }
+    .light .faq-item::before {
+      background: linear-gradient(to right, rgba(11,21,53,.14), rgba(11,21,53,.05));
+    }
+    .light .faq-toggle { border-color: rgba(11,21,53,.18); }
+
+    /* ─── PRA QUEM É ─── */
+    .forwho-item {
+      display: flex; gap: 18px; align-items: flex-start;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .forwho-item:last-child { border-bottom: none; }
+    .forwho-icon {
+      width: 40px; height: 40px; min-width: 40px;
+      border-radius: 11px;
+      background: rgba(233,30,140,.08);
+      border: 1px solid rgba(233,30,140,.22);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--lime);
+    }
+    .forwho-icon svg { width: 17px; height: 17px; stroke-width: 2; }
+    .forwho-text { font-size: 16px; line-height: 1.6; color: var(--text-mute); font-weight: 400; padding-top: 9px; }
+    .forwho-text strong { color: var(--text); font-weight: 600; }
+
+    /* ─── O QUE VOCÊ RECEBE (bento) ─── */
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    @media (max-width: 760px) { .value-grid { grid-template-columns: 1fr; } }
+    .value-card {
+      position: relative;
+      padding: 30px 28px;
+      border-radius: 18px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(233,30,140,.06), transparent 60%),
+        var(--bg-card);
+      transition: transform .35s ease, box-shadow .35s ease;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .value-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      padding: 1.5px;
+      background: linear-gradient(135deg, rgba(233,30,140,.4), rgba(255,255,255,.05) 50%, rgba(233,30,140,.16));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .value-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(0,0,0,.5), 0 0 24px rgba(233,30,140,.1);
+    }
+    .value-icon {
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      background: rgba(233,30,140,.08);
+      border: 1px solid rgba(233,30,140,.22);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--lime);
+    }
+    .value-icon svg { width: 21px; height: 21px; stroke-width: 1.8; }
+    .value-title {
+      font-family: var(--display);
+      font-size: 18px; font-weight: 700; letter-spacing: -.01em;
+      color: var(--text); line-height: 1.3;
+    }
+    .value-desc { font-size: 14.5px; line-height: 1.7; color: var(--text-mute); font-weight: 400; }
+    .value-tag {
+      align-self: flex-start;
+      font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--lime); background: rgba(233,30,140,.1);
+      border: 1px solid rgba(233,30,140,.25);
+      padding: 4px 10px; border-radius: 999px;
+    }
+
+    /* ─── ANÁLISE DO EDITAL ─── */
+    .edital-video { max-width: 860px; margin: 40px auto 0; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-strong); background: #000; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+    .edital-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    /* ─── DEPOIMENTOS ─── */
+    .depo-videos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1100px; margin: 40px auto 22px; }
+    .depo-video { aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-strong); background: #000; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+    .depo-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .depo-imgs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1100px; margin: 0 auto 32px; }
+    .depo-imgs img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); background: var(--bg-card); }
+    @media (max-width: 820px) {
+      .depo-videos { grid-template-columns: repeat(2, 1fr); }
+      .depo-imgs { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ─── QUEM VAI TE GUIAR ─── */
+    .hosts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    @media (max-width: 760px) { .hosts-grid { grid-template-columns: 1fr; } }
+    .host-card {
+      position: relative;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(233,30,140,.06), transparent 55%),
+        var(--bg-card);
+      padding: 32px 28px;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .host-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      padding: 1.5px;
+      background: linear-gradient(135deg, rgba(233,30,140,.4), rgba(255,255,255,.05) 50%, rgba(233,30,140,.16));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .host-avatar {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(233,30,140,.2), rgba(26,58,110,.08));
+      border: 1px solid rgba(233,30,140,.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--lime);
+      margin-bottom: 18px;
+    }
+    .host-avatar svg { width: 26px; height: 26px; stroke-width: 1.7; }
+    .host-tag {
+      font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase;
+      font-weight: 700; color: var(--lime); opacity: .9; margin-bottom: 6px;
+    }
+    .host-name {
+      font-family: var(--display);
+      font-size: 21px; font-weight: 700; letter-spacing: -.01em;
+      color: var(--text); margin-bottom: 12px; line-height: 1.2;
+    }
+    .host-desc { font-size: 14.5px; line-height: 1.75; color: var(--text-mute); font-weight: 400; }
+    .host-desc strong { color: var(--text); font-weight: 600; }
+
+    /* ─── FALE COM O TIME (lead block) ─── */
+    .offer-section {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px clamp(20px,5vw,64px);
+      z-index: 2;
+    }
+
+    /* card de contato (lado direito) */
+
+    /* ─── TABELA DE PONTUAÇÃO DA PROVA ─── */
+    .prova-wrap { margin-top: 34px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .prova-table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 14px; }
+    .prova-table th, .prova-table td { padding: 13px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+    .prova-table thead th {
+      font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
+      font-weight: 700; color: var(--text-dim); border-bottom-width: 1px;
+    }
+    .prova-table td { color: var(--text-mute); }
+    .prova-table td:first-child { color: var(--text); font-weight: 500; }
+    .prova-table .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .prova-table tr.destaque td { background: rgba(233,30,140,.06); color: var(--text); font-weight: 600; }
+    .prova-table tr.destaque td:first-child { box-shadow: inset 3px 0 0 var(--lime); }
+    .prova-table tfoot td { font-weight: 700; color: var(--text); border-bottom: none; border-top: 1px solid var(--line-strong); }
+    .prova-nota {
+      margin-top: 22px; padding: 16px 18px; border-radius: 14px;
+      border: 1px solid rgba(233,30,140,.28); background: rgba(233,30,140,.05);
+      font-size: 14.5px; line-height: 1.65; color: var(--text-mute);
+    }
+    .prova-nota strong { color: var(--text); font-weight: 700; }
+    @media (max-width: 620px) { .prova-table th, .prova-table td { padding: 11px 10px; font-size: 13px; } }
+
+    /* ─── PLANO (PM BA) ─── */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: stretch;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .plan-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border-radius: 24px;
+      padding: clamp(30px,3.2vw,40px) clamp(22px,2.6vw,32px) clamp(26px,3vw,34px);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(233,30,140,.10), transparent 60%),
+        var(--bg-card);
+      z-index: 1;
+    }
+    .plan-card::before {
+      content: '';
+      position: absolute; inset: 0; border-radius: 24px; padding: 1.5px;
+      background: linear-gradient(150deg, rgba(240,48,154,.55), rgba(255,255,255,.06) 55%, rgba(233,30,140,.3));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      pointer-events: none; z-index: 5;
+    }
+    .plan-flag {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(92deg, var(--lime), var(--orange-2));
+      color: #fff; font-size: 10.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 999px; white-space: nowrap;
+      box-shadow: 0 6px 18px rgba(233,30,140,.35);
+      z-index: 6;
+    }
+    .plan-head { text-align: center; margin-bottom: 22px; }
+    .plan-kicker { font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--lime); margin-bottom: 8px; }
+    .plan-title { font-family: var(--display); font-size: clamp(21px,2.4vw,26px); font-weight: 800; letter-spacing: -.02em; color: var(--text); line-height: 1.2; }
+    .plan-sub { font-size: 13.5px; line-height: 1.6; color: var(--text-mute); margin-top: 10px; }
+
+    .plan-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .plan-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.45; color: var(--text); }
+    .plan-item svg { width: 17px; height: 17px; min-width: 17px; margin-top: 2px; stroke: var(--lime); fill: none; stroke-width: 2.6; }
+
+    .plan-stack { list-style: none; display: flex; flex-direction: column; }
+    .plan-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      padding: 10px 0; border-bottom: 1px solid var(--line);
+      font-size: 13.5px;
+    }
+    .plan-row:last-child { border-bottom: none; }
+    .plan-row-name { color: var(--text); line-height: 1.35; }
+    .plan-row-val { color: var(--text-dim); font-weight: 600; white-space: nowrap; }
+
+    .plan-foot { margin-top: auto; padding-top: 26px; }
+    .plan-price { text-align: center; margin-bottom: 18px; }
+    .plan-main { font-family: var(--display); font-size: clamp(28px,3.4vw,36px); font-weight: 800; letter-spacing: -.025em; color: var(--text); line-height: 1.1; margin: 5px 0 4px; }
+    .plan-main span { font-size: 15px; font-weight: 600; color: var(--text-mute); letter-spacing: 0; }
+    .plan-cash { font-size: 13.5px; color: var(--text-mute); }
+    .plan-cash strong { color: var(--text); }
+    .plan-card .bnt1 { width: 100%; }
+    .plan-note {
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+      font-size: 11.5px; color: var(--text-dim); margin-top: 14px; text-align: center;
+    }
+    .plan-note svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+
+    .offer-warn {
+      display: flex; gap: 14px; align-items: flex-start;
+      max-width: 1000px; margin: 22px auto 0;
+      padding: 18px 22px; border-radius: 14px;
+      background: rgba(233,30,140,.06);
+      border: 1px solid rgba(240,48,154,.3);
+    }
+    .offer-warn svg { width: 20px; height: 20px; min-width: 20px; stroke: var(--orange-2); fill: none; stroke-width: 2; margin-top: 1px; }
+    .offer-warn-text { font-size: 14px; line-height: 1.65; color: var(--text); font-weight: 400; }
+    .offer-warn-text strong { color: #f9a8d4; font-weight: 700; }
+
+    /* ─── REASSURANCE (sem compromisso) ─── */
+    .guarantee {
+      position: relative; z-index: 2;
+      max-width: 880px; margin: 0 auto;
+      padding: 0 clamp(20px,5vw,64px) 88px;
+    }
+    .guarantee-card {
+      display: flex; align-items: center; gap: 28px;
+      border-radius: 22px; padding: 36px clamp(24px,4vw,44px);
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      position: relative; overflow: hidden;
+    }
+    @media (max-width: 640px) { .guarantee-card { flex-direction: column; text-align: center; gap: 18px; } }
+    .guarantee-seal {
+      width: 104px; height: 104px; min-width: 104px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 35%, rgba(233,30,140,.25), rgba(14,24,56,.6));
+      border: 2px solid rgba(233,30,140,.5);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: var(--lime); text-align: center;
+    }
+    .guarantee-seal svg { width: 34px; height: 34px; stroke-width: 1.8; }
+    .guarantee-seal small { font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-mute); margin-top: 4px; }
+    .guarantee-title { font-family: var(--display); font-size: 21px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .guarantee-text { font-size: 14.5px; line-height: 1.7; color: var(--text-mute); }
+    .guarantee-text strong { color: var(--text); font-weight: 600; }
+
+    /* ─── DETALHES (event grid) ─── */
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
+      gap: 14px;
+      margin-top: 40px;
+    }
+    @media (min-width: 761px) { .event-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 760px) { .event-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 440px) { .event-grid { grid-template-columns: 1fr; } }
+    .event-item {
+      position: relative;
+      border-radius: 16px;
+      background: var(--bg-card);
+      padding: 26px 22px;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .event-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(233,30,140,.35), rgba(255,255,255,.04) 55%, rgba(233,30,140,.14));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .event-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: rgba(233,30,140,.08);
+      border: 1px solid rgba(233,30,140,.22);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--lime);
+      margin-bottom: 16px;
+    }
+    .event-icon svg { width: 17px; height: 17px; stroke-width: 1.9; }
+    .event-label {
+      font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase;
+      font-weight: 700; color: var(--text-dim); margin-bottom: 6px;
+    }
+    .event-value {
+      font-family: var(--display);
+      font-size: 17px; font-weight: 700; color: var(--text); line-height: 1.3; letter-spacing: -.01em;
+    }
+    .event-value small { display: block; font-family: var(--sans); font-size: 12px; font-weight: 400; color: var(--text-dim); margin-top: 4px; letter-spacing: 0; }
+
+    /* ─── FAQ ─── */
+    .faq-list {
+      display: flex; flex-direction: column; gap: 12px; margin-top: 40px;
+      max-width: 860px;
+    }
+    .faq-item {
+      position: relative;
+      border-radius: 14px;
+      background: var(--bg-card);
+      overflow: hidden;
+      z-index: 1;
+      transition: background .25s;
+    }
+    .faq-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      padding: 1px;
+      background: linear-gradient(to right, rgba(255,255,255,.12), rgba(255,255,255,.04));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      z-index: 10;
+      transition: background .25s;
+    }
+    .faq-item[open] { background: rgba(233,30,140,.025); }
+    .faq-item[open]::before {
+      background: linear-gradient(to right, rgba(233,30,140,.4), rgba(233,30,140,.1));
+    }
+    .faq-q {
+      list-style: none;
+      padding: 22px 26px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -.005em;
+      line-height: 1.4;
+      user-select: none;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-toggle {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--line-strong);
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: transform .3s ease, border-color .25s, background .25s;
+      color: var(--text-mute);
+    }
+    .faq-toggle svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2.2; fill: none; stroke-linecap: round; }
+    .faq-item[open] .faq-toggle {
+      transform: rotate(45deg);
+      border-color: var(--lime);
+      background: rgba(233,30,140,.12);
+      color: var(--lime);
+    }
+    .faq-a {
+      padding: 0 26px 24px;
+      font-size: 14.5px;
+      line-height: 1.8;
+      color: var(--text-mute);
+      font-weight: 400;
+    }
+    .faq-a strong { color: var(--text); font-weight: 600; }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: clamp(72px,11vh,120px) clamp(20px,5vw,64px);
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+    .final-cta h2 {
+      font-family: var(--display);
+      font-size: clamp(30px,4.6vw,54px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.08;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+    .final-cta p { font-size: 17px; color: var(--text-mute); font-weight: 400; line-height: 1.75; max-width: 560px; margin: 0 auto 36px; }
+    .final-cta .cta-micro { justify-content: center; margin-top: 24px; }
+    .final-cta .cta-micro span { color: var(--text-mute); }
+
+    /* ─── STICKY MOBILE CTA ─── */
+    .sticky-cta {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 180;
+      display: none;
+      align-items: center; justify-content: space-between; gap: 12px;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(6,10,24,.92);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--line-strong);
+    }
+    .sticky-cta .sc-info { line-height: 1.15; flex: 1; min-width: 0; }
+    .sticky-cta .sc-info b { font-family: var(--display); font-size: 15px; color: #fff; font-weight: 800; }
+    .sticky-cta .sc-info small { display: block; font-size: 10.5px; color: var(--text-dim); }
+    .sticky-cta .bnt1 { padding: 13px 22px; font-size: 13px; flex-shrink: 0; width: auto; white-space: nowrap; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      position: relative; z-index: 2;
+      border-top: 1px solid var(--line);
+      padding: 40px clamp(20px,5vw,64px) 56px;
+      text-align: center;
+    }
+    .footer p { font-size: 12.5px; color: var(--text-dim); line-height: 1.7; max-width: 720px; margin: 0 auto 8px; }
+    .footer a { color: var(--text-mute); text-decoration: none; }
+
+    /* ─── MODAL CAPTURA ─── */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(3,7,18,.92);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all .3s ease;
+      overflow-y: auto;
+    }
+    .modal.is-open { opacity: 1; visibility: visible; }
+    .modal-content {
+      width: 100%;
+      max-width: 440px;
+      margin: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      transform: scale(.96) translateY(20px);
+      transition: transform .3s ease;
+      position: relative;
+    }
+    .modal.is-open .modal-content { transform: scale(1) translateY(0); }
+    .modal-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--lime), var(--lime-soft), var(--lime));
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 32px; height: 32px;
+      border: none;
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      transition: color .2s, background .2s;
+      z-index: 5;
+    }
+    .modal-close:hover { color: var(--text); background: rgba(255,255,255,.05); }
+    .modal-close svg { width: 18px; height: 18px; stroke-width: 2; }
+    .modal-body { padding: 30px; }
+    .modal h3 { font-family: var(--display); font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .modal-text { font-size: 13.5px; color: var(--text-mute); line-height: 1.6; margin-bottom: 24px; }
+
+    .form-row { margin-bottom: 16px; }
+    .form-row label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-mute);
+      margin-bottom: 8px;
+    }
+    .form-input, .form-select {
+      width: 100%;
+      background: #050507;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 14px;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-input:focus, .form-select:focus { border-color: rgba(233,30,140,.5); }
+    .form-input::placeholder { color: var(--text-faint); }
+    .phone-row { display: flex; gap: 8px; }
+    .phone-row .form-select { width: 100px; flex-shrink: 0; padding: 14px 10px; text-align: center; }
+    .phone-row .form-input { flex: 1; }
+
+    .form-submit { width: 100%; margin-top: 8px; padding: 16px; }
+
+    .modal-secure {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 11px; color: var(--text-faint); margin-top: 16px;
+    }
+    .modal-secure svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ─── TABLET / CELULAR NA HORIZONTAL ─── */
+    @media (max-width: 900px) {
+      .section { padding: 70px clamp(20px,5vw,48px); }
+      .offer-section { padding: 70px clamp(20px,5vw,48px); }
+      .guarantee { padding: 0 clamp(20px,5vw,48px) 70px; }
+      .hero-wrap { padding: clamp(28px,4vh,40px) clamp(20px,5vw,40px) clamp(40px,6vh,52px); }
+      .hero-h1 { font-size: clamp(30px, 5.2vw, 40px); }
+      .sec-title { font-size: clamp(26px, 4.6vw, 36px); }
+      .hero-ctas { width: 100%; }
+      .hero-ctas .bnt1 { width: 100%; justify-content: center; }
+      .final-cta { padding: 84px clamp(20px,5vw,48px); }
+    }
+
+    /* sticky CTA + folga inferior em celulares e tablets pequenos */
+    @media (max-width: 768px) {
+      .sticky-cta { display: flex; }
+      body { padding-bottom: 78px; }
+      .final-cta { padding-bottom: 108px; }
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 640px) {
+      .topbar { font-size: 11px; padding: 8px 12px; }
+      .nav { padding: 0 20px; height: 56px; }
+      .nav-pill { padding: 7px 14px; font-size: 10px; }
+      .nav-pill svg { display: none; }
+
+      .hero-wrap { padding: 28px 20px 44px; }
+      .hero-left { gap: 20px; }
+      .hero-badge { padding: 7px 14px; }
+      .hero-badge span { line-height: 1.35; font-size: 10px; }
+      .hero-h1 { font-size: clamp(30px, 9vw, 44px); line-height: 1.08; }
+      .hero-desc { font-size: 15px; }
+      .hero-ctas { flex-direction: column; gap: 12px; align-items: stretch; width: 100%; }
+      .bnt1, .bnt-ghost { width: 100%; justify-content: center; }
+
+      .section { padding: 60px 20px; }
+      .section.tight { padding-top: 0; }
+      .section-hr { padding: 0 20px; }
+      .s-label { margin-bottom: 20px; font-size: 9px; }
+      .sec-title { font-size: clamp(24px, 7vw, 32px); }
+      .sec-intro { font-size: 15px; }
+
+      .value-grid, .hosts-grid { gap: 12px; margin-top: 28px; }
+      .value-card, .host-card { padding: 24px 22px; }
+      .depo-videos { gap: 12px; margin-top: 28px; }
+      .depo-imgs { gap: 10px; }
+
+      .offer-section { padding: 60px 20px; }
+      .guarantee { padding: 0 20px 60px; }
+
+      .event-grid { margin-top: 28px; }
+
+      .final-cta { padding: 60px 20px 90px; }
+      .final-cta h2 { font-size: clamp(26px, 8vw, 38px); }
+      .final-cta p { font-size: 15px; }
+
+      .sticky-cta { display: flex; }
+      body { padding-bottom: 76px; }
+
+      .modal-body { padding: 26px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BG ORBS -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="topbar">
+    <span class="dot"></span>
+    <span><b>Simulados com ranking</b> · PM BA e Corpo de Bombeiros · novos simulados até a prova</span>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="logo">
+      <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img">
+    </div>
+    <a href="#oferta" class="nav-pill">
+      Quero os simulados
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="hero-photo-m" aria-hidden="true"></div>
+    <div class="hero-wrap">
+      <div class="hero-left">
+        <div class="hero-badge fade-in delay-1">
+          <i data-lucide="map-pin"></i>
+          <span>Simulados com ranking · PM BA e Corpo de Bombeiros</span>
+        </div>
+
+        <h1 class="hero-h1 fade-in delay-2">
+          Simulados com <span class="g1">ranking</span> da PM BA até o dia da prova — por <span class="nowrap">R$ 19,90</span>
+        </h1>
+
+        <p class="hero-desc fade-in delay-3">
+          Na prova real, só os <strong>dez melhores por cargo e localidade</strong> têm a discursiva corrigida. Aqui você treina exatamente essa disputa: <strong>simulados no estilo da banca AOCP</strong>, com <strong>ranking</strong> entre os concorrentes, e <strong>novos simulados até a prova de 17/01/2027</strong>. Tudo por <strong>R$ 19,90</strong>, em um único pagamento.
+        </p>
+
+        <div class="hero-trust fade-in delay-3">
+          <span class="ht-num">+1.200</span>
+          <span class="ht-txt"><strong>dentistas aprovados</strong> com o Odon em concursos por todo o Brasil</span>
+        </div>
+
+        <div class="hero-ctas fade-in delay-4">
+          <a href="#oferta" class="bnt1">
+            <span>Quero os simulados por R$ 19,90</span>
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="cta-micro fade-in delay-4">
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Ranking a cada simulado</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Novos simulados até a prova</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Estilo da banca AOCP</span>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- ANÁLISE DO EDITAL -->
+  <section class="section" id="analise-edital">
+    <div class="s-label">Edital na mesa</div>
+    <h2 class="sec-title">Análise completa do <em class="g1">edital</em> da PM BA e do Corpo de Bombeiros</h2>
+    <p class="sec-intro">Antes de decidir qualquer coisa, assista à análise do edital: vagas, remuneração, cronograma, o peso de cada disciplina e o que a banca AOCP costuma cobrar — tudo explicado ponto a ponto.</p>
+    <div class="edital-video">
+      <iframe src="https://www.youtube.com/embed/svNu9P978Oo" title="Análise do edital — PM BA e Corpo de Bombeiros (Odontologia)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- PRA QUEM É -->
+  <section class="section">
+    <div class="s-label">Identificou?</div>
+    <h2 class="sec-title">Os simulados com ranking da PM BA são pra você que…</h2>
+    <div style="max-width:760px;">
+      <div class="forwho-item">
+        <div class="forwho-icon"><i data-lucide="trophy"></i></div>
+        <div class="forwho-text">Quer saber sua <strong>posição real na disputa</strong> pelas 12 vagas — não só se está "estudando bastante"</div>
+      </div>
+      <div class="forwho-item">
+        <div class="forwho-icon"><i data-lucide="compass"></i></div>
+        <div class="forwho-text">Estuda <strong>por conta própria</strong> e precisa treinar no formato exato da <strong>banca AOCP</strong></div>
+      </div>
+      <div class="forwho-item">
+        <div class="forwho-icon"><i data-lucide="calendar-clock"></i></div>
+        <div class="forwho-text"><strong>Trava na hora da prova</strong> e quer ganhar ritmo e controle de tempo antes de 17/01</div>
+      </div>
+      <div class="forwho-item">
+        <div class="forwho-icon"><i data-lucide="search"></i></div>
+        <div class="forwho-text">Quer descobrir os <strong>pontos fracos antes da prova</strong> — e não durante ela</div>
+      </div>
+      <div class="forwho-item">
+        <div class="forwho-icon"><i data-lucide="trending-up"></i></div>
+        <div class="forwho-text">Já estuda para a PM BA e quer <strong>medir a evolução</strong> simulado a simulado, até o dia da prova</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- O QUE VOCÊ RECEBE -->
+  <section class="section light">
+    <div class="s-label">O que está incluído</div>
+    <h2 class="sec-title">Tudo o que entra nos <em class="g1">simulados</em></h2>
+    <p class="sec-intro">Não é um simulado solto. É <strong>treino contínuo até o dia da prova</strong>: simulados no estilo da banca AOCP, ranking entre os concorrentes e novos simulados entrando na plataforma até <strong>17/01/2027</strong> — vale para PM e Bombeiros, porque o conteúdo específico é o mesmo.</p>
+    <div class="value-grid">
+      <div class="value-card">
+        <span class="value-tag">Simulados</span>
+        <div class="value-icon"><i data-lucide="clipboard-check"></i></div>
+        <div class="value-title">Simulados no estilo AOCP</div>
+        <div class="value-desc">Questões no formato exato da <strong>banca AOCP</strong>, com casos clínicos contextualizados — o mesmo estilo que você vai encontrar na prova das duas corporações.</div>
+      </div>
+      <div class="value-card">
+        <span class="value-tag">Ranking</span>
+        <div class="value-icon"><i data-lucide="trophy"></i></div>
+        <div class="value-title">Ranking entre os concorrentes</div>
+        <div class="value-desc">A cada simulado você vê <strong>sua posição no ranking</strong> — a mesma lógica da prova real, em que só os dez melhores por cargo e localidade têm a discursiva corrigida.</div>
+      </div>
+      <div class="value-card">
+        <span class="value-tag">Recorrente</span>
+        <div class="value-icon"><i data-lucide="calendar-plus"></i></div>
+        <div class="value-title">Novos simulados até a prova</div>
+        <div class="value-desc">Você não compra um simulado: entram <strong>novos simulados na plataforma até 17/01/2027</strong>, para você treinar e medir a evolução até a véspera.</div>
+      </div>
+      <div class="value-card">
+        <span class="value-tag">Edital</span>
+        <div class="value-icon"><i data-lucide="file-text"></i></div>
+        <div class="value-title">Montados sobre o Anexo I do edital</div>
+        <div class="value-desc">As disciplinas e pesos da prova real, com prioridade para os <strong>Conhecimentos Específicos</strong> — os 30 itens que sozinhos valem 60 dos 100 pontos da objetiva.</div>
+      </div>
+      <div class="value-card">
+        <span class="value-tag">Resultado</span>
+        <div class="value-icon"><i data-lucide="zap"></i></div>
+        <div class="value-title">Resultado e gabarito na hora</div>
+        <div class="value-desc">Ao finalizar cada simulado você já sai com a <strong>nota e o gabarito</strong> — e sabe exatamente onde acertou, onde errou e o que revisar primeiro.</div>
+      </div>
+      <div class="value-card">
+        <span class="value-tag">Acesso</span>
+        <div class="value-icon"><i data-lucide="calendar-check"></i></div>
+        <div class="value-title">Liberado até o dia da prova</div>
+        <div class="value-desc">Pagamento único de <strong>R$ 19,90</strong> e acesso a todos os simulados <strong>até 17/01/2027</strong>, o dia da prova da PM BA e do Corpo de Bombeiros.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- PROVA SOCIAL / DEPOIMENTOS -->
+  <section class="section">
+    <div class="s-label">Quem estudou, aprovou</div>
+    <h2 class="sec-title">Mais de 1.200 dentistas já foram <span class="g1">aprovados</span> com o Odon</h2>
+    <p class="sec-intro">O Odon Concursos é um ecossistema especializado <strong>exclusivamente em concursos de Odontologia</strong>, com aprovados em <strong>secretarias de saúde, forças militares e órgãos federais por todo o Brasil</strong> — exatamente o perfil do concurso da PM BA.</p>
+    <div class="depo-videos">
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Lp6OBEG7wbs?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Akkp0nC0fKA?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/bSponCOMkY0?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Cv5sQndeBqo?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    </div>
+
+    <div class="depo-imgs">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-1.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-2.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-3.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-5.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-6.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-8.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/aprov-4.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-16.webp" alt="Prova de aprovação">
+    </div>
+  </section>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- COMO A PROVA É MONTADA -->
+  <section class="section">
+    <div class="s-label">O que cai e quanto vale</div>
+    <h2 class="sec-title">Como a prova da PM BA e do CBM BA é <em class="g1">pontuada</em></h2>
+    <p class="sec-intro">São <strong>80 questões objetivas</strong> e <strong>duas questões discursivas</strong> no mesmo dia, em cinco horas. Saber onde estão os pontos muda a ordem em que você estuda.</p>
+
+    <div class="prova-wrap">
+      <table class="prova-table">
+        <thead>
+          <tr><th>Etapa</th><th>Conteúdo</th><th class="num">Questões</th><th class="num">Peso</th><th class="num">Pontos</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1ª · Objetiva</td><td>Língua Portuguesa</td><td class="num">15</td><td class="num">0,8</td><td class="num">12,00</td></tr>
+          <tr><td></td><td>Legislação (PMBA ou CBMBA)</td><td class="num">10</td><td class="num">0,8</td><td class="num">8,00</td></tr>
+          <tr><td></td><td>Igualdade Racial e de Gênero</td><td class="num">10</td><td class="num">0,8</td><td class="num">8,00</td></tr>
+          <tr><td></td><td>Conhecimentos Gerais de Odontologia</td><td class="num">15</td><td class="num">0,8</td><td class="num">12,00</td></tr>
+          <tr class="destaque"><td></td><td>Conhecimentos Específicos</td><td class="num">30</td><td class="num">2,0</td><td class="num">60,00</td></tr>
+          <tr><td>2ª · Discursiva</td><td>Duas questões de conhecimentos específicos</td><td class="num">02</td><td class="num">—</td><td class="num">100,00</td></tr>
+          <tr><td>3ª · Títulos</td><td>Doutorado 3 · mestrado 2 · especialização 1</td><td class="num">—</td><td class="num">—</td><td class="num">6,00</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="4">Total máximo</td><td class="num">206,00</td></tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="prova-nota">
+      <strong>A discursiva vale tanto quanto a objetiva inteira</strong> — cem pontos em duas questões de dez a quinze linhas manuscritas, sem consulta, com 30% da nota em redação. E ela só é corrigida para os <strong>dez melhores por cargo e localidade</strong> na ampla concorrência, depois do corte de <strong>70 pontos em 100</strong> na objetiva. Quem concorre pelas vagas reservadas tem a discursiva corrigida sem esse filtro.
+    </div>
+  </section>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- QUEM VAI TE GUIAR -->
+  <section class="section light">
+    <div class="s-label">Quem vai te guiar</div>
+    <h2 class="sec-title">Um método feito <em class="g1">por quem aprova</em></h2>
+    <div class="hosts-grid">
+      <div class="host-card">
+        <div class="host-avatar"><i data-lucide="badge-check"></i></div>
+        <div class="host-tag">Especialistas Odon</div>
+        <div class="host-name">Professores especialistas em concursos de Odontologia</div>
+        <div class="host-desc">Uma equipe que <strong>conhece o estilo da AOCP por dentro</strong> e ensina exatamente o que cai e como cai. Conteúdo direto ao ponto, sem enrolação.</div>
+      </div>
+      <div class="host-card">
+        <div class="host-avatar"><i data-lucide="trophy"></i></div>
+        <div class="host-tag">Resultado comprovado</div>
+        <div class="host-name">+1.200 aprovações por todo o Brasil</div>
+        <div class="host-desc">O Odon é <strong>especializado só em Odontologia</strong>. Não é teoria — é um método já validado por mais de mil dentistas aprovados em concursos.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- OFERTA -->
+  <div class="offer-section" id="oferta">
+    <div class="plans-grid">
+
+      <div class="plan-card">
+        <span class="plan-flag">Pagamento único · sem mensalidade</span>
+        <div class="plan-head">
+          <div class="plan-kicker">Simulados</div>
+          <h3 class="plan-title">Simulados com Ranking · PM BA e CBM BA</h3>
+          <p class="plan-sub">Treino no estilo da <strong>banca AOCP</strong>, com ranking, até a prova de <strong>17/01/2027</strong>.</p>
+        </div>
+        <ul class="plan-list">
+          <li class="plan-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Simulados no estilo da banca AOCP</span></li>
+          <li class="plan-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Ranking entre os concorrentes a cada simulado</span></li>
+          <li class="plan-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Novos simulados até a data da prova</span></li>
+          <li class="plan-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Montados sobre as disciplinas e pesos do Anexo I</span></li>
+          <li class="plan-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Resultado e gabarito na hora</span></li>
+          <li class="plan-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Acesso até o dia da prova (17/01/2027)</span></li>
+        </ul>
+        <div class="plan-foot">
+          <div class="plan-price">
+            <div class="plan-main">R$ 19,90 <span>pagamento único</span></div>
+            <div class="plan-cash">acesso a <strong>todos os simulados até a prova</strong></div>
+          </div>
+          <a onclick="openModal()" class="bnt1">
+            <span>Quero entrar no ranking</span>
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <div class="plan-note"><i data-lucide="lock"></i><span>Seus dados estão seguros · acesso liberado na hora</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="offer-warn">
+      <svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <div class="offer-warn-text"><strong>Atenção:</strong> na ampla concorrência, só os <strong>dez melhores por cargo e localidade</strong> têm a prova discursiva corrigida — depois do corte de <strong>70 pontos em 100</strong> na objetiva. Treinar em ranking não é um extra: é ensaiar a disputa real pelas <strong>12 vagas</strong> antes de <strong>17/01/2027</strong>.</div>
+    </div>
+  </div>
+
+  <!-- REASSURANCE -->
+  <div class="guarantee">
+    <div class="guarantee-card">
+      <div class="guarantee-seal">
+        <i data-lucide="calendar-check"></i>
+        <small>até 17/01/27</small>
+      </div>
+      <div>
+        <div class="guarantee-title">Acesso liberado até o dia da prova</div>
+        <div class="guarantee-text">Você treina <strong>100% online</strong>, no seu ritmo, com os simulados disponíveis <strong>até 17/01/2027</strong> — o dia da prova da PM BA e do Corpo de Bombeiros — e <strong>novos simulados entrando na plataforma</strong> ao longo de todo o caminho.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- DETALHES -->
+  <section class="section light">
+    <div class="s-label">Detalhes</div>
+    <h2 class="sec-title">O que você precisa <em class="g1">saber</em></h2>
+    <div class="event-grid">
+      <div class="event-item">
+        <div class="event-icon"><i data-lucide="shield"></i></div>
+        <div class="event-label">Concurso</div>
+        <div class="event-value">SAEB 03/2026<small>1º Tenente · QOSPM ou QOSBM</small></div>
+      </div>
+      <div class="event-item">
+        <div class="event-icon"><i data-lucide="users"></i></div>
+        <div class="event-label">Vagas</div>
+        <div class="event-value">12 vagas<small>4 na PM + 8 no Corpo de Bombeiros</small></div>
+      </div>
+      <div class="event-item">
+        <div class="event-icon"><i data-lucide="wallet"></i></div>
+        <div class="event-label">Remuneração</div>
+        <div class="event-value">Até R$ 9.973,34<small>soldo + GAP III + demais vantagens</small></div>
+      </div>
+      <div class="event-item">
+        <div class="event-icon"><i data-lucide="clock"></i></div>
+        <div class="event-label">Jornada</div>
+        <div class="event-value">40h semanais<small>estabilidade após 3 anos</small></div>
+      </div>
+      <div class="event-item">
+        <div class="event-icon"><i data-lucide="calendar-plus"></i></div>
+        <div class="event-label">Inscrições</div>
+        <div class="event-value">26/08 a 21/09<small>taxa de R$ 190,00 · Instituto AOCP</small></div>
+      </div>
+      <div class="event-item">
+        <div class="event-icon"><i data-lucide="file-clock"></i></div>
+        <div class="event-label">Data da prova</div>
+        <div class="event-value">17/01/2027<small>objetiva e discursiva · 5h · Salvador</small></div>
+      </div>
+    </div>
+    <p class="sec-intro" style="margin-top:26px;">
+      <strong>Requisitos que eliminam antes da prova:</strong> além do diploma e do registro no CRO, o edital exige 18 anos completos na posse, <strong>CNH categoria B</strong> e estatura mínima de 1,60 m para homens e 1,55 m para mulheres. Depois da prova vêm avaliação psicológica, exames médico-odontológicos, <strong>teste de aptidão física</strong>, investigação social e o Estágio de Adaptação, em Salvador ou Simões Filho. Confira os requisitos antes de pagar a inscrição.
+    </p>
+  </section>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- ONDE ESTÃO AS VAGAS -->
+  <section class="section">
+    <div class="s-label">Onde elas estão</div>
+    <h2 class="sec-title">As 12 vagas, por <em class="g1">corporação e cidade</em></h2>
+    <p class="sec-intro">A concorrência é apurada por cargo e localidade, e a opção é única — não dá para trocar depois que a inscrição fecha. Escolher bem a cidade pesa tanto quanto estudar.</p>
+
+    <div class="prova-wrap">
+      <table class="prova-table">
+        <thead>
+          <tr><th>Corporação</th><th>Localidade</th><th>Cargo</th></tr>
+        </thead>
+        <tbody>
+          <tr class="destaque"><td>Polícia Militar</td><td>4 vagas · 1 reservada</td><td></td></tr>
+          <tr><td></td><td>Salvador e região metropolitana</td><td>Cirurgião Dentista</td></tr>
+          <tr><td></td><td>Chapada — Itaberaba</td><td>Cirurgião Dentista</td></tr>
+          <tr><td></td><td>Meio Oeste — Bom Jesus da Lapa</td><td>Cirurgião Dentista</td></tr>
+          <tr><td></td><td>Sudoeste — Vitória da Conquista</td><td>Cirurgião Dentista</td></tr>
+          <tr class="destaque"><td>Corpo de Bombeiros</td><td>8 vagas · 2 reservadas</td><td></td></tr>
+          <tr><td></td><td>Salvador</td><td>Odontopediatra</td></tr>
+          <tr><td></td><td>Salvador</td><td>Endodontista</td></tr>
+          <tr><td></td><td>Salvador</td><td>Cirurgião Dentista</td></tr>
+          <tr><td></td><td>Alagoinhas</td><td>Cirurgião Dentista</td></tr>
+          <tr><td></td><td>Santo Antônio de Jesus</td><td>Cirurgião Dentista</td></tr>
+          <tr><td></td><td>Porto Seguro</td><td>Cirurgião Dentista</td></tr>
+          <tr><td></td><td>Jequié</td><td>Cirurgião Dentista</td></tr>
+          <tr><td></td><td>Barreiras</td><td>Cirurgião Dentista</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prova-nota">
+      <strong>O conteúdo específico de Cirurgião Dentista é idêntico nas duas corporações.</strong> A escolha entre PM e Bombeiros é de vaga e cidade, não de matéria — o custo extra do CBMBA é a Lei 14.572/2023 e a Portaria MS 2.048/2002 na Legislação. Concluído o Estágio de Adaptação, o aprovado fica cinco anos lotado na área ou município escolhido.
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <h2>Descubra sua posição real na corrida pelas <span class="g1">12 vagas.</span></h2>
+    <p>Por R$ 19,90 você treina no estilo da banca AOCP, disputa o ranking com os outros candidatos e recebe novos simulados até a prova de 17/01/2027. Quem chega no dia da prova já sabendo seu nível, chega na frente.</p>
+    <a href="#oferta" class="bnt1 big" style="margin:0 auto;">
+      <span>Quero entrar no ranking</span>
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <div class="cta-micro">
+      <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Pagamento único de R$ 19,90</span>
+      <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Acesso até 17/01/2027</span>
+    </div>
+  </div>
+
+  <div class="section-hr"><hr></div>
+
+  <!-- FAQ -->
+  <section class="section light">
+    <div class="s-label">Perguntas frequentes</div>
+    <h2 class="sec-title">Ainda com <em class="g1">dúvida?</em></h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">
+          O edital da PM BA e do Corpo de Bombeiros já saiu? Quando me inscrevo?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
+        </summary>
+        <div class="faq-a">Já. O <strong>Edital SAEB nº 03/2026</strong> foi publicado em <strong>21 de agosto de 2026</strong>. As inscrições vão de <strong>26/08, às 9h, até 21/09, às 14h</strong>, no site do Instituto AOCP, com taxa de <strong>R$ 190,00</strong> — a isenção é só para quem está no CadÚnico, e o pedido tem uma janela de três dias, de 26 a 28/08. Cada candidato faz <strong>uma única inscrição</strong>: a opção de cargo e localidade não pode ser alterada depois.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">
+          Como recebo o acesso aos simulados?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
+        </summary>
+        <div class="faq-a">Você preenche seus dados no formulário, conclui o <strong>pagamento único de R$ 19,90</strong> e recebe o acesso à <strong>plataforma de simulados da OdonConcursos</strong> — com os simulados disponíveis e o ranking de cada um.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">
+          Até quando eu tenho acesso aos simulados?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
+        </summary>
+        <div class="faq-a">Até <strong>17/01/2027</strong>, o dia da prova das duas corporações — e <strong>novos simulados entram na plataforma até lá</strong>. Você paga uma vez e treina até a véspera. Depois dessa data o conteúdo é desativado.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">
+          Serve para quem está começando do zero?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
+        </summary>
+        <div class="faq-a">Sim — e talvez seja para quem está começando que o simulado mais vale: o primeiro resultado mostra <strong>exatamente onde você está</strong> e quais disciplinas atacar primeiro. A cada novo simulado, você mede se o estudo está convertendo em pontos.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">
+          Qual é a nota de corte?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
+        </summary>
+        <div class="faq-a">Na objetiva, o mínimo é de <strong>70 pontos em 100</strong> — abaixo disso a eliminação é automática. Passar do corte, porém, não garante que sua discursiva seja corrigida: na ampla concorrência só são corrigidas as provas dos <strong>dez melhores por cargo e localidade</strong>, mais os empatados na última posição. Quem concorre pelas vagas reservadas a negros tem a discursiva corrigida sem esse limite. Na discursiva, o mínimo também é de <strong>70 em 100</strong>.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">
+          Quanto custam os simulados?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
+        </summary>
+        <div class="faq-a"><strong>R$ 19,90, em um único pagamento</strong> — sem mensalidade e sem cobrança nova a cada simulado. Esse valor libera todos os simulados da PM BA e do CBM BA, incluindo os que ainda vão entrar na plataforma, até <strong>17/01/2027</strong>.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">
+          É online? Como funciona na prática?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
+        </summary>
+        <div class="faq-a">Sim, <strong>100% online</strong>. Você responde o simulado na plataforma, dentro do tempo, e ao finalizar já vê a <strong>nota, o gabarito e sua posição no ranking</strong> entre os candidatos que fizeram o mesmo simulado.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">
+          E se eu quiser mais do que simulados?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
+        </summary>
+        <div class="faq-a">Para estudar o conteúdo completo — videoaulas, PDFs, mapas mentais, planejamento e tira-dúvidas — conheça o <a href="https://mkt.odonconcursospage.com/lp/concurso/pm-ba-vendas/" style="color:var(--lime);font-weight:700;">preparatório completo da PM BA e do CBM BA</a>. Os simulados são o treino; o preparatório é a base.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>OdonConcursos · Preparatório especializado em concursos de Odontologia.</p>
+    <p>Informações sobre vagas, remuneração, pontuação, prazos e etapas foram extraídas do Edital SAEB nº 03/2026, publicado no Diário Oficial do Estado da Bahia de 21 de agosto de 2026. Prevalecem sempre o texto oficial e suas retificações, publicadas no DOE-BA e nos sites do Instituto AOCP e do Portal RhBahia. Esta página não tem vínculo com a Polícia Militar da Bahia, com o Corpo de Bombeiros Militar da Bahia ou com o Instituto AOCP.</p>
+    <p>Este preparatório oferece método, conteúdo e treino direcionados à banca. A aprovação depende também do empenho individual de cada candidato. Resultados citados são de turmas anteriores e não constituem garantia de aprovação.</p>
+  </footer>
+
+  <!-- STICKY MOBILE CTA -->
+  <div class="sticky-cta">
+    <div class="sc-info">
+      <b>Entre no ranking</b>
+      <small>Simulados até a prova · R$ 19,90</small>
+    </div>
+    <a href="#oferta" class="bnt1"><span>Quero os simulados</span></a>
+  </div>
+
+  <!-- MODAL CAPTURA -->
+  <div class="modal" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <div class="modal-bar"></div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="modal-body">
+        <h3 id="modalTitle">Falta pouco para entrar no ranking</h3>
+        <p class="modal-text">Preencha seus dados para liberar seu acesso. Em seguida você conclui o pagamento único de R$ 19,90 e recebe o acesso aos simulados com ranking da PM BA e do CBM BA.</p>
+
+        <form id="signupForm">
+          <div class="form-row">
+            <label for="su-name">Nome completo</label>
+            <input class="form-input" type="text" id="su-name" required placeholder="Seu nome" autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="su-phone">WhatsApp</label>
+            <div class="phone-row">
+              <select class="form-select" id="su-country">
+                <option value="55" selected>🇧🇷 +55</option>
+                <option value="351">🇵🇹 +351</option>
+                <option value="1">🇺🇸 +1</option>
+                <option value="44">🇬🇧 +44</option>
+                <option value="54">🇦🇷 +54</option>
+              </select>
+              <input class="form-input" type="tel" id="su-phone" required placeholder="(DDD) 9 0000-0000" inputmode="numeric" autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="su-email">E-mail</label>
+            <input class="form-input" type="email" id="su-email" required placeholder="seu@email.com" autocomplete="email">
+          </div>
+          <button type="submit" id="su-submit" class="bnt-lime form-submit">
+            Ir para o pagamento
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+
+        <div class="modal-secure">
+          <i data-lucide="lock"></i>
+          <span>Seus dados estão seguros</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Webhook que recebe os leads (Make) — o mesmo usado nas demais LPs do Odon.
+    // Os leads da PM BA se distinguem pelos campos `produto` / `origem` do payload.
+    const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
+
+    // Checkout dos simulados com ranking da PM BA (R$ 19,90).
+    // Enquanto estiver vazio, o formulário registra o lead e mostra a
+    // confirmação sem redirecionar — preencher com o link definitivo.
+    const CHECKOUT_URL = '';
+
+    const OFERTAS = {
+      pmba: {
+        nome: 'Simulados com Ranking PM BA e CBM BA',
+        url: CHECKOUT_URL,
+        titulo: 'Falta pouco para entrar no ranking',
+        texto: 'Preencha seus dados para liberar seu acesso. Em seguida você conclui o pagamento único de R$ 19,90 e recebe o acesso aos simulados com ranking da PM BA e do CBM BA.'
+      }
+    };
+    let ofertaAtual = OFERTAS.pmba;
+
+    // Captura UTMs e IDs de clique da URL no carregamento da página
+    const tracking = (() => {
+      const p = new URLSearchParams(window.location.search);
+      const get = (k) => p.get(k) || '';
+      return {
+        utm_source:   get('utm_source'),
+        utm_medium:   get('utm_medium'),
+        utm_campaign: get('utm_campaign'),
+        utm_content:  get('utm_content'),
+        utm_term:     get('utm_term'),
+        fbclid:       get('fbclid'),
+        gclid:        get('gclid'),
+        referrer:     document.referrer || '',
+        landing_url:  window.location.href
+      };
+    })();
+
+    function openModal(oferta) {
+      ofertaAtual = OFERTAS[oferta] || OFERTAS.pmba;
+
+      // Evento de InitiateCheckout no Meta Pixel ao abrir a captura
+      try {
+        if (typeof fbq === 'function') {
+          fbq('track', 'InitiateCheckout', { content_name: ofertaAtual.nome, content_category: 'PM BA' });
+        }
+      } catch (err) { console.error('Meta Pixel error:', err); }
+
+      document.getElementById('modalTitle').textContent = ofertaAtual.titulo;
+      document.querySelector('#signupModal .modal-text').textContent = ofertaAtual.texto;
+      document.getElementById('signupForm').style.display = '';
+      document.getElementById('signupModal').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('signupModal').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('signupModal').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    document.getElementById('signupForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn = document.getElementById('su-submit');
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+
+      const countryCode = document.getElementById('su-country').value;
+      const phoneDigits = document.getElementById('su-phone').value.replace(/\D/g, '');
+
+      const now = new Date();
+      const nome = document.getElementById('su-name').value;
+      const payload = {
+        formulario: 'PM BA · Página de Vendas Simulados',
+        referencia: 'Página de Vendas Simulados PM BA',
+        oferta: ofertaAtual.nome,
+        produto: 'PM BA',
+        metodo: 'Landing Page',
+        nome: nome,
+        email: document.getElementById('su-email').value,
+        telefone: '+' + countryCode + phoneDigits,
+        evento: 'Simulados com Ranking · Odontologia PM BA e CBM BA',
+        origem: 'Página de Vendas Simulados PM BA',
+        data_contato: now.toISOString(),
+        data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
+        ...tracking
+      };
+
+      try {
+        if (WEBHOOK_URL) {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } else {
+          console.log('Lead (configure WEBHOOK_URL):', payload);
+        }
+      } catch (err) {
+        console.error('Webhook error:', err);
+      }
+
+      // Evento de Lead no Meta Pixel (se o pixel estiver na página)
+      try {
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', { content_name: 'LP PM BA Dentista (vendas simulados) · ' + ofertaAtual.nome, content_category: 'PM BA' });
+        }
+      } catch (err) { console.error('Meta Pixel error:', err); }
+
+      // Confirmação + redirecionamento para o checkout dos simulados,
+      // repassando os parâmetros de campanha da URL (se houver).
+      this.style.display = 'none';
+      document.getElementById('modalTitle').textContent = 'Dados recebidos ✓';
+      lucide.createIcons();
+
+      const base = ofertaAtual.url || CHECKOUT_URL;
+      if (base) {
+        document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o pagamento dos simulados com ranking da PM BA…';
+        const qs = window.location.search.replace(/^\?/, '');
+        const destino = qs ? base + (base.includes('?') ? '&' : '?') + qs : base;
+        setTimeout(() => { window.location.href = destino; }, 1200);
+      } else {
+        document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Em instantes você recebe no seu WhatsApp e no seu e-mail o link de pagamento e o acesso aos simulados com ranking da PM BA.';
+      }
+    });
+  </script>
+
+</body>
+</html>
