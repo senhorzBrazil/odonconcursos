@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulado com Ranking · Banca IBGP Odontologia | OdonConcursos</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1038030425232337');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1038030425232337&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shinery {
+      0%, 100% { left: -10%; opacity: 0; }
+      20%      { opacity: 1; }
+      48%      { left: 110%; opacity: 1; }
+      51%      { opacity: 0; }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: .5; }
+      50%      { opacity: 1; }
+    }
+    .fade-in { animation: fadeSlideIn .7s ease-out both; }
+    .delay-1 { animation-delay: .10s; }
+    .delay-2 { animation-delay: .22s; }
+    .delay-3 { animation-delay: .34s; }
+    .delay-4 { animation-delay: .46s; }
+    .delay-5 { animation-delay: .58s; }
+
+    /* ─── BASE ─── */
+    :root {
+      --bg:           #060a18;
+      --bg-card:      #0e1838;
+      --line:         rgba(255,255,255,0.08);
+      --line-strong:  rgba(255,255,255,0.16);
+      --text:         #ffffff;
+      --text-mute:    #9aa3bf;
+      --text-faint:   #4b5273;
+
+      /* primary accent — OdonConcursos pink family */
+      --lime:         #e91e8c;
+      --lime-soft:    #f472b6;
+      --orange:       #e91e8c;
+      --orange-2:     #f0309a;
+
+      --sans:    'Roboto', system-ui, sans-serif;
+      --display: 'Roboto Slab', 'Roboto', system-ui, serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-weight: 400;
+    }
+
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      width: 700px; height: 700px;
+      top: -240px; right: -120px;
+      background: radial-gradient(circle, rgba(233,30,140,.08), transparent 70%);
+      animation: pulseGlow 8s ease-in-out infinite;
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      border-bottom: 1px solid var(--line);
+      background: rgba(3,7,18,.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 0 clamp(20px,5vw,64px);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo { display: flex; align-items: center; }
+    .logo-img { height: 34px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .nav-pill {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background .18s, border-color .18s;
+    }
+    .nav-pill:hover { background: rgba(233,30,140,.08); border-color: rgba(233,30,140,.4); }
+    .nav-pill svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    /* ─── G1 — gradient text ─── */
+    .g1 {
+      background: linear-gradient(92deg, var(--lime) 18.78%, var(--lime-soft) 79.67%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.25;
+      padding-bottom: .22em;
+      padding-right: .12em;
+    }
+
+    /* ─── HERO (única dobra) ─── */
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .hero-wrap {
+      position: relative;
+      z-index: 2;
+      padding: clamp(36px,6vh,72px) clamp(20px,5vw,64px);
+      width: min(1200px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: clamp(32px,5vw,72px);
+      align-items: center;
+      text-align: left;
+    }
+    .hero-left { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; position: relative; z-index: 2; min-width: 0; max-width: 100%; }
+    .hero-right { position: relative; min-height: 540px; min-width: 0; }
+    .hero-h1, .hero-desc { overflow-wrap: break-word; word-wrap: break-word; }
+
+    @media (max-width: 900px) {
+      .hero-wrap { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-section {
+        align-items: flex-start;
+        min-height: 100svh;
+        background:
+          linear-gradient(to top, #000000 44%, rgba(0,0,0,.6) 62%, rgba(0,0,0,0) 80%),
+          url("LP_mobile_Dentista.jpg") top center / 100% auto no-repeat,
+          #000000;
+      }
+      .hero-left { padding-top: clamp(260px, 88vw, 480px); }
+    }
+    @media (min-width: 901px) {
+      .hero-section {
+        min-height: calc(100vh - 64px);
+        background:
+          linear-gradient(90deg, #000000 0%, rgba(0,0,0,.94) 30%, rgba(0,0,0,.6) 44%, rgba(0,0,0,0) 54%),
+          url("LP_desktop_Dentista.jpg") center right / cover no-repeat,
+          #000000;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(233,30,140,.45);
+      background: rgba(233,30,140,.12);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 999px;
+      padding: 7px 16px;
+      width: fit-content;
+    }
+    .hero-badge span {
+      font-size: 10.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #f9a8d4;
+    }
+    .hero-badge svg { width: 14px; height: 14px; stroke: var(--lime); fill: none; stroke-width: 1.7; }
+
+    .hero-h1 {
+      font-family: var(--display);
+      font-size: clamp(32px, 3.6vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.025em;
+      color: #ffffff;
+      text-shadow: 0 2px 24px rgba(0,0,0,.6);
+      max-width: min(600px, 100%);
+    }
+
+    .hero-desc {
+      font-size: clamp(15px,1.5vw,18px);
+      line-height: 1.7;
+      color: #c7cee0;
+      text-shadow: 0 1px 16px rgba(0,0,0,.6);
+      font-weight: 400;
+      max-width: min(560px, 100%);
+    }
+    .hero-desc strong { color: #ffffff; font-weight: 600; }
+
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: flex-start; margin-top: 2px; }
+
+    .cta-micro {
+      display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: flex-start;
+      margin-top: 4px;
+    }
+    .cta-micro span {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: #c7cee0; font-weight: 500;
+    }
+    .cta-micro .check-square { color: var(--lime); display: inline-flex; }
+    .cta-micro svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ─── COUNTDOWN (simulado 05/09 14h → 06/09 23h59) ─── */
+    .cta-timer { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin-top: 2px; }
+    .cta-timer-label { font-size: 13px; font-weight: 700; color: #f472b6; line-height: 1.45; max-width: 460px; }
+    .cta-timer-clock { display: inline-flex; gap: 8px; }
+    .cta-timer-box {
+      display: inline-flex; flex-direction: column; align-items: center;
+      min-width: 58px; padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(233,30,140,.4);
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .cta-timer-box b { font-family: var(--display); font-size: 22px; font-weight: 800; color: #ffffff; line-height: 1; font-variant-numeric: tabular-nums; }
+    .cta-timer-box i { font-style: normal; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: #c7cee0; margin-top: 5px; font-weight: 600; }
+
+    /* ─── SHINY CTA (pink) ─── */
+    .bnt1 {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 17px 36px;
+      font-family: var(--sans);
+      font-size: 14.5px;
+      font-weight: 700;
+      letter-spacing: .01em;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--orange) 0, var(--orange-2) 100%);
+      box-shadow:
+        0 0 20px rgba(233,30,140,.5),
+        0 0 40px rgba(240,48,154,.4),
+        0 10px 25px rgba(233,30,140,.25);
+      overflow: hidden;
+      transition: all .35s ease;
+      isolation: isolate;
+      border: none;
+      cursor: pointer;
+    }
+    .bnt1:hover {
+      background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--orange-2) 0, var(--orange) 100%);
+      box-shadow:
+        0 0 25px rgba(233,30,140,.6),
+        0 0 60px rgba(240,48,154,.5),
+        0 15px 35px rgba(233,30,140,.3);
+      transform: scale(1.04);
+    }
+    .bnt1::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 90px;
+      height: 160%;
+      background: linear-gradient(10deg, #ffd9ec 12.81%, rgba(255,217,236,0) 66.66%);
+      transform: translateX(-50%) skew(-25deg);
+      animation: shinery 3s ease-in-out infinite;
+      filter: blur(4px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bnt1::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 999px;
+      border: 2px solid var(--orange);
+      pointer-events: none;
+    }
+    .bnt1 span, .bnt1 svg { position: relative; z-index: 2; }
+    .bnt1 svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; }
+
+    .bnt-lime {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 999px;
+      background: linear-gradient(92deg, var(--lime) 0%, var(--lime-soft) 100%);
+      box-shadow: 0 0 20px rgba(233,30,140,.3), 0 8px 22px rgba(233,30,140,.18);
+      transition: filter .2s, transform .12s;
+      cursor: pointer;
+      border: none;
+    }
+    .bnt-lime:hover { filter: brightness(1.08); }
+    .bnt-lime svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2.4; fill: none; }
+
+    /* ─── MODAL CAPTURA ─── */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(3,7,18,.92);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all .3s ease;
+      overflow-y: auto;
+    }
+    .modal.is-open { opacity: 1; visibility: visible; }
+    .modal-content {
+      width: 100%;
+      max-width: 440px;
+      margin: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      transform: scale(.96) translateY(20px);
+      transition: transform .3s ease;
+      position: relative;
+    }
+    .modal.is-open .modal-content { transform: scale(1) translateY(0); }
+    .modal-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--lime), var(--lime-soft), var(--lime));
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 32px; height: 32px;
+      border: none;
+      background: transparent;
+      color: var(--text-faint);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      transition: color .2s, background .2s;
+      z-index: 5;
+    }
+    .modal-close:hover { color: var(--text); background: rgba(255,255,255,.05); }
+    .modal-close svg { width: 18px; height: 18px; stroke-width: 2; }
+    .modal-body { padding: 30px; }
+    .modal h3 { font-family: var(--display); font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .modal-text { font-size: 13.5px; color: var(--text-mute); line-height: 1.6; margin-bottom: 24px; }
+
+    .form-row { margin-bottom: 16px; }
+    .form-row label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-mute);
+      margin-bottom: 8px;
+    }
+    .form-input, .form-select {
+      width: 100%;
+      background: #050507;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 14px;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-input:focus, .form-select:focus { border-color: rgba(233,30,140,.5); }
+    .form-input::placeholder { color: var(--text-faint); }
+    .phone-row { display: flex; gap: 8px; }
+    .phone-row .form-select { width: 100px; flex-shrink: 0; padding: 14px 10px; text-align: center; }
+    .phone-row .form-input { flex: 1; }
+
+    .form-submit { width: 100%; margin-top: 8px; padding: 16px; }
+
+    .modal-secure {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 11px; color: var(--text-faint); margin-top: 16px;
+    }
+    .modal-secure svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 640px) {
+      .nav { padding: 0 20px; height: 56px; }
+      .nav-pill { padding: 7px 14px; font-size: 10px; }
+      .nav-pill svg { display: none; }
+
+      .hero-wrap { padding: 36px 20px 44px; }
+      .hero-left { gap: 20px; }
+      .hero-h1 { font-size: clamp(29px, 8.4vw, 42px); line-height: 1.08; }
+      .hero-desc { font-size: 15px; }
+      .hero-ctas { flex-direction: column; gap: 12px; align-items: stretch; width: 100%; }
+      .bnt1 { width: 100%; justify-content: center; }
+      .cta-micro { justify-content: center; }
+      .cta-timer { align-items: center; width: 100%; }
+      .cta-timer-label { text-align: center; }
+      .cta-timer-clock { justify-content: center; }
+
+      .modal-body { padding: 26px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BG ORB -->
+  <div class="bg-orb orb-1"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="logo">
+      <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img">
+    </div>
+    <a onclick="openModal()" class="nav-pill">
+      Fazer o simulado
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </nav>
+
+  <!-- HERO — ÚNICA DOBRA -->
+  <section class="hero-section">
+    <div class="hero-wrap">
+      <div class="hero-left">
+        <div class="hero-badge fade-in delay-1">
+          <i data-lucide="trophy"></i>
+          <span>Simulado com ranking · Banca IBGP</span>
+        </div>
+
+        <h1 class="hero-h1 fade-in delay-2">
+          Simulado com <span class="g1">ranking</span> da banca IBGP para Odontologia
+        </h1>
+
+        <p class="hero-desc fade-in delay-3">
+          Abre <strong>sábado, 5 de setembro, às 14h</strong> e você responde até <strong>domingo, 6, às 23h59</strong>. Dispute o <strong>ranking</strong> com dentistas de todo o Brasil e descubra sua posição real antes da prova. Questões no estilo da <strong>banca IBGP</strong> — a banca dos próximos concursos de Odontologia. Teste seu nível de verdade.
+        </p>
+
+        <div class="cta-timer fade-in delay-3">
+          <span class="cta-timer-label js-timer-label">O simulado da banca IBGP abre sábado, 05/09, às 14h. Faltam:</span>
+          <span class="cta-timer-clock js-cta-timer">
+            <span class="cta-timer-box"><b data-dd>00</b><i>dias</i></span>
+            <span class="cta-timer-box"><b data-hh>00</b><i>horas</i></span>
+            <span class="cta-timer-box"><b data-mm>00</b><i>min</i></span>
+            <span class="cta-timer-box"><b data-ss>00</b><i>seg</i></span>
+          </span>
+        </div>
+
+        <div class="hero-ctas fade-in delay-4">
+          <a onclick="openModal()" class="bnt1">
+            <span>Quero disputar o ranking</span>
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="cta-micro fade-in delay-4">
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>100% gratuito</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Com ranking nacional</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>5 e 6 de setembro</span>
+        </div>
+      </div>
+
+      <!-- coluna direita: vazia (BG com a pessoa via imagem de fundo) -->
+      <div class="hero-right" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- MODAL INSCRIÇÃO -->
+  <div class="modal" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <div class="modal-bar"></div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="modal-body">
+        <h3 id="modalTitle">Entrar no simulado com ranking</h3>
+        <p class="modal-text">Preencha seus dados e garanta sua vaga no simulado da banca IBGP para Odontologia. Ele abre sábado, 5 de setembro, às 14h, e fica no ar até domingo, 6, às 23h59 — com ranking nacional.</p>
+
+        <form id="signupForm">
+          <div class="form-row">
+            <label for="su-name">Nome completo</label>
+            <input class="form-input" type="text" id="su-name" required placeholder="Seu nome" autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="su-phone">WhatsApp</label>
+            <div class="phone-row">
+              <select class="form-select" id="su-country">
+                <option value="55" selected>🇧🇷 +55</option>
+                <option value="351">🇵🇹 +351</option>
+                <option value="1">🇺🇸 +1</option>
+                <option value="44">🇬🇧 +44</option>
+                <option value="54">🇦🇷 +54</option>
+              </select>
+              <input class="form-input" type="tel" id="su-phone" required placeholder="(DDD) 9 0000-0000" inputmode="numeric" autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="su-email">E-mail</label>
+            <input class="form-input" type="email" id="su-email" required placeholder="seu@email.com" autocomplete="email">
+          </div>
+          <button type="submit" id="su-submit" class="bnt-lime form-submit">
+            Garantir minha vaga no simulado
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+
+        <div class="modal-secure">
+          <i data-lucide="lock"></i>
+          <span>Seus dados estão seguros</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Webhook que recebe os dados do formulário (Make) — mesmo das demais capturas
+    const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
+
+    // Número do comercial da OdonConcursos — destino do redirect pós-cadastro
+    const COMERCIAL_WHATSAPP = '5519994565534';
+
+    // Captura UTMs e IDs de clique da URL no carregamento da página
+    const tracking = (() => {
+      const p = new URLSearchParams(window.location.search);
+      const get = (k) => p.get(k) || '';
+      return {
+        utm_source:   get('utm_source'),
+        utm_medium:   get('utm_medium'),
+        utm_campaign: get('utm_campaign'),
+        utm_content:  get('utm_content'),
+        utm_term:     get('utm_term'),
+        fbclid:       get('fbclid'),
+        gclid:        get('gclid'),
+        referrer:     document.referrer || '',
+        landing_url:  window.location.href
+      };
+    })();
+
+    function openModal() {
+      document.getElementById('signupModal').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('signupModal').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('signupModal').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    document.getElementById('signupForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn = document.getElementById('su-submit');
+      btn.textContent = 'Processando...';
+      btn.disabled = true;
+
+      const countryCode = document.getElementById('su-country').value;
+      const phoneDigits = document.getElementById('su-phone').value.replace(/\D/g, '');
+
+      const now = new Date();
+      const nome = document.getElementById('su-name').value;
+      const payload = {
+        formulario: 'Banca IBGP · Simulado com ranking',
+        produto: 'Banca IBGP',
+        metodo: 'Landing Page',
+        nome: nome,
+        email: document.getElementById('su-email').value,
+        telefone: '+' + countryCode + phoneDigits,
+        evento: 'Simulado com ranking · Odontologia Banca IBGP (05 e 06/09)',
+        origem: 'LP simulado ranking Banca IBGP dentista',
+        data_contato: now.toISOString(),
+        data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
+        ...tracking
+      };
+
+      try {
+        if (WEBHOOK_URL) {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } else {
+          console.log('Inscrição (configure WEBHOOK_URL):', payload);
+        }
+      } catch (err) {
+        console.error('Webhook error:', err);
+      }
+
+      // Evento de Lead no Meta Pixel (pessoa virou lead)
+      try {
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', { content_name: 'LP Banca IBGP Dentista (simulado ranking)', content_category: 'Banca IBGP' });
+        }
+      } catch (err) { console.error('Meta Pixel error:', err); }
+
+      // Confirmação + redirecionamento para a página de obrigado (grupo do WhatsApp)
+      this.style.display = 'none';
+      document.querySelector('#signupModal .modal-text').textContent = 'Aguarde um instante, estamos te redirecionando…';
+      document.getElementById('modalTitle').textContent = 'Enviando suas informações';
+      lucide.createIcons();
+
+      const REDIRECT_URL = 'https://mkt.odonconcursospage.com/lp/concurso/ibgp-simulado-obrigado/';
+      setTimeout(() => { window.location.href = REDIRECT_URL; }, 1200);
+    });
+
+    /* ─── Contador do simulado: abre 05/09/2026 14h, encerra 06/09/2026 23h59 ─── */
+    (function () {
+      const ABRE    = new Date(2026, 8, 5, 14, 0, 0, 0).getTime();  // mês 8 = setembro
+      const ENCERRA = new Date(2026, 8, 6, 23, 59, 0, 0).getTime();
+      const clocks = document.querySelectorAll('.js-cta-timer');
+      if (!clocks.length) return;
+      const labels = document.querySelectorAll('.js-timer-label');
+      const pad = (n) => String(n).padStart(2, '0');
+
+      function tick() {
+        const agora = Date.now();
+
+        // Antes de sábado 14h o contador aponta para a abertura; com o simulado no ar,
+        // passa a contar para o encerramento de domingo 23h59; depois disso, zera.
+        let alvo = ABRE;
+        let texto = 'O simulado da banca IBGP abre sábado, 05/09, às 14h. Faltam:';
+        if (agora >= ENCERRA) {
+          alvo = agora;
+          texto = 'O simulado da banca IBGP foi encerrado. Deixe seus dados para ser avisado do próximo.';
+        } else if (agora >= ABRE) {
+          alvo = ENCERRA;
+          texto = 'O simulado da banca IBGP está no ar. Encerra domingo, 06/09, às 23h59, em:';
+        }
+        labels.forEach(l => { l.textContent = texto; });
+
+        let diff = alvo - agora;
+        if (diff < 0) diff = 0;
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const sec = Math.floor((diff % 60000) / 1000);
+        clocks.forEach(c => {
+          c.querySelector('[data-dd]').textContent = pad(d);
+          c.querySelector('[data-hh]').textContent = pad(h);
+          c.querySelector('[data-mm]').textContent = pad(m);
+          c.querySelector('[data-ss]').textContent = pad(sec);
+        });
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+
+</body>
+</html>
