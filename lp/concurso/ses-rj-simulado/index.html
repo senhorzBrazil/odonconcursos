@@ -249,7 +249,7 @@
     .cta-micro .check-square { color: var(--lime); display: inline-flex; }
     .cta-micro svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
-    /* ─── COUNTDOWN (data fixa: simulado 22/08) ─── */
+    /* ─── COUNTDOWN (data fixa: simulado 05/09) ─── */
     .cta-timer { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin-top: 2px; }
     .cta-timer-label { font-size: 13px; font-weight: 700; color: #d6177e; line-height: 1.45; max-width: 460px; }
     .cta-timer-clock { display: inline-flex; gap: 8px; }
@@ -486,11 +486,11 @@
         </h1>
 
         <p class="hero-desc fade-in delay-3">
-          Nos dias <strong>22 e 23 de agosto</strong>, dispute o <strong>ranking</strong> com dentistas de todo o Brasil e descubra a sua posição real na corrida pela vaga. Questões direcionadas à prova da SES-RJ — teste seu nível e veja exatamente o que revisar na reta final.
+          No <strong>próximo final de semana, 5 e 6 de setembro</strong>, dispute o <strong>ranking</strong> com dentistas de todo o Brasil e descubra a sua posição real na corrida pela vaga. Questões direcionadas à prova da SES-RJ — teste seu nível e veja exatamente o que revisar na reta final.
         </p>
 
         <div class="cta-timer fade-in delay-3">
-          <span class="cta-timer-label">O simulado da SES-RJ começa 22/08. Faltam:</span>
+          <span class="cta-timer-label">O simulado da SES-RJ começa 05/09. Faltam:</span>
           <span class="cta-timer-clock js-cta-timer">
             <span class="cta-timer-box"><b data-dd>00</b><i>dias</i></span>
             <span class="cta-timer-box"><b data-hh>00</b><i>horas</i></span>
@@ -509,7 +509,7 @@
         <div class="cta-micro fade-in delay-4">
           <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>100% gratuito</span>
           <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Com ranking nacional</span>
-          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>22 e 23 de agosto</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>5 e 6 de setembro</span>
         </div>
       </div>
 
@@ -527,7 +527,7 @@
       </button>
       <div class="modal-body">
         <h3 id="modalTitle">Entrar no simulado com ranking</h3>
-        <p class="modal-text">Preencha seus dados e garanta sua vaga no simulado da SES-RJ para Odontologia. Ele acontece nos dias 22 e 23 de agosto, com ranking — dispute a sua posição.</p>
+        <p class="modal-text">Preencha seus dados e garanta sua vaga no simulado da SES-RJ para Odontologia. Ele acontece no próximo final de semana, dias 5 e 6 de setembro, com ranking — dispute a sua posição.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -622,7 +622,7 @@
         nome: nome,
         email: document.getElementById('su-email').value,
         telefone: '+' + countryCode + phoneDigits,
-        evento: 'Simulado com ranking · Odontologia SES-RJ (22 e 23/08)',
+        evento: 'Simulado com ranking · Odontologia SES-RJ (05 e 06/09)',
         origem: 'LP simulado ranking SES-RJ dentista',
         data_contato: now.toISOString(),
         data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
@@ -660,9 +660,9 @@
       setTimeout(() => { window.location.href = REDIRECT_URL; }, 1200);
     });
 
-    /* ─── Contador para a abertura do simulado: 22/08/2026 08:00 (horário local) ─── */
+    /* ─── Contador para a abertura do simulado: 05/09/2026 08:00 (horário local) ─── */
     (function () {
-      const SIMULADO = new Date(2026, 7, 22, 8, 0, 0, 0).getTime(); // mês 7 = agosto
+      const SIMULADO = new Date(2026, 8, 5, 8, 0, 0, 0).getTime(); // mês 8 = setembro
       const clocks = document.querySelectorAll('.js-cta-timer');
       if (!clocks.length) return;
       const pad = (n) => String(n).padStart(2, '0');
