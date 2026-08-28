@@ -249,7 +249,7 @@
     .cta-micro .check-square { color: var(--lime); display: inline-flex; }
     .cta-micro svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
-    /* ─── COUNTDOWN (data fixa: prova 22/08) ─── */
+    /* ─── COUNTDOWN (data fixa: simulado 05/09) ─── */
     .cta-timer { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin-top: 2px; }
     .cta-timer-label { font-size: 13px; font-weight: 700; color: #d6177e; line-height: 1.45; max-width: 460px; }
     .cta-timer-clock { display: inline-flex; gap: 8px; }
@@ -486,11 +486,11 @@
         </h1>
 
         <p class="hero-desc fade-in delay-3">
-          O <strong>simulado será aplicado dia 22 de agosto</strong>, no <strong>padrão Cesgranrio</strong>. Teste seu nível com questões direcionadas para a prova de Odontologia da Petrobras e descubra exatamente o que revisar na reta final.
+          O <strong>próximo simulado será aplicado no próximo final de semana, dia 5 de setembro</strong>, no <strong>padrão Cesgranrio</strong>. Teste seu nível com questões direcionadas para a prova de Odontologia da Petrobras e descubra exatamente o que revisar na reta final.
         </p>
 
         <div class="cta-timer fade-in delay-3">
-          <span class="cta-timer-label">O simulado da Petrobras é dia 22/08. Faltam:</span>
+          <span class="cta-timer-label">O simulado da Petrobras é dia 05/09. Faltam:</span>
           <span class="cta-timer-clock js-cta-timer">
             <span class="cta-timer-box"><b data-dd>00</b><i>dias</i></span>
             <span class="cta-timer-box"><b data-hh>00</b><i>horas</i></span>
@@ -526,7 +526,7 @@
       </button>
       <div class="modal-body">
         <h3 id="modalTitle">Fazer o simulado da Petrobras</h3>
-        <p class="modal-text">Preencha seus dados e você será direcionado para o simulado do concurso da Petrobras para Dentista. O simulado é dia 22/08 — garanta a sua vaga.</p>
+        <p class="modal-text">Preencha seus dados e você será direcionado para o simulado do concurso da Petrobras para Dentista. O simulado é dia 05/09 — garanta a sua vaga.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -658,9 +658,9 @@
       setTimeout(() => { window.location.href = REDIRECT_URL; }, 1200);
     });
 
-    /* ─── Contador para a data do simulado: 22/08/2026 08:00 (horário local) ─── */
+    /* ─── Contador para a data do simulado: 05/09/2026 08:00 (horário local) ─── */
     (function () {
-      const PROVA = new Date(2026, 7, 22, 8, 0, 0, 0).getTime(); // mês 7 = agosto
+      const PROVA = new Date(2026, 8, 5, 8, 0, 0, 0).getTime(); // mês 8 = setembro
       const clocks = document.querySelectorAll('.js-cta-timer');
       if (!clocks.length) return;
       const pad = (n) => String(n).padStart(2, '0');
