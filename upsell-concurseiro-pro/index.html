@@ -633,6 +633,7 @@
       'O material direcionado do concurso que você comprou',
       'O conteúdo específico daquele edital e daquela banca',
       'Estudo focado em uma única prova, com uma única data',
+      'As matérias gerais (Português, Informática, Direito, Atualidades) por fora, cada uma em um lugar',
       'Se o edital atrasar, mudar de banca ou o concurso não sair, a preparação para'
     ];
     const gets = [
@@ -645,7 +646,7 @@
     ];
     const hl = document.getElementById('hasList');
     has.forEach((t, i) => hl.appendChild(el(
-      `<li class="flex gap-3"><i class="fa-solid ${i === 3 ? 'fa-triangle-exclamation text-yellow-500' : 'fa-circle-check text-gray-600'} text-xl shrink-0 mt-1"></i><span class="text-gray-400 text-sm md:text-base">${t}${i === 3 ? ' <strong class="text-gray-300">outro concurso você teria que comprar de novo</strong>' : ''}</span></li>`)));
+      `<li class="flex gap-3"><i class="fa-solid ${i === has.length - 1 ? 'fa-triangle-exclamation text-yellow-500' : 'fa-circle-check text-gray-600'} text-xl shrink-0 mt-1"></i><span class="text-gray-400 text-sm md:text-base">${t}${i === has.length - 1 ? ' <strong class="text-gray-300">outro concurso você teria que comprar de novo</strong>' : ''}</span></li>`)));
     const gl = document.getElementById('getsList');
     gets.forEach(t => gl.appendChild(el(`<li class="flex gap-3"><i class="fa-solid fa-check text-white text-xl shrink-0 mt-1"></i><span class="text-sm md:text-base">${t}</span></li>`)));
 
