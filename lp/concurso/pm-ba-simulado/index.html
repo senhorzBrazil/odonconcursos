@@ -251,7 +251,7 @@
     .cta-micro .check-square { color: var(--lime); display: inline-flex; }
     .cta-micro svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
-    /* ─── COUNTDOWN (simulado 29/08 14h → 30/08 23h59) ─── */
+    /* ─── COUNTDOWN (simulado 12/09 14h → 13/09 23h59) ─── */
     .cta-timer { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin-top: 2px; }
     .cta-timer-label { font-size: 13px; font-weight: 700; color: #f472b6; line-height: 1.45; max-width: 460px; }
     .cta-timer-clock { display: inline-flex; gap: 8px; }
@@ -488,11 +488,11 @@
         </h1>
 
         <p class="hero-desc fade-in delay-3">
-          Abre <strong>sábado, 29 de agosto, às 14h</strong> e você responde até <strong>domingo, 30, às 23h59</strong>. Dispute o <strong>ranking</strong> com dentistas de todo o Brasil e descubra sua posição real na corrida pelas <strong>12 vagas</strong>. Questões no estilo da <strong>banca AOCP</strong> — teste seu nível antes de o edital sair.
+          Abre <strong>sábado, 12 de setembro, às 14h</strong> e você responde até <strong>domingo, 13, às 23h59</strong>. Dispute o <strong>ranking</strong> com dentistas de todo o Brasil e descubra sua posição real na corrida pelas <strong>12 vagas</strong>. Questões no estilo da <strong>banca AOCP</strong> — teste seu nível antes de o edital sair.
         </p>
 
         <div class="cta-timer fade-in delay-3">
-          <span class="cta-timer-label js-timer-label">O simulado da PM BA abre sábado, 29/08, às 14h. Faltam:</span>
+          <span class="cta-timer-label js-timer-label">O simulado da PM BA abre sábado, 12/09, às 14h. Faltam:</span>
           <span class="cta-timer-clock js-cta-timer">
             <span class="cta-timer-box"><b data-dd>00</b><i>dias</i></span>
             <span class="cta-timer-box"><b data-hh>00</b><i>horas</i></span>
@@ -511,7 +511,7 @@
         <div class="cta-micro fade-in delay-4">
           <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>100% gratuito</span>
           <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Com ranking nacional</span>
-          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>29 e 30 de agosto</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>12 e 13 de setembro</span>
         </div>
       </div>
 
@@ -529,7 +529,7 @@
       </button>
       <div class="modal-body">
         <h3 id="modalTitle">Entrar no simulado com ranking</h3>
-        <p class="modal-text">Preencha seus dados e garanta sua vaga no simulado da PM BA para Odontologia. Ele abre sábado, 29 de agosto, às 14h, e fica no ar até domingo, 30, às 23h59 — com ranking nacional.</p>
+        <p class="modal-text">Preencha seus dados e garanta sua vaga no simulado da PM BA para Odontologia. Ele abre sábado, 12 de setembro, às 14h, e fica no ar até domingo, 13, às 23h59 — com ranking nacional.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -624,7 +624,7 @@
         nome: nome,
         email: document.getElementById('su-email').value,
         telefone: '+' + countryCode + phoneDigits,
-        evento: 'Simulado com ranking · Odontologia PM BA (29 e 30/08)',
+        evento: 'Simulado com ranking · Odontologia PM BA (12 e 13/09)',
         origem: 'LP simulado ranking PM BA dentista',
         data_contato: now.toISOString(),
         data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
@@ -662,10 +662,10 @@
       setTimeout(() => { window.location.href = REDIRECT_URL; }, 1200);
     });
 
-    /* ─── Contador do simulado: abre 29/08/2026 14h, encerra 30/08/2026 23h59 ─── */
+    /* ─── Contador do simulado: abre 12/09/2026 14h, encerra 13/09/2026 23h59 ─── */
     (function () {
-      const ABRE    = new Date(2026, 7, 29, 14, 0, 0, 0).getTime();  // mês 7 = agosto
-      const ENCERRA = new Date(2026, 7, 30, 23, 59, 0, 0).getTime();
+      const ABRE    = new Date(2026, 8, 12, 14, 0, 0, 0).getTime();  // mês 8 = setembro
+      const ENCERRA = new Date(2026, 8, 13, 23, 59, 0, 0).getTime();
       const clocks = document.querySelectorAll('.js-cta-timer');
       if (!clocks.length) return;
       const labels = document.querySelectorAll('.js-timer-label');
@@ -677,13 +677,13 @@
         // Antes de sábado 14h o contador aponta para a abertura; com o simulado no ar,
         // passa a contar para o encerramento de domingo 23h59; depois disso, zera.
         let alvo = ABRE;
-        let texto = 'O simulado da PM BA abre sábado, 29/08, às 14h. Faltam:';
+        let texto = 'O simulado da PM BA abre sábado, 12/09, às 14h. Faltam:';
         if (agora >= ENCERRA) {
           alvo = agora;
           texto = 'O simulado da PM BA foi encerrado. Deixe seus dados para ser avisado do próximo.';
         } else if (agora >= ABRE) {
           alvo = ENCERRA;
-          texto = 'O simulado da PM BA está no ar. Encerra domingo, 30/08, às 23h59, em:';
+          texto = 'O simulado da PM BA está no ar. Encerra domingo, 13/09, às 23h59, em:';
         }
         labels.forEach(l => { l.textContent = texto; });
 
