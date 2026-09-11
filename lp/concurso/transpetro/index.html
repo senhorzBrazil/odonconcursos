@@ -584,12 +584,10 @@
     "use strict";
 
     /* ═══════════════════════════════════════════════════════════
-       ⚠️  COLE AQUI O LINK DO CHECKOUT (quando você tiver).
-       Ex.: 'https://pay.kiwify.com.br/xxxxxxx' ou o carrinho do Odon.
-       Enquanto estiver vazio, o botão rola para a oferta e avisa no console. */
+       Links de checkout (carrinho da OdonConcursos) — mesmos da /lp/concurso/petrobras-vendas e /comercial. */
     const CHECKOUT_URLS = {
-      'buyBtn':    '',  // Preparatório Transpetro (R$ 897) — cole o link do checkout
-      'buyBtnPro': ''   // Concurseiro PRO (R$ 1.597)      — cole o link do checkout
+      'buyBtn':    'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=UzIzQS9xMzJxV2s9',  // Preparatório Petrobras / Transpetro (R$ 897)
+      'buyBtnPro': 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=RGZkVEF4Qzh5M3M9&vch=concurseiropro3'   // Concurseiro PRO (R$ 1.597)
     };
     /* ═══════════════════════════════════════════════════════════ */
 
@@ -821,7 +819,9 @@
         try { if (typeof fbq === 'function') fbq('track','Lead',{ content_name:current.plan, content_category:'Transpetro', value:current.value, currency:'BRL' }); } catch (err) {}
 
         if (current.url) {
-          window.location.href = current.url;
+          // Repassa os parâmetros de campanha da URL (UTMs etc.) para o checkout
+          const qs = window.location.search.replace(/^\?/, '');
+          window.location.href = qs ? current.url + (current.url.includes('?') ? '&' : '?') + qs : current.url;
         } else {
           btn.innerHTML = orig; btn.disabled = false;
           document.getElementById('capTitle').textContent = 'Recebemos seus dados ✓';
