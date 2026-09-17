@@ -1576,7 +1576,7 @@
           Como faço para me inscrever no preparatório?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Você preenche seus dados no formulário e é levado direto para o <strong>pagamento seguro na plataforma da OdonConcursos</strong>, em até 12x sem juros. Confirmado o pagamento, seu acesso é liberado e você já começa a estudar.</div>
+        <div class="faq-a">Você preenche seus dados no formulário e é levado para o <strong>WhatsApp da nossa equipe</strong>, que te passa a condição especial e finaliza sua matrícula, em até 12x sem juros. Confirmado o pagamento, seu acesso é liberado e você já começa a estudar.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1641,7 +1641,7 @@
       </button>
       <div class="modal-body">
         <h3 id="modalTitle">Falta pouco para sua vaga</h3>
-        <p class="modal-text">Preencha seus dados para liberar sua matrícula. Em seguida você é levado para o pagamento seguro do preparatório da Petrobras / Transpetro, na plataforma da OdonConcursos — em até 12x sem juros.</p>
+        <p class="modal-text">Preencha seus dados para receber a condição especial. Em seguida você é levado para o WhatsApp da nossa equipe, que te passa a condição do preparatório da Petrobras / Transpetro e tira suas dúvidas.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -1666,7 +1666,7 @@
             <input class="form-input" type="email" id="su-email" required placeholder="seu@email.com" autocomplete="email">
           </div>
           <button type="submit" id="su-submit" class="bnt-lime form-submit">
-            Ir para a matrícula
+            Quero a condição especial
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </form>
@@ -1688,13 +1688,15 @@
 
     // Checkout do preparatório Petrobras / Transpetro (carrinho enviado pelo cliente)
     const CURSO_URL = 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=UzIzQS9xMzJxV2s9';
+    // Pós-cadastro: WhatsApp comercial com a mensagem da condição especial (no lugar do checkout)
+    const WHATSAPP_URL = 'https://wa.me/5519994565534?text=Ol%C3%A1%21%20Vi%20o%20an%C3%BAncio%20e%20queria%20saber%20a%20condi%C3%A7%C3%A3o%20especial%20da%20Petrobras%20%2F%20Transpetro%21';
 
     const OFERTAS = {
       petrobras: {
         nome: 'Preparatório Petrobras / Transpetro - Cesgranrio',
         url: CURSO_URL,
         titulo: 'Falta pouco para sua vaga',
-        texto: 'Preencha seus dados para liberar sua matrícula. Em seguida você é levado para o pagamento seguro do preparatório da Petrobras / Transpetro, na plataforma da OdonConcursos — em até 12x sem juros.'
+        texto: 'Preencha seus dados para receber a condição especial. Em seguida você é levado para o WhatsApp da nossa equipe, que te passa a condição do preparatório da Petrobras / Transpetro e tira suas dúvidas.'
       }
     };
     let ofertaAtual = OFERTAS.petrobras;
@@ -1789,17 +1791,13 @@
         }
       } catch (err) { console.error('Meta Pixel error:', err); }
 
-      // Confirmação + redirecionamento para a página oficial do preparatório,
-      // repassando os parâmetros de campanha da URL (se houver).
+      // Confirmação + redirecionamento para o WhatsApp comercial.
       this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o pagamento seguro do preparatório da Petrobras / Transpetro…';
+      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o WhatsApp da nossa equipe para receber a condição especial da Petrobras / Transpetro…';
       document.getElementById('modalTitle').textContent = 'Dados recebidos ✓';
       lucide.createIcons();
 
-      const qs = window.location.search.replace(/^\?/, '');
-      const base = ofertaAtual.url || CURSO_URL;
-      const destino = qs ? base + (base.includes('?') ? '&' : '?') + qs : base;
-      setTimeout(() => { window.location.href = destino; }, 1200);
+      setTimeout(() => { window.location.href = WHATSAPP_URL; }, 1200);
     });
   </script>
 
