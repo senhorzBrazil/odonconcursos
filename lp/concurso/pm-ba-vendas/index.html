@@ -1436,7 +1436,7 @@
           <div class="plan-price">
             <div class="plan-offer-tag">Oferta por tempo limitado</div>
             <div class="plan-main">Condição especial <span class="nowrap">até 21/09</span></div>
-            <div class="plan-cash">Preencha seus dados e receba o <strong>valor exclusivo no WhatsApp</strong> da nossa equipe</div>
+            <div class="plan-cash">Preencha seus dados e vá direto para o <strong>checkout com a condição especial</strong></div>
           </div>
           <a onclick="openModal()" class="bnt1">
             <span>Quero a condição especial</span>
@@ -1565,7 +1565,7 @@
           <div class="plan-price">
             <div class="plan-offer-tag">Oferta por tempo limitado</div>
             <div class="plan-main">Condição especial <span class="nowrap">até 21/09</span></div>
-            <div class="plan-cash">Preencha seus dados e receba o <strong>valor exclusivo no WhatsApp</strong> da nossa equipe</div>
+            <div class="plan-cash">Preencha seus dados e vá direto para o <strong>checkout com a condição especial</strong></div>
           </div>
           <a onclick="openModal()" class="bnt1">
             <span>Quero a condição especial</span>
@@ -1605,7 +1605,7 @@
           Como faço para me inscrever no preparatório?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Você preenche seus dados no formulário e é levado para o <strong>WhatsApp da nossa equipe</strong>, que te passa a condição especial e finaliza sua matrícula. Confirmado o pagamento, seu acesso às aulas é liberado.</div>
+        <div class="faq-a">Você preenche seus dados no formulário e é levado direto para o <strong>checkout da OdonConcursos</strong>, já com a condição especial aplicada. Confirmado o pagamento, seu acesso às aulas é liberado.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1633,7 +1633,7 @@
           Qual é a condição especial?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">O preparatório da PM BA e do Corpo de Bombeiros está com uma <strong>condição especial válida até as 23h59 de 21/09/2026</strong>, o último dia de inscrição no concurso. Preencha seus dados e nossa equipe te passa o valor pelo <strong>WhatsApp</strong>. O pagamento é feito na plataforma da OdonConcursos, em ambiente seguro.</div>
+        <div class="faq-a">O preparatório da PM BA e do Corpo de Bombeiros está com uma <strong>condição especial válida até as 23h59 de 21/09/2026</strong>, o último dia de inscrição no concurso. Preencha seus dados e você é levado direto para o <strong>checkout</strong>, na plataforma da OdonConcursos, em ambiente seguro.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1670,7 +1670,7 @@
       </button>
       <div class="modal-body">
         <h3 id="modalTitle">Falta pouco para sua vaga</h3>
-        <p class="modal-text">Preencha seus dados para receber a condição especial. Em seguida você é levado para o WhatsApp da nossa equipe, que te passa a condição do preparatório da PM BA e do Corpo de Bombeiros e tira suas dúvidas.</p>
+        <p class="modal-text">Preencha seus dados para garantir a condição especial. Em seguida você é levado direto para o checkout do preparatório da PM BA e do Corpo de Bombeiros.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -1717,15 +1717,13 @@
 
     // Checkout do preparatório da PM BA
     const CURSO_URL = 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=a05jeTVGelVzOUk9&utm_source=lp';
-    // Pós-cadastro: WhatsApp comercial com a mensagem da condição especial (no lugar do checkout)
-    const WHATSAPP_URL = 'https://wa.me/5519994565534?text=Ol%C3%A1%21%20Vi%20o%20an%C3%BAncio%20e%20queria%20saber%20a%20condi%C3%A7%C3%A3o%20especial%20da%20PM%20BA%20%2F%20Corpo%20de%20Bombeiros%21';
 
     const OFERTAS = {
       pmba: {
         nome: 'Preparatório PM BA e CBM BA',
         url: CURSO_URL,
         titulo: 'Falta pouco para sua vaga',
-        texto: 'Preencha seus dados para receber a condição especial. Em seguida você é levado para o WhatsApp da nossa equipe, que te passa a condição do preparatório da PM BA e do Corpo de Bombeiros e tira suas dúvidas.'
+        texto: 'Preencha seus dados para garantir a condição especial. Em seguida você é levado direto para o checkout do preparatório da PM BA e do Corpo de Bombeiros.'
       }
     };
     let ofertaAtual = OFERTAS.pmba;
@@ -1820,13 +1818,17 @@
         }
       } catch (err) { console.error('Meta Pixel error:', err); }
 
-      // Confirmação + redirecionamento para o WhatsApp comercial.
+      // Confirmação + redirecionamento para o checkout do preparatório,
+      // repassando os parâmetros de campanha da URL (se houver).
       this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o WhatsApp da nossa equipe para receber a condição especial da PM BA e do Corpo de Bombeiros…';
+      document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o checkout do preparatório da PM BA e do Corpo de Bombeiros…';
       document.getElementById('modalTitle').textContent = 'Dados recebidos ✓';
       lucide.createIcons();
 
-      setTimeout(() => { window.location.href = WHATSAPP_URL; }, 1200);
+      const qs = window.location.search.replace(/^\?/, '');
+      const base = ofertaAtual.url || CURSO_URL;
+      const destino = qs ? base + (base.includes('?') ? '&' : '?') + qs : base;
+      setTimeout(() => { window.location.href = destino; }, 1200);
     });
   </script>
 
