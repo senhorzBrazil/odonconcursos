@@ -251,7 +251,7 @@
     .cta-micro .check-square { color: var(--lime); display: inline-flex; }
     .cta-micro svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
-    /* ─── COUNTDOWN (simulado 05/09 14h → 06/09 23h59) ─── */
+    /* ─── COUNTDOWN (simulado 03/10 14h → 04/10 23h59) ─── */
     .cta-timer { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin-top: 2px; }
     .cta-timer-label { font-size: 13px; font-weight: 700; color: #f472b6; line-height: 1.45; max-width: 460px; }
     .cta-timer-clock { display: inline-flex; gap: 8px; }
@@ -488,11 +488,11 @@
         </h1>
 
         <p class="hero-desc fade-in delay-3">
-          Abre <strong>sábado, 5 de setembro, às 14h</strong> e você responde até <strong>domingo, 6, às 23h59</strong>. Dispute o <strong>ranking</strong> com dentistas de todo o Brasil e descubra sua posição real na corrida pelas <strong>13 vagas de Cirurgião-Dentista</strong>. Questões no estilo da <strong>banca IBGP</strong> — teste seu nível antes da prova.
+          Abre <strong>sábado, 3 de outubro, às 14h</strong> e você responde até <strong>domingo, 4, às 23h59</strong>. Dispute o <strong>ranking</strong> com dentistas de todo o Brasil e descubra sua posição real na corrida pelas <strong>13 vagas de Cirurgião-Dentista</strong>. Questões no estilo da <strong>banca IBGP</strong> — teste seu nível antes da prova.
         </p>
 
         <div class="cta-timer fade-in delay-3">
-          <span class="cta-timer-label js-timer-label">O simulado de Itaúna/MG abre sábado, 05/09, às 14h. Faltam:</span>
+          <span class="cta-timer-label js-timer-label">O simulado de Itaúna/MG abre sábado, 03/10, às 14h. Faltam:</span>
           <span class="cta-timer-clock js-cta-timer">
             <span class="cta-timer-box"><b data-dd>00</b><i>dias</i></span>
             <span class="cta-timer-box"><b data-hh>00</b><i>horas</i></span>
@@ -511,7 +511,7 @@
         <div class="cta-micro fade-in delay-4">
           <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>100% gratuito</span>
           <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Com ranking nacional</span>
-          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>5 e 6 de setembro</span>
+          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>3 e 4 de outubro</span>
         </div>
       </div>
 
@@ -529,7 +529,7 @@
       </button>
       <div class="modal-body">
         <h3 id="modalTitle">Entrar no simulado com ranking</h3>
-        <p class="modal-text">Preencha seus dados e garanta sua vaga no simulado de Itaúna/MG para Odontologia. Ele abre sábado, 5 de setembro, às 14h, e fica no ar até domingo, 6, às 23h59 — com ranking nacional.</p>
+        <p class="modal-text">Preencha seus dados e garanta sua vaga no simulado de Itaúna/MG para Odontologia. Ele abre sábado, 3 de outubro, às 14h, e fica no ar até domingo, 4, às 23h59 — com ranking nacional.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -624,7 +624,7 @@
         nome: nome,
         email: document.getElementById('su-email').value,
         telefone: '+' + countryCode + phoneDigits,
-        evento: 'Simulado com ranking · Odontologia Itaúna MG (05 e 06/09)',
+        evento: 'Simulado com ranking · Odontologia Itaúna MG (03 e 04/10)',
         origem: 'LP simulado ranking Itaúna MG dentista',
         data_contato: now.toISOString(),
         data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
@@ -662,10 +662,10 @@
       setTimeout(() => { window.location.href = REDIRECT_URL; }, 1200);
     });
 
-    /* ─── Contador do simulado: abre 05/09/2026 14h, encerra 06/09/2026 23h59 ─── */
+    /* ─── Contador do simulado: abre 03/10/2026 14h, encerra 04/10/2026 23h59 ─── */
     (function () {
-      const ABRE    = new Date(2026, 8, 5, 14, 0, 0, 0).getTime();  // mês 8 = setembro
-      const ENCERRA = new Date(2026, 8, 6, 23, 59, 0, 0).getTime();
+      const ABRE    = new Date(2026, 9, 3, 14, 0, 0, 0).getTime();  // mês 8 = setembro
+      const ENCERRA = new Date(2026, 9, 4, 23, 59, 0, 0).getTime();
       const clocks = document.querySelectorAll('.js-cta-timer');
       if (!clocks.length) return;
       const labels = document.querySelectorAll('.js-timer-label');
@@ -677,13 +677,13 @@
         // Antes de sábado 14h o contador aponta para a abertura; com o simulado no ar,
         // passa a contar para o encerramento de domingo 23h59; depois disso, zera.
         let alvo = ABRE;
-        let texto = 'O simulado de Itaúna/MG abre sábado, 05/09, às 14h. Faltam:';
+        let texto = 'O simulado de Itaúna/MG abre sábado, 03/10, às 14h. Faltam:';
         if (agora >= ENCERRA) {
           alvo = agora;
           texto = 'O simulado de Itaúna/MG foi encerrado. Deixe seus dados para ser avisado do próximo.';
         } else if (agora >= ABRE) {
           alvo = ENCERRA;
-          texto = 'O simulado de Itaúna/MG está no ar. Encerra domingo, 06/09, às 23h59, em:';
+          texto = 'O simulado de Itaúna/MG está no ar. Encerra domingo, 04/10, às 23h59, em:';
         }
         labels.forEach(l => { l.textContent = texto; });
 
