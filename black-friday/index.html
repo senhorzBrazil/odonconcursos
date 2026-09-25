@@ -142,6 +142,10 @@
   .vsl-play span{width:clamp(72px,9vw,104px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:var(--brand);box-shadow:0 0 0 12px rgba(238,42,123,.25),0 20px 50px -10px rgba(238,42,123,.8);transition:transform .2s}
   .vsl-play:hover span{transform:scale(1.06)}
   .vsl-play svg{width:34%;height:34%;margin-left:6%}
+  .vsl-shell.is-empty{background:radial-gradient(120% 90% at 50% 0%,#1a0d14 0%,#0A0A0B 60%)}
+  .vsl-empty{position:absolute;inset:0;display:grid;place-items:center}
+  .vsl-empty span{width:clamp(72px,9vw,104px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:rgba(238,42,123,.14);border:1px solid rgba(238,42,123,.35)}
+  .vsl-empty svg{width:34%;height:34%;margin-left:6%;opacity:.9}
   .vsl-cap{position:absolute;left:18px;bottom:16px;font-size:13px;font-weight:600;color:#fff;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);padding:8px 12px;border-radius:999px}
 
   /* 3 · Entregáveis */
@@ -307,12 +311,16 @@
 
   /* 11 · FAQ */
   .faq{max-width:860px}
-  details{border-bottom:1px solid var(--line)}
+  details{border-bottom:1px solid var(--line);overflow:hidden}
   summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font-size:clamp(17px,1.4vw,20px);font-weight:700;letter-spacing:-.015em}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-size:26px;font-weight:400;line-height:1;color:var(--brand);transition:transform .25s}
-  details[open] summary::after{transform:rotate(45deg)}
-  details p{padding:0 0 24px;color:var(--mute);max-width:68ch}
+  summary{transition:color .3s ease}
+  summary:hover{color:#fff}
+  summary::after{content:"+";flex-shrink:0;display:grid;place-items:center;width:32px;height:32px;margin-top:-4px;border-radius:50%;font-size:22px;font-weight:400;line-height:1;color:var(--brand);background:rgba(238,42,123,0);transition:transform .45s cubic-bezier(.22,1,.36,1),background .3s ease,color .3s ease}
+  summary:hover::after{background:rgba(238,42,123,.12)}
+  details.is-open summary::after{transform:rotate(135deg);background:var(--brand);color:#fff}
+  details p{padding:0 0 24px;color:var(--mute);max-width:68ch;opacity:0;transform:translateY(-8px);transition:opacity .35s ease,transform .45s cubic-bezier(.22,1,.36,1)}
+  details.is-open p{opacity:1;transform:none;transition-delay:.08s}
   .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,72px);align-items:start}
   .help{border:1px solid var(--line);border-radius:24px;padding:28px;background:var(--card);position:sticky;top:96px}
   .help b{display:block;font-size:20px;letter-spacing:-.02em;margin-bottom:8px}
@@ -836,8 +844,8 @@ function renderVsl() {
       (window.dataLayer = window.dataLayer || []).push({ event: 'vsl_play', campanha: 'black-friday-2026' });
     };
   } else {
-    slot.innerHTML = `<video src="${UP('2026', '03', 'plataforma-completa.webm')}" poster="${UP('2026', '03', 'banner.webp')}" muted loop playsinline preload="none"></video><button class="vsl-play" aria-label="Ver o tour da plataforma"><span><svg><use href="#i-play"/></svg></span></button><span class="vsl-cap">Tour pela plataforma Concurseiro PRO</span>`;
-    slot.querySelector('button').onclick = e => { const v = slot.querySelector('video'); v.controls = true; v.play(); e.currentTarget.remove(); };
+    slot.classList.add('is-empty');
+    slot.innerHTML = `<div class="vsl-empty" aria-hidden="true"><span><svg><use href="#i-play"/></svg></span></div>`;
   }
 }
 
@@ -1015,6 +1023,28 @@ document.addEventListener('click', e => {
   const plan = a.dataset.plan, value = Number(a.dataset.value);
   try { fbq('track', 'InitiateCheckout', { content_name: plan, value, currency: 'BRL' }); } catch (_) {}
   (window.dataLayer = window.dataLayer || []).push({ event: 'initiate_checkout', plan, value, campanha: 'black-friday-2026' });
+});
+
+/* FAQ: abre e fecha com animação de altura (um aberto por vez) */
+const EASE = 'cubic-bezier(.22,1,.36,1)';
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function toggleFaq(d, open) {
+  if (d._anim) d._anim.cancel();
+  const sum = d.querySelector('summary');
+  const start = d.offsetHeight;
+  if (open) { d.open = true; d.classList.add('is-open'); } else d.classList.remove('is-open');
+  const end = open ? d.scrollHeight : sum.offsetHeight;
+  if (reduced) { if (!open) d.open = false; return; }
+  d._anim = d.animate({ height: [start + 'px', end + 'px'] }, { duration: open ? 480 : 380, easing: EASE });
+  d._anim.onfinish = () => { d._anim = null; if (!open) d.open = false; };
+}
+document.querySelectorAll('.faq details').forEach(d => {
+  d.querySelector('summary').addEventListener('click', e => {
+    e.preventDefault();
+    const willOpen = !d.classList.contains('is-open');
+    if (willOpen) document.querySelectorAll('.faq details.is-open').forEach(o => o !== d && toggleFaq(o, false));
+    toggleFaq(d, willOpen);
+  });
 });
 
 /* Barra fixa no celular */
