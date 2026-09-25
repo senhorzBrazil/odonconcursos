@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<meta name="robots" content="noindex">
+<title>Black Friday Odon Concursos</title>
+<meta name="description" content="Black Friday Odon Concursos: Concurseiro PRO vitalício, Pós-graduação com o maior bônus da campanha, Kit físico e Área de cursos para os primeiros compradores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-T3P99TN7');</script>
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','3213093405602824');fbq('track','PageView');</script>
+
+<style>
+  :root{
+    color-scheme: light only;
+    --bg:#050505; --bg2:#0B0B0C; --line:#1D1D20;
+    --ink:#F4F2F3; --mute:#A3A0A2;
+    --paper:#F4F2F3; --paper2:#E9E6E8; --paper-line:#DCD7DA; --ink-dark:#0A0A0A; --mute-dark:#5C585B;
+    --brand:#EE2A7B; --brand-dark:#C92066; --brand-soft:#FF7AB3;
+    --ok:#25D366;
+    --r:22px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;max-width:100%;overflow-x:clip}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+  .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+  h1,h2,h3{margin:0;letter-spacing:-.038em;line-height:1.06;font-weight:800;text-wrap:balance}
+  h2{font-size:clamp(30px,3.4vw,46px);max-width:22ch}
+  p{margin:0;line-height:1.6}
+  .g1{background:linear-gradient(90deg,#FF7AB3 0%,#EE2A7B 45%,#FF4F99 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-soft)}
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(238,42,123,.18)}
+  .on-light .eyebrow{color:var(--brand-dark)}
+  .lead{color:var(--mute);font-size:clamp(16px,1.3vw,19px);max-width:56ch}
+  .on-light .lead{color:var(--mute-dark)}
+
+  /* Botões: padrão das LPs Odon (pill + glow + shine) */
+  .cta{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 34px;border-radius:999px;border:0;cursor:pointer;
+    font:800 16px/1 'Inter',sans-serif;letter-spacing:.02em;text-transform:uppercase;color:#fff;
+    background:radial-gradient(120% 160% at 50% 0%,#FF5A9C 0%,#EE2A7B 45%,#B81A5C 100%);
+    box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 10px 30px -6px rgba(238,42,123,.65),0 0 60px -10px rgba(238,42,123,.55);
+    transition:transform .2s ease,box-shadow .2s ease}
+  .cta::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite}
+  .cta:hover{transform:scale(1.03);box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,0 14px 40px -6px rgba(238,42,123,.8),0 0 80px -10px rgba(238,42,123,.7)}
+  .cta.block{width:100%}
+  .cta[aria-disabled="true"]{background:#2A2A2D;box-shadow:none;color:#8A878A;cursor:not-allowed;transform:none}
+  .cta[aria-disabled="true"]::before{display:none}
+  .ghost{display:inline-flex;align-items:center;gap:8px;padding:16px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);font-weight:600;font-size:15px;transition:border-color .2s,background .2s}
+  .ghost:hover{border-color:var(--brand);background:rgba(238,42,123,.1)}
+  @keyframes shine{0%{left:-80%}55%,100%{left:130%}}
+  .micro{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px;font-size:13px;color:var(--mute)}
+  .micro span::before{content:"✓ ";color:var(--ok);font-weight:800}
+
+  /* Barra de campanha */
+  .topbar{background:var(--brand);color:#fff;font-size:13px;font-weight:600}
+  .topbar .wrap{display:flex;align-items:center;justify-content:center;gap:10px 16px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;text-align:center}
+  .topbar strong{font-weight:900;letter-spacing:.04em}
+  .clock{display:inline-flex;gap:4px;font-variant-numeric:tabular-nums;font-weight:800}
+  .clock b{background:rgba(0,0,0,.22);border-radius:6px;padding:3px 6px;min-width:30px;text-align:center}
+
+  /* Nav */
+  nav{position:sticky;top:0;z-index:40;background:rgba(5,5,5,.78);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  nav img{width:132px;height:auto}
+  nav .links{display:flex;gap:28px;font-size:14px;color:var(--mute);font-weight:500}
+  nav .links a:hover{color:var(--ink)}
+  nav .cta{padding:12px 20px;font-size:13px}
+
+  /* Hero */
+  .hero{position:relative;padding:clamp(56px,8vw,112px) 0 clamp(64px,8vw,104px);overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:70vw;height:70vw;max-width:900px;max-height:900px;background:radial-gradient(circle,rgba(238,42,123,.28) 0%,rgba(238,42,123,0) 62%);pointer-events:none}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(32px,5vw,72px);align-items:center}
+  .hero h1{font-size:clamp(40px,5.2vw,78px);margin:18px 0 22px;animation:rise .6s cubic-bezier(.22,1,.36,1) both}
+  .hero .lead{animation:rise .6s .08s cubic-bezier(.22,1,.36,1) both}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;animation:rise .6s .16s cubic-bezier(.22,1,.36,1) both}
+  .bf-tag{display:inline-block;font-weight:900;font-size:clamp(13px,1vw,15px);letter-spacing:.2em;padding:8px 14px;border-radius:8px;background:#fff;color:#050505}
+  .bf-tag em{font-style:normal;color:var(--brand)}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+  .panel{position:relative;background:linear-gradient(180deg,#121214,#0A0A0B);border:1px solid var(--line);border-radius:28px;padding:22px;box-shadow:0 40px 90px -30px rgba(0,0,0,.9),0 0 0 1px rgba(238,42,123,.08);animation:rise .7s .2s cubic-bezier(.22,1,.36,1) both}
+  .panel-head{display:flex;justify-content:space-between;align-items:center;padding:4px 6px 16px;border-bottom:1px solid var(--line);margin-bottom:10px}
+  .panel-head span{font-size:12px;color:var(--mute);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  .live{display:inline-flex;align-items:center;gap:6px;color:var(--ok)!important}
+  .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}100%{box-shadow:0 0 0 8px rgba(37,211,102,0)}}
+  .row{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:14px 8px;border-radius:14px;transition:background .2s}
+  .row:hover{background:rgba(255,255,255,.03)}
+  .row + .row{border-top:1px solid var(--line)}
+  .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(238,42,123,.12);color:var(--brand-soft)}
+  .ico svg{width:22px;height:22px}
+  .row h4{margin:0;font-size:15px;font-weight:700;letter-spacing:-.01em}
+  .row p{font-size:13px;color:var(--mute);line-height:1.4}
+  .chip{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:999px;white-space:nowrap}
+  .chip.all{background:rgba(255,255,255,.07);color:#D9D6D8}
+  .chip.ltd{background:rgba(238,42,123,.16);color:var(--brand-soft)}
+  .chip.big{background:var(--brand);color:#fff}
+  .chip.off{background:#222;color:#777}
+
+  /* Faixa de números */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:30px 20px}
+  .stat + .stat{border-left:1px solid var(--line)}
+  .stat b{display:block;font-size:clamp(26px,2.6vw,38px);font-weight:800;letter-spacing:-.04em}
+  .stat span{font-size:14px;color:var(--mute)}
+
+  /* Seções */
+  section{padding:clamp(72px,8vw,120px) 0}
+  .on-light{background:var(--paper);color:var(--ink-dark)}
+  .sec-head{display:flex;flex-direction:column;gap:16px;margin-bottom:clamp(36px,4vw,56px)}
+  .sec-head.center{align-items:center;text-align:center}
+  .sec-head.center h2{margin:0 auto}
+
+  /* Como funciona */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .step{border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;background:var(--bg2);display:flex;flex-direction:column;gap:12px;min-height:220px}
+  .step .n{font-size:13px;font-weight:800;color:var(--mute)}
+  .step h3{font-size:20px;letter-spacing:-.02em}
+  .step p{color:var(--mute);font-size:14px}
+  .step .chip{align-self:flex-start;margin-top:auto}
+  .step.hot{border-color:rgba(238,42,123,.5);background:linear-gradient(180deg,rgba(238,42,123,.12),rgba(238,42,123,0) 70%),var(--bg2)}
+
+  /* Ofertas */
+  .offers{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+  .offer{position:relative;background:#fff;border:1px solid var(--paper-line);border-radius:28px;padding:clamp(26px,3vw,40px);display:flex;flex-direction:column}
+  .offer.featured{background:#0A0A0A;color:var(--ink);border-color:#0A0A0A;box-shadow:0 30px 80px -30px rgba(238,42,123,.55)}
+  .offer .badge{position:absolute;top:-14px;left:clamp(26px,3vw,40px);background:var(--brand);color:#fff;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;border-radius:999px;box-shadow:0 8px 24px -6px rgba(238,42,123,.7)}
+  .offer .kicker{font-size:13px;font-weight:700;color:var(--mute-dark);letter-spacing:.06em;text-transform:uppercase}
+  .offer.featured .kicker{color:var(--mute)}
+  .offer h3{font-size:clamp(26px,2.4vw,34px);margin:10px 0 12px}
+  .offer .desc{font-size:15px;color:var(--mute-dark)}
+  .offer.featured .desc{color:var(--mute)}
+  .price{margin:26px 0 22px;padding:22px 0;border-top:1px solid var(--paper-line);border-bottom:1px solid var(--paper-line)}
+  .offer.featured .price{border-color:var(--line)}
+  .price .from{font-size:14px;color:#C0392B;text-decoration:line-through;font-weight:600}
+  .offer.featured .price .from{color:#FF6B6B}
+  .price .inst{font-size:clamp(34px,3.4vw,48px);font-weight:900;letter-spacing:-.04em;line-height:1.05;margin:6px 0}
+  .price .inst small{font-size:.42em;font-weight:700;letter-spacing:0}
+  .price .cash{font-size:14px;color:var(--mute-dark)}
+  .offer.featured .price .cash{color:var(--mute)}
+  .price .save{display:inline-block;margin-top:10px;font-size:12px;font-weight:800;color:#0A7A34;background:#DDF7E6;border-radius:6px;padding:4px 8px}
+  .offer.featured .price .save{background:rgba(37,211,102,.14);color:var(--ok)}
+  .list{list-style:none;margin:0 0 28px;padding:0;display:grid;gap:12px}
+  .list li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:15px;line-height:1.45}
+  .list li::before{content:"";width:22px;height:22px;border-radius:50%;background:rgba(238,42,123,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23EE2A7B' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat}
+  .list li.gift::before{background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z'/%3E%3C/svg%3E") center/12px no-repeat}
+  .list .lbl{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brand)}
+  .offer .cta{margin-top:auto}
+  .offer .note{margin-top:14px;text-align:center;font-size:13px;color:var(--mute-dark)}
+  .offer.featured .note{color:var(--mute)}
+
+  /* Bônus limitados */
+  .limited{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .lim{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:28px;background:var(--bg2);padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:14px}
+  .lim::after{content:"";position:absolute;right:-120px;top:-120px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(238,42,123,.22),transparent 65%);pointer-events:none}
+  .lim .ico{width:56px;height:56px;border-radius:16px}
+  .lim .ico svg{width:28px;height:28px}
+  .lim h3{font-size:clamp(24px,2.2vw,30px)}
+  .lim p{color:var(--mute);font-size:15px}
+  .meter{margin-top:auto;padding-top:20px;border-top:1px solid var(--line)}
+  .meter-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:14px;margin-bottom:10px}
+  .meter-top b{font-size:22px;font-weight:900;letter-spacing:-.02em}
+  .meter-top span{color:var(--mute)}
+  .bar{height:10px;border-radius:999px;background:#1E1E21;overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#FF7AB3,#EE2A7B);box-shadow:0 0 18px rgba(238,42,123,.7);transition:width 1s ease}
+  .lim .clock b{background:#1E1E21;color:#fff;font-size:20px;padding:8px 10px;min-width:48px;border-radius:10px}
+  .lim .clock{gap:6px}
+  .lim .clock small{display:block;font-size:10px;font-weight:600;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;text-align:center}
+  .lim.closed{opacity:.55}
+
+  /* O que tem no PRO */
+  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--paper-line);border:1px solid var(--paper-line);border-radius:24px;overflow:hidden}
+  .feat div{background:#fff;padding:26px 24px}
+  .feat b{display:block;font-size:17px;letter-spacing:-.01em;margin-bottom:6px}
+  .feat span{font-size:14px;color:var(--mute-dark);line-height:1.5}
+  .mock{margin-top:clamp(40px,5vw,64px);border-radius:28px;overflow:hidden;background:#0A0A0A}
+
+  /* Garantia */
+  .guarantee{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,56px);align-items:center;border:1px solid var(--line);border-radius:28px;padding:clamp(28px,4vw,56px);background:var(--bg2)}
+  .seal{width:clamp(120px,14vw,168px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 30% 25%,#FF5A9C,#B81A5C);box-shadow:0 0 0 10px rgba(238,42,123,.12),0 20px 50px -10px rgba(238,42,123,.6)}
+  .seal b{display:block;font-size:clamp(40px,4.4vw,56px);font-weight:900;letter-spacing:-.05em;line-height:1}
+  .seal span{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+
+  /* FAQ */
+  .faq{max-width:860px}
+  details{border-bottom:1px solid var(--paper-line)}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font-size:clamp(17px,1.4vw,20px);font-weight:700;letter-spacing:-.015em}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:26px;font-weight:400;line-height:1;color:var(--brand);transition:transform .25s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{padding:0 0 24px;color:var(--mute-dark);max-width:68ch}
+
+  /* CTA final */
+  .final{position:relative;overflow:hidden;text-align:center;padding:clamp(110px,14vw,200px) 0}
+  .final::before{content:"";position:absolute;left:50%;top:50%;width:1100px;height:1100px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(238,42,123,.3),transparent 60%);pointer-events:none}
+  .final .wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:22px}
+  .final h2{font-size:clamp(34px,4.4vw,64px);max-width:18ch}
+  .final .micro{justify-content:center}
+
+  footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--mute);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  footer img{width:120px;opacity:.85}
+
+  /* Barra fixa mobile */
+  .sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;display:none;align-items:center;gap:12px;padding:10px 10px 10px 18px;border-radius:999px;background:rgba(14,14,16,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:0 20px 40px -10px rgba(0,0,0,.8);transform:translateY(140%);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+  .sticky.show{transform:none}
+  .sticky div{flex:1;min-width:0;font-size:12px;color:var(--mute);line-height:1.3}
+  .sticky div b{display:block;color:#fff;font-size:14px}
+  .sticky .cta{padding:13px 18px;font-size:12px}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:980px){
+    .hero .wrap{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .offers,.limited{grid-template-columns:1fr}
+    .offer.featured{order:-1}
+    .feat{grid-template-columns:1fr 1fr}
+    nav .links{display:none}
+  }
+  @media (max-width:640px){
+    .strip .wrap{grid-template-columns:1fr 1fr}
+    .stat:nth-child(3){border-left:0}
+    .stat:nth-child(n+3){border-top:1px solid var(--line)}
+    .steps,.feat{grid-template-columns:1fr}
+    .step{min-height:0}
+    .guarantee{grid-template-columns:1fr;justify-items:center;text-align:center}
+    .hero .actions .cta,.hero .actions .ghost{width:100%}
+    nav .cta{display:none}
+    .sticky{display:flex}
+    .row{grid-template-columns:40px 1fr;padding:12px 4px}
+    .row .chip{grid-column:2;justify-self:start}
+    .ico{width:40px;height:40px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3P99TN7" height="0" width="0" style="display:none;visibility:hidden"></iframe><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3213093405602824&ev=PageView&noscript=1" alt=""></noscript>
+
+<!-- Ícones reutilizados -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-infinity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.2 7.8a4.2 4.2 0 1 1 0 8.4c-2.9 0-4.3-2.8-6.2-4.2-1.9-1.4-3.3-4.2-6.2-4.2a4.2 4.2 0 1 0 0 8.4c2.9 0 4.3-2.8 6.2-4.2 1.9-1.4 3.3-4.2 6.2-4.2z"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><strong>BLACK FRIDAY ODON</strong> · as condições acabam em</span>
+    <span class="clock" data-countdown="campanha"><b>00</b>d <b>00</b>h <b>00</b>m <b>00</b>s</span>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" aria-label="Odon Concursos"><img src="https://odonconcursospage.com/wp-content/uploads/2024/07/MarcaDagua-OdonConcursos-variacao-06-1.png" alt="Odon Concursos"></a>
+    <div class="links">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#ofertas">Ofertas</a>
+      <a href="#limitados">Bônus limitados</a>
+      <a href="#faq">Dúvidas</a>
+    </div>
+    <a class="cta" href="#ofertas">Ver ofertas</a>
+  </div>
+</nav>
+
+<main id="top">
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <span class="bf-tag">BLACK <em>FRIDAY</em> 2026</span>
+        <h1>O Concurseiro PRO <span class="g1">vitalício</span>, pelo menor preço que ele já teve.</h1>
+        <p class="lead">Uma vez por ano a Odon abre condições que não voltam. Estude para todos os concursos de Odontologia sem prazo de acesso, ou leve a Pós-graduação com o maior pacote de bônus da campanha.</p>
+        <div class="actions">
+          <a class="cta" href="#ofertas">Quero aproveitar a Black</a>
+          <a class="ghost" href="#limitados">Ver bônus limitados →</a>
+        </div>
+        <div class="micro"><span>7 dias de garantia</span><span>Parcelado em até 12x</span><span>Acesso imediato</span></div>
+      </div>
+
+      <div class="panel" aria-label="Resumo das ofertas da Black Friday">
+        <div class="panel-head"><span>Ofertas da Black</span><span class="live">Ativas agora</span></div>
+        <a class="row" href="#oferta-vitalicio">
+          <div class="ico"><svg><use href="#i-infinity"/></svg></div>
+          <div><h4>Concurseiro PRO Vitalício</h4><p>Acesso sem data para acabar</p></div>
+          <span class="chip all">Toda a campanha</span>
+        </a>
+        <a class="row" href="#oferta-pos">
+          <div class="ico"><svg><use href="#i-cap"/></svg></div>
+          <div><h4>Pós-graduação</h4><p>Com o maior bônus da Black</p></div>
+          <span class="chip big">Maior bônus</span>
+        </a>
+        <a class="row" href="#limitados">
+          <div class="ico"><svg><use href="#i-box"/></svg></div>
+          <div><h4>Kit físico</h4><p data-sub="kit">Para os primeiros compradores</p></div>
+          <span class="chip ltd" data-chip="kit">Limitado</span>
+        </a>
+        <a class="row" href="#limitados">
+          <div class="ico"><svg><use href="#i-grid"/></svg></div>
+          <div><h4>Área de cursos</h4><p data-sub="area">Para os primeiros compradores</p></div>
+          <span class="chip ltd" data-chip="area">Limitado</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="strip">
+    <div class="wrap">
+      <div class="stat"><b>15 mil+</b><span>questões gabaritadas</span></div>
+      <div class="stat"><b>Vitalício</b><span>sem prazo de acesso</span></div>
+      <div class="stat"><b>12x</b><span>no cartão</span></div>
+      <div class="stat"><b>7 dias</b><span>de garantia total</span></div>
+    </div>
+  </div>
+
+  <!-- Como funciona -->
+  <section id="como-funciona">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Como funciona a Black</span>
+        <h2>Duas ofertas ficam a campanha inteira. <span class="g1">Duas acabam antes.</span></h2>
+        <p class="lead">O preço das ofertas vale até o último dia. Os bônus físicos e a Área de cursos vão só para quem compra primeiro.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="n">01</span>
+          <h3>Concurseiro PRO Vitalício</h3>
+          <p>O preparatório completo da Odon, agora sem data para acabar.</p>
+          <span class="chip all">Toda a campanha</span>
+        </div>
+        <div class="step hot reveal">
+          <span class="n">02</span>
+          <h3>Pós-graduação</h3>
+          <p>A oferta com o maior pacote de bônus da Black Friday.</p>
+          <span class="chip big">Maior bônus</span>
+        </div>
+        <div class="step reveal">
+          <span class="n">03</span>
+          <h3>Kit físico</h3>
+          <p data-step="kit">Enviado para a sua casa. Só para os primeiros compradores.</p>
+          <span class="chip ltd" data-chip="kit">Limitado</span>
+        </div>
+        <div class="step reveal">
+          <span class="n">04</span>
+          <h3>Área de cursos</h3>
+          <p data-step="area">Acesso à área de cursos da Odon. Só para os primeiros compradores.</p>
+          <span class="chip ltd" data-chip="area">Limitado</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ofertas -->
+  <section id="ofertas" class="on-light">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow">As ofertas</span>
+        <h2>Escolha como você quer passar em 2027.</h2>
+        <p class="lead">As duas ofertas valem até o fim da campanha. Quem compra primeiro ainda leva o Kit físico e a Área de cursos.</p>
+      </div>
+      <div class="offers" id="offers"></div>
+    </div>
+  </section>
+
+  <!-- Bônus limitados -->
+  <section id="limitados">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Bônus limitados</span>
+        <h2>Esses aqui <span class="g1">acabam antes</span> da Black.</h2>
+        <p class="lead">São liberados para os primeiros compradores de qualquer oferta. Quando acabarem, a oferta continua, mas sem eles.</p>
+      </div>
+      <div class="limited">
+        <article class="lim reveal" data-lim="kit">
+          <div class="ico"><svg><use href="#i-box"/></svg></div>
+          <h3>Kit físico Odon</h3>
+          <p data-desc="kit"></p>
+          <div class="meter" data-meter="kit"></div>
+        </article>
+        <article class="lim reveal" data-lim="area">
+          <div class="ico"><svg><use href="#i-grid"/></svg></div>
+          <h3>Área de cursos</h3>
+          <p data-desc="area"></p>
+          <div class="meter" data-meter="area"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- O que tem no Concurseiro PRO -->
+  <section class="on-light">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Dentro do Concurseiro PRO</span>
+        <h2>Tudo o que você precisa para a prova, num lugar só.</h2>
+      </div>
+      <div class="feat reveal">
+        <div><b>Aulas completas</b><span>Todo o conteúdo cobrado nos concursos de Odontologia.</span></div>
+        <div><b>15 mil+ questões</b><span>Organizadas por banca, para treinar no padrão da prova.</span></div>
+        <div><b>Resolução em vídeo</b><span>Como a banca pensa e por que cada alternativa está certa ou errada.</span></div>
+        <div><b>PDFs e mapas mentais</b><span>Material para revisar e memorizar os temas mais cobrados.</span></div>
+        <div><b>Cronograma personalizado</b><span>Montado pelos professores para o seu edital e a sua rotina.</span></div>
+        <div><b>Simulados frequentes</b><span>Para medir o seu nível e chegar seguro(a) no dia da prova.</span></div>
+        <div><b>Suporte com professores</b><span>Canal direto para tirar dúvidas e não travar nos estudos.</span></div>
+        <div><b>Sorteio de inscrições</b><span>Todo mês a Odon paga inscrições de alunos sorteados.</span></div>
+        <div><b>Atualidades</b><span>Módulo com o Prof. Otoniel e notícias diárias no seu e-mail.</span></div>
+      </div>
+      <div class="mock reveal"><img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/03/mockup-geral.webp" alt="Plataforma Concurseiro PRO em vários dispositivos"></div>
+    </div>
+  </section>
+
+  <!-- Garantia -->
+  <section>
+    <div class="wrap">
+      <div class="guarantee reveal">
+        <div class="seal"><div><b>7</b><span>dias</span></div></div>
+        <div>
+          <span class="eyebrow">Garantia total</span>
+          <h2 style="margin:14px 0 14px">Comprou e não gostou? Devolvemos 100%.</h2>
+          <p class="lead">Você tem 7 dias a partir da matrícula para testar. Se não ficar satisfeito(a), basta mandar um e-mail ou uma mensagem no WhatsApp para o suporte e reembolsamos todo o valor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="on-light">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Dúvidas</span>
+        <h2>Perguntas que todo mundo faz na Black.</h2>
+      </div>
+      <div class="faq">
+        <details><summary>O que significa "vitalício"?</summary><p>Você não perde o acesso ao Concurseiro PRO depois de 12 meses, como acontece no plano regular. O acesso continua enquanto o curso existir na plataforma da Odon.</p></details>
+        <details><summary>Até quando vale a Black Friday?</summary><p data-faq="fim"></p></details>
+        <details><summary>Como sei se vou receber o Kit físico e a Área de cursos?</summary><p>Eles vão para os primeiros compradores de qualquer uma das duas ofertas. Se o contador desta página ainda estiver aberto na hora da sua compra, você garante o bônus. Depois disso, a oferta continua, mas sem esses dois itens.</p></details>
+        <details><summary>Posso parcelar?</summary><p>Sim. As duas ofertas podem ser parceladas em até 12x no cartão, ou pagas à vista.</p></details>
+        <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia total. Dentro desse prazo, por qualquer motivo, devolvemos 100% do valor.</p></details>
+        <details><summary>Já sou aluno(a). Posso aproveitar?</summary><p>Pode. Fale com o nosso time no WhatsApp para ver a melhor condição para quem já estuda com a Odon.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="final">
+    <div class="wrap">
+      <span class="bf-tag">BLACK <em>FRIDAY</em> 2026</span>
+      <h2>A próxima vez que esse preço aparece é <span class="g1">na próxima Black.</span></h2>
+      <span class="clock" data-countdown="campanha" style="font-size:18px"><b>00</b>d <b>00</b>h <b>00</b>m <b>00</b>s</span>
+      <a class="cta" href="#ofertas">Garantir minha vaga</a>
+      <div class="micro"><span>7 dias de garantia</span><span>Até 12x no cartão</span><span>Acesso imediato</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="https://odonconcursospage.com/wp-content/uploads/2024/07/MarcaDagua-OdonConcursos-variacao-06-1.png" alt="Odon Concursos">
+    <span>© 2026 Odon Concursos · <a href="https://api.whatsapp.com/send?phone=5519994565534&text=Quero%20saber%20mais%20sobre%20a%20Black%20Friday%20da%20Odon" target="_blank" rel="noopener">Falar no WhatsApp</a></span>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <div><b>Black Friday Odon</b><span data-countdown="campanha-curto">acaba em breve</span></div>
+  <a class="cta" href="#ofertas">Ver ofertas</a>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG da campanha: edite só este bloco.
+   ============================================================ */
+const CONFIG = {
+  // Fim da campanha (horário de Brasília)
+  fimCampanha: '2026-11-30T23:59:59-03:00',
+
+  ofertas: [
+    {
+      id: 'vitalicio',
+      kicker: 'Disponível a campanha toda',
+      nome: 'Concurseiro PRO Vitalício',
+      desc: 'O preparatório completo da Odon para concursos de Odontologia, sem data para o acesso acabar.',
+      de: 3997, por: 1997, parcelas: 12,
+      itens: [
+        'Acesso vitalício a todo o Concurseiro PRO',
+        'Banco com 15 mil+ questões gabaritadas',
+        'Resolução de questões em vídeo',
+        'PDFs, mapas mentais e cronograma personalizado',
+        'Simulados, suporte com professores e sorteio de inscrições'
+      ],
+      bonus: [],
+      checkout: 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=RGZkVEF4Qzh5M3M9&vch=concurseiropro3',
+      destaque: false
+    },
+    {
+      id: 'pos',
+      kicker: 'Disponível a campanha toda',
+      nome: 'Pós-graduação Odon',
+      desc: 'Especialização com certificado e o maior pacote de bônus desta Black Friday.',
+      de: 5997, por: 2997, parcelas: 12,
+      itens: [
+        'Pós-graduação completa, com certificado',
+        'Aulas com os professores da Odon'
+      ],
+      bonus: [
+        'Concurseiro PRO Vitalício incluso',
+        'Banco com 15 mil+ questões gabaritadas',
+        'Suporte premium com professores'
+      ],
+      checkout: '#',
+      destaque: true,
+      badge: 'Maior bônus da Black'
+    }
+  ],
+
+  // Bônus limitados.
+  // modo 'unidades': mostra "restam X de Y" (atualize `restantes` à mão conforme as vendas).
+  // modo 'tempo': mostra contagem regressiva até `ate`.
+  limitados: {
+    kit:  { desc: 'Material de estudo impresso enviado para a sua casa, para revisar longe da tela.', modo: 'unidades', total: 100, restantes: 100, ate: '2026-11-28T23:59:59-03:00' },
+    area: { desc: 'Acesso à área de cursos da Odon, com os cursos extras liberados junto da sua oferta.',  modo: 'tempo',    total: 50,  restantes: 50,  ate: '2026-11-28T23:59:59-03:00' }
+  }
+};
+
+/* ============================================================ */
+const brl = v => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+const pad = n => String(n).padStart(2, '0');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function renderOffers() {
+  const el = document.getElementById('offers');
+  el.innerHTML = CONFIG.ofertas.map(o => {
+    const parcela = o.por / o.parcelas;
+    const pct = Math.round((1 - o.por / o.de) * 100);
+    const itens = o.itens.map(t => `<li>${esc(t)}</li>`).join('');
+    const bonus = o.bonus.map(t => `<li class="gift"><span><span class="lbl">Bônus</span>${esc(t)}</span></li>`).join('');
+    return `
+      <article class="offer ${o.destaque ? 'featured' : ''} reveal" id="oferta-${o.id}">
+        ${o.badge ? `<span class="badge">${esc(o.badge)}</span>` : ''}
+        <span class="kicker">${esc(o.kicker)}</span>
+        <h3>${esc(o.nome)}</h3>
+        <p class="desc">${esc(o.desc)}</p>
+        <div class="price">
+          <div class="from">De ${brl(o.de)}</div>
+          <div class="inst"><small>${o.parcelas}x de </small>${brl(parcela)}</div>
+          <div class="cash">ou ${brl(o.por)} à vista</div>
+          <span class="save">Economia de ${pct}%</span>
+        </div>
+        <ul class="list">${itens}${bonus}</ul>
+        <a class="cta block" href="${esc(o.checkout)}" data-plan="${esc(o.nome)}" data-value="${o.por}">Quero o ${esc(o.nome.split(' ').slice(0, 2).join(' '))}</a>
+        <p class="note">+ Kit físico e Área de cursos para os primeiros compradores</p>
+      </article>`;
+  }).join('');
+}
+
+function remaining(iso) {
+  const ms = new Date(iso).getTime() - Date.now();
+  if (ms <= 0) return null;
+  const s = Math.floor(ms / 1000);
+  return { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
+}
+
+function limClosed(l) {
+  return l.modo === 'unidades' ? l.restantes <= 0 || !remaining(l.ate) : !remaining(l.ate);
+}
+
+function renderLimited() {
+  Object.entries(CONFIG.limitados).forEach(([k, l]) => {
+    document.querySelector(`[data-desc="${k}"]`).textContent = l.desc;
+    const card = document.querySelector(`[data-lim="${k}"]`);
+    const meter = document.querySelector(`[data-meter="${k}"]`);
+    const closed = limClosed(l);
+    card.classList.toggle('closed', closed);
+    document.querySelectorAll(`[data-chip="${k}"]`).forEach(c => {
+      c.textContent = closed ? 'Encerrado' : (l.modo === 'unidades' ? `Restam ${l.restantes}` : 'Por tempo');
+      c.className = 'chip ' + (closed ? 'off' : 'ltd');
+    });
+    const sub = document.querySelector(`[data-sub="${k}"]`);
+    if (sub) sub.textContent = closed ? 'Encerrado' : (l.modo === 'unidades' ? `Primeiros ${l.total} compradores` : 'Só por tempo limitado');
+
+    if (closed) { meter.innerHTML = '<div class="meter-top"><b>Encerrado</b><span>Esse bônus já foi todo</span></div>'; return; }
+    if (l.modo === 'unidades') {
+      const pct = Math.max(4, Math.round(l.restantes / l.total * 100));
+      meter.innerHTML = `<div class="meter-top"><b>Restam ${l.restantes}</b><span>de ${l.total} unidades</span></div><div class="bar"><i style="width:${pct}%"></i></div>`;
+    } else {
+      meter.innerHTML = `<div class="meter-top"><span>Liberado só até ${new Date(l.ate).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' })}</span></div><div class="clock" data-countdown-lim="${k}"></div>`;
+    }
+  });
+}
+
+function tick() {
+  const r = remaining(CONFIG.fimCampanha);
+  const long = r ? `<b>${pad(r.d)}</b>d <b>${pad(r.h)}</b>h <b>${pad(r.m)}</b>m <b>${pad(r.s)}</b>s` : '<b>Encerrada</b>';
+  document.querySelectorAll('[data-countdown="campanha"]').forEach(e => e.innerHTML = long);
+  document.querySelectorAll('[data-countdown="campanha-curto"]').forEach(e => e.textContent = r ? `Acaba em ${r.d}d ${pad(r.h)}h ${pad(r.m)}m` : 'Campanha encerrada');
+
+  document.querySelectorAll('[data-countdown-lim]').forEach(e => {
+    const l = CONFIG.limitados[e.dataset.countdownLim];
+    const t = remaining(l.ate);
+    if (!t) { renderLimited(); return; }
+    e.innerHTML = [['d', 'dias'], ['h', 'horas'], ['m', 'min'], ['s', 'seg']].map(([u, lb]) => `<div><b>${pad(t[u])}</b><small>${lb}</small></div>`).join('');
+  });
+}
+
+function renderFaq() {
+  const d = new Date(CONFIG.fimCampanha);
+  document.querySelector('[data-faq="fim"]').textContent =
+    `As duas ofertas valem até ${d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' })}, às ${d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })} (horário de Brasília). O Kit físico e a Área de cursos podem acabar antes, porque são limitados.`;
+}
+
+renderOffers();
+renderLimited();
+renderFaq();
+tick();
+setInterval(tick, 1000);
+
+// Rastreio de checkout
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[data-plan]');
+  if (!a) return;
+  const plan = a.dataset.plan, value = Number(a.dataset.value);
+  try { fbq('track', 'InitiateCheckout', { content_name: plan, value, currency: 'BRL' }); } catch (_) {}
+  (window.dataLayer = window.dataLayer || []).push({ event: 'initiate_checkout', plan, value, campanha: 'black-friday-2026' });
+});
+
+// Barra fixa no celular: aparece depois do hero e some na seção de ofertas
+const sticky = document.getElementById('sticky');
+const hero = document.querySelector('.hero');
+const offersSec = document.getElementById('ofertas');
+let heroOut = false, offersIn = false;
+const upd = () => sticky.classList.toggle('show', heroOut && !offersIn);
+new IntersectionObserver(([en]) => { heroOut = !en.isIntersecting; upd(); }).observe(hero);
+new IntersectionObserver(([en]) => { offersIn = en.isIntersecting; upd(); }, { threshold: .15 }).observe(offersSec);
+
+// Revelar ao rolar
+const io = new IntersectionObserver(ents => ents.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
