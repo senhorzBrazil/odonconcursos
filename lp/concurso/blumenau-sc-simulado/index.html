@@ -157,7 +157,7 @@
       padding-right: .12em;
     }
 
-    /* ─── HERO (sem foto — fundo com gradientes/orbs) ─── */
+    /* ─── HERO ─── */
     .hero-section {
       position: relative;
       overflow: hidden;
@@ -421,6 +421,37 @@
       font-size: 11px; color: var(--text-faint); margin-top: 16px;
     }
     .modal-secure svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ─── HERO com foto de Blumenau ─── */
+    @media (max-width: 900px) {
+      .hero-section {
+        align-items: flex-start;
+        min-height: 100svh;
+        background:
+          linear-gradient(to top, #000000 44%, rgba(0,0,0,.6) 62%, rgba(0,0,0,0) 80%),
+          url("bg-blumenau-mobile.webp") top center / 100% auto no-repeat,
+          #000000;
+      }
+      .hero-wrap { padding-top: clamp(260px, 88vw, 480px) !important; }
+    }
+    @media (min-width: 901px) {
+      .hero-section {
+        background:
+          linear-gradient(90deg, #000000 0%, rgba(0,0,0,.94) 36%, rgba(0,0,0,.6) 48%, rgba(0,0,0,0) 60%),
+          url("bg-blumenau-desktop.webp") center right / cover no-repeat,
+          #000000;
+      }
+      .hero-wrap {
+        width: min(1200px, 100%);
+        align-items: flex-start;
+        text-align: left;
+      }
+      .hero-wrap > * { max-width: 520px; }
+      .hero-h1 { font-size: clamp(38px, 3.6vw, 52px); }
+      .hero-ctas, .cta-micro { justify-content: flex-start; }
+      .cta-timer { align-items: flex-start; }
+      .cta-timer-label { text-align: left; }
+    }
 
     /* ─── MOBILE ─── */
     @media (max-width: 640px) {
