@@ -156,30 +156,49 @@
       padding-right: .12em;
     }
 
-    /* ─── HERO (sem foto — fundo com gradientes/orbs) ─── */
+    /* ─── HERO (BG da expert: foto à direita no desktop, no topo no mobile) ─── */
     .hero-section {
       position: relative;
+      z-index: 1;
       overflow: hidden;
       display: flex;
       align-items: center;
       min-height: calc(100vh - 64px);
+      background: #03040f;
+    }
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 78% center;
+      display: block;
+    }
+    .hero-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
       background:
-        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(233,30,140,.16), transparent 60%),
-        radial-gradient(ellipse 60% 50% at 50% 100%, rgba(37,211,102,.07), transparent 60%),
-        var(--bg);
+        linear-gradient(90deg, rgba(3,4,15,.92) 0%, rgba(3,4,15,.7) 38%, rgba(3,4,15,0) 62%),
+        linear-gradient(0deg, rgba(3,4,15,.6) 0%, rgba(3,4,15,0) 22%);
     }
     .hero-wrap {
       position: relative;
       z-index: 2;
       padding: clamp(56px,10vh,96px) clamp(20px,5vw,64px);
-      width: min(760px, 100%);
+      width: min(1280px, 100%);
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       gap: 22px;
-      text-align: center;
+      text-align: left;
     }
+    .hero-wrap > * { max-width: min(580px, 100%); }
     .hero-h1, .hero-desc { overflow-wrap: break-word; word-wrap: break-word; }
 
     .hero-badge {
@@ -222,10 +241,10 @@
     }
     .hero-desc strong { color: #ffffff; font-weight: 600; }
 
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: center; margin-top: 2px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: flex-start; margin-top: 2px; }
 
     .cta-micro {
-      display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: center;
+      display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: flex-start;
       margin-top: 4px;
     }
     .cta-micro span {
@@ -411,7 +430,17 @@
       .nav-pill { padding: 7px 14px; font-size: 10px; }
       .nav-pill svg { display: none; }
 
-      .hero-wrap { padding: 44px 20px 48px; gap: 18px; }
+      .hero-section { align-items: flex-start; min-height: calc(100svh - 56px); }
+      .hero-media { bottom: auto; aspect-ratio: 941 / 1672; }
+      .hero-media img { object-position: center top; }
+      .hero-media::after {
+        background: linear-gradient(0deg, #03040f 0%, rgba(3,4,15,.85) 30%, rgba(3,4,15,0) 55%);
+      }
+      .hero-wrap { padding: 88vw 20px 48px; gap: 18px; align-items: center; text-align: center; }
+      .hero-ctas, .cta-micro { justify-content: center; }
+      .hero-badge { padding: 7px 14px; }
+      .hero-badge svg { display: none; }
+      .hero-badge span { font-size: 9.5px; letter-spacing: .08em; white-space: nowrap; }
       .hero-h1 { font-size: clamp(29px, 8.4vw, 42px); line-height: 1.08; }
       .hero-desc { font-size: 15px; }
       .hero-ctas { flex-direction: column; gap: 12px; align-items: stretch; width: 100%; }
@@ -441,6 +470,10 @@
 
   <!-- HERO — ÚNICA DOBRA (sem foto de fundo) -->
   <section class="hero-section">
+    <picture class="hero-media">
+      <source media="(max-width: 640px)" srcset="expert-mobile.webp">
+      <img src="expert-desktop.webp" alt="" fetchpriority="high">
+    </picture>
     <div class="hero-wrap">
       <div class="hero-badge fade-in delay-1">
         <i data-lucide="graduation-cap"></i>
