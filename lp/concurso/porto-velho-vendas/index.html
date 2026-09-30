@@ -1428,7 +1428,7 @@
           <div class="plan-price">
             <div class="plan-offer-tag">Oferta de lançamento</div>
             <div class="plan-main">Condição especial <span class="nowrap">até 11/11</span></div>
-            <div class="plan-cash">Preencha seus dados e fale com a nossa equipe para <strong>garantir a condição especial</strong></div>
+            <div class="plan-cash">Preencha seus dados e vá direto para o <strong>checkout com a condição especial</strong></div>
           </div>
           <a onclick="openModal()" class="bnt1">
             <span>Quero a condição especial</span>
@@ -1611,7 +1611,7 @@
           Como faço para me inscrever no preparatório?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Você preenche seus dados no formulário e é levado para o <strong>WhatsApp da nossa equipe</strong>, que te passa a condição especial e o link de matrícula. Confirmado o pagamento, seu acesso às aulas é liberado.</div>
+        <div class="faq-a">Você preenche seus dados no formulário e é levado direto para o <strong>checkout da OdonConcursos</strong>, já com a condição especial aplicada. Confirmado o pagamento, seu acesso às aulas é liberado. Se preferir tirar dúvidas antes, use o botão <strong>Fale conosco</strong> e fale com a nossa equipe pelo WhatsApp.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1646,7 +1646,7 @@
           Qual é a condição especial?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">O preparatório de Porto Velho está com uma <strong>condição especial de lançamento válida até as 23h59 de 11/11/2026</strong>, o último dia de inscrição no concurso. Preencha seus dados e a nossa equipe te passa a condição pelo WhatsApp.</div>
+        <div class="faq-a">O preparatório de Porto Velho está com uma <strong>condição especial de lançamento válida até as 23h59 de 11/11/2026</strong>, o último dia de inscrição no concurso. Preencha seus dados e você é levado direto para o <strong>checkout</strong>, na plataforma da OdonConcursos, em ambiente seguro.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1683,7 +1683,7 @@
       </button>
       <div class="modal-body">
         <h3 id="modalTitle">Falta pouco para sua vaga</h3>
-        <p class="modal-text">Preencha seus dados para garantir a condição especial. Em seguida você é levado para o WhatsApp da nossa equipe, que libera sua matrícula no preparatório de Porto Velho.</p>
+        <p class="modal-text">Preencha seus dados para garantir a condição especial. Em seguida você é levado direto para o checkout do preparatório de Porto Velho.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -1728,9 +1728,8 @@
     // Os leads de Porto Velho se distinguem pelos campos `produto` / `origem` do payload.
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
-    // Checkout do preparatório de Porto Velho: ainda não existe. Com null, o lead vai
-    // para o WhatsApp comercial; quando houver checkout, basta colar a URL aqui.
-    const CURSO_URL = null;
+    // Checkout do preparatório de Porto Velho
+    const CURSO_URL = 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=RTk1MlVnS0FvaE09&utm_source=lp';
 
     // WhatsApp comercial — destino do "Fale conosco" (oferta sem url)
     const COMERCIAL_WHATSAPP = '5519994565534';
