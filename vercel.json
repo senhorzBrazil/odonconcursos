@@ -1,7 +1,7 @@
 {
   "trailingSlash": true,
   "redirects": [
-    { "source": "/lp/concurso/mentoria-outubro-nao-aluno", "destination": "/lp/concurso/mentoria-gratuita/", "permanent": true },
-    { "source": "/lp/concurso/mentoria-outubro-nao-aluno-obrigado", "destination": "/lp/concurso/mentoria-gratuita-obrigado/", "permanent": true }
+    { "source": "/lp/concurso/mentoria-outubro-nao-aluno/", "destination": "/lp/concurso/mentoria-gratuita/", "permanent": true },
+    { "source": "/lp/concurso/mentoria-outubro-nao-aluno-obrigado/", "destination": "/lp/concurso/mentoria-gratuita-obrigado/", "permanent": true }
   ]
 }
