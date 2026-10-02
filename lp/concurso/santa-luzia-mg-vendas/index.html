@@ -1438,7 +1438,7 @@
             <span>Fale conosco</span>
           </a>
           <div class="contact-hint">Ficou com dúvida? Fale com a nossa equipe pelo WhatsApp.</div>
-          <div class="plan-note"><i data-lucide="lock"></i><span>Seus dados estão seguros · atendimento pelo WhatsApp</span></div>
+          <div class="plan-note"><i data-lucide="lock"></i><span>Seus dados estão seguros · acesso liberado na hora</span></div>
         </div>
       </div>
 
@@ -1606,7 +1606,7 @@
           Como faço para me inscrever no preparatório?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Você preenche seus dados no formulário e é levado para o <strong>WhatsApp da nossa equipe</strong>, que te passa a condição especial e libera sua matrícula. Confirmado o pagamento, seu acesso às aulas é liberado.</div>
+        <div class="faq-a">Você preenche seus dados no formulário e é levado direto para o <strong>checkout da OdonConcursos</strong>, já com a condição especial aplicada. Confirmado o pagamento, seu acesso às aulas é liberado. Se preferir tirar dúvidas antes, use o botão <strong>Fale conosco</strong> e fale com a nossa equipe pelo WhatsApp.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1641,7 +1641,7 @@
           Qual é a condição especial?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">O preparatório de Santa Luzia está com uma <strong>condição especial de lançamento válida até as 23h59 de 15/01/2027</strong>, o último dia de inscrição no concurso. Preencha seus dados e a nossa equipe te atende pelo <strong>WhatsApp</strong> com todos os detalhes.</div>
+        <div class="faq-a">O preparatório de Santa Luzia está com uma <strong>condição especial de lançamento válida até as 23h59 de 15/01/2027</strong>, o último dia de inscrição no concurso. Preencha seus dados e você é levado direto para o <strong>checkout</strong>, na plataforma da OdonConcursos, em ambiente seguro.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1678,7 +1678,7 @@
       </button>
       <div class="modal-body">
         <h3 id="modalTitle">Falta pouco para sua vaga</h3>
-        <p class="modal-text">Preencha seus dados para garantir a condição especial. Em seguida você é levado para o WhatsApp da nossa equipe, que libera sua matrícula no preparatório de Santa Luzia.</p>
+        <p class="modal-text">Preencha seus dados para garantir a condição especial. Em seguida você é levado direto para o checkout do preparatório de Santa Luzia.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -1724,7 +1724,7 @@
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
     // Checkout do preparatório de Santa Luzia
-    const CURSO_URL = null; // checkout de Santa Luzia ainda não informado: sem ele o formulário leva ao WhatsApp comercial
+    const CURSO_URL = 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=YW5BQWZQQkZ2QU09';
 
     // WhatsApp comercial — destino do "Fale conosco" (oferta sem url)
     const COMERCIAL_WHATSAPP = '5519994565534';
@@ -1851,7 +1851,7 @@
         destino = qs ? base + (base.includes('?') ? '&' : '?') + qs : base;
       } else {
         document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o WhatsApp da nossa equipe…';
-        const msg = `Vi o anúncio sobre o concurso de Odontologia de Santa Luzia e gostaria de saber mais. Poderia me ajudar? Sou o ${nome}`;
+        const msg = `Vi o anúncio sobre o concurso de Odontologia de Santa Luzia e gostaria de saber mais. Poderia me ajudar? Meu nome é ${nome}`;
         destino = 'https://wa.me/' + COMERCIAL_WHATSAPP + '?text=' + encodeURIComponent(msg);
       }
       lucide.createIcons();
