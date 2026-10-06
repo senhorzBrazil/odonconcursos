@@ -157,7 +157,7 @@
       box-shadow: 0 0 0 1px rgba(233,30,140,.35), 0 24px 60px rgba(233,30,140,.18);
       outline: none;
     }
-    .media { position: relative; height: 196px; overflow: hidden; background: #0b1535; }
+    .media { position: relative; height: 216px; overflow: hidden; background: #0b1535; }
     .media img {
       width: 100%; height: 100%; object-fit: cover; display: block;
       transition: transform .6s ease;
@@ -284,7 +284,7 @@
       .topbar { font-size: 11px; padding: 8px 12px; }
       .nav-pill { padding: 7px 13px; font-size: 10px; }
       .hero { padding-top: 38px; }
-      .media { height: 178px; }
+      .media { height: 210px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .fade { animation: none; opacity: 1; }
@@ -345,13 +345,13 @@
       { kicker: 'Polícia Militar', nome: 'PM PE · Oficial Dentista', banca: 'AOCP', prova: '2027-02-21',
         img: '/lp/concurso/pm-pe-vendas/hero-mobile.jpg', pos: '50% 22%', url: '/lp/concurso/pm-pe-vendas/' },
       { kicker: 'Tribunal Regional do Trabalho', nome: 'TRT 8 · Analista Judiciário', banca: 'FCC', prova: '2027-01-17',
-        img: '/lp/concurso/trt8-vendas/hero-mobile.jpg', pos: '50% 24%', url: '/lp/concurso/trt8-vendas/' },
+        img: '/lp/concurso/trt8-vendas/hero-mobile.jpg', pos: '50% 16%', url: '/lp/concurso/trt8-vendas/' },
       { kicker: 'Grupo Petrobras', nome: 'Petrobras / Transpetro', banca: 'Cesgranrio', prova: '2026-11-29',
-        img: '/lp/concurso/petrobras-vendas/hero-mobile.jpg', pos: '50% 24%', url: '/lp/concurso/petrobras-vendas/' },
+        img: '/lp/concurso/petrobras-vendas/hero-mobile.jpg', pos: '50% 16%', url: '/lp/concurso/petrobras-vendas/' },
       { kicker: 'Prefeitura · SEMUSA', nome: 'Porto Velho RO', banca: 'IBGP', prova: '2026-12-13',
-        img: '/lp/concurso/porto-velho-vendas/hero-mobile.jpg', pos: '50% 24%', url: '/lp/concurso/porto-velho-vendas/' },
+        img: '/lp/concurso/porto-velho-vendas/hero-mobile.jpg', pos: '50% 16%', url: '/lp/concurso/porto-velho-vendas/' },
       { kicker: 'Secretaria de Saúde', nome: 'SES-RJ · Odontólogo', banca: 'IBDO', prova: '2026-11-01',
-        img: '/lp/concurso/ses-rj-vendas/hero-mobile.jpg', pos: '50% 24%', url: '/lp/concurso/ses-rj-vendas/' },
+        img: '/lp/concurso/ses-rj-vendas/hero-mobile.jpg', pos: '50% 16%', url: '/lp/concurso/ses-rj-vendas/' },
     ];
 
     const qs = location.search; // repassa UTMs/fbclid da bio
@@ -374,7 +374,7 @@
       a.href = l.url + qs;
       a.innerHTML =
         '<div class="media">' +
-          '<img src="' + l.img + '" alt="" loading="' + (i < 2 ? 'eager' : 'lazy') + '" style="object-position:' + l.pos + '">' +
+          '<img src="' + l.img + '" alt="" loading="eager" style="object-position:' + l.pos + '">' +
           '<span class="banca">Banca ' + l.banca + '</span>' +
           '<span class="dias">' + chip + '</span>' +
         '</div>' +
