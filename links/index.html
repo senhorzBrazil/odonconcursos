@@ -189,6 +189,13 @@
       font-family: var(--display); font-weight: 800; font-size: 23px; line-height: 1.15; letter-spacing: -.02em;
       margin-top: 6px;
     }
+    .rem {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+      margin-top: 12px; padding: 10px 14px; border-radius: 14px;
+      background: rgba(233,30,140,.10); border: 1px solid rgba(233,30,140,.35);
+    }
+    .rem span { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--pink-soft); }
+    .rem strong { font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: -.01em; color: #fff; }
     .checks { list-style: none; margin: 14px 0 20px; display: grid; gap: 7px; }
     .checks li { display: flex; align-items: center; gap: 9px; font-size: 14px; color: #c7cee0; }
     .checks li b { color: #fff; font-weight: 700; }
@@ -382,11 +389,12 @@
         '<div class="media">' +
           '<img src="' + l.img + '" alt="" loading="eager" style="object-position:' + l.pos + '">' +
           '<span class="banca">Banca ' + l.banca + '</span>' +
-          '<span class="dias"><small>' + (l.remLabel || 'Remuneração inicial') + '</small>' + l.rem + '</span>' +
+          
         '</div>' +
         '<div class="body">' +
           '<span class="kicker">' + l.kicker + '</span>' +
           '<h2>' + l.nome + '</h2>' +
+          '<div class="rem"><span>' + (l.remLabel || 'Remuneração inicial') + '</span><strong>' + l.rem + '</strong></div>' +
           '<ul class="checks">' +
             '<li>' + check + '<span>Prova em <b>' + br + '</b></span></li>' +
             '<li>' + check + '<span>Foco na banca ' + l.banca + '</span></li>' +
