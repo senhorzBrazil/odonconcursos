@@ -269,7 +269,8 @@
       #profs2, #profs3 { display: flex; }
       .profs-row img { width: 132px; height: 172px; }
       #profs2 { margin-left: -70px; } #profs3 { margin-left: -140px; }
-      .profs::after { background: linear-gradient(90deg, #121a40 0%, rgba(14,24,56,0) 35%); }
+      .profs::after { display: none; }
+      .profs { -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%); mask-image: linear-gradient(90deg, transparent 0%, #000 32%); }
     }
 
     /* ---------- footer ---------- */
