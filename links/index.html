@@ -176,12 +176,13 @@
     }
     .media .dias {
       position: absolute; right: 14px; top: 14px; z-index: 2;
-      font-size: 11px; font-weight: 800; letter-spacing: .02em;
-      padding: 6px 12px; border-radius: 999px;
+      font-size: 14px; font-weight: 800; letter-spacing: .01em; line-height: 1.15; text-align: right;
+      padding: 7px 13px; border-radius: 14px;
       background: linear-gradient(92deg, var(--pink), var(--pink-2)); color: #fff;
       box-shadow: 0 0 18px rgba(233,30,140,.55);
       font-variant-numeric: tabular-nums;
     }
+    .media .dias small { display: block; font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .85; }
     .body { position: relative; padding: 4px 20px 22px; display: flex; flex-direction: column; flex: 1; }
     .kicker { color: var(--pink-soft); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
     .card h2 {
@@ -346,17 +347,17 @@
   <script>
     // Ordem dos cards = ordem desta lista. pos = enquadramento da foto (object-position).
     const LINKS = [
-      { kicker: 'Polícia Militar · Bombeiros', nome: 'PM BA e CBM BA', banca: 'AOCP', prova: '2027-01-17',
+      { kicker: 'Polícia Militar · Bombeiros', nome: 'PM BA e CBM BA', rem: 'até R$ 9.973,34', remLabel: 'Remuneração', banca: 'AOCP', prova: '2027-01-17',
         img: '/lp/concurso/pm-ba-vendas/hero-mobile.jpg', pos: '50% 22%', url: '/lp/concurso/pm-ba-vendas-comercial/' },
-      { kicker: 'Polícia Militar', nome: 'PM PE · Oficial Dentista', banca: 'AOCP', prova: '2027-02-21',
+      { kicker: 'Polícia Militar', nome: 'PM PE · Oficial Dentista', rem: 'R$ 12.937,33', banca: 'AOCP', prova: '2027-02-21',
         img: '/lp/concurso/pm-pe-vendas/hero-mobile.jpg', pos: '50% 22%', url: '/lp/concurso/pm-pe-vendas-comercial/' },
-      { kicker: 'Tribunal Regional do Trabalho', nome: 'TRT 8 · Analista Judiciário', banca: 'FCC', prova: '2027-01-17',
+      { kicker: 'Tribunal Regional do Trabalho', nome: 'TRT 8 · Analista Judiciário', rem: 'R$ 16.040,88', banca: 'FCC', prova: '2027-01-17',
         img: '/lp/concurso/trt8-vendas/hero-mobile.jpg', pos: '50% 16%', url: '/lp/concurso/trt8-vendas-comercial/' },
-      { kicker: 'Grupo Petrobras', nome: 'Petrobras / Transpetro', banca: 'Cesgranrio', prova: '2026-11-29',
+      { kicker: 'Grupo Petrobras', nome: 'Petrobras / Transpetro', rem: 'R$ 14.973,62', banca: 'Cesgranrio', prova: '2026-11-29',
         img: '/lp/concurso/petrobras-vendas/hero-mobile.jpg', pos: '50% 16%', url: '/lp/concurso/petrobras-vendas-comercial/' },
-      { kicker: 'Prefeitura · SEMUSA', nome: 'Porto Velho RO', banca: 'IBGP', prova: '2026-12-13',
+      { kicker: 'Prefeitura · SEMUSA', nome: 'Porto Velho RO', rem: 'R$ 5.734,79', banca: 'IBGP', prova: '2026-12-13',
         img: '/lp/concurso/porto-velho-vendas/hero-mobile.jpg', pos: '50% 16%', url: '/lp/concurso/porto-velho-vendas-comercial/' },
-      { kicker: 'Secretaria de Saúde', nome: 'SES-RJ · Odontólogo', banca: 'IBDO', prova: '2026-11-01',
+      { kicker: 'Secretaria de Saúde', nome: 'SES-RJ · Odontólogo', rem: 'R$ 4.026,02', banca: 'IBDO', prova: '2026-11-01',
         img: '/lp/concurso/ses-rj-vendas/hero-mobile.jpg', pos: '50% 16%', url: '/lp/concurso/ses-rj-vendas-comercial/' },
     ];
 
@@ -372,7 +373,6 @@
       const dias = Math.round((dataProva - hoje) / 86400000);
       if (dias < 0) return; // prova já passou: o card some sozinho
       const br = String(d).padStart(2, '0') + '/' + String(m).padStart(2, '0') + '/' + y;
-      const chip = dias === 0 ? 'Prova hoje' : dias === 1 ? 'Falta 1 dia' : 'Faltam ' + dias + ' dias';
 
       const a = document.createElement('a');
       a.className = 'card fade';
@@ -382,7 +382,7 @@
         '<div class="media">' +
           '<img src="' + l.img + '" alt="" loading="eager" style="object-position:' + l.pos + '">' +
           '<span class="banca">Banca ' + l.banca + '</span>' +
-          '<span class="dias">' + chip + '</span>' +
+          '<span class="dias"><small>' + (l.remLabel || 'Remuneração inicial') + '</small>' + l.rem + '</span>' +
         '</div>' +
         '<div class="body">' +
           '<span class="kicker">' + l.kicker + '</span>' +
