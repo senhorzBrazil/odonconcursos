@@ -761,6 +761,9 @@
     .plan-offer-tag { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #f9a8d4; margin-bottom: 4px; }
     .plan-main .nowrap { font-size: inherit; font-weight: inherit; color: var(--lime-soft); letter-spacing: inherit; }
     .plan-cash { max-width: 340px; margin: 0 auto; line-height: 1.5; }
+    .plan-old { font-size: 14px; color: var(--text-mute); margin-top: 2px; }
+    .plan-old s { color: var(--text-dim); }
+    .plan-cash .nowrap { white-space: nowrap; }
     .plan-card .bnt1 { width: 100%; }
     .plan-note {
       display: flex; align-items: center; justify-content: center; gap: 7px;
@@ -1435,8 +1438,9 @@
           </div>
           <div class="plan-price">
             <div class="plan-offer-tag">Oferta por tempo limitado</div>
-            <div class="plan-main">Condição especial <span class="nowrap">até 13/10</span></div>
-            <div class="plan-cash">Preencha seus dados e vá direto para o <strong>checkout com a condição especial</strong></div>
+            <div class="plan-old">De <s>R$ 1.597</s> por</div>
+            <div class="plan-main">R$ 1.497 <span>à vista</span></div>
+            <div class="plan-cash">ou <strong>12x de R$ 124,75</strong> sem juros · condição válida <span class="nowrap">até 13/10</span></div>
           </div>
           <a onclick="openModal()" class="bnt1">
             <span>Quero a condição especial</span>
@@ -1564,8 +1568,9 @@
           </div>
           <div class="plan-price">
             <div class="plan-offer-tag">Oferta por tempo limitado</div>
-            <div class="plan-main">Condição especial <span class="nowrap">até 13/10</span></div>
-            <div class="plan-cash">Preencha seus dados e vá direto para o <strong>checkout com a condição especial</strong></div>
+            <div class="plan-old">De <s>R$ 1.597</s> por</div>
+            <div class="plan-main">R$ 1.497 <span>à vista</span></div>
+            <div class="plan-cash">ou <strong>12x de R$ 124,75</strong> sem juros · condição válida <span class="nowrap">até 13/10</span></div>
           </div>
           <a onclick="openModal()" class="bnt1">
             <span>Quero a condição especial</span>
@@ -1655,7 +1660,7 @@
   <!-- STICKY MOBILE CTA -->
   <div class="sticky-cta">
     <div class="sc-info">
-      <b>Garanta sua vaga</b>
+      <b>R$ 1.497 <span style="font-size:11px;font-weight:600;color:#c7cee0">ou 12x R$ 124,75</span></b>
       <small>Condição acaba em <span class="sc-timer" data-cd="short">--</span></small>
     </div>
     <a href="#oferta" class="bnt1"><span>Quero minha vaga</span></a>
