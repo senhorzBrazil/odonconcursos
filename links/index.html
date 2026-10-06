@@ -252,7 +252,9 @@
     .pro p.desc { color: #c7cee0; font-size: 15px; line-height: 1.6; margin-top: 10px; max-width: 480px; }
     .pro .bnt1 { margin-top: 4px; }
     .profs { position: relative; min-height: 170px; overflow: hidden; }
-    .profs-row { display: flex; gap: 10px; position: absolute; inset: 0; padding: 18px 0; transform: rotate(-6deg) scale(1.15); }
+    .profs-row { display: flex; flex-direction: column; gap: 12px; position: absolute; inset: 0; padding: 18px 0; transform: rotate(-6deg) scale(1.15); }
+    .profs-track.rev { animation-direction: reverse; }
+    #profs2, #profs3 { display: none; }
     .profs-row img { width: 108px; height: 140px; object-fit: cover; border-radius: 14px; flex: 0 0 auto;
       border: 1px solid var(--line-strong); box-shadow: 0 10px 24px rgba(0,0,0,.45); }
     .profs-track { display: flex; gap: 10px; animation: marquee 28s linear infinite; }
@@ -263,7 +265,10 @@
       .pro { grid-template-columns: 1.1fr 1fr; align-items: stretch; }
       .pro .body { padding: 38px 36px; order: 0; }
       .profs { min-height: 0; order: 1; }
-      .profs-row { padding: 30px 0; }
+      .profs-row { inset: -60px -40px; padding: 0; justify-content: center; gap: 14px; }
+      #profs2, #profs3 { display: flex; }
+      .profs-row img { width: 132px; height: 172px; }
+      #profs2 { margin-left: -70px; } #profs3 { margin-left: -140px; }
       .profs::after { background: linear-gradient(90deg, #121a40 0%, rgba(14,24,56,0) 35%); }
     }
 
@@ -325,7 +330,7 @@
         </ul>
         <span class="bnt1"><span>Conhecer o Concurseiro PRO</span><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
-      <div class="profs" aria-hidden="true"><div class="profs-row"><div class="profs-track" id="profs"></div></div></div>
+      <div class="profs" aria-hidden="true"><div class="profs-row"><div class="profs-track" id="profs"></div><div class="profs-track rev" id="profs2"></div><div class="profs-track" id="profs3"></div></div></div>
     </a>
   </section>
 
@@ -399,6 +404,10 @@
     pro.addEventListener('click', () => { if (window.fbq) fbq('trackCustom', 'LinkClick', { content_name: 'Concurseiro PRO' }); });
     const fotos = Array.from({ length: 11 }, (_, k) => '<img src="/comercial/' + (k + 1) + '.jpg" alt="">').join('');
     document.getElementById('profs').innerHTML = fotos + fotos;
+    // fileiras extras do desktop: mesma lista em outra ordem, para não repetir a mesma foto em coluna
+    const girar = (n) => Array.from({ length: 11 }, (_, k) => '<img src="/comercial/' + ((k + n) % 11 + 1) + '.jpg" alt="">').join('');
+    document.getElementById('profs2').innerHTML = girar(4) + girar(4);
+    document.getElementById('profs3').innerHTML = girar(8) + girar(8);
   </script>
 </body>
 </html>
