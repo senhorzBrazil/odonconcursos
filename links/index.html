@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light only" />
   <meta name="supported-color-schemes" content="light" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#060a18" />
   <title>Preparatórios abertos · OdonConcursos</title>
   <meta name="description" content="Escolha o seu concurso de Odontologia: PM BA, PM PE, TRT 8, Petrobras, Porto Velho e SES-RJ. Preparatórios direcionados para a banca de cada prova." />
   <meta property="og:title" content="Preparatórios abertos · OdonConcursos" />
   <meta property="og:description" content="Escolha o seu concurso de Odontologia e comece a estudar hoje." />
-  <meta property="og:image" content="https://odonconcursos.com.br/assets/img/logo.png" />
+  <meta property="og:image" content="https://mkt.odonconcursospage.com/lp/concurso/pm-ba-vendas/hero-desktop.jpg" />
 
   <!-- Meta Pixel Code -->
   <script>
@@ -32,157 +32,373 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    :root, html, body { color-scheme: light only; background: #fff; }
+    /* Cores explícitas + color-scheme fixo: o modo escuro automático do celular não inverte nada. */
+    :root, html, body { color-scheme: light only; }
     :root {
-      --pink: #e91e8c;
-      --pink-soft: #f472b6;
-      --pink-tint: #fde7f2;
-      --navy: #0b1535;
-      --text: #0b1535;
-      --mute: #5b6382;
-      --line: #e8e9f0;
-      --card: #ffffff;
-      --bg: #f7f7fb;
+      --bg:          #060a18;
+      --bg-soft:     #0b1535;
+      --bg-card:     #0e1838;
+      --line:        rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.16);
+      --text:        #ffffff;
+      --text-mute:   #9aa3bf;
+      --text-dim:    #6b7395;
+      --pink:        #e91e8c;
+      --pink-2:      #f0309a;
+      --pink-soft:   #f472b6;
+      --sans:    'Roboto', system-ui, -apple-system, sans-serif;
+      --display: 'Roboto Slab', Georgia, serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: var(--sans);
+      background: var(--bg);
       color: var(--text);
-      background:
-        radial-gradient(120% 60% at 50% -10%, #fde7f2 0%, rgba(253,231,242,0) 60%),
-        var(--bg);
       min-height: 100vh;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 520px; margin: 0 auto; padding: 40px 16px 48px; }
 
-    header { text-align: center; margin-bottom: 28px; }
-    .logo {
-      width: 88px; height: 88px; border-radius: 50%;
-      background: var(--navy);
-      display: grid; place-items: center;
-      margin: 0 auto 16px;
-      box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--pink-tint), 0 12px 30px rgba(233,30,140,.25);
+    /* ---------- topbar ---------- */
+    .topbar {
+      background: linear-gradient(92deg, var(--pink) 0%, var(--pink-2) 100%);
+      color: #fff; text-align: center;
+      font-size: 12.5px; font-weight: 600; letter-spacing: .02em;
+      padding: 9px 16px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
     }
-    .logo img { width: 64px; height: auto; display: block; }
-    h1 { font-size: 24px; font-weight: 900; letter-spacing: -.02em; line-height: 1.2; }
+    .topbar b { font-weight: 800; }
+    .topbar .dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; flex: 0 0 7px; animation: blink 1.1s ease-in-out infinite; }
+
+    /* ---------- header ---------- */
+    .header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(6,10,24,.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-in { max-width: 1040px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .logo-img { height: 34px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .nav-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1px solid var(--line-strong); background: rgba(255,255,255,.04);
+      color: var(--text); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600;
+      padding: 8px 18px; border-radius: 999px; text-decoration: none; white-space: nowrap;
+      transition: background .18s, border-color .18s;
+    }
+    .nav-pill:hover { background: rgba(233,30,140,.08); border-color: rgba(233,30,140,.4); }
+
+    /* ---------- hero ---------- */
+    .hero { position: relative; overflow: hidden; padding: 48px 16px 36px; text-align: center; }
+    .hero::before {
+      content: ""; position: absolute; left: 50%; top: -180px; transform: translateX(-50%);
+      width: 760px; height: 520px; border-radius: 50%;
+      background: radial-gradient(closest-side, rgba(233,30,140,.28), rgba(233,30,140,0));
+      animation: pulseGlow 5s ease-in-out infinite; pointer-events: none;
+    }
+    .hero-in { position: relative; max-width: 680px; margin: 0 auto; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(233,30,140,.45); background: rgba(233,30,140,.10);
+      color: var(--pink-soft); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      padding: 8px 16px; border-radius: 999px;
+    }
+    .tag svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.2; }
+    h1 {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(32px, 8.4vw, 50px); line-height: 1.1; letter-spacing: -.025em;
+      margin-top: 20px; text-shadow: 0 2px 24px rgba(0,0,0,.6);
+    }
     .g1 {
-      background: linear-gradient(90deg, var(--pink), #ff6fb5);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+      background: linear-gradient(92deg, var(--pink) 18.78%, var(--pink-soft) 79.67%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      font-style: italic; padding-right: .12em;
     }
-    .sub { margin-top: 8px; font-size: 15px; color: var(--mute); line-height: 1.5; }
+    .lead { margin: 16px auto 0; max-width: 520px; color: var(--text-mute); font-size: 16.5px; line-height: 1.6; }
+    .proof {
+      display: inline-flex; align-items: center; gap: 12px; margin-top: 26px;
+      padding: 12px 18px; border-radius: 16px;
+      border: 1px solid var(--line-strong); background: rgba(255,255,255,.03);
+      text-align: left; font-size: 14px; color: #c7cee0; line-height: 1.4;
+    }
+    .proof strong { color: #fff; }
+    .proof .num { font-family: var(--display); font-weight: 800; font-size: 26px; color: var(--pink); line-height: 1; }
 
-    .list { display: flex; flex-direction: column; gap: 12px; }
-    .item {
-      position: relative; overflow: hidden;
-      display: flex; align-items: center; gap: 14px;
-      padding: 14px 16px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      text-decoration: none; color: inherit;
-      box-shadow: 0 1px 2px rgba(11,21,53,.04), 0 6px 18px rgba(11,21,53,.05);
-      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    /* ---------- section label ---------- */
+    .label {
+      display: flex; align-items: center; gap: 14px; justify-content: center;
+      color: var(--pink); font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      margin: 8px 0 22px;
     }
-    .item:hover, .item:focus-visible {
-      transform: translateY(-2px) scale(1.01);
-      border-color: var(--pink-soft);
-      box-shadow: 0 0 0 3px var(--pink-tint), 0 10px 28px rgba(233,30,140,.18);
+    .label::before, .label::after { content: ""; width: 42px; height: 1px; background: var(--pink); opacity: .7; }
+
+    /* ---------- cards ---------- */
+    .grid {
+      max-width: 1040px; margin: 0 auto; padding: 0 16px 56px;
+      display: grid; grid-template-columns: 1fr; gap: 18px;
+    }
+    @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; gap: 22px; } }
+    @media (min-width: 1000px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .card {
+      position: relative; display: flex; flex-direction: column;
+      background: var(--bg-card); border: 1px solid var(--line);
+      border-radius: 22px; overflow: hidden; text-decoration: none; color: inherit;
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .card:hover, .card:focus-visible {
+      transform: translateY(-4px);
+      border-color: rgba(233,30,140,.55);
+      box-shadow: 0 0 0 1px rgba(233,30,140,.35), 0 24px 60px rgba(233,30,140,.18);
       outline: none;
     }
-    .badge {
-      flex: 0 0 52px; height: 52px; border-radius: 14px;
-      background: var(--navy); color: #fff;
-      display: grid; place-items: center;
-      font-weight: 900; font-size: 13px; letter-spacing: -.01em; text-align: center; line-height: 1.05;
+    .media { position: relative; height: 196px; overflow: hidden; background: #0b1535; }
+    .media img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .6s ease;
     }
-    .info { flex: 1; min-width: 0; }
-    .name { font-weight: 800; font-size: 16px; line-height: 1.25; }
-    .meta { margin-top: 3px; font-size: 13px; color: var(--mute); line-height: 1.4; }
-    .meta b { color: var(--pink); font-weight: 700; }
-    .go {
-      flex: 0 0 auto; width: 36px; height: 36px; border-radius: 999px;
-      display: grid; place-items: center;
-      background: radial-gradient(circle at 30% 30%, #ff5fb0, var(--pink));
-      box-shadow: 0 0 0 3px var(--pink-tint), 0 4px 14px rgba(233,30,140,.4);
-      color: #fff;
+    .card:hover .media img { transform: scale(1.05); }
+    .media::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(6,10,24,.10) 0%, rgba(14,24,56,.35) 55%, var(--bg-card) 100%);
     }
-    .item::before {
-      content: ""; position: absolute; top: 0; left: -60%;
-      width: 40%; height: 100%;
-      background: linear-gradient(100deg, transparent, rgba(255,255,255,.7), transparent);
-      transform: skewX(-20deg);
-      animation: shine 5s ease-in-out infinite;
-      pointer-events: none;
+    .media .banca {
+      position: absolute; left: 14px; top: 14px; z-index: 2;
+      font-size: 10.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 999px;
+      background: rgba(6,10,24,.72); border: 1px solid var(--line-strong); color: #fff;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
     }
-    .item:nth-child(2)::before { animation-delay: .4s; }
-    .item:nth-child(3)::before { animation-delay: .8s; }
-    .item:nth-child(4)::before { animation-delay: 1.2s; }
-    .item:nth-child(5)::before { animation-delay: 1.6s; }
-    .item:nth-child(6)::before { animation-delay: 2s; }
-    @keyframes shine { 0%, 70% { left: -60%; } 100% { left: 130%; } }
+    .media .dias {
+      position: absolute; right: 14px; top: 14px; z-index: 2;
+      font-size: 11px; font-weight: 800; letter-spacing: .02em;
+      padding: 6px 12px; border-radius: 999px;
+      background: linear-gradient(92deg, var(--pink), var(--pink-2)); color: #fff;
+      box-shadow: 0 0 18px rgba(233,30,140,.55);
+      font-variant-numeric: tabular-nums;
+    }
+    .body { position: relative; padding: 4px 20px 22px; display: flex; flex-direction: column; flex: 1; }
+    .kicker { color: var(--pink-soft); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .card h2 {
+      font-family: var(--display); font-weight: 800; font-size: 23px; line-height: 1.15; letter-spacing: -.02em;
+      margin-top: 6px;
+    }
+    .checks { list-style: none; margin: 14px 0 20px; display: grid; gap: 7px; }
+    .checks li { display: flex; align-items: center; gap: 9px; font-size: 14px; color: #c7cee0; }
+    .checks li b { color: #fff; font-weight: 700; }
+    .checks svg { width: 15px; height: 15px; flex: 0 0 15px; stroke: var(--pink); stroke-width: 2.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
-    .fade { opacity: 0; transform: translateY(12px); animation: fadeSlideIn .55s ease forwards; }
-    @keyframes fadeSlideIn { to { opacity: 1; transform: none; } }
+    /* CTA no padrão .bnt1 das LPs */
+    .bnt1 {
+      position: relative; margin-top: auto;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 16px 24px; width: 100%;
+      font-size: 15px; font-weight: 700; letter-spacing: .01em; color: #fff;
+      border-radius: 999px;
+      background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--pink) 0, var(--pink-2) 100%);
+      box-shadow: 0 0 20px rgba(233,30,140,.5), 0 0 40px rgba(240,48,154,.35), 0 10px 25px rgba(233,30,140,.25);
+      overflow: hidden; transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover .bnt1 {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(233,30,140,.6), 0 0 60px rgba(240,48,154,.5), 0 15px 35px rgba(233,30,140,.3);
+    }
+    .bnt1::before {
+      content: ''; position: absolute; bottom: 0; width: 90px; height: 160%;
+      background: linear-gradient(10deg, #ffd9ec 12.81%, rgba(255,217,236,0) 66.66%);
+      transform: translateX(-50%) skew(-25deg);
+      animation: shinery 3s ease-in-out infinite; filter: blur(4px); pointer-events: none;
+    }
+    .bnt1::after { content: ''; position: absolute; inset: -2px; border-radius: 999px; border: 2px solid var(--pink); pointer-events: none; }
+    .bnt1 span, .bnt1 svg { position: relative; z-index: 2; }
+    .bnt1 svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2.4; fill: none; }
 
-    footer { margin-top: 32px; text-align: center; font-size: 12px; color: var(--mute); }
-    footer a { color: var(--mute); }
 
+    /* ---------- Concurseiro PRO (destaque) ---------- */
+    .pro-wrap { max-width: 1040px; margin: 0 auto; padding: 22px 16px 34px; }
+    .bubble {
+      position: relative; display: table; margin: 0 auto 16px;
+      background: #fff; color: var(--bg);
+      font-family: var(--display); font-weight: 800; font-size: 15px; line-height: 1.3; text-align: center;
+      padding: 11px 18px; border-radius: 16px;
+      box-shadow: 0 0 0 3px rgba(233,30,140,.35), 0 10px 30px rgba(233,30,140,.35);
+      animation: bob 2.6s ease-in-out infinite;
+    }
+    .bubble em { font-style: normal; color: var(--pink); }
+    .bubble::after {
+      content: ""; position: absolute; left: 50%; bottom: -9px; transform: translateX(-50%) rotate(45deg);
+      width: 18px; height: 18px; background: #fff; border-radius: 3px;
+    }
+    @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    .pro {
+      position: relative; display: grid; grid-template-columns: 1fr; overflow: hidden;
+      border-radius: 24px; text-decoration: none; color: inherit;
+      background: radial-gradient(120% 140% at 0% 0%, #2a0f3a 0%, var(--bg-soft) 45%, var(--bg-card) 100%);
+      border: 1px solid rgba(233,30,140,.55);
+      box-shadow: 0 0 0 1px rgba(233,30,140,.25), 0 0 50px rgba(233,30,140,.22), 0 24px 60px rgba(0,0,0,.4);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .pro:hover, .pro:focus-visible { transform: translateY(-4px); outline: none;
+      box-shadow: 0 0 0 1px rgba(233,30,140,.5), 0 0 70px rgba(233,30,140,.32), 0 28px 70px rgba(0,0,0,.45); }
+    .pro .body { padding: 26px 22px 24px; }
+    .pro .kicker { display: inline-flex; align-items: center; gap: 8px; }
+    .pro .kicker::before { content: "★"; color: #f5b942; font-size: 13px; letter-spacing: 0; }
+    .pro h2 { font-size: clamp(28px, 7vw, 38px); margin-top: 8px; }
+    .pro p.desc { color: #c7cee0; font-size: 15px; line-height: 1.6; margin-top: 10px; max-width: 480px; }
+    .pro .bnt1 { margin-top: 4px; }
+    .profs { position: relative; min-height: 170px; overflow: hidden; }
+    .profs-row { display: flex; gap: 10px; position: absolute; inset: 0; padding: 18px 0; transform: rotate(-6deg) scale(1.15); }
+    .profs-row img { width: 108px; height: 140px; object-fit: cover; border-radius: 14px; flex: 0 0 auto;
+      border: 1px solid var(--line-strong); box-shadow: 0 10px 24px rgba(0,0,0,.45); }
+    .profs-track { display: flex; gap: 10px; animation: marquee 28s linear infinite; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    .profs::after { content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(14,24,56,0) 55%, var(--bg-card) 100%); pointer-events: none; }
+    @media (min-width: 820px) {
+      .pro { grid-template-columns: 1.1fr 1fr; align-items: stretch; }
+      .pro .body { padding: 38px 36px; order: 0; }
+      .profs { min-height: 0; order: 1; }
+      .profs-row { padding: 30px 0; }
+      .profs::after { background: linear-gradient(90deg, #121a40 0%, rgba(14,24,56,0) 35%); }
+    }
+
+    /* ---------- footer ---------- */
+    .foot { border-top: 1px solid var(--line); padding: 28px 16px 36px; text-align: center; color: var(--text-dim); font-size: 12.5px; line-height: 1.7; }
+    .foot img { height: 26px; filter: brightness(0) invert(1); opacity: .6; margin-bottom: 10px; }
+    .foot a { color: var(--text-mute); }
+
+    /* ---------- motion ---------- */
+    .fade { opacity: 0; animation: fadeSlideIn .7s cubic-bezier(.2,.7,.2,1) forwards; }
+    .d1 { animation-delay: .05s } .d2 { animation-delay: .15s } .d3 { animation-delay: .25s } .d4 { animation-delay: .35s }
+    @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+    @keyframes shinery { 0%, 100% { left: -10%; opacity: 0; } 10% { opacity: 1; } 50% { left: 110%; opacity: 1; } 51% { opacity: 0; } }
+    @keyframes pulseGlow { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+
+    @media (max-width: 480px) {
+      .topbar { font-size: 11px; padding: 8px 12px; }
+      .nav-pill { padding: 7px 13px; font-size: 10px; }
+      .hero { padding-top: 38px; }
+      .media { height: 178px; }
+    }
     @media (prefers-reduced-motion: reduce) {
-      .fade { animation: none; opacity: 1; transform: none; }
-      .item::before { animation: none; display: none; }
-      .item { transition: none; }
+      .fade { animation: none; opacity: 1; }
+      .bnt1::before, .hero::before, .topbar .dot, .bubble, .profs-track { animation: none; }
+      .card, .media img, .bnt1 { transition: none; }
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <header class="fade">
-      <div class="logo"><img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" /></div>
-      <h1>Escolha o seu <span class="g1">concurso</span></h1>
-      <p class="sub">Preparatórios de Odontologia direcionados para a banca de cada prova.</p>
-    </header>
+  <div class="topbar"><span class="dot"></span><span><b>Concurseiro PRO + 6 preparatórios abertos</b></span></div>
 
-    <nav class="list" id="lista" aria-label="Preparatórios"></nav>
+  <header class="header">
+    <div class="header-in">
+      <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img" />
+      <a class="nav-pill" href="#concursos">Ver concursos</a>
+    </div>
+  </header>
 
-    <footer class="fade" style="animation-delay:.9s">
-      © OdonConcursos · <a href="https://odonconcursos.com.br" target="_blank" rel="noopener">odonconcursos.com.br</a>
-    </footer>
-  </main>
+  <section class="hero">
+    <div class="hero-in">
+      <span class="tag fade d1"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Concursos de Odontologia 2026/27</span>
+      <h1 class="fade d2">Escolha o <span class="g1">seu concurso</span> e comece a estudar hoje</h1>
+      <p class="lead fade d3">Preparatórios direcionados para a banca de cada prova, com acesso até o dia do concurso.</p>
+      <div class="proof fade d4"><span class="num">+1.200</span><span><strong>dentistas aprovados</strong> com o Odon em concursos por todo o Brasil</span></div>
+    </div>
+  </section>
+
+  <section class="pro-wrap">
+    <div class="bubble">Estude para <em>todos</em> com um único material</div>
+    <a class="pro" id="pro" href="/comercial">
+      <div class="body">
+        <span class="kicker">Concurseiro PRO</span>
+        <h2>Um só preparatório para <span class="g1">todos os concursos</span></h2>
+        <p class="desc">O método do Odon criado exclusivamente para concursos de Odontologia: você segue um passo a passo até a aprovação, em qualquer edital.</p>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Seu <b>mapa de estudos</b> até a aprovação</span></li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Plataforma Odon Questões + garantia de 7 dias</span></li>
+        </ul>
+        <span class="bnt1"><span>Conhecer o Concurseiro PRO</span><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="profs" aria-hidden="true"><div class="profs-row"><div class="profs-track" id="profs"></div></div></div>
+    </a>
+  </section>
+
+  <div class="label" id="concursos">Ou escolha um concurso</div>
+  <main class="grid" id="grid"></main>
+
+  <footer class="foot">
+    <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" /><br />
+    © OdonConcursos · <a href="https://odonconcursos.com.br" target="_blank" rel="noopener">odonconcursos.com.br</a>
+  </footer>
 
   <script>
-    // Ordem dos botões = ordem desta lista.
+    // Ordem dos cards = ordem desta lista. pos = enquadramento da foto (object-position).
     const LINKS = [
-      { sigla: 'PM<br>BA', nome: 'PM BA e CBM BA', banca: 'AOCP', prova: '17/01/2027', url: '/lp/concurso/pm-ba-vendas/' },
-      { sigla: 'PM<br>PE', nome: 'PM PE · Oficial Dentista', banca: 'AOCP', prova: '21/02/2027', url: '/lp/concurso/pm-pe-vendas/' },
-      { sigla: 'TRT<br>8', nome: 'TRT 8 · Analista Judiciário', banca: 'FCC', prova: '17/01/2027', url: '/lp/concurso/trt8-vendas/' },
-      { sigla: 'PB', nome: 'Petrobras / Transpetro', banca: 'Cesgranrio', prova: '29/11/2026', url: '/lp/concurso/petrobras-vendas/' },
-      { sigla: 'PVH', nome: 'Porto Velho RO · SEMUSA', banca: 'IBGP', prova: '13/12/2026', url: '/lp/concurso/porto-velho-vendas/' },
-      { sigla: 'SES<br>RJ', nome: 'SES-RJ · Odontólogo', banca: 'IBDO', prova: '01/11/2026', url: '/lp/concurso/ses-rj-vendas/' },
+      { kicker: 'Polícia Militar · Bombeiros', nome: 'PM BA e CBM BA', banca: 'AOCP', prova: '2027-01-17',
+        img: '/lp/concurso/pm-ba-vendas/hero-mobile.jpg', pos: '50% 22%', url: '/lp/concurso/pm-ba-vendas/' },
+      { kicker: 'Polícia Militar', nome: 'PM PE · Oficial Dentista', banca: 'AOCP', prova: '2027-02-21',
+        img: '/lp/concurso/pm-pe-vendas/hero-mobile.jpg', pos: '50% 22%', url: '/lp/concurso/pm-pe-vendas/' },
+      { kicker: 'Tribunal Regional do Trabalho', nome: 'TRT 8 · Analista Judiciário', banca: 'FCC', prova: '2027-01-17',
+        img: '/lp/concurso/trt8-vendas/LP_desktop_Dentista.jpg', pos: '50% 30%', url: '/lp/concurso/trt8-vendas/' },
+      { kicker: 'Grupo Petrobras', nome: 'Petrobras / Transpetro', banca: 'Cesgranrio', prova: '2026-11-29',
+        img: '/lp/concurso/petrobras-vendas/lp_desk_petrobras.jpg', pos: '50% 30%', url: '/lp/concurso/petrobras-vendas/' },
+      { kicker: 'Prefeitura · SEMUSA', nome: 'Porto Velho RO', banca: 'IBGP', prova: '2026-12-13',
+        img: '/lp/concurso/porto-velho-vendas/LP_desktop_Dentista.jpg', pos: '50% 30%', url: '/lp/concurso/porto-velho-vendas/' },
+      { kicker: 'Secretaria de Saúde', nome: 'SES-RJ · Odontólogo', banca: 'IBDO', prova: '2026-11-01',
+        img: '/lp/concurso/ses-rj-vendas/hero-desktop-rio.jpg', pos: '50% 30%', url: '/lp/concurso/ses-rj-vendas/' },
     ];
 
-    // Repassa UTMs/fbclid da bio para a página de vendas.
-    const qs = location.search;
-    const arrow = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-    const lista = document.getElementById('lista');
+    const qs = location.search; // repassa UTMs/fbclid da bio
+    const check = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>';
+    const arrow = '<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+    const hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+    const grid = document.getElementById('grid');
+
     LINKS.forEach((l, i) => {
+      const [y, m, d] = l.prova.split('-').map(Number);
+      const dataProva = new Date(y, m - 1, d);
+      const dias = Math.round((dataProva - hoje) / 86400000);
+      if (dias < 0) return; // prova já passou: o card some sozinho
+      const br = String(d).padStart(2, '0') + '/' + String(m).padStart(2, '0') + '/' + y;
+      const chip = dias === 0 ? 'Prova hoje' : dias === 1 ? 'Falta 1 dia' : 'Faltam ' + dias + ' dias';
+
       const a = document.createElement('a');
-      a.className = 'item fade';
-      a.style.animationDelay = (0.15 + i * 0.08) + 's';
+      a.className = 'card fade';
+      a.style.animationDelay = (0.3 + i * 0.08) + 's';
       a.href = l.url + qs;
       a.innerHTML =
-        '<span class="badge">' + l.sigla + '</span>' +
-        '<span class="info"><span class="name">' + l.nome + '</span>' +
-        '<span class="meta" style="display:block">Banca ' + l.banca + ' · prova em <b>' + l.prova + '</b></span></span>' +
-        '<span class="go">' + arrow + '</span>';
+        '<div class="media">' +
+          '<img src="' + l.img + '" alt="" loading="' + (i < 2 ? 'eager' : 'lazy') + '" style="object-position:' + l.pos + '">' +
+          '<span class="banca">Banca ' + l.banca + '</span>' +
+          '<span class="dias">' + chip + '</span>' +
+        '</div>' +
+        '<div class="body">' +
+          '<span class="kicker">' + l.kicker + '</span>' +
+          '<h2>' + l.nome + '</h2>' +
+          '<ul class="checks">' +
+            '<li>' + check + '<span>Prova em <b>' + br + '</b></span></li>' +
+            '<li>' + check + '<span>Foco na banca ' + l.banca + '</span></li>' +
+            '<li>' + check + '<span>Acesso até o dia da prova</span></li>' +
+          '</ul>' +
+          '<span class="bnt1"><span>Ver preparatório</span>' + arrow + '</span>' +
+        '</div>';
       a.addEventListener('click', () => {
         if (window.fbq) fbq('trackCustom', 'LinkClick', { content_name: l.nome });
       });
-      lista.appendChild(a);
+      grid.appendChild(a);
     });
+    // Card do Concurseiro PRO: repassa UTMs e monta a faixa de professores (comercial/1..11.jpg).
+    const pro = document.getElementById('pro');
+    pro.href = '/comercial' + qs;
+    pro.addEventListener('click', () => { if (window.fbq) fbq('trackCustom', 'LinkClick', { content_name: 'Concurseiro PRO' }); });
+    const fotos = Array.from({ length: 11 }, (_, k) => '<img src="/comercial/' + (k + 1) + '.jpg" alt="" loading="lazy">').join('');
+    document.getElementById('profs').innerHTML = fotos + fotos;
   </script>
 </body>
 </html>
