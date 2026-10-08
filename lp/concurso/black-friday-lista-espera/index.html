@@ -111,7 +111,6 @@ button,input,select{font:inherit;color:inherit}
 .field label,.field .lbl{font:700 13px/1 var(--display);letter-spacing:.02em;color:#2a2730}
 .input,.select{width:100%;height:50px;border-radius:14px;border:1.5px solid #d6d1db;background:#fff;padding:0 14px;font-size:16px;color:#050505;transition:border-color .2s,box-shadow .2s}
 .input:focus,.select:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 4px rgba(238,42,123,.15)}
-.phone{display:grid;grid-template-columns:108px 1fr;gap:8px}
 .seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .seg input{position:absolute;opacity:0;pointer-events:none}
 .seg label{display:flex;align-items:center;justify-content:center;height:46px;border-radius:14px;border:1.5px solid #d6d1db;font:700 14px/1 var(--display);color:#55505f;cursor:pointer;transition:all .2s}
@@ -193,7 +192,6 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
   .card{min-height:0}
   section.block{padding:72px 0}
   .formcard{padding:30px 18px 22px}
-  .phone{grid-template-columns:96px 1fr}
   .final .cta{width:100%}
 }
 @media (prefers-reduced-motion:reduce){
@@ -256,29 +254,9 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
           <label for="f-email">E-mail</label>
           <input class="input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="seuemail@exemplo.com" required>
         </div>
-        <div class="field">
-          <label for="f-phone">WhatsApp</label>
-          <div class="phone">
-            <select class="select" id="f-country" aria-label="Código do país">
-              <option value="55" selected>🇧🇷 +55</option>
-              <option value="351">🇵🇹 +351</option>
-              <option value="1">🇺🇸 +1</option>
-              <option value="44">🇬🇧 +44</option>
-              <option value="54">🇦🇷 +54</option>
-            </select>
-            <input class="input" id="f-phone" name="telefone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="(11) 99999-9999" required>
-          </div>
-        </div>
-        <div class="field" role="radiogroup" aria-labelledby="lbl-aluno">
-          <span class="lbl" id="lbl-aluno">Você já é aluno OdonConcursos?</span>
-          <div class="seg">
-            <input type="radio" name="aluno" id="al-sim" value="Sim"><label for="al-sim">Sim, sou aluno</label>
-            <input type="radio" name="aluno" id="al-nao" value="Não" checked><label for="al-nao">Ainda não</label>
-          </div>
-        </div>
         <label class="consent" id="f-consent-row">
           <input type="checkbox" id="f-consent">
-          <span>Aceito receber as comunicações da Black Friday da OdonConcursos por WhatsApp e e-mail.</span>
+          <span>Aceito receber as comunicações da Black Friday da OdonConcursos por e-mail e pelo grupo no WhatsApp.</span>
         </label>
         <button class="cta" id="f-submit" type="submit">
           Quero entrar na lista
@@ -332,7 +310,7 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
     <div class="eyebrow blue rv" style="color:var(--blue-hi)">Como funciona</div>
     <h2 class="h rv" style="margin-top:20px">Três passos e você está <span class="b">dentro</span></h2>
     <div class="steps">
-      <div class="step rv"><div class="n">1</div><h3>Cadastre-se</h3><p>Preencha nome, e-mail e WhatsApp no formulário desta página.</p></div>
+      <div class="step rv"><div class="n">1</div><h3>Cadastre-se</h3><p>Preencha nome e e-mail no formulário desta página.</p></div>
       <div class="step rv"><div class="n">2</div><h3>Entre no grupo</h3><p>Na página seguinte você entra no grupo oficial da Black no WhatsApp.</p></div>
       <div class="step rv"><div class="n">3</div><h3>Fique de olho</h3><p>Ative as notificações. As condições chegam primeiro para quem está na lista.</p></div>
     </div>
@@ -379,16 +357,6 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
     setTimeout(() => document.getElementById('f-name').focus({ preventScroll: true }), 600);
   });
 
-  // máscara do celular BR
-  const phone = document.getElementById('f-phone');
-  phone.addEventListener('input', () => {
-    if (document.getElementById('f-country').value !== '55') return;
-    let d = phone.value.replace(/\D/g, '').slice(0, 11);
-    if (d.length > 6) phone.value = `(${d.slice(0, 2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}`;
-    else if (d.length > 2) phone.value = `(${d.slice(0, 2)}) ${d.slice(2)}`;
-    else phone.value = d;
-  });
-
   document.getElementById('f-consent').addEventListener('change', function () {
     if (this.checked) document.getElementById('f-consent-row').classList.remove('is-error');
   });
@@ -397,10 +365,8 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
     e.preventDefault();
     const nome = document.getElementById('f-name');
     const email = document.getElementById('f-email');
-    const digits = phone.value.replace(/\D/g, '');
-    const country = document.getElementById('f-country').value;
 
-    for (const [el, ok] of [[nome, nome.value.trim().length > 1], [email, /\S+@\S+\.\S+/.test(email.value)], [phone, country === '55' ? digits.length >= 10 : digits.length >= 6]]) {
+    for (const [el, ok] of [[nome, nome.value.trim().length > 1], [email, /\S+@\S+\.\S+/.test(email.value)]]) {
       if (!ok) { el.focus(); el.style.borderColor = '#d0103f'; return; }
       el.style.borderColor = '';
     }
@@ -413,15 +379,13 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
     btn.textContent = 'Enviando…';
 
     const now = new Date();
-    const aluno = document.querySelector('input[name="aluno"]:checked').value;
     const payload = {
       formulario: 'Black Friday 2026 · Lista de espera',
       produto: 'Black Friday 2026',
       metodo: 'Landing Page',
       nome: nome.value.trim(),
       email: email.value.trim(),
-      telefone: '+' + country + digits,
-      ja_e_aluno: aluno,
+      ja_e_aluno: 'Sim',
       evento: 'Lista de espera Black Friday 2026',
       origem: 'LP lista de espera Black Friday',
       aceite_comunicacoes: 'Sim',
