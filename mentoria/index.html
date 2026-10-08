@@ -515,6 +515,7 @@ h2 .b,h3 .b{color:var(--blue-hi)}
 .recap li{display:flex;gap:22px;align-items:flex-start;font-size:30px;line-height:1.35}
 .recap li i{flex:none;width:44px;height:44px;border-radius:50%;background:var(--pink);display:grid;place-items:center;margin-top:2px;box-shadow:0 0 18px rgba(238,42,123,.55)}
 .recap li i svg{width:22px;height:22px;stroke:#fff;stroke-width:3.2;fill:none}
+.recap:has(.clock) h2,.recap:has(.clock) ul{max-width:1010px}
 .recap .clock{position:absolute;right:110px;top:50%;transform:translateY(-50%);width:330px;height:330px;border-radius:50%;display:grid;place-items:center;text-align:center;border:2px solid rgba(238,42,123,.6);box-shadow:0 0 60px rgba(238,42,123,.35),inset 0 0 50px rgba(238,42,123,.15)}
 .recap .clock b{display:block;font:900 84px/1 var(--display);letter-spacing:-.03em}
 .recap .clock span{font:700 20px/1.3 var(--display);color:var(--mute);letter-spacing:.1em;text-transform:uppercase}
@@ -566,15 +567,26 @@ h2 .b,h3 .b{color:var(--blue-hi)}
 /* ---------- semanal 80/20 ---------- */
 .week{display:grid;grid-template-columns:460px 1fr;gap:70px;align-items:center;flex:1}
 .donut{position:relative;width:440px;height:440px}
-.donut svg{width:100%;height:100%;transform:rotate(-90deg);filter:drop-shadow(0 0 18px rgba(238,42,123,.35))}
-.donut circle{fill:none;stroke-width:46}
-.donut .bg{stroke:#1a1a20}
-.donut .p80{stroke:var(--pink);stroke-dasharray:0 1200;transition:stroke-dasharray 1.3s cubic-bezier(.6,.05,.3,1) .2s}
-.donut .p20{stroke:var(--blue-hi);stroke-dasharray:0 1200;transition:stroke-dasharray .8s cubic-bezier(.6,.05,.3,1) 1.4s}
+.donut svg{width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.donut circle{fill:none;stroke-width:44}
+.donut .bg{stroke:#16151b}
+.donut .p80{stroke:url(#dnP);stroke-dasharray:0 1200;filter:drop-shadow(0 0 14px rgba(238,42,123,.5));transition:stroke-dasharray 1.3s cubic-bezier(.6,.05,.3,1) .2s}
+.donut .p20{stroke:url(#dnB);stroke-width:52;stroke-dasharray:0 1200;filter:drop-shadow(0 0 16px rgba(91,110,255,.6));transition:stroke-dasharray .8s cubic-bezier(.6,.05,.3,1) 1.4s}
 .slide.active .donut .p80{stroke-dasharray:var(--a80) 1200}
 .slide.active .donut .p20{stroke-dasharray:var(--a20) 1200}
+.donut .dn-core{fill:url(#dnC);stroke:none}
+.donut .dn-in{stroke:rgba(255,255,255,.1);stroke-width:1.5;stroke-dasharray:2 6}
+.dn-ticks line{stroke:#2a2833;stroke-width:2;stroke-linecap:round;transition:stroke .3s ease calc(.25s + var(--i)*.03s)}
+.dn-ticks line.big{stroke-width:3}
+.slide.active .dn-ticks .tp{stroke:rgba(255,106,168,.75)}
+.slide.active .dn-ticks .tb{stroke:rgba(154,168,255,.9);transition-delay:calc(1.4s + (var(--i) - 32)*.05s)}
+.dn-tag{position:absolute;transform:translate(-50%,-50%) scale(.4);opacity:0;font:900 22px/1 var(--display);font-style:normal;color:#fff;padding:7px 12px;border-radius:99px;letter-spacing:-.01em;transition:opacity .4s ease,transform .5s cubic-bezier(.3,1.6,.5,1)}
+.dn-tag.p{background:#c81a63;box-shadow:0 0 0 3px #0a0a0d,0 0 18px rgba(238,42,123,.6);transition-delay:1.3s}
+.dn-tag.bl{background:#3d50ea;box-shadow:0 0 0 3px #0a0a0d,0 0 18px rgba(91,110,255,.7);transition-delay:2.1s}
+.slide.active .dn-tag{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .donut .c{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
 .donut .c b{display:block;font:900 84px/1 var(--display);letter-spacing:-.03em;white-space:nowrap}
+.donut .c b{background:linear-gradient(90deg,#fff 0 52%,#c9d0ff 52%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .donut .c span{display:block;margin-top:10px;font:700 18px/1.3 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 .legend{display:grid;gap:22px}
 .lg{display:flex;gap:22px;align-items:flex-start}
@@ -598,7 +610,7 @@ h2 .b,h3 .b{color:var(--blue-hi)}
 .pie .seg3.on{stroke-dasharray:226 700}
 .pie .seg3.f{opacity:1;transform:none}
 .pie .ctr{position:absolute;inset:66px;border-radius:50%;background:#fff;display:grid;place-items:center}
-.pie .ctr svg{width:96px}
+.pie .ctr svg{width:111px}
 .pie .lgd{display:grid;gap:10px;width:100%}
 .pie .lgd span{display:flex;align-items:center;gap:12px;font:800 17px/1 var(--display)}
 .pie .lgd i{width:14px;height:14px;border-radius:4px;flex:none}
@@ -1333,9 +1345,10 @@ body.show-hud #help{opacity:1}
 <section class="slide" data-title="Divisão semanal">
   <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow blue">Divisão semanal</div></div>
   <div class="week">
-    <div class="donut pop" style="--d:0;--a80:877;--a20:205">
-      <svg viewBox="0 0 400 400"><circle class="bg" cx="200" cy="200" r="176"/><circle class="p80" cx="200" cy="200" r="176"/><circle class="p20" cx="200" cy="200" r="176" style="stroke-dashoffset:-893"/></svg>
+    <div class="donut pop" style="--d:0;--a80:786.7;--a20:186.6">
+      <svg viewBox="0 0 400 400"><defs><linearGradient id="dnP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6aa8"/><stop offset=".55" stop-color="#ee2a7b"/><stop offset="1" stop-color="#a3124f"/></linearGradient><linearGradient id="dnB" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9aa8ff"/><stop offset="1" stop-color="#3346e0"/></linearGradient><radialGradient id="dnC"><stop offset="0" stop-color="#1b1020"/><stop offset="1" stop-color="#0a0a0d"/></radialGradient></defs><g class="dn-ticks"><line class="tp big" x1="399.0" y1="200.0" x2="386.0" y2="200.0" style="--i:0"/><line class="tp" x1="396.55" y1="231.13" x2="389.64" y2="230.04" style="--i:1"/><line class="tp" x1="389.26" y1="261.49" x2="382.6" y2="259.33" style="--i:2"/><line class="tp" x1="377.31" y1="290.34" x2="371.07" y2="287.17" style="--i:3"/><line class="tp big" x1="360.99" y1="316.97" x2="350.48" y2="309.33" style="--i:4"/><line class="tp" x1="340.71" y1="340.71" x2="335.76" y2="335.76" style="--i:5"/><line class="tp" x1="316.97" y1="360.99" x2="312.85" y2="355.33" style="--i:6"/><line class="tp" x1="290.34" y1="377.31" x2="287.17" y2="371.07" style="--i:7"/><line class="tp big" x1="261.49" y1="389.26" x2="257.48" y2="376.9" style="--i:8"/><line class="tp" x1="231.13" y1="396.55" x2="230.04" y2="389.64" style="--i:9"/><line class="tp" x1="200.0" y1="399.0" x2="200.0" y2="392.0" style="--i:10"/><line class="tp" x1="168.87" y1="396.55" x2="169.96" y2="389.64" style="--i:11"/><line class="tp big" x1="138.51" y1="389.26" x2="142.52" y2="376.9" style="--i:12"/><line class="tp" x1="109.66" y1="377.31" x2="112.83" y2="371.07" style="--i:13"/><line class="tp" x1="83.03" y1="360.99" x2="87.15" y2="355.33" style="--i:14"/><line class="tp" x1="59.29" y1="340.71" x2="64.24" y2="335.76" style="--i:15"/><line class="tp big" x1="39.01" y1="316.97" x2="49.52" y2="309.33" style="--i:16"/><line class="tp" x1="22.69" y1="290.34" x2="28.93" y2="287.17" style="--i:17"/><line class="tp" x1="10.74" y1="261.49" x2="17.4" y2="259.33" style="--i:18"/><line class="tp" x1="3.45" y1="231.13" x2="10.36" y2="230.04" style="--i:19"/><line class="tp big" x1="1.0" y1="200.0" x2="14.0" y2="200.0" style="--i:20"/><line class="tp" x1="3.45" y1="168.87" x2="10.36" y2="169.96" style="--i:21"/><line class="tp" x1="10.74" y1="138.51" x2="17.4" y2="140.67" style="--i:22"/><line class="tp" x1="22.69" y1="109.66" x2="28.93" y2="112.83" style="--i:23"/><line class="tp big" x1="39.01" y1="83.03" x2="49.52" y2="90.67" style="--i:24"/><line class="tp" x1="59.29" y1="59.29" x2="64.24" y2="64.24" style="--i:25"/><line class="tp" x1="83.03" y1="39.01" x2="87.15" y2="44.67" style="--i:26"/><line class="tp" x1="109.66" y1="22.69" x2="112.83" y2="28.93" style="--i:27"/><line class="tp big" x1="138.51" y1="10.74" x2="142.52" y2="23.1" style="--i:28"/><line class="tp" x1="168.87" y1="3.45" x2="169.96" y2="10.36" style="--i:29"/><line class="tp" x1="200.0" y1="1.0" x2="200.0" y2="8.0" style="--i:30"/><line class="tp" x1="231.13" y1="3.45" x2="230.04" y2="10.36" style="--i:31"/><line class="tb big" x1="261.49" y1="10.74" x2="257.48" y2="23.1" style="--i:32"/><line class="tb" x1="290.34" y1="22.69" x2="287.17" y2="28.93" style="--i:33"/><line class="tb" x1="316.97" y1="39.01" x2="312.85" y2="44.67" style="--i:34"/><line class="tb" x1="340.71" y1="59.29" x2="335.76" y2="64.24" style="--i:35"/><line class="tb big" x1="360.99" y1="83.03" x2="350.48" y2="90.67" style="--i:36"/><line class="tb" x1="377.31" y1="109.66" x2="371.07" y2="112.83" style="--i:37"/><line class="tb" x1="389.26" y1="138.51" x2="382.6" y2="140.67" style="--i:38"/><line class="tb" x1="396.55" y1="168.87" x2="389.64" y2="169.96" style="--i:39"/></g><circle class="bg" cx="200" cy="200" r="158"/><circle class="p80" cx="200" cy="200" r="158" style="stroke-dashoffset:-4"/><circle class="p20" cx="200" cy="200" r="158" style="stroke-dashoffset:-798.3" transform="translate(7.28 -5.29)"/><circle class="dn-core" cx="200" cy="200" r="132"/><circle class="dn-in" cx="200" cy="200" r="124"/></svg>
       <div class="c"><div><b>80/20</b><span>da sua semana</span></div></div>
+      <em class="dn-tag p" style="left:323px;top:362px">80%</em><em class="dn-tag bl" style="left:108px;top:72px">20%</em>
     </div>
     <div class="legend">
       <div class="lg p in" style="--d:1"><b>80%</b><div><h3>Divisão diária</h3><p>Revisão rápida, assunto novo e questões, tudo o que o cronograma indicou.</p></div></div>
@@ -1362,7 +1375,7 @@ body.show-hud #help{opacity:1}
           <circle class="seg3 f" data-o="2" cx="140" cy="140" r="108" stroke="#3d6fb5" style="stroke-dashoffset:-226.2"/>
           <circle class="seg3 f" data-o="3" cx="140" cy="140" r="108" stroke="#FF1A8C" style="stroke-dashoffset:-452.4"/>
         </svg>
-        <div class="ctr"><svg viewBox="0 0 945 825" aria-hidden="true"><path d="M215 78 A367 367 0 0 1 718 213M138 138 A367 367 0 0 0 302 755M768 383 A370 370 0 0 1 398 770" stroke="#EE2A7B" stroke-width="22" fill="none"/><circle cx="400" cy="395" r="300" stroke="#EE2A7B" stroke-width="50" fill="none"/><path d="M601 440 A205 205 0 1 1 547 263" stroke="#0c0a3e" stroke-width="60" stroke-linecap="round" fill="none"/><circle cx="400" cy="400" r="70" stroke="#0c0a3e" stroke-width="50" fill="none"/><path d="M462 366 L812 274" stroke="#0c0a3e" stroke-width="50"/><path d="M772 236 L892 198 L866 262 L926 300 L838 330 L792 302 Z" fill="#0c0a3e"/></svg></div>
+        <div class="ctr"><svg viewBox="-145 -25 1090 850" aria-hidden="true"><path d="M215 78 A367 367 0 0 1 718 213M138 138 A367 367 0 0 0 302 755M768 383 A370 370 0 0 1 398 770" stroke="#EE2A7B" stroke-width="22" fill="none"/><circle cx="400" cy="395" r="300" stroke="#EE2A7B" stroke-width="50" fill="none"/><path d="M601 440 A205 205 0 1 1 547 263" stroke="#0c0a3e" stroke-width="60" stroke-linecap="round" fill="none"/><circle cx="400" cy="400" r="70" stroke="#0c0a3e" stroke-width="50" fill="none"/><path d="M462 366 L812 274" stroke="#0c0a3e" stroke-width="50"/><path d="M772 236 L892 198 L866 262 L926 300 L838 330 L792 302 Z" fill="#0c0a3e"/></svg></div>
       </div>
       <div class="lgd"><span><i style="background:#FF7A00"></i>Questões<b>33,3%</b></span><span><i style="background:#3d6fb5"></i>Caderno de erros<b>33,3%</b></span><span><i style="background:#FF1A8C"></i>Voltar teoria<b>33,3%</b></span></div>
     </div>
@@ -1394,8 +1407,8 @@ body.show-hud #help{opacity:1}
 <section class="slide recap" data-title="Recapitulando: semana">
   <svg class="neon n2" viewBox="0 0 400 400"><use href="#tg"/></svg>
   <div class="stamp in" style="--d:0">Recapitulando</div>
-  <h2 class="in" style="--d:1;max-width:1050px">80% do tempo para ver tudo do cronograma e 20% de estudo livre</h2>
-  <ul style="max-width:1000px">
+  <h2 class="in" style="--d:1">80% do tempo para ver tudo do cronograma e 20% de estudo livre</h2>
+  <ul>
     <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Te faz revisar por questões e identificar o que precisa rever</li>
     <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Te faz revisar apenas o que precisa pelo caderno de erros</li>
     <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Te faz voltar à teoria apenas no que for necessário, ganhando tempo</li>
