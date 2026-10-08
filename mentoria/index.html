@@ -720,6 +720,20 @@ h2 .b,h3 .b{color:var(--blue-hi)}
 .bn.lock{justify-content:center;font-size:26px;letter-spacing:.1em;color:var(--pink-hi);border-style:dashed}
 .perks li{display:flex;gap:16px;align-items:center;font-size:24px;line-height:1.3}
 .perks li svg{flex:none;width:34px;height:34px;stroke:var(--pink-hi);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.cd-wrap{display:grid;grid-template-columns:1fr 400px;gap:64px;flex:1;align-items:center}
+.cd-lead{font:900 34px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+.cd{display:flex;gap:16px;margin:18px 0 20px}
+.cd div{min-width:150px;background:#fff;color:#050505;border-radius:24px;padding:18px 14px 14px;text-align:center;box-shadow:0 0 0 3px var(--pink),0 0 40px rgba(238,42,123,.45)}
+.cd b{display:block;font:900 92px/1 var(--display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.cd small{display:block;margin-top:6px;font:800 15px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:#55505f}
+.cd-tail{font:900 44px/1.05 var(--display);text-transform:uppercase;letter-spacing:-.01em;max-width:860px}
+.cd-tail em{font-style:normal;color:var(--pink);text-shadow:0 0 34px rgba(238,42,123,.6)}
+.crono{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;counter-reset:c}
+.crono li{position:relative;background:#111116;border:1px solid rgba(238,42,123,.45);border-radius:20px;padding:18px 18px 20px}
+.crono li.hot{border:2px solid var(--pink);box-shadow:0 0 30px rgba(238,42,123,.35)}
+.crono .when{display:inline-block;font:900 14px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--pink);border-radius:999px;padding:7px 12px}
+.crono h4{font:900 24px/1.15 var(--display);margin-top:12px}
+.crono p{font-size:17px;line-height:1.35;color:var(--mute);margin-top:6px}
 .qr{background:#fff;border-radius:30px;padding:26px;color:#050505;text-align:center;box-shadow:0 0 0 3px var(--pink),0 0 60px rgba(238,42,123,.5)}
 .qr .code{aspect-ratio:1;border-radius:16px;display:grid;place-items:center;background:#f3f1f5;overflow:hidden}
 .qr .code .qr-svg svg{width:100%;height:100%;display:block}
@@ -1560,11 +1574,41 @@ body.show-hud #help{opacity:1}
   <div class="num">25</div>
 </section>
 
+<!-- 26 · CONTAGEM PARA A BLACK -->
+<section class="slide black" data-title="Contagem para a Black">
+  <svg class="neon n1" viewBox="0 0 400 400"><use href="#tg"/></svg>
+  <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Cronograma da Black</div></div>
+  <div class="cd-wrap">
+    <div>
+      <div class="cd-lead in" style="--d:0">Faltam</div>
+      <div class="cd in" style="--d:1" id="cd" aria-live="off">
+        <div><b data-u="d">00</b><small>dias</small></div>
+        <div><b data-u="h">00</b><small>horas</small></div>
+        <div><b data-u="m">00</b><small>min</small></div>
+        <div><b data-u="s">00</b><small>seg</small></div>
+      </div>
+      <div class="cd-tail in" style="--d:1" id="cd-tail">para a <em>maior Black</em> da OdonConcursos</div>
+      <ol class="crono">
+        <li class="f"><span class="when">Agora</span><h4>Entre na lista da Black</h4><p>Aponte a câmera para o QR code e cadastre-se.</p></li>
+        <li class="f"><span class="when">Até o dia 13</span><h4>Fique de olho no grupo</h4><p>Avisos, horários e as dicas dos bônus chegam por lá.</p></li>
+        <li class="f hot"><span class="when">13/10 · 20:00</span><h4>Explicação completa da Black</h4><p>E sorteio de vitalício ao vivo.</p></li>
+      </ol>
+    </div>
+    <div class="qr pop" style="--d:2">
+      <div class="code" id="qr-code2"></div>
+      <h3>Entre na lista da Black</h3>
+      <p>Aponte a câmera do celular</p>
+      <p class="url">mkt.odonconcursospage.com/lp/concurso/black-friday-lista-espera</p>
+    </div>
+  </div>
+  <div class="num">26</div>
+</section>
+
 </div></div>
 
 <div id="hud" role="toolbar" aria-label="Controles da apresentação">
   <button id="b-prev" type="button" aria-label="Voltar"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
-  <span class="count" id="count">1 / 25</span>
+  <span class="count" id="count">1 / 30</span>
   <button id="b-next" type="button" aria-label="Avançar"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
   <button id="b-notes" type="button" aria-label="Notas do apresentador (N)"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/><path d="M8 8h8M8 12h5"/></svg></button>
   <button id="b-full" type="button" aria-label="Tela cheia (F)"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
@@ -1603,7 +1647,8 @@ body.show-hud #help{opacity:1}
     ["Dois tipos de mentoria. A geral, OdonClass: encontro no mínimo uma vez por mês.","Desde qual edital escolher, como interpretar um edital, até o que fazer depois de aprovado. Destrinchar como estudar, técnicas e revisões.","Aprovados contando o que fizeram de igual e diferente. Tem uma aluna que passou usando Pomodoro e vem contar como usava.","A intenção é criar um time unido, que você se inspire e queira ser o próximo aprovado fazendo live conosco."],
     ["A outra forma é o sprint de editais. Saiu um bom edital: destrinchar o edital, análise da banca, o que mais cai, live com aprovado da banca, votação de aula ao vivo e live de véspera.","Legal, né? Ninguém faz isso. Vai ser desafiador, mas é um compromisso meu e da equipe com você que confiou em nós."],
     ["A mentoria vai começar em janeiro. Na verdade já começou: esta aula foi uma mentoria, a live passada com o Rômulo também. Vi que vocês amaram. É daqui pra cima.","Encontro fixo (tipo uma segunda do mês) começa em janeiro."],
-    ["Prévia da Black. Dia 13 às 20:00: explicação completa da Black.","Desconto exclusivo para quem é aluno Odon e quer ser vitalício. Sorteio de vitalício no dia 13. Muitos brindes exclusivos!","Teremos bônus imperdíveis. Dicas: 1) um dos bônus chegará na sua casa; 2) um dos bônus vai te ajudar na prova de título; 3) segredo.","QR code: abre a página da lista de espera da Black, que depois do cadastro manda para o grupo."]
+    ["Prévia da Black. Dia 13 às 20:00: explicação completa da Black.","Desconto exclusivo para quem é aluno Odon e quer ser vitalício. Sorteio de vitalício no dia 13. Muitos brindes exclusivos!","Teremos bônus imperdíveis. Dicas: 1) um dos bônus chegará na sua casa; 2) um dos bônus vai te ajudar na prova de título; 3) segredo.","QR code: abre a página da lista de espera da Black, que depois do cadastro manda para o grupo."],
+    ["Faltam poucos dias para a maior Black da OdonConcursos. A contagem é até 13/10 às 20:00.","Agora: entre na lista pelo QR code. Até o dia 13: fique de olho no grupo, é lá que chegam avisos e as dicas dos bônus. Dia 13 às 20:00: explicação completa da Black e sorteio de vitalício."]
   ];
 
   const stage = document.getElementById('stage');
@@ -1871,6 +1916,28 @@ body.show-hud #help{opacity:1}
   qrIn.addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); const v=qrIn.value.trim(); if(v && drawQR(v)) store.set('qr2', v); } e.stopPropagation(); });
   qrIn.addEventListener('change', () => { const v=qrIn.value.trim(); if(v && drawQR(v)) store.set('qr2', v); });
   qrReset.addEventListener('click', e => { e.stopPropagation(); store.del('qr2'); const o=qrBox.querySelector('.qr-svg'); if(o) o.remove(); qrPh.hidden=false; qrReset.hidden=true; qrIn.value=''; qrIn.focus(); });
+
+
+  // segundo QR (slide da contagem) espelha o link do primeiro
+  const qrBox2 = document.getElementById('qr-code2');
+  function drawQR2(link){
+    if(typeof qrcode !== 'function' || !qrBox2) return;
+    const q = qrcode(0,'M'); q.addData(link); q.make();
+    qrBox2.innerHTML = '<div class="qr-svg" style="width:100%;height:100%;padding:14px;background:#fff">' + q.createSvgTag({cellSize:8, margin:0, scalable:true}) + '</div>';
+  }
+  drawQR2(savedLink || BLACK_URL);
+  qrIn.addEventListener('change', () => { const v=qrIn.value.trim(); if(v) drawQR2(v); });
+
+  // contagem regressiva para a Black (13/10 às 20:00, Brasília)
+  const BLACK_AT = new Date('2026-10-13T20:00:00-03:00').getTime();
+  const cdEl = document.getElementById('cd');
+  function tick(){
+    let t = Math.max(0, Math.floor((BLACK_AT - Date.now())/1000));
+    const v = { d: Math.floor(t/86400), h: Math.floor(t%86400/3600), m: Math.floor(t%3600/60), s: t%60 };
+    for(const k in v) cdEl.querySelector('[data-u='+k+']').textContent = String(v[k]).padStart(2,'0');
+    if(t === 0) document.getElementById('cd-tail').innerHTML = 'É hoje: começou a <em>maior Black</em> da OdonConcursos';
+  }
+  tick(); setInterval(tick, 1000);
 
   // raios do BUM
   const rays = document.querySelector('.rays');
