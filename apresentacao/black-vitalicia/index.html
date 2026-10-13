@@ -1061,6 +1061,32 @@ body.show-hud #help{opacity:1}
 .kitimg span{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(5,5,5,.85);border-radius:14px;padding:10px 14px;font:800 19px/1.2 var(--display);text-align:center}
 .side .lostbox{padding:16px 22px}
 
+/* brindes com foto (slides 15-17): perdido = cinza + risco */
+.tier,.tier.t3{grid-template-columns:1fr 560px;gap:48px}
+.dbar{display:flex;align-items:center;gap:22px;background:#fff;color:#050505;border-radius:24px;padding:16px 26px;box-shadow:0 0 0 3px var(--pink),0 0 50px rgba(238,42,123,.4)}
+.dbar b{font:900 84px/1 var(--display);letter-spacing:-.05em}
+.dbar span{font:800 22px/1.25 var(--display);color:#55505f}
+.dbar small{display:block;font:900 18px/1 var(--display);letter-spacing:.2em;text-transform:uppercase;color:#EE2A7B;margin-bottom:8px}
+.dbar em{font-style:normal;color:#EE2A7B}
+.gifts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gift{position:relative;border-radius:22px;overflow:hidden;background:#0c0c10;box-shadow:0 0 0 2px var(--pink),0 0 34px rgba(238,42,123,.35);transition:box-shadow .5s}
+.gift .ph{height:300px;background:center/cover no-repeat;transition:filter .6s ease}
+.gift.gkit .ph{background-image:var(--kit);background-position:58% 50%}
+.gift.gmanu .ph{background-image:var(--manu);background-position:center 15%}
+.gift>b{display:block;padding:12px 14px 14px;font:800 18px/1.2 var(--display);text-align:center;transition:color .5s}
+.gift .lost{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.gift .lost::before{content:"";position:absolute;left:-10%;right:-10%;top:50%;height:8px;background:#ff3b5c;transform:rotate(-38deg);box-shadow:0 0 18px rgba(255,59,92,.8)}
+.gift .lost span{position:relative;transform:rotate(-12deg);border:4px solid #ff3b5c;color:#ff3b5c;background:rgba(5,5,5,.85);font:900 26px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border-radius:10px}
+.gift .lost.f{transform:scale(1.25)}.gift .lost.f.on{transform:none}
+.gift:has(.lost.on){box-shadow:0 0 0 2px #3a3842}
+.gift:has(.lost.on) .ph{filter:grayscale(1) brightness(.4)}
+.gift:has(.lost.on)>b{color:#6c6876;text-decoration:line-through;text-decoration-color:#ff3b5c}
+
+.tier,.tier.t3{grid-template-columns:1fr 520px}
+.tier h2{font-size:44px!important;white-space:nowrap}
+.gift .ph{height:350px}
+.dbar b{font-size:76px}.dbar span{white-space:nowrap}
+
 </style>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -1369,8 +1395,11 @@ body.show-hud #help{opacity:1}
       </div>
     </div>
     <div class="side">
-      <div class="dbox pop" style="--d:2;padding:24px 30px"><div class="k">Só dia</div><b>19/10</b><span>segunda-feira · <em style="font-style:normal;color:#EE2A7B">7 itens</em></span></div>
-      <div class="manu f" role="img" aria-label="Prof. Manu"><span><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.3z"/></svg>Fale direto comigo: dificuldades, prova, estudo</span></div>
+      <div class="dbar pop" style="--d:2"><b>19/10</b><span><small>Só dia</small>segunda-feira · <em>7 itens</em></span></div>
+      <div class="gifts in" style="--d:3">
+        <div class="gift gkit"><div class="ph"></div><b>Kit OdonConcurseiro</b></div>
+        <div class="gift gmanu"><div class="ph"></div><b>WhatsApp da Prof. Manu</b></div>
+      </div>
     </div>
   </div>
   <div class="num">15</div>
@@ -1389,13 +1418,15 @@ body.show-hud #help{opacity:1}
         <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Pós-graduação em Estratégia Saúde da Família</div>
         <div class="ti in" style="--d:3"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Sorteio de um notebook</div>
         <div class="ti in" style="--d:4"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Kit físico OdonConcurseiro <small>blusa e garrafa, na sua casa</small></div>
-        <div class="ti gone f"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span class="nm">WhatsApp da Prof. Manu <small>mentoria individual</small></span></div>
+        <div class="ti gone f" data-o="g1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span class="nm">WhatsApp da Prof. Manu <small>mentoria individual</small></span></div>
       </div>
     </div>
     <div class="side">
-      <div class="dbox sm pop" style="--d:2"><div class="k">Até</div><b>21/10</b><span>quarta-feira · <em style="font-style:normal;color:#EE2A7B">6 itens</em></span></div>
-      <div class="kitimg pop" style="--d:3" role="img" aria-label="Kit OdonConcurseiro: camiseta e garrafa"><span>Kit OdonConcurseiro na sua casa</span></div>
-      <div class="lostbox f"><b>Perde</b>o WhatsApp da Prof. Manu</div>
+      <div class="dbar pop" style="--d:2"><b>21/10</b><span><small>Até</small>quarta-feira · <em>6 itens</em></span></div>
+      <div class="gifts in" style="--d:3">
+        <div class="gift gkit"><div class="ph"></div><b>Kit OdonConcurseiro</b></div>
+        <div class="gift gmanu"><div class="ph"></div><b>WhatsApp da Prof. Manu</b><div class="lost f" data-o="g1"><span>Perdido</span></div></div>
+      </div>
     </div>
   </div>
   <div class="num">16</div>
@@ -1418,8 +1449,11 @@ body.show-hud #help{opacity:1}
       </div>
     </div>
     <div class="side">
-      <div class="dbox pop" style="--d:2"><div class="k">Até</div><b>31/10</b><span>sábado</span><div class="cnt"><em>5 itens</em> no pacote</div></div>
-      <div class="lostbox f"><b>Perde</b>o kit físico e o WhatsApp da Prof. Manu</div>
+      <div class="dbar pop" style="--d:2"><b>31/10</b><span><small>Até</small>sábado · <em>5 itens</em></span></div>
+      <div class="gifts in" style="--d:3">
+        <div class="gift gkit"><div class="ph"></div><b>Kit OdonConcurseiro</b><div class="lost f" data-o="x"><span>Perdido</span></div></div>
+        <div class="gift gmanu"><div class="ph"></div><b>WhatsApp da Prof. Manu</b><div class="lost f" data-o="x"><span>Perdido</span></div></div>
+      </div>
     </div>
   </div>
   <div class="num">17</div>
