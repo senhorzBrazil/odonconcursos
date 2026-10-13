@@ -1043,6 +1043,17 @@ body.show-hud #help{opacity:1}
 .deal em{white-space:nowrap}
 .rc span small{font-size:21px;color:#4a4552;font-weight:600}
 
+/* bônus perdidos (ordem 19 → 21 → 31) */
+.stp.s3{height:430px}.stp.s1{height:220px}
+.stairs{align-items:end}
+.ti.gone{border:1.5px dashed #ff3b5c;background:#0c0b0e;color:#8b8794}
+.ti.gone .nm{text-decoration:line-through;text-decoration-color:#ff3b5c;text-decoration-thickness:3px}
+.ti.gone .ok-ic{background:#ff3b5c;box-shadow:0 0 16px rgba(255,59,92,.5)}
+.ti.gone::after{content:"VOCÊ PERDE";margin-left:auto;flex:none;font:900 14px/1 var(--display);letter-spacing:.12em;background:#ff3b5c;color:#fff;border-radius:999px;padding:7px 12px}
+.lostbox{border:2px dashed #ff3b5c;border-radius:24px;padding:20px 24px;font:800 23px/1.3 var(--display);color:#fff;background:rgba(255,59,92,.08)}
+.lostbox b{display:block;font:900 16px/1 var(--display);letter-spacing:.16em;text-transform:uppercase;color:#ff5c77;margin-bottom:10px}
+.ti.new::after{content:"SÓ DIA 19"}
+
 </style>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -1327,59 +1338,14 @@ body.show-hud #help{opacity:1}
   <h2 class="in" style="--d:0">Quanto vai custar? <span class="f" style="display:inline-block">Quem disse que <em>os bônus acabaram</em>?</span></h2>
   <p class="hl-pill f">Quem compra antes leva <em>mais bônus</em></p>
   <div class="stairs">
-    <div class="stp s1 f" data-o="s"><span class="d">Até 31/10</span><b>5 itens</b><span>Vitalício + bônus</span></div>
-    <div class="stp s2 f" data-o="s"><span class="d">Até 21/10</span><b>6 itens</b><span>+ kit físico na sua casa</span></div>
-    <div class="stp s3 f" data-o="s"><span class="d">Só dia 19/10</span><b>7 itens</b><span style="color:#fff">+ WhatsApp da Prof. Manu</span></div>
+    <div class="stp s3 f" data-o="s"><span class="d">Só dia 19/10</span><b>7 itens</b><span style="color:#fff">Pacote completo + WhatsApp da Prof. Manu</span></div>
+    <div class="stp s2 f" data-o="s"><span class="d">Até 21/10</span><b>6 itens</b><span>Perde o WhatsApp da Prof. Manu</span></div>
+    <div class="stp s1 f" data-o="s"><span class="d">Até 31/10</span><b>5 itens</b><span>Perde também o kit físico</span></div>
   </div>
   <div class="num">14</div>
 </section>
 
-<!-- 15 · ATÉ 31/10 -->
-<section class="slide" data-title="Quem comprar até 31/10">
-  <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Bônus por data</div></div>
-  <div class="tier">
-    <div>
-      <h2 class="in" style="--d:0;font-size:52px;margin-bottom:24px">Quem comprar <em>até 31/10</em> recebe:</h2>
-      <div class="tlist">
-        <div class="ti f" data-o="1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Concurseiro PRO VITALÍCIO</div>
-        <div class="ti f" data-o="1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>OdonQuestões VITALÍCIO</div>
-        <div class="ti f" data-o="2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Mentoria OdonClass</div>
-        <div class="ti f" data-o="2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Pós-graduação em Estratégia Saúde da Família</div>
-        <div class="ti f" data-o="2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Sorteio de um notebook</div>
-        <div class="ti lock f" data-o="3"><span class="ok-ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>???</div>
-        <div class="ti lock f" data-o="3"><span class="ok-ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>???</div>
-      </div>
-    </div>
-    <div class="dbox pop" style="--d:2"><div class="k">Até</div><b>31/10</b><span>sábado</span><div class="cnt"><em>5 itens</em> no pacote</div></div>
-  </div>
-  <div class="num">15</div>
-</section>
-
-<!-- 16 · ATÉ 21 -->
-<section class="slide" data-title="Quem comprar até 21/10">
-  <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Bônus por data</div></div>
-  <div class="tier">
-    <div>
-      <h2 class="in" style="--d:0;font-size:52px;margin-bottom:24px">Quem comprar <em>até dia 21</em> recebe:</h2>
-      <div class="tlist">
-        <div class="ti in" style="--d:1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Concurseiro PRO VITALÍCIO</div>
-        <div class="ti in" style="--d:1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>OdonQuestões VITALÍCIO</div>
-        <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Mentoria OdonClass</div>
-        <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Pós-graduação em Estratégia Saúde da Família</div>
-        <div class="ti in" style="--d:3"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Sorteio de um notebook</div>
-        <div class="ti new f fs"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Kit físico OdonConcurseiro <small>blusa e garrafa, na sua casa</small></div>
-        <div class="ti lock in" style="--d:4"><span class="ok-ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>???</div>
-      </div>
-    </div>
-    <div class="side">
-      <div class="dbox pop" style="--d:2"><div class="k">Até</div><b>21/10</b><span>quarta-feira</span><div class="cnt"><em>6 itens</em> no pacote</div></div>
-      <div class="kit f"><svg viewBox="0 0 64 64"><path d="M14 14l9-6h6a3 3 0 0 0 6 0h6l9 6-5 9-5-3v30H24V20l-5 3z"/><path d="M50 30h6v24a3 3 0 0 1-3 3h0a3 3 0 0 1-3-3z" transform="translate(-2 0)"/><path d="M49 26h8"/></svg><span>Kit OdonConcurseiro: blusa + garrafa</span></div>
-    </div>
-  </div>
-  <div class="num">16</div>
-</section>
-
-<!-- 17 · SÓ DIA 19 -->
+<!-- 15 · SÓ DIA 19 -->
 <section class="slide" data-title="Somente quem comprar no dia 19">
   <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Bônus por data</div></div>
   <div class="tier t3">
@@ -1391,13 +1357,61 @@ body.show-hud #help{opacity:1}
         <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Mentoria OdonClass</div>
         <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Pós-graduação em Estratégia Saúde da Família</div>
         <div class="ti in" style="--d:3"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Sorteio de um notebook</div>
-        <div class="ti in" style="--d:3"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Kit físico OdonConcurseiro <small>blusa e garrafa</small></div>
+        <div class="ti in" style="--d:4"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Kit físico OdonConcurseiro <small>blusa e garrafa</small></div>
         <div class="ti new f fs"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>WhatsApp da Prof. Manu <small>mentoria individual</small></div>
       </div>
     </div>
     <div class="side">
-      <div class="dbox pop" style="--d:2;padding:24px 30px"><div class="k">Só dia</div><b>19/10</b><span>segunda-feira</span></div>
+      <div class="dbox pop" style="--d:2;padding:24px 30px"><div class="k">Só dia</div><b>19/10</b><span>segunda-feira · <em style="font-style:normal;color:#EE2A7B">7 itens</em></span></div>
       <div class="manu f" role="img" aria-label="Prof. Manu"><span><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.3z"/></svg>Fale direto comigo: dificuldades, prova, estudo</span></div>
+    </div>
+  </div>
+  <div class="num">15</div>
+</section>
+
+<!-- 16 · ATÉ 21 -->
+<section class="slide" data-title="Quem comprar até 21/10">
+  <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Deixou para depois?</div></div>
+  <div class="tier">
+    <div>
+      <h2 class="in" style="--d:0;font-size:52px;margin-bottom:24px">Quem comprar <em>até dia 21</em> recebe:</h2>
+      <div class="tlist">
+        <div class="ti in" style="--d:1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Concurseiro PRO VITALÍCIO</div>
+        <div class="ti in" style="--d:1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>OdonQuestões VITALÍCIO</div>
+        <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Mentoria OdonClass</div>
+        <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Pós-graduação em Estratégia Saúde da Família</div>
+        <div class="ti in" style="--d:3"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Sorteio de um notebook</div>
+        <div class="ti in" style="--d:4"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Kit físico OdonConcurseiro <small>blusa e garrafa, na sua casa</small></div>
+        <div class="ti gone f"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span class="nm">WhatsApp da Prof. Manu <small>mentoria individual</small></span></div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="dbox pop" style="--d:2"><div class="k">Até</div><b>21/10</b><span>quarta-feira</span><div class="cnt"><em>6 itens</em> no pacote</div></div>
+      <div class="lostbox f"><b>Perde</b>o WhatsApp da Prof. Manu</div>
+    </div>
+  </div>
+  <div class="num">16</div>
+</section>
+
+<!-- 17 · ATÉ 31/10 -->
+<section class="slide" data-title="Quem comprar até 31/10">
+  <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Deixou para o fim?</div></div>
+  <div class="tier">
+    <div>
+      <h2 class="in" style="--d:0;font-size:52px;margin-bottom:24px">Quem comprar <em>até 31/10</em> recebe:</h2>
+      <div class="tlist">
+        <div class="ti in" style="--d:1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Concurseiro PRO VITALÍCIO</div>
+        <div class="ti in" style="--d:1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>OdonQuestões VITALÍCIO</div>
+        <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Mentoria OdonClass</div>
+        <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Pós-graduação em Estratégia Saúde da Família</div>
+        <div class="ti in" style="--d:3"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Sorteio de um notebook</div>
+        <div class="ti gone f" data-o="x"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span class="nm">Kit físico OdonConcurseiro <small>blusa e garrafa</small></span></div>
+        <div class="ti gone f" data-o="x"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span class="nm">WhatsApp da Prof. Manu <small>mentoria individual</small></span></div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="dbox pop" style="--d:2"><div class="k">Até</div><b>31/10</b><span>sábado</span><div class="cnt"><em>5 itens</em> no pacote</div></div>
+      <div class="lostbox f"><b>Perde</b>o kit físico e o WhatsApp da Prof. Manu</div>
     </div>
   </div>
   <div class="num">17</div>
@@ -1555,9 +1569,9 @@ body.show-hud #help{opacity:1}
     ["Ultimamente muitos editais vieram pedindo especialização. Chegava aluno maluco atrás de uma pós que desse tempo de terminar, e como não tínhamos, recomendávamos outras. O problema: não podíamos garantir a qualidade, porque não era o Odon dando aula.","Então o Odon criou uma Pós-graduação em Estratégia Saúde da Família, com duração de 4 meses e a qualidade que você, dentista, espera.","Ela já estava sendo planejada há um tempinho, não tinha nada a ver com a Black. Mas alguma alma bondosa falou na reunião: e se a gente desse a pós de bônus para quem comprar o vitalício?","Todo mundo riu, porque essa pós vai custar no mínimo uns 3.500. Mas lembra que eu falei que a gente é bobão com vocês? Sempre que temos a chance de dar o melhor, não pensamos duas vezes. A pós vai ser um dos bônus dessa Black Vitalícia."],
     ["Fique avisado: as aulas ainda vão entrar. Só vamos matricular na pós a partir do dia 1º de dezembro, e o prazo de 4 meses só começa a partir da matrícula.","Você não está comprando a pós-graduação: isso é um bônus, com matrícula só em dezembro. Beleza?","A pós não é vitalícia: você escolhe quando se matricular, mas a partir da matrícula tem 4 meses para concluir. Ok?"],
     ["“Show, prof, adorei, quanto vai custar?” Quem disse que os bônus acabaram?","Vou mostrando tudo que vocês terão direito de acordo com os dias, porque quem compra antes sempre tem mais bônus."],
-    ["Quem comprar até dia 31/10 recebe: Concurseiro PRO vitalício, OdonQuestões vitalício, Mentoria OdonClass, Pós-graduação em Estratégia Saúde da Família e sorteio de um notebook.","(Os dois espaços com cadeado são os bônus de quem compra antes.)"],
-    ["Quem comprar até dia 21 recebe tudo isso e mais: o kit físico OdonConcurseiro na sua casa (blusa e garrafa)."],
-    ["SOMENTE quem comprar no dia 19 leva tudo isso e mais: acesso ao WhatsApp da Prof. Manu como mentoria individual.","Com meu WhatsApp você vai poder chegar e conversar, falar das suas dificuldades, conversar sobre prova etc."],
+    ["SOMENTE quem comprar no dia 19 leva o pacote completo: Concurseiro PRO vitalício, OdonQuestões vitalício, Mentoria OdonClass, Pós-graduação em Estratégia Saúde da Família, sorteio de um notebook, kit físico OdonConcurseiro (blusa e garrafa) e acesso ao WhatsApp da Prof. Manu como mentoria individual.","Com meu WhatsApp você vai poder chegar e conversar, falar das suas dificuldades, conversar sobre prova etc."],
+    ["Deixou para depois? Quem comprar até dia 21 ainda leva o kit físico na sua casa (blusa e garrafa), mas perde o WhatsApp da Prof. Manu."],
+    ["Quem comprar até dia 31/10 recebe Concurseiro PRO vitalício, OdonQuestões vitalício, Mentoria OdonClass, Pós-graduação e sorteio do notebook.","Mas perde o kit físico e o WhatsApp da Prof. Manu. Quem compra antes leva mais."],
     ["Galera, quanto vocês acham que tudo isso vale?","Se fosse assinar o PRO por um ano: 2.597. Renovando por mais um ano: + 1.397.","5 anos de acesso custariam 8.185."],
     ["Somando tudo: 5 anos de Concurseiro PRO + OdonQuestões, 8.185. A mentoria sozinha custaria 3.000. A pós vai ser vendida por no mínimo 4.000. Kit físico, 200 reais. O notebook deve ser uns 3.000 (é sorteio).","Acesso ao celular da Prof. Manu: não tem preço, porque nunca vendi.","Somando tudo isso daria 18.385."],
     ["Mas tudo isso vai custar apenas 12x de 397 no cartão ou 3.997 à vista, no cartão ou no pix.","Todos esses bônus + o vitalício saindo pelo valor de 2 anos de acesso.","“Prof, não tenho esse limite em um cartão só.” Fala com nosso comercial que damos um jeito de passar uma parte no pix e outra no cartão, ou em dois cartões diferentes."],
