@@ -978,17 +978,6 @@ body.show-hud #help{opacity:1}
 .legend2 span{display:flex;align-items:center;gap:8px}
 .legend2 i{width:16px;height:16px;border-radius:5px}
 
-/* sorteio */
-.draw{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.draw .step{min-height:280px}
-.draw .step h3{font-size:27px}
-.draw .step p{font-size:21px}
-.draw .step p b{color:#fff}
-.say{display:inline-block;margin-top:6px;background:#fff;color:#050505;border-radius:14px;padding:10px 14px;font:900 22px/1 var(--display)}
-.drawbot{display:flex;align-items:center;gap:30px;margin-top:30px}
-.timer.t3{margin-top:0}
-.drawbot p{font-size:22px;color:var(--mute);line-height:1.4;max-width:820px}
-.drawbot p b{color:#fff}
 
 /* recap tabela */
 .tbl{margin-top:26px;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
@@ -1117,13 +1106,11 @@ body.show-hud #help{opacity:1}
   <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Hoje</div></div>
   <div class="body">
   <h2 class="in" style="--d:0">O que falaremos <em>nessa live</em></h2>
-  <div class="agenda" style="grid-template-columns:repeat(3,1fr)">
+  <div class="agenda" style="grid-template-columns:repeat(2,1fr)">
     <div class="ag in" style="--d:1"><div class="n">1</div><h3>Para quem é esse evento e para quem não é</h3>
       <svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M16 11l2 2 4-4"/></svg></div>
     <div class="ag hot in" style="--d:2"><div class="n">2</div><h3>A nossa Black Vitalícia de alunos</h3>
       <svg class="ic" viewBox="0 0 24 24"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7m0 0H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zm0 0h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg></div>
-    <div class="ag in" style="--d:3"><div class="n">3</div><h3>Sorteio do vitalício</h3>
-      <svg class="ic" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z"/></svg></div>
   </div>
   </div>
   <div class="num">02</div>
@@ -1137,7 +1124,7 @@ body.show-hud #help{opacity:1}
       <div class="alert in" style="--d:0"><svg viewBox="0 0 24 24"><path d="M12 3 2 21h20zM12 10v5M12 18v.01"/></svg>Aviso importante</div>
       <h2 class="in" style="--d:1;margin-top:30px;font-size:60px">Você já está no <em>grupo</em>?</h2>
       <div class="gname in" style="--d:2"><small>Nome do grupo</small>Grupo fechado alunos · Black Odon</div>
-      <p class="lead in" style="--d:3;max-width:860px">Se ainda não está, entre agora pelo <b>link da descrição ou do chat</b>. Só por esse link a gente recebe seus dados <b>para o sorteio</b>.</p>
+      <p class="lead in" style="--d:3;max-width:860px">Se ainda não está, entre agora pelo <b>link da descrição ou do chat</b>. É por lá que vai o <b>link de pagamento</b> no dia 19.</p>
     </div>
     <div class="qr pop" style="--d:3">
       <div class="code" id="qr-code">
@@ -1371,9 +1358,9 @@ body.show-hud #help{opacity:1}
   <h2 class="in" style="--d:0">Quanto vai custar? <span class="f" style="display:inline-block">Quem disse que <em>os bônus acabaram</em>?</span></h2>
   <p class="hl-pill f">Quem compra antes leva <em>mais bônus</em></p>
   <div class="stairs">
-    <div class="stp s3 f" data-o="s"><span class="d">Só dia 19/10</span><b>7 itens</b><span style="color:#fff">Pacote completo + WhatsApp da Prof. Manu</span></div>
-    <div class="stp s2 f" data-o="s"><span class="d">Até 21/10</span><b>6 itens</b><span>Perde o WhatsApp da Prof. Manu</span></div>
-    <div class="stp s1 f" data-o="s"><span class="d">Até 31/10</span><b>5 itens</b><span>Perde também o kit físico</span></div>
+    <div class="stp s3 f" data-o="s"><span class="d">Só dia 19/10</span><b>6 itens</b><span style="color:#fff">Pacote completo + WhatsApp da Prof. Manu</span></div>
+    <div class="stp s2 f" data-o="s"><span class="d">Até 21/10</span><b>5 itens</b><span>Perde o WhatsApp da Prof. Manu</span></div>
+    <div class="stp s1 f" data-o="s"><span class="d">Até 31/10</span><b>4 itens</b><span>Perde também o kit físico</span></div>
   </div>
   <div class="num">14</div>
 </section>
@@ -1389,13 +1376,12 @@ body.show-hud #help{opacity:1}
         <div class="ti in" style="--d:1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>OdonQuestões VITALÍCIO</div>
         <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Mentoria OdonClass</div>
         <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Pós-graduação em Estratégia Saúde da Família</div>
-        <div class="ti in" style="--d:3"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Sorteio de um notebook</div>
         <div class="ti in" style="--d:4"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Kit físico OdonConcurseiro <small>blusa e garrafa</small></div>
         <div class="ti new f fs"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>WhatsApp da Prof. Manu <small>mentoria individual</small></div>
       </div>
     </div>
     <div class="side">
-      <div class="dbar pop" style="--d:2"><b>19/10</b><span><small>Só dia</small>segunda-feira · <em>7 itens</em></span></div>
+      <div class="dbar pop" style="--d:2"><b>19/10</b><span><small>Só dia</small>segunda-feira · <em>6 itens</em></span></div>
       <div class="gifts in" style="--d:3">
         <div class="gift gkit"><div class="ph"></div><b>Kit OdonConcurseiro</b></div>
         <div class="gift gmanu"><div class="ph"></div><b>WhatsApp da Prof. Manu</b></div>
@@ -1416,13 +1402,12 @@ body.show-hud #help{opacity:1}
         <div class="ti in" style="--d:1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>OdonQuestões VITALÍCIO</div>
         <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Mentoria OdonClass</div>
         <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Pós-graduação em Estratégia Saúde da Família</div>
-        <div class="ti in" style="--d:3"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Sorteio de um notebook</div>
         <div class="ti in" style="--d:4"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Kit físico OdonConcurseiro <small>blusa e garrafa, na sua casa</small></div>
         <div class="ti gone f" data-o="g1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span class="nm">WhatsApp da Prof. Manu <small>mentoria individual</small></span></div>
       </div>
     </div>
     <div class="side">
-      <div class="dbar pop" style="--d:2"><b>21/10</b><span><small>Até</small>quarta-feira · <em>6 itens</em></span></div>
+      <div class="dbar pop" style="--d:2"><b>21/10</b><span><small>Até</small>quarta-feira · <em>5 itens</em></span></div>
       <div class="gifts in" style="--d:3">
         <div class="gift gkit"><div class="ph"></div><b>Kit OdonConcurseiro</b></div>
         <div class="gift gmanu"><div class="ph"></div><b>WhatsApp da Prof. Manu</b><div class="lost f" data-o="g1"><span>Perdido</span></div></div>
@@ -1443,13 +1428,12 @@ body.show-hud #help{opacity:1}
         <div class="ti in" style="--d:1"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>OdonQuestões VITALÍCIO</div>
         <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Mentoria OdonClass</div>
         <div class="ti in" style="--d:2"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Pós-graduação em Estratégia Saúde da Família</div>
-        <div class="ti in" style="--d:3"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Sorteio de um notebook</div>
         <div class="ti gone f" data-o="x"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span class="nm">Kit físico OdonConcurseiro <small>blusa e garrafa</small></span></div>
         <div class="ti gone f" data-o="x"><span class="ok-ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></span><span class="nm">WhatsApp da Prof. Manu <small>mentoria individual</small></span></div>
       </div>
     </div>
     <div class="side">
-      <div class="dbar pop" style="--d:2"><b>31/10</b><span><small>Até</small>sábado · <em>5 itens</em></span></div>
+      <div class="dbar pop" style="--d:2"><b>31/10</b><span><small>Até</small>sábado · <em>4 itens</em></span></div>
       <div class="gifts in" style="--d:3">
         <div class="gift gkit"><div class="ph"></div><b>Kit OdonConcurseiro</b><div class="lost f" data-o="x"><span>Perdido</span></div></div>
         <div class="gift gmanu"><div class="ph"></div><b>WhatsApp da Prof. Manu</b><div class="lost f" data-o="x"><span>Perdido</span></div></div>
@@ -1494,9 +1478,8 @@ body.show-hud #help{opacity:1}
       <div class="rc f"><span>Mentoria OdonClass</span><b>R$ 3.000</b></div>
       <div class="rc f"><span>Pós-graduação<small>valor mínimo de venda</small></span><b>R$ 4.000</b></div>
       <div class="rc f"><span>Kit físico</span><b>R$ 200</b></div>
-      <div class="rc f"><span>Notebook<small>sorteio</small></span><b>R$ 3.000</b></div>
       <div class="rc f"><span>WhatsApp da Prof. Manu<small>nunca foi vendido</small></span><b class="np">NÃO TEM PREÇO</b></div>
-      <div class="rc tot f"><span>Total</span><b>R$ 18.385</b></div>
+      <div class="rc tot f"><span>Total</span><b>R$ 15.385</b></div>
     </div>
   </div>
   <div class="num">19</div>
@@ -1509,7 +1492,7 @@ body.show-hud #help{opacity:1}
   <div class="price">
     <div>
       <div class="excl in" style="--d:0">Exclusivo apenas para alunos e ex-alunos</div>
-      <div class="from in" style="--d:0">De <s>R$ 18.385</s> por</div>
+      <div class="from in" style="--d:0">De <s>R$ 15.385</s> por</div>
       <div class="pbig pop" style="--d:1"><small>12x</small><b><sup>R$</sup>397</b></div>
       <div class="cash in" style="--d:2">ou <em>R$ 3.997 à vista</em> no cartão ou no pix</div>
       <div class="deal f">Vitalício + todos os bônus pelo valor de <em>2 anos de acesso</em></div>
@@ -1541,53 +1524,30 @@ body.show-hud #help{opacity:1}
         <div class="mh">Outubro<span>2026</span></div>
         <div class="gr"><b>D</b><b>S</b><b>T</b><b>Q</b><b>Q</b><b>S</b><b>S</b><i class="x">0</i><i class="x">0</i><i class="x">0</i><i class="x">0</i><i class="">1</i><i class="">2</i><i class="">3</i><i class="">4</i><i class="">5</i><i class="">6</i><i class="">7</i><i class="">8</i><i class="">9</i><i class="">10</i><i class="">11</i><i class="">12</i><i class="">13</i><i class="">14</i><i class="">15</i><i class="">16</i><i class="">17</i><i class="">18</i><i class="m">19</i><i class="m2">20</i><i class="m2">21</i><i class="m3">22</i><i class="m3">23</i><i class="m3">24</i><i class="m3">25</i><i class="m3">26</i><i class="m3">27</i><i class="m3">28</i><i class="m3">29</i><i class="m3">30</i><i class="m3">31</i></div>
       </div>
-      <div class="legend2 in" style="--d:3"><span><i style="background:#050505;box-shadow:0 0 0 2px #EE2A7B"></i>19: 7 itens</span><span><i style="background:rgba(238,42,123,.3)"></i>até 21: 6 itens</span><span><i style="background:#e9e4dc"></i>até 31: 5 itens</span></div>
+      <div class="legend2 in" style="--d:3"><span><i style="background:#050505;box-shadow:0 0 0 2px #EE2A7B"></i>19: 6 itens</span><span><i style="background:rgba(238,42,123,.3)"></i>até 21: 5 itens</span><span><i style="background:#e9e4dc"></i>até 31: 4 itens</span></div>
     </div>
   </div>
   <div class="num">21</div>
 </section>
 
-<!-- 22 · SORTEIO -->
-<section class="slide" data-title="Sorteio do vitalício">
-  <svg class="neon n3" viewBox="0 0 400 400"><use href="#tg"/></svg>
-  <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Agora, o sorteio</div></div>
-  <div class="body">
-  <h2 class="in" style="--d:0">Sorteio do <em>vitalício</em>: como funciona</h2>
-  <div class="draw">
-    <div class="step f"><span class="k">1</span><h3>A lista</h3><p>Pegamos <b>todos que se inscreveram pelo link e entraram no grupo</b>.</p></div>
-    <div class="step r f"><span class="k">2</span><h3>O sorteio</h3><p>Sorteamos e <b>falamos o nome</b> da pessoa aqui na live.</p></div>
-    <div class="step q f"><span class="k">3</span><h3>A confirmação</h3><p>O ganhador manda no <b>número comercial</b>:</p><span class="phone-n"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>(19) 99456-5534</span><span class="say">“Eu sou o ganhador”</span><p>Conferimos se é o mesmo número cadastrado.</p></div>
-  </div>
-  <div class="drawbot f">
-    <button class="timer t3" id="timer3" type="button" aria-label="Iniciar contagem de 3 minutos">
-      <span class="dot"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-      <span class="t" id="timer3-t">3:00</span>
-      <span class="l">para o ganhador falar com a gente</span>
-    </button>
-    <p>Não falou em <b>até 3 minutos</b>? A gente sorteia outra pessoa.</p>
-  </div>
-  </div>
-  <div class="num">22</div>
-</section>
-
-<!-- 23 · RECAPITULANDO -->
+<!-- 22 · RECAPITULANDO -->
 <section class="slide" data-title="Recapitulando">
   <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Recapitulando</div></div>
   <div class="body">
   <h2 class="in" style="--d:0;font-size:54px">Quanto antes, <em>mais bônus</em></h2>
   <div class="tbl in" style="--d:1">
     <div class="tr hd"><div style="text-align:left;justify-items:start">O que você recebe</div><div class="c19">Só dia 19</div><div>Até dia 21</div><div>Até 31/10</div></div>
-    <div class="tr"><div>Concurseiro PRO VITALÍCIO</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div></div><div class="tr"><div>OdonQuestões VITALÍCIO</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div></div><div class="tr"><div>Mentoria OdonClass</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div></div><div class="tr"><div>Pós-graduação em Estratégia Saúde da Família</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div></div><div class="tr"><div>Sorteio de um notebook</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div></div><div class="tr"><div>Kit físico OdonConcurseiro (blusa e garrafa)</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="n"></span></div></div><div class="tr"><div>WhatsApp da Prof. Manu (mentoria individual)</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="n"></span></div><div class=""><span class="n"></span></div></div>
-    <div class="tr pr"><div><span class="pv">12x R$ 397</span> ou <span class="pv">R$ 3.997</span> à vista</div><div class="c19">7 itens</div><div>6 itens</div><div>5 itens</div></div>
+    <div class="tr"><div>Concurseiro PRO VITALÍCIO</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div></div><div class="tr"><div>OdonQuestões VITALÍCIO</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div></div><div class="tr"><div>Mentoria OdonClass</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div></div><div class="tr"><div>Pós-graduação em Estratégia Saúde da Família</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div></div><div class="tr"><div>Kit físico OdonConcurseiro (blusa e garrafa)</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="n"></span></div></div><div class="tr"><div>WhatsApp da Prof. Manu (mentoria individual)</div><div class="c19"><span class="y"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class=""><span class="n"></span></div><div class=""><span class="n"></span></div></div>
+    <div class="tr pr"><div><span class="pv">12x R$ 397</span> ou <span class="pv">R$ 3.997</span> à vista</div><div class="c19">6 itens</div><div>5 itens</div><div>4 itens</div></div>
   </div>
   </div>
-  <div class="num">23</div>
+  <div class="num">22</div>
 </section>
 
 </div></div>
 <div id="hud" role="toolbar" aria-label="Controles da apresentação">
   <button id="b-prev" type="button" aria-label="Voltar"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
-  <span class="count" id="count">1 / 23</span>
+  <span class="count" id="count">1 / 22</span>
   <button id="b-next" type="button" aria-label="Avançar"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
   <button id="b-notes" type="button" aria-label="Notas do apresentador (N)"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/><path d="M8 8h8M8 12h5"/></svg></button>
   <button id="b-full" type="button" aria-label="Tela cheia (F)"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
@@ -1598,8 +1558,8 @@ body.show-hud #help{opacity:1}
 (function(){
   const NOTES = [
     ["Boa noite, galera! Vamos nos acomodando (clique no cronômetro para iniciar os 5 minutos).","Hoje é a explicação completa da nossa Black Vitalícia de alunos."],
-    ["O que falaremos nessa live: para quem é esse evento e para quem não é, a nossa Black Vitalícia de alunos e o sorteio do vitalício."],
-    ["Quem estiver nessa live e não estiver no grupo “Grupo fechado alunos - Black Odon”, entra pelo link da descrição ou do chat.","A gente só consegue ter seus dados para o sorteio passando por esse link."],
+    ["O que falaremos nessa live: para quem é esse evento e para quem não é, e a nossa Black Vitalícia de alunos."],
+    ["Quem estiver nessa live e não estiver no grupo “Grupo fechado alunos - Black Odon”, entra pelo link da descrição ou do chat.","É por lá que vamos mandar o link de pagamento no dia 19."],
     ["Acreditem se quiser: quando vendemos o vitalício, é mais para fazer a vontade de vocês do que a gente querendo ganhar dinheiro.","Vocês veem que a comunicação não é feita com muita antecedência, nada ornamentado, nada apelativo. Se fosse, teríamos feito a oferta na live da mentoria semana passada. Preferimos não misturar quem queria ver a mentoria com quem queria saber da Black.","Por que vendemos? Tem muito aluno que gosta do curso e da plataforma, já renovou 1, 2, até 3 vezes. O concurso ainda não saiu, já passou mas quer outro melhor, ou parou por um motivo pessoal e quer voltar depois.","Fazemos por vocês: é um agradecimento pela confiança, queremos que o aluno continue passando (daqui a um mês ou daqui a 5 anos) e é um estímulo para ex-alunos voltarem.","Pelo nosso lado não é tão vantajoso: venderíamos o curso por uns 2 mil, a renovação por uns 1.400; o aluno não renova, volta 2 anos depois, perdeu o desconto e o curso custaria 2 mil de novo. E é um compromisso sério de manter acesso, suporte e aula por muitos anos.","Conseguiram ver por que abrimos o vitalício?"],
     ["O vitalício é para o nosso aluno que gosta e confia no curso; para quem não quer ficar todo ano renovando; para quem não quer ficar procurando curso quando abrir edital no futuro; para quem quer economizar e nunca mais gastar com curso para concurso nenhum."],
     ["E não é para quem quer ficar todo ano pagando o curso, nem para quem quer arriscar pagar mais caro no futuro."],
@@ -1611,15 +1571,14 @@ body.show-hud #help{opacity:1}
     ["Ultimamente muitos editais vieram pedindo especialização. Chegava aluno maluco atrás de uma pós que desse tempo de terminar, e como não tínhamos, recomendávamos outras. O problema: não podíamos garantir a qualidade, porque não era o Odon dando aula.","Então o Odon criou uma Pós-graduação em Estratégia Saúde da Família, com duração de 4 meses e a qualidade que você, dentista, espera.","Ela já estava sendo planejada há um tempinho, não tinha nada a ver com a Black. Mas alguma alma bondosa falou na reunião: e se a gente desse a pós de bônus para quem comprar o vitalício?","Todo mundo riu, porque essa pós vai custar no mínimo uns 3.500. Mas lembra que eu falei que a gente é bobão com vocês? Sempre que temos a chance de dar o melhor, não pensamos duas vezes. A pós vai ser um dos bônus dessa Black Vitalícia."],
     ["Fique avisado: as aulas ainda vão entrar. Só vamos matricular na pós a partir do dia 1º de dezembro, e o prazo de 4 meses só começa a partir da matrícula.","Você não está comprando a pós-graduação: isso é um bônus, com matrícula só em dezembro. Beleza?","A pós não é vitalícia: você escolhe quando se matricular, mas a partir da matrícula tem 4 meses para concluir. Ok?"],
     ["“Show, prof, adorei, quanto vai custar?” Quem disse que os bônus acabaram?","Vou mostrando tudo que vocês terão direito de acordo com os dias, porque quem compra antes sempre tem mais bônus."],
-    ["SOMENTE quem comprar no dia 19 leva o pacote completo: Concurseiro PRO vitalício, OdonQuestões vitalício, Mentoria OdonClass, Pós-graduação em Estratégia Saúde da Família, sorteio de um notebook, kit físico OdonConcurseiro (blusa e garrafa) e acesso ao WhatsApp da Prof. Manu como mentoria individual.","Com meu WhatsApp você vai poder chegar e conversar, falar das suas dificuldades, conversar sobre prova etc."],
+    ["SOMENTE quem comprar no dia 19 leva o pacote completo: Concurseiro PRO vitalício, OdonQuestões vitalício, Mentoria OdonClass, Pós-graduação em Estratégia Saúde da Família, kit físico OdonConcurseiro (blusa e garrafa) e acesso ao WhatsApp da Prof. Manu como mentoria individual.","Com meu WhatsApp você vai poder chegar e conversar, falar das suas dificuldades, conversar sobre prova etc."],
     ["Deixou para depois? Quem comprar até dia 21 ainda leva o kit físico na sua casa (blusa e garrafa), mas perde o WhatsApp da Prof. Manu."],
-    ["Quem comprar até dia 31/10 recebe Concurseiro PRO vitalício, OdonQuestões vitalício, Mentoria OdonClass, Pós-graduação e sorteio do notebook.","Mas perde o kit físico e o WhatsApp da Prof. Manu. Quem compra antes leva mais."],
+    ["Quem comprar até dia 31/10 recebe Concurseiro PRO vitalício, OdonQuestões vitalício, Mentoria OdonClass e Pós-graduação.","Mas perde o kit físico e o WhatsApp da Prof. Manu. Quem compra antes leva mais."],
     ["Galera, quanto vocês acham que tudo isso vale?","Se fosse assinar o PRO por um ano: 2.597. Renovando por mais um ano: + 1.397.","5 anos de acesso custariam 8.185."],
-    ["Somando tudo: 5 anos de Concurseiro PRO + OdonQuestões, 8.185. A mentoria sozinha custaria 3.000. A pós vai ser vendida por no mínimo 4.000. Kit físico, 200 reais. O notebook deve ser uns 3.000 (é sorteio).","Acesso ao celular da Prof. Manu: não tem preço, porque nunca vendi.","Somando tudo isso daria 18.385."],
+    ["Somando tudo: 5 anos de Concurseiro PRO + OdonQuestões, 8.185. A mentoria sozinha custaria 3.000. A pós vai ser vendida por no mínimo 4.000. Kit físico, 200 reais.","Acesso ao celular da Prof. Manu: não tem preço, porque nunca vendi.","Somando tudo isso daria 15.385."],
     ["Mas tudo isso vai custar apenas 12x de 397 no cartão ou 3.997 à vista, no cartão ou no pix.","Todos esses bônus + o vitalício saindo pelo valor de 2 anos de acesso.","“Prof, não tenho esse limite em um cartão só.” Fala com nosso comercial que damos um jeito de passar uma parte no pix e outra no cartão, ou em dois cartões diferentes."],
     ["Para ajudar ainda mais, vamos abrir o carrinho apenas no dia 19, para todo mundo ter a chance de ir atrás de cartão, se programar e pagar da melhor forma.","Dia 19, segunda-feira, às 10 horas, vamos mandar o link de pagamento no grupo."],
-    ["Agora vamos para o sorteio. Pegamos a lista de todos que se inscreveram pelo link e entraram no grupo, sorteamos e dizemos o nome da pessoa.","Para sabermos que você está mesmo na live, o ganhador manda uma mensagem para o nosso número comercial dizendo “eu sou o ganhador”, e conferimos se o número cadastrado é o mesmo.","É preciso falar com a gente em no máximo 3 minutos (clique no cronômetro), senão sorteamos outra pessoa."],
-    ["Recapitulando: só no dia 19, os 7 itens, incluindo o WhatsApp da Prof. Manu. Até dia 21, 6 itens com o kit físico. Até 31/10, 5 itens.","Carrinho abre segunda, dia 19, às 10h, com o link no grupo."]
+    ["Recapitulando: só no dia 19, os 6 itens, incluindo o WhatsApp da Prof. Manu. Até dia 21, 5 itens com o kit físico. Até 31/10, 4 itens.","Carrinho abre segunda, dia 19, às 10h, com o link no grupo."]
   ];
 
   const stage = document.getElementById('stage');
@@ -1710,7 +1669,7 @@ body.show-hud #help{opacity:1}
   document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive:true});
   document.addEventListener('touchend', e => { if(sx===null) return; const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50){ dx<0?next():prev(); } sx=null; });
 
-  // cronômetros (abertura 5 min, sorteio 3 min): clique inicia, clique de novo zera
+  // cronômetros (abertura 5 min): clique inicia, clique de novo zera
   function timer(btnId, outId, secs, endTxt){
     let iv=null; const out=document.getElementById(outId), fmt=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
     document.getElementById(btnId).addEventListener('click', e => {
@@ -1721,7 +1680,6 @@ body.show-hud #help{opacity:1}
     });
   }
   timer('timer','timer-t',300,'Vamos lá!');
-  timer('timer3','timer3-t',180,'Tempo!');
 
   const store = {
     get(k){ try{ return localStorage.getItem('odon-blackvit-'+k); }catch(e){ return null; } },
