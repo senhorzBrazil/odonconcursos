@@ -224,7 +224,13 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
 
 /* barra fixa mobile */
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(5,5,5,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);display:none}
-.sticky .bnt1{width:100%;padding:16px 18px;font-size:15px}
+.sk-in{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:520px;margin:0 auto}
+.sk-l{font:700 11px/1.25 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.sk-l b{display:block;font-size:14px;letter-spacing:0;color:#fff;margin-top:2px}
+.sticky .sk-clock{gap:6px;flex:none}
+.sticky .sk-clock div{min-width:48px;flex:none;padding:7px 4px 6px;border-radius:12px}
+.sticky .sk-clock b{font-size:22px}
+.sticky .sk-clock small{font-size:8.5px;margin-top:4px;letter-spacing:.06em}
 
 @media (max-width:900px){
   section{padding:64px 0}
@@ -534,7 +540,15 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
 
 <footer><div class="wrap">OdonConcursos · Black Vitalícia de alunos 2026 · Oferta exclusiva para alunos e ex-alunos</div></footer>
 
-<div class="sticky"><a class="bnt1" data-cta href="#bonus">Carrinho abre 19/10 às 10h</a></div>
+<div class="sticky"><div class="sk-in">
+  <div class="sk-l" data-label3>Carrinho abre<br><b>19/10 às 10h</b></div>
+  <div class="clock sk-clock" data-clock>
+    <div><b data-u="d">00</b><small>dias</small></div>
+    <div><b data-u="h">00</b><small>horas</small></div>
+    <div><b data-u="m">00</b><small>min</small></div>
+    <div><b data-u="s">00</b><small>seg</small></div>
+  </div>
+</div></div>
 
 <script>
 /* ============ CONFIG ============ */
@@ -619,6 +633,8 @@ function tick() {
   document.getElementById('clockLabel').textContent = label;
   document.querySelector('[data-label2]').textContent = state === 'pre' ? 'O carrinho abre em' : label;
   document.getElementById('heroPill').textContent = pill;
+  const short = { pre: 'Carrinho abre<br><b>19/10 às 10h</b>', f0: 'WhatsApp da<br><b>Prof. Manu acaba em</b>', f1: 'Kit físico<br><b>sai da oferta em</b>', f2: 'A Black<br><b>termina em</b>', end: 'Black<br><b>encerrada</b>' };
+  document.querySelector('[data-label3]').innerHTML = short[state];
 
   const open = state !== 'pre' && state !== 'end';
   document.querySelectorAll('[data-ics]').forEach(x => x.style.display = state === 'pre' ? '' : 'none');
