@@ -251,6 +251,22 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
 .sticky .sk-clock b{font-size:22px}
 .sticky .sk-clock small{font-size:8.5px;margin-top:4px;letter-spacing:.06em}
 
+
+/* modal do grupo */
+.modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px}
+.modal[hidden]{display:none}
+.m-back{position:absolute;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.m-box{position:relative;width:100%;max-width:440px;max-height:calc(100vh - 32px);overflow:auto;background:radial-gradient(80% 50% at 50% 0%,rgba(238,42,123,.22),transparent 70%),var(--panel);border:1px solid rgba(238,42,123,.55);border-radius:26px;padding:30px 24px 22px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(238,42,123,.2);animation:fsi .3s ease forwards}
+.m-box h3{font-size:24px}
+.m-sub{color:var(--mute);font-size:15px;margin:8px 0 18px}
+.m-x{position:absolute;top:12px;right:14px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--panel2);color:#fff;font-size:22px;line-height:1;cursor:pointer}
+#grpForm label{display:block;font:700 13px/1 var(--body);color:#d8d4de;margin:12px 0 7px}
+#grpForm input,#grpForm select{width:100%;font:500 16px/1.2 var(--body);color:#fff;background:#0a0a0d;border:1px solid #2c2b34;border-radius:14px;padding:14px 14px;outline:none}
+#grpForm input:focus,#grpForm select:focus{border-color:var(--pink)}
+.m-phone{display:grid;grid-template-columns:104px 1fr;gap:8px}
+#grpForm .bnt1{width:100%;margin-top:20px}
+.m-sec{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:12px;font-size:13px;color:var(--mute)}
+.m-sec svg{width:14px;height:14px}
 @media (max-width:900px){
   section{padding:64px 0}
   .hero{min-height:auto;align-items:flex-start;flex-direction:column}
@@ -300,7 +316,7 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
   <div class="wrap"><div class="hero-in">
     <span class="pill fadeSlideIn delay-1"><i></i><span id="heroPill">Exclusivo para alunos e ex-alunos</span></span>
     <h1 class="fadeSlideIn delay-2">Black <span class="g1">Vitalícia</span></h1>
-    <p class="sub fadeSlideIn delay-3">Concurseiro PRO + OdonQuestões <span>para sempre</span>, com todos os bônus da Black.</p>
+    <p class="sub fadeSlideIn delay-3">Concurseiro PRO + OdonQuestões <span>vitalício</span>, com todos os bônus da Black.</p>
     <p class="desc fadeSlideIn delay-3">Nunca mais renovar curso, nunca mais procurar preparatório quando sair edital. Você paga uma vez e estuda para quantos concursos quiser.</p>
     <div class="fadeSlideIn delay-4">
       <div class="clock-label" id="clockLabel">O carrinho abre segunda, 19/10, às 10h</div>
@@ -563,7 +579,7 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
 <section class="final">
   <div class="wrap">
     <span class="eyebrow">Black Vitalícia · alunos Odon</span>
-    <h2>Pague uma vez. <span class="g1">Estude para sempre.</span></h2>
+    <h2>Pague uma vez. <span class="g1">Estude até a sua aprovação.</span></h2>
     <div class="clock-label" data-label2 style="margin-top:22px">O carrinho abre em</div>
     <div class="clock" data-clock>
       <div><b data-u="d">00</b><small>dias</small></div>
@@ -580,6 +596,31 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
     </div>
   </div>
 </section>
+
+<div class="modal" id="grpModal" role="dialog" aria-modal="true" aria-labelledby="mTitle" hidden>
+  <div class="m-back" data-close></div>
+  <div class="m-box">
+    <button class="m-x" type="button" data-close aria-label="Fechar">×</button>
+    <span class="eyebrow">Grupo fechado alunos · Black Odon</span>
+    <h3 id="mTitle">Preencha para entrar no grupo</h3>
+    <p class="m-sub">Leva 20 segundos. Depois do cadastro você entra no grupo, onde sai o link de pagamento no dia 19/10 às 10h.</p>
+    <form id="grpForm" novalidate>
+      <label for="f-name">Nome</label>
+      <input id="f-name" type="text" autocomplete="name" placeholder="Seu nome" required>
+      <label for="f-email">E-mail</label>
+      <input id="f-email" type="email" autocomplete="email" inputmode="email" placeholder="seuemail@exemplo.com" required>
+      <label for="f-phone">WhatsApp</label>
+      <div class="m-phone">
+        <select id="f-country" aria-label="Código do país">
+          <option value="55" selected>🇧🇷 +55</option><option value="351">🇵🇹 +351</option><option value="1">🇺🇸 +1</option><option value="44">🇬🇧 +44</option><option value="54">🇦🇷 +54</option>
+        </select>
+        <input id="f-phone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="(11) 99999-9999" required>
+      </div>
+      <button class="bnt1" id="f-submit" type="submit">Entrar no grupo</button>
+      <div class="m-sec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Seus dados estão seguros</div>
+    </form>
+  </div>
+</div>
 
 <footer><div class="wrap">OdonConcursos · Black Vitalícia de alunos 2026 · Oferta exclusiva para alunos e ex-alunos</div></footer>
 
@@ -710,9 +751,50 @@ function tick() {
     st.style.display = cur || over ? '' : 'none';
   });
 }
+// formulário antes do grupo (mesmo fluxo da lista de espera da Black)
+const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
+const tracking = (() => {
+  const g = k => qs.get(k) || '';
+  return { utm_source: g('utm_source'), utm_medium: g('utm_medium'), utm_campaign: g('utm_campaign'), utm_content: g('utm_content'),
+    utm_term: g('utm_term'), fbclid: g('fbclid'), gclid: g('gclid'), referrer: document.referrer || '', landing_url: location.href };
+})();
+const modal = document.getElementById('grpModal');
+const openModal = () => { modal.hidden = false; document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('f-name').focus(), 80); };
+const closeModal = () => { modal.hidden = true; document.body.style.overflow = ''; };
+modal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeModal));
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
 document.addEventListener('click', e => {
   const a = e.target.closest('a[href^="https://chat.whatsapp.com"]');
-  if (a && typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'Grupo Black Vitalícia alunos' });
+  if (!a) return;
+  e.preventDefault(); openModal();
+});
+const phone = document.getElementById('f-phone');
+phone.addEventListener('input', () => {
+  if (document.getElementById('f-country').value !== '55') return;
+  const d = phone.value.replace(/\D/g, '').slice(0, 11);
+  phone.value = d.length > 6 ? `(${d.slice(0, 2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}` : d.length > 2 ? `(${d.slice(0, 2)}) ${d.slice(2)}` : d;
+});
+document.getElementById('grpForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const nome = document.getElementById('f-name'), email = document.getElementById('f-email');
+  const digits = phone.value.replace(/\D/g, ''), country = document.getElementById('f-country').value;
+  for (const [el, ok] of [[nome, nome.value.trim().length > 1], [email, /\S+@\S+\.\S+/.test(email.value)], [phone, country === '55' ? digits.length >= 10 : digits.length >= 6]]) {
+    if (!ok) { el.focus(); el.style.borderColor = '#d0103f'; return; }
+    el.style.borderColor = '';
+  }
+  const btn = document.getElementById('f-submit');
+  btn.disabled = true; btn.textContent = 'Enviando…';
+  const d = new Date();
+  const payload = {
+    formulario: 'Black Vitalícia alunos · Grupo', produto: 'Black Friday 2026', metodo: 'Landing Page',
+    nome: nome.value.trim(), email: email.value.trim(), telefone: '+' + country + digits, ja_e_aluno: 'Sim',
+    evento: 'Black Vitalícia de alunos 2026', origem: 'LP Black Vitalícia alunos',
+    data_contato: d.toISOString(), data_contato_br: d.toLocaleDateString('pt-BR') + ' ' + d.toLocaleTimeString('pt-BR'), ...tracking
+  };
+  try { await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }); } catch (err) { console.error('Webhook error:', err); }
+  try { if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'Black Vitalícia alunos · Grupo', content_category: 'Black Friday 2026' }); } catch (err) {}
+  btn.textContent = 'Abrindo o grupo…';
+  setTimeout(() => { location.href = CONFIG.grupo + '?mode=gi_t'; }, 500);
 });
 tick(); setInterval(tick, 1000);
 </script>
