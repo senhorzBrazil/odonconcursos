@@ -150,6 +150,8 @@ h3{font-weight:800}
 .bsum b.z{text-decoration:none;color:#5ee39a;text-shadow:0 0 30px rgba(94,227,154,.35)}
 .bsum span{font-size:14px;color:#cfcbd8}
 .bsum .eq{font:900 40px/1 var(--display);color:var(--pink-hi)}
+.bonus .ph.nb{display:grid;place-items:center;background:radial-gradient(70% 70% at 50% 40%,rgba(238,42,123,.35),transparent 70%),#0c0c10}
+.bonus .ph.nb svg{width:70%;filter:drop-shadow(0 0 18px rgba(238,42,123,.6))}
 .bonus.feature{border-color:rgba(238,42,123,.55);background:linear-gradient(160deg,rgba(238,42,123,.2),rgba(238,42,123,.02) 55%),var(--panel)}
 .bonus .side{display:grid;grid-template-columns:1fr 220px;gap:24px;align-items:center}
 .bonus .ph{border-radius:18px;aspect-ratio:1;background:center/cover no-repeat;border:1px solid var(--line)}
@@ -374,7 +376,7 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
     <div class="center">
       <span class="eyebrow">E não para no vitalício</span>
       <h2>Todos os <span class="g1">bônus</span> da Black</h2>
-      <p class="lead">Quatro bônus para quem entra. Os dois últimos têm prazo, então quanto antes você comprar, mais leva.</p>
+      <p class="lead">Cinco bônus para quem entra. Os dois últimos têm prazo, então quanto antes você comprar, mais leva.</p>
     </div>
 
     <div class="bonus-list">
@@ -402,8 +404,20 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
         </div>
       </article>
 
+      <article class="bonus">
+        <div class="num">Bônus<b>03</b><span class="val">Vale <s>R$ 3.000</s><em>Você concorre</em></span></div>
+        <div class="side">
+          <div>
+            <span class="lim">Para todos que comprarem até 31/10</span>
+            <h3>Sorteio de um notebook</h3>
+            <p>Comprou o vitalício na Black, está concorrendo a um notebook novo para estudar.</p>
+          </div>
+          <div class="ph nb" role="img" aria-label="Notebook"><svg viewBox="0 0 120 80" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"><rect x="22" y="12" width="76" height="48" rx="4"/><rect x="29" y="19" width="62" height="34" rx="1" fill="rgba(238,42,123,.35)" stroke="none"/><path d="M10 64h100l-6 8H16z" fill="rgba(255,255,255,.12)"/><path d="M52 64h16"/></svg></div>
+        </div>
+      </article>
+
       <article class="bonus" data-until="2026-10-21T23:59:59-03:00">
-        <div class="num">Bônus<b>03</b><span class="val">Vale <s>R$ 200</s><em>Para você: grátis</em></span></div>
+        <div class="num">Bônus<b>04</b><span class="val">Vale <s>R$ 200</s><em>Para você: grátis</em></span></div>
         <div class="side">
           <div>
             <span class="lim" data-lim>Só para quem comprar até 21/10</span>
@@ -415,7 +429,7 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
       </article>
 
       <article class="bonus" data-until="2026-10-19T23:59:59-03:00">
-        <div class="num">Bônus<b>04</b><span class="val">Vale <s class="np">Não tem preço</s><em>Para você: grátis</em></span></div>
+        <div class="num">Bônus<b>05</b><span class="val">Vale <s class="np">Não tem preço</s><em>Para você: grátis</em></span></div>
         <div class="side">
           <div>
             <span class="lim" data-lim>Só para quem comprar no dia 19/10</span>
@@ -427,7 +441,7 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
       </article>
     </div>
     <div class="bsum">
-      <div><small>Só em bônus</small><b>R$ 7.200</b><span>+ WhatsApp da Prof. Manu, que não tem preço</span></div>
+      <div><small>Só em bônus</small><b>R$ 10.200</b><span>+ WhatsApp da Prof. Manu, que não tem preço</span></div>
       <div class="eq">→</div>
       <div><small>Para quem compra o vitalício</small><b class="z">R$ 0</b><span>todos entram de presente</span></div>
     </div>
@@ -471,13 +485,14 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
           <div class="row"><span>Mentoria OdonClass</span><b>R$ 3.000</b></div>
           <div class="row"><span>Pós-graduação<small>valor mínimo de venda</small></span><b>R$ 4.000</b></div>
           <div class="row"><span>Kit físico</span><b>R$ 200</b></div>
+          <div class="row"><span>Notebook<small>sorteio</small></span><b>R$ 3.000</b></div>
           <div class="row"><span>WhatsApp da Prof. Manu<small>nunca foi vendido</small></span><b style="color:var(--pink-hi)">Não tem preço</b></div>
-          <div class="row tot"><span><b style="font-size:16px">Total</b></span><b>R$ 15.385</b></div>
+          <div class="row tot"><span><b style="font-size:16px">Total</b></span><b>R$ 18.385</b></div>
         </div>
       </div>
       <div class="card price">
         <div class="ex">Exclusivo para alunos e ex-alunos</div>
-        <div class="de">De <s>R$ 15.385</s> por</div>
+        <div class="de">De <s>R$ 18.385</s> por</div>
         <div class="por"><small>12x</small>R$ 397</div>
         <div class="av">ou <b>R$ 3.997 à vista</b> no cartão ou no pix</div>
         <div class="eq">Vitalício + todos os bônus pelo valor de 2 anos de acesso</div>
@@ -538,7 +553,7 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
       <details><summary>Quem pode comprar?</summary><p>Somente alunos e ex-alunos da OdonConcursos. É uma condição de agradecimento a quem já estudou com a gente.</p></details>
       <details><summary>O que exatamente fica vitalício?</summary><p>O Concurseiro PRO e a plataforma OdonQuestões, incluindo as melhorias e áreas novas que chegarem.</p></details>
       <details><summary>Como funciona a pós-graduação?</summary><p>É um bônus. A matrícula abre a partir de 1º de dezembro e você escolhe quando se matricular. A partir da matrícula, são 4 meses para concluir. A pós não é vitalícia.</p></details>
-      <details><summary>Se eu comprar depois do dia 19, perco o quê?</summary><p>Comprando até 21/10 você perde só o WhatsApp da Prof. Manu. Comprando até 31/10, perde também o kit físico. O vitalício, a Mentoria OdonClass e a pós ficam garantidos até o fim da Black.</p></details>
+      <details><summary>Se eu comprar depois do dia 19, perco o quê?</summary><p>Comprando até 21/10 você perde só o WhatsApp da Prof. Manu. Comprando até 31/10, perde também o kit físico. O vitalício, a Mentoria OdonClass, a pós e o sorteio do notebook ficam garantidos até o fim da Black.</p></details>
       <details><summary>Não tenho limite em um cartão só. E agora?</summary><p>Fale com o nosso comercial. Dá para pagar uma parte no pix e outra no cartão, ou dividir em dois cartões diferentes.</p></details>
     </div>
   </div>
@@ -588,9 +603,9 @@ const CONFIG = {
   whatsapp: '5519994565534',
   msgWhatsapp: 'Oi! Sou aluno(a) e quero saber mais sobre a Black Vitalícia.',
   fases: [ // fim de cada faixa de bônus (horário de Brasília)
-    { ate: '2026-10-19T23:59:59-03:00', data: '19/10', quando: 'Só segunda-feira', itens: 6 },
-    { ate: '2026-10-21T23:59:59-03:00', data: '21/10', quando: 'Até quarta-feira', itens: 5 },
-    { ate: '2026-10-31T23:59:59-03:00', data: '31/10', quando: 'Até sábado', itens: 4 }
+    { ate: '2026-10-19T23:59:59-03:00', data: '19/10', quando: 'Só segunda-feira', itens: 7 },
+    { ate: '2026-10-21T23:59:59-03:00', data: '21/10', quando: 'Até quarta-feira', itens: 6 },
+    { ate: '2026-10-31T23:59:59-03:00', data: '31/10', quando: 'Até sábado', itens: 5 }
   ]
 };
 const ITENS = [
@@ -598,6 +613,7 @@ const ITENS = [
   ['OdonQuestões vitalício', 'yyy'],
   ['Mentoria OdonClass', 'yyy'],
   ['Pós-graduação em Estratégia Saúde da Família', 'yyy'],
+  ['Sorteio de um notebook', 'yyy'],
   ['Kit físico OdonConcurseiro (blusa e garrafa)', 'yyn'],
   ['WhatsApp da Prof. Manu (mentoria individual)', 'ynn']
 ];
@@ -628,7 +644,7 @@ document.querySelectorAll('[data-ics]').forEach(a => a.addEventListener('click',
   e.preventDefault();
   const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//OdonConcursos//Black//PT','BEGIN:VEVENT','UID:black-vitalicia-2026@odonconcursos',
     'DTSTAMP:20261014T120000Z','DTSTART:20261019T130000Z','DTEND:20261019T133000Z','SUMMARY:Black Vitalícia Odon: carrinho aberto',
-    'DESCRIPTION:O link de pagamento sai no grupo de alunos da Black às 10h. Quem compra no dia 19 leva os 6 itens.',
+    'DESCRIPTION:O link de pagamento sai no grupo de alunos da Black às 10h. Quem compra no dia 19 leva os 7 itens.',
     'BEGIN:VALARM','TRIGGER:-PT15M','ACTION:DISPLAY','DESCRIPTION:Black Vitalícia abre em 15 min','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
   const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
   const l = document.createElement('a'); l.href = url; l.download = 'black-vitalicia-odon.ics'; document.body.appendChild(l); l.click(); l.remove();
