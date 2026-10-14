@@ -100,7 +100,7 @@ h3{font-weight:800}
 .bnt-grp{flex:none;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:900 14px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;color:#062b16;background:#25d366;padding:14px 20px;border-radius:999px;box-shadow:0 0 30px rgba(37,211,102,.35);transition:transform .2s}
 .bnt-grp:hover{transform:scale(1.04)}
 .bnt-grp svg{width:18px;height:18px}
-.sk-l a{display:inline-block;margin-top:6px;text-decoration:none;font:900 11px/1 var(--display);letter-spacing:.04em;color:#062b16;background:#25d366;padding:7px 10px;border-radius:999px}
+.sk-l a{display:inline-block;margin-top:6px;text-decoration:none;font:900 11px/1 var(--display);letter-spacing:.04em;color:#062b16;background:#25d366;padding:7px 10px;border-radius:999px;white-space:nowrap;text-transform:none}
 
 /* cards genéricos */
 .card{background:var(--panel);border:1px solid var(--line);border-radius:26px;padding:28px}
@@ -662,7 +662,7 @@ function tick() {
   document.getElementById('clockLabel').textContent = label;
   document.querySelector('[data-label2]').textContent = state === 'pre' ? 'O carrinho abre em' : label;
   document.getElementById('heroPill').textContent = pill;
-  const short = { pre: `Carrinho abre 19/10<br><a href="${CONFIG.grupo}" target="_blank" rel="noopener">Entrar no grupo ›</a>`, f0: 'WhatsApp da<br><b>Prof. Manu acaba em</b>', f1: 'Kit físico<br><b>sai da oferta em</b>', f2: 'A Black<br><b>termina em</b>', end: 'Black<br><b>encerrada</b>' };
+  const short = { pre: `Abre 19/10 · 10h<br><a href="${CONFIG.grupo}" target="_blank" rel="noopener">Entrar no grupo ›</a>`, f0: 'WhatsApp da<br><b>Prof. Manu acaba em</b>', f1: 'Kit físico<br><b>sai da oferta em</b>', f2: 'A Black<br><b>termina em</b>', end: 'Black<br><b>encerrada</b>' };
   document.querySelector('[data-label3]').innerHTML = short[state];
 
   const open = state !== 'pre' && state !== 'end';
