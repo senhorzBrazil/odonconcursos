@@ -133,6 +133,18 @@ h3{font-weight:800}
 .bonus .cols>div{background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
 .bonus .cols h4{font:800 14px/1.2 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--pink-hi)}
 .bonus .cols ul{margin-top:8px}
+.bonus .val{display:block;margin-top:16px;font:700 12px/1.3 var(--body);letter-spacing:0;text-transform:none;color:var(--mute)}
+.bonus .val s{display:block;font:900 22px/1.1 var(--display);color:#fff;text-decoration-color:var(--pink);text-decoration-thickness:3px;margin-top:2px}
+.bonus .val s.np{font-size:15px;text-decoration:none;color:var(--pink-hi)}
+.bonus .val em{display:inline-block;margin-top:8px;font:800 10px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:#0b0b0e;background:#5ee39a;padding:6px 8px;border-radius:999px;white-space:nowrap}
+.bonus.lost .val em{display:none}
+.bsum{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin-top:24px;padding:26px 30px;border-radius:28px;border:1px solid rgba(238,42,123,.6);background:radial-gradient(70% 120% at 50% 0%,rgba(238,42,123,.22),transparent 70%),var(--panel)}
+.bsum>div{text-align:center}
+.bsum small{display:block;font:800 12px/1.2 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.bsum b{display:block;font:900 clamp(38px,5vw,54px)/1.05 var(--display);letter-spacing:-.03em;margin:6px 0 4px;text-decoration:line-through;text-decoration-color:var(--pink);text-decoration-thickness:4px}
+.bsum b.z{text-decoration:none;color:#5ee39a;text-shadow:0 0 30px rgba(94,227,154,.35)}
+.bsum span{font-size:14px;color:#cfcbd8}
+.bsum .eq{font:900 40px/1 var(--display);color:var(--pink-hi)}
 .bonus.feature{border-color:rgba(238,42,123,.55);background:linear-gradient(160deg,rgba(238,42,123,.2),rgba(238,42,123,.02) 55%),var(--panel)}
 .bonus .side{display:grid;grid-template-columns:1fr 220px;gap:24px;align-items:center}
 .bonus .ph{border-radius:18px;aspect-ratio:1;background:center/cover no-repeat;border:1px solid var(--line)}
@@ -241,6 +253,8 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
   .tiers{grid-template-columns:1fr}
   .bonus{grid-template-columns:1fr;gap:10px;padding:22px}
   .bonus .num b{display:inline;font-size:inherit;color:var(--pink-hi);margin:0}
+  .bonus .val{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:8px}.bonus .val s{display:inline;font-size:19px;margin:0}.bonus .val em{margin:0}
+  .bsum{grid-template-columns:1fr;gap:6px;padding:22px}.bsum .eq{font-size:28px}
   .bonus .side{grid-template-columns:1fr}
   .bonus .ph{aspect-ratio:16/10}
   .bonus .cols{grid-template-columns:1fr}
@@ -356,7 +370,7 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
 
     <div class="bonus-list">
       <article class="bonus">
-        <div class="num">Bônus<b>01</b></div>
+        <div class="num">Bônus<b>01</b><span class="val">Vale <s>R$ 3.000</s><em>Para você: grátis</em></span></div>
         <div>
           <h3>Mentoria OdonClass</h3>
           <p>Encontros ao vivo para você estudar com método, exclusivos para alunos do PRO.</p>
@@ -368,7 +382,7 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
       </article>
 
       <article class="bonus feature">
-        <div class="num">Bônus<b>02</b></div>
+        <div class="num">Bônus<b>02</b><span class="val">Vale <s>R$ 4.000</s><em>Para você: grátis</em></span></div>
         <div class="side">
           <div>
             <h3>Pós-graduação em Estratégia Saúde da Família</h3>
@@ -380,7 +394,7 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
       </article>
 
       <article class="bonus" data-until="2026-10-21T23:59:59-03:00">
-        <div class="num">Bônus<b>03</b></div>
+        <div class="num">Bônus<b>03</b><span class="val">Vale <s>R$ 200</s><em>Para você: grátis</em></span></div>
         <div class="side">
           <div>
             <span class="lim" data-lim>Só para quem comprar até 21/10</span>
@@ -392,7 +406,7 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
       </article>
 
       <article class="bonus" data-until="2026-10-19T23:59:59-03:00">
-        <div class="num">Bônus<b>04</b></div>
+        <div class="num">Bônus<b>04</b><span class="val">Vale <s class="np">Não tem preço</s><em>Para você: grátis</em></span></div>
         <div class="side">
           <div>
             <span class="lim" data-lim>Só para quem comprar no dia 19/10</span>
@@ -402,6 +416,11 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
           <div class="ph" style="background-image:url(/lp/concurso/black-vitalicia-alunos/img/manu.jpg);background-position:center 15%" role="img" aria-label="Prof. Manu"></div>
         </div>
       </article>
+    </div>
+    <div class="bsum">
+      <div><small>Só em bônus</small><b>R$ 7.200</b><span>+ WhatsApp da Prof. Manu, que não tem preço</span></div>
+      <div class="eq">→</div>
+      <div><small>Para quem compra o vitalício</small><b class="z">R$ 0</b><span>todos entram de presente</span></div>
     </div>
   </div>
 </section>
