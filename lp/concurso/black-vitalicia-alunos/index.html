@@ -96,6 +96,11 @@ h3{font-weight:800}
 .notice svg{flex:none;width:28px;height:28px;stroke:var(--gold);fill:none;stroke-width:2.2}
 .notice b{font-family:var(--display);font-weight:800}
 .notice p{color:#e2dfe8;font-size:16px}
+.n-body{display:flex;align-items:center;gap:18px;flex:1}
+.bnt-grp{flex:none;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:900 14px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;color:#062b16;background:#25d366;padding:14px 20px;border-radius:999px;box-shadow:0 0 30px rgba(37,211,102,.35);transition:transform .2s}
+.bnt-grp:hover{transform:scale(1.04)}
+.bnt-grp svg{width:18px;height:18px}
+.sk-l a{display:inline-block;margin-top:6px;text-decoration:none;font:900 11px/1 var(--display);letter-spacing:.04em;color:#062b16;background:#25d366;padding:7px 10px;border-radius:999px}
 
 /* cards genéricos */
 .card{background:var(--panel);border:1px solid var(--line);border-radius:26px;padding:28px}
@@ -273,6 +278,7 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
   .topbar .tag span{display:none}
   .pill{font-size:10.5px;letter-spacing:.06em;white-space:nowrap}
   .notice{margin-top:-20px}
+  .n-body{flex-direction:column;align-items:stretch;gap:14px}.bnt-grp{justify-content:center}
   .mosaic{grid-template-columns:repeat(4,1fr)}
   .mosaic i:nth-child(n+9){display:none}
 }
@@ -317,7 +323,10 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
 <div class="wrap">
   <div class="notice">
     <svg viewBox="0 0 24 24"><path d="M12 3 2 21h20L12 3z"/><path d="M12 10v5M12 18h.01"/></svg>
-    <p id="noticeTxt"><b>O link de pagamento sai no grupo.</b> Ele é enviado no grupo "Grupo fechado alunos · Black Odon" na segunda, 19/10, às 10h. Abrimos só nesse dia para todo mundo ter tempo de separar o cartão e se programar.</p>
+    <div class="n-body">
+      <p id="noticeTxt"><b>Entre para o grupo e receba a oferta.</b> O link de pagamento sai só no grupo "Grupo fechado alunos · Black Odon", na segunda, 19/10, às 10h. Quem não estiver no grupo não recebe.</p>
+      <a class="bnt-grp" data-grupo target="_blank" rel="noopener" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Entrar no grupo</a>
+    </div>
   </div>
 </div>
 
@@ -525,7 +534,7 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
   <div class="wrap">
     <div class="center"><span class="eyebrow">Dúvidas</span><h2>Perguntas <span class="g1">frequentes</span></h2></div>
     <div class="faq">
-      <details><summary>Quando e onde eu compro?</summary><p>Na segunda-feira, 19/10, às 10h. O link de pagamento é enviado no grupo fechado de alunos da Black. Antes disso não há link de compra.</p></details>
+      <details><summary>Quando e onde eu compro?</summary><p>Na segunda-feira, 19/10, às 10h. O link de pagamento é enviado só no grupo fechado de alunos da Black, então entre no grupo antes. Antes disso não há link de compra.</p></details>
       <details><summary>Quem pode comprar?</summary><p>Somente alunos e ex-alunos da OdonConcursos. É uma condição de agradecimento a quem já estudou com a gente.</p></details>
       <details><summary>O que exatamente fica vitalício?</summary><p>O Concurseiro PRO e a plataforma OdonQuestões, incluindo as melhorias e áreas novas que chegarem.</p></details>
       <details><summary>Como funciona a pós-graduação?</summary><p>É um bônus. A matrícula abre a partir de 1º de dezembro e você escolhe quando se matricular. A partir da matrícula, são 4 meses para concluir. A pós não é vitalícia.</p></details>
@@ -612,6 +621,7 @@ for (let i = 1; i <= 18; i++) { const el = document.createElement('i'); el.style
 
 const wa = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.msgWhatsapp)}`;
 document.getElementById('waBtn').href = wa;
+document.querySelectorAll('[data-grupo]').forEach(a => a.href = CONFIG.grupo);
 
 // lembrete .ics (19/10 10h BRT = 13h UTC)
 document.querySelectorAll('[data-ics]').forEach(a => a.addEventListener('click', e => {
@@ -652,7 +662,7 @@ function tick() {
   document.getElementById('clockLabel').textContent = label;
   document.querySelector('[data-label2]').textContent = state === 'pre' ? 'O carrinho abre em' : label;
   document.getElementById('heroPill').textContent = pill;
-  const short = { pre: 'Carrinho abre<br><b>19/10 às 10h</b>', f0: 'WhatsApp da<br><b>Prof. Manu acaba em</b>', f1: 'Kit físico<br><b>sai da oferta em</b>', f2: 'A Black<br><b>termina em</b>', end: 'Black<br><b>encerrada</b>' };
+  const short = { pre: `Carrinho abre 19/10<br><a href="${CONFIG.grupo}" target="_blank" rel="noopener">Entrar no grupo ›</a>`, f0: 'WhatsApp da<br><b>Prof. Manu acaba em</b>', f1: 'Kit físico<br><b>sai da oferta em</b>', f2: 'A Black<br><b>termina em</b>', end: 'Black<br><b>encerrada</b>' };
   document.querySelector('[data-label3]').innerHTML = short[state];
 
   const open = state !== 'pre' && state !== 'end';
@@ -661,7 +671,7 @@ function tick() {
   if (state === 'end') document.getElementById('noticeTxt').innerHTML = '<b>A Black Vitalícia foi encerrada.</b> Obrigado a todos os alunos que participaram.';
   document.querySelectorAll('[data-cta]').forEach(a => {
     a.classList.remove('wait');
-    if (state === 'pre') { a.textContent = a.closest('.hero') ? 'Ver todos os bônus' : 'Carrinho abre 19/10 às 10h'; a.href = '#bonus'; a.removeAttribute('target'); }
+    if (state === 'pre') { a.textContent = 'Entrar no grupo e receber a oferta'; a.href = CONFIG.grupo; a.target = '_blank'; }
     else if (open && CONFIG.checkout) { a.textContent = 'Quero o vitalício'; a.href = CONFIG.checkout; a.target = '_blank'; }
     else if (open) { a.textContent = 'Carrinho aberto: link no grupo'; a.href = CONFIG.grupo; a.target = '_blank'; }
     else { a.textContent = 'Oferta encerrada'; a.removeAttribute('href'); a.classList.add('wait'); }
@@ -684,6 +694,10 @@ function tick() {
     st.style.display = cur || over ? '' : 'none';
   });
 }
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="https://chat.whatsapp.com"]');
+  if (a && typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'Grupo Black Vitalícia alunos' });
+});
 tick(); setInterval(tick, 1000);
 </script>
 </body>
