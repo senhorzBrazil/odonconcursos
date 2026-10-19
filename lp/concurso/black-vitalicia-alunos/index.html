@@ -637,9 +637,9 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
 <script>
 /* ============ CONFIG ============ */
 const CONFIG = {
-  abertura: '2026-10-19T10:00:00-03:00',
+  abertura: '2026-10-19T09:55:00-03:00', // botões viram link de compra neste horário
   // Link de pagamento. Deixe null para a página só avisar que o link está no grupo.
-  checkout: null,
+  checkout: 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=TWFydWxISm1QNFRBSDJueUI5aDd6dz09',
   grupo: 'https://chat.whatsapp.com/F1tDakKzeBh9TcWuDJlM8o',
   whatsapp: '5519994565534',
   msgWhatsapp: 'Oi! Sou aluno(a) e quero saber mais sobre a Black Vitalícia.',
@@ -724,7 +724,9 @@ function tick() {
 
   const open = state !== 'pre' && state !== 'end';
   document.querySelectorAll('[data-ics]').forEach(x => x.style.display = state === 'pre' ? '' : 'none');
-  if (open) document.getElementById('noticeTxt').innerHTML = '<b>Carrinho aberto.</b> O link de pagamento está no grupo "Grupo fechado alunos · Black Odon". Ficou com dúvida? Fale com o nosso comercial.';
+  if (open) document.getElementById('noticeTxt').innerHTML = CONFIG.checkout
+    ? `<b>Carrinho aberto.</b> <a href="${CONFIG.checkout}" target="_blank" rel="noopener">Clique aqui para garantir o vitalício</a>. Ficou com dúvida? Fale com o nosso comercial.`
+    : '<b>Carrinho aberto.</b> O link de pagamento está no grupo "Grupo fechado alunos · Black Odon". Ficou com dúvida? Fale com o nosso comercial.';
   if (state === 'end') document.getElementById('noticeTxt').innerHTML = '<b>A Black Vitalícia foi encerrada.</b> Obrigado a todos os alunos que participaram.';
   document.querySelectorAll('[data-cta]').forEach(a => {
     a.classList.remove('wait');
