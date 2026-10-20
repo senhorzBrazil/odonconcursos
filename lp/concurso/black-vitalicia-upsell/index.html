@@ -58,7 +58,7 @@ h2{font-size:clamp(28px,4.4vw,44px);font-weight:900}
 @keyframes pulse{50%{opacity:.25}}
 .vsl-sec h1{font-size:clamp(28px,5vw,52px);font-weight:900;letter-spacing:-.03em;margin:18px auto 10px;max-width:860px}
 .vsl-sec .sub{color:#d6d2dd;max-width:640px;margin:0 auto;font-size:18px}
-.player{position:relative;margin:30px auto 0;max-width:400px;border-radius:22px;padding:6px;background:linear-gradient(140deg,rgba(238,42,123,.9),rgba(139,107,255,.6) 50%,rgba(238,42,123,.9));
+.player{position:relative;margin:14px auto 0;max-width:400px;border-radius:22px;padding:6px;background:linear-gradient(140deg,rgba(238,42,123,.9),rgba(139,107,255,.6) 50%,rgba(238,42,123,.9));
   box-shadow:0 0 60px rgba(238,42,123,.35),0 30px 80px rgba(0,0,0,.6)}
 .player .ratio{position:relative;aspect-ratio:9/16;border-radius:17px;overflow:hidden;background:#000}
 .player video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
@@ -67,7 +67,7 @@ h2{font-size:clamp(28px,4.4vw,44px);font-weight:900}
 .play svg{width:34px;height:34px;fill:#fff;margin-left:5px}
 .play.hide{display:none}
 .decline{margin-top:18px;color:#cfcbd8}
-.sound{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;font:700 14px/1.3 var(--body);color:var(--mute)}
+.sound{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;font:700 14px/1.3 var(--body);color:var(--mute)}
 .sound svg{width:18px;height:18px;stroke:var(--pink-hi);fill:none;stroke-width:2.2;flex:none}
 
 /* oferta (escondida até 33 min) */
@@ -152,7 +152,7 @@ footer{padding:30px 0 40px;text-align:center;color:#6f6b78;font-size:13px;border
   body{font-size:16px}
   .wrap{padding:0 16px}
   .vsl-sec{padding:28px 0 32px}
-  .player{margin-top:22px;border-radius:16px;padding:4px}.player .ratio{border-radius:12px}
+  .player{margin-top:12px;border-radius:16px;padding:4px}.player .ratio{border-radius:12px}
   .pill{font-size:10.5px;letter-spacing:.06em}
   .bnt1{width:100%;padding:18px 20px;font-size:15px}
   .final .bnt2{width:100%}
@@ -171,8 +171,8 @@ footer{padding:30px 0 40px;text-align:center;color:#6f6b78;font-size:13px;border
   <div class="wrap center">
     <span class="pill"><i></i>Condição exclusiva para você</span>
     <h1>Enquanto sua compra é processada, a <span class="g1">Prof. Manu tem um recado importante</span> para você</h1>
-    <div class="player"><div class="ratio"><video id="vsl" src="/lp/concurso/black-vitalicia-upsell/vsl.mp4" poster="/lp/concurso/black-vitalicia-upsell/capa.jpg" playsinline preload="metadata"></video><button class="play" id="playBtn" aria-label="Assistir ao vídeo"><span><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span></button></div></div>
     <div class="sound"><svg viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>Ligue o som e assista com atenção</div>
+    <div class="player"><div class="ratio"><video id="vsl" src="/lp/concurso/black-vitalicia-upsell/vsl.mp4" poster="/lp/concurso/black-vitalicia-upsell/capa.jpg" playsinline preload="metadata"></video><button class="play" id="playBtn" aria-label="Assistir ao vídeo"><span><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span></button></div></div>
 
     <div class="locked cta-box" id="ctaTop">
       <a class="bnt1" data-cta href="#"><span class="cta-2l">Quero aproveitar<small>12x R$ 397 · acesso vitalício</small></span></a>
