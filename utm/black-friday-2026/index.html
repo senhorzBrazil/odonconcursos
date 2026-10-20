@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>UTMs Lista de Espera Black</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: coluna única; cada canal é um bloco com linhas local → link → copiar */
+:root{
+  --bg:#f7f5f8; --card:#ffffff; --ink:#17121a; --muted:#6b6070; --line:#e6e0e9;
+  --accent:#d6197a; --accent-soft:#fde8f2; --ok:#1d8a4e;
+  --display:'Montserrat',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:980px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+header{display:flex;flex-direction:column;gap:10px}
+.eyebrow{font:600 12px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font:900 clamp(26px,5vw,40px)/1.05 var(--display);margin:0;text-wrap:balance}
+.lead{color:var(--muted);max-width:65ch;margin:0}
+.base{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;color:var(--muted)}
+.base code{font-family:var(--mono);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:2px 6px;word-break:break-all}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+section h2{font:800 16px var(--display);margin:0;padding:14px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+section h2 small{font:500 12px var(--body);color:var(--muted)}
+.row{display:grid;grid-template-columns:170px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 18px;border-top:1px solid var(--line)}
+section h2+.row{border-top:0}
+.local{font-weight:600}
+.local span{display:block;font-weight:400;font-size:12px;color:var(--muted)}
+.url{font:400 12.5px/1.45 var(--mono);color:var(--ink);word-break:break-all;min-width:0;cursor:pointer;border-radius:6px;padding:4px 6px;margin:-4px -6px}
+.url:hover{background:var(--accent-soft)}
+.url b{font-weight:500;color:var(--accent)}
+button{font:600 13px var(--body);border:1px solid var(--accent);color:var(--accent);background:var(--card);border-radius:999px;padding:7px 16px;cursor:pointer;white-space:nowrap;min-width:92px}
+button:hover{background:var(--accent-soft)}
+button:focus-visible,.url:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.done{border-color:var(--ok);color:var(--ok)}
+.note{font-size:13px;color:var(--muted);padding:12px 18px;border-top:1px solid var(--line);background:#fbfafc}
+.note code{font-family:var(--mono);font-size:12px;color:var(--ink)}
+@media (max-width:640px){.row{grid-template-columns:minmax(0,1fr) auto}.url{grid-column:1/-1;grid-row:2}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">OdonConcursos · Black Friday 2026</div>
+    <h1>Links da lista de espera por local</h1>
+    <p class="lead">Use o link do local onde ele vai ser postado. A página já grava source, medium, campaign, content e term junto com o cadastro, então dá para ver na planilha de onde veio cada lead. Clique no link ou em Copiar.</p>
+    <div class="base">
+      <span>Página <code>mkt.odonconcursospage.com/lp/concurso/black-friday-lista-espera/</code></span>
+      <span>Campanha <code>black-friday-2026</code></span>
+    </div>
+  </header>
+  <div id="list"></div>
+</div>
+
+<script>
+const BASE='https://mkt.odonconcursospage.com/lp/concurso/black-friday-lista-espera/';
+const CAMP='black-friday-2026';
+const GROUPS=[
+  {canal:'Instagram',hint:'orgânico',items:[
+    ['Link da bio','perfil @odonconcursos','instagram','bio'],
+    ['Stories','figurinha de link','instagram','stories'],
+    ['Post no feed','link na legenda / comentário','instagram','feed'],
+    ['Reels','link na legenda / comentário','instagram','reels'],
+    ['Direct','resposta manual ou automação','instagram','direct'],
+  ]},
+  {canal:'WhatsApp',hint:'orgânico',items:[
+    ['Grupos','mensagem nos grupos da Odon','whatsapp','grupo'],
+    ['Disparo','SendFlow / lista de contatos','whatsapp','disparo'],
+    ['Status','status do número comercial','whatsapp','status'],
+    ['Atendimento','enviado pelo comercial no 1:1','whatsapp','comercial'],
+  ]},
+  {canal:'E-mail',hint:'Mailchimp',items:[
+    ['Newsletter','audiência Odon Concurso','email','newsletter'],
+  ]},
+  {canal:'Site e plataforma',hint:'próprios',items:[
+    ['Banner da home','odonconcursos.com.br','site','banner-home'],
+    ['Notícias / blog','mkt.odonconcursospage.com/noticia','site','noticia'],
+    ['Aviso na plataforma','alunos logados','plataforma','aviso'],
+  ]},
+  {canal:'YouTube e lives',hint:'orgânico',items:[
+    ['Descrição do vídeo','vídeos do canal','youtube','descricao'],
+    ['Live / aula ao vivo','link no chat ou na tela','youtube','live'],
+  ]},
+];
+
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+function url(src,med,content,term){
+  let u=`${BASE}?utm_source=${src}&utm_medium=${med}&utm_campaign=${CAMP}`;
+  if(content) u+=`&utm_content=${content}`;
+  if(term) u+=`&utm_term=${term}`;
+  return u;
+}
+function pretty(u){return esc(u).replace(/(utm_[a-z]+)=/g,'<b>$1</b>=');}
+function row(local,sub,u){
+  return `<div class="row"><div class="local">${esc(local)}<span>${esc(sub)}</span></div>
+  <div class="url" tabindex="0" data-copy="${esc(u)}">${pretty(u)}</div>
+  <button type="button" data-copy="${esc(u)}">Copiar</button></div>`;
+}
+let html='';
+for(const g of GROUPS){
+  html+=`<section><h2>${g.canal}<small>${g.hint}</small></h2>`;
+  for(const [l,s,src,med] of g.items) html+=row(l,s,url(src,med));
+  html+=`</section>`;
+}
+// Mídia paga: parâmetros dinâmicos
+const metaParams=`utm_source=facebook&utm_medium=cpc&utm_campaign=${CAMP}&utm_content={{ad.name}}&utm_term={{adset.name}}`;
+const googleTpl=`{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign=${CAMP}&utm_content={creative}&utm_term={keyword}`;
+html+=`<section><h2>Mídia paga<small>parâmetros dinâmicos</small></h2>
+${row('Meta Ads · URL','campo "URL do site" do anúncio',BASE)}
+${row('Meta Ads · parâmetros','campo "Parâmetros de URL"',metaParams)}
+${row('Google Ads','modelo de acompanhamento',googleTpl)}
+<div class="note">No Meta, deixe a URL limpa e cole os parâmetros no campo próprio: <code>{{ad.name}}</code> e <code>{{adset.name}}</code> viram o nome do anúncio e do conjunto. No Google, o modelo vai em Configurações da campanha → Opções de URL; <code>{keyword}</code> preenche a palavra-chave e <code>{creative}</code> o ID do anúncio.</div>
+</section>`;
+document.getElementById('list').outerHTML=`<div style="display:flex;flex-direction:column;gap:20px">${html}</div>`;
+
+function flash(btn){
+  if(!btn) return;
+  btn.textContent='Copiado'; btn.classList.add('done');
+  setTimeout(()=>{btn.textContent='Copiar';btn.classList.remove('done')},1400);
+}
+function selectText(el){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);}
+document.addEventListener('click',e=>{
+  const el=e.target.closest('[data-copy]'); if(!el) return;
+  const rowEl=el.closest('.row'); const btn=rowEl.querySelector('button'); const txt=rowEl.querySelector('.url');
+  const v=el.dataset.copy;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(v).then(()=>flash(btn),()=>selectText(txt));
+  } else selectText(txt);
+});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList.contains('url'))e.target.click();});
+</script>
+</body>
+</html>
