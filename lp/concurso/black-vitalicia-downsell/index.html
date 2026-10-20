@@ -262,6 +262,7 @@ footer{padding:30px 0 40px;text-align:center;color:#6f6b78;font-size:13px;border
 <script>
 /* ============ CONFIG ============ */
 const CONFIG = {
+  ctaSempre: true, // TEMPORÁRIO p/ revisão: true = CTA aparece sem esperar o vídeo; voltar para false
   liberarEm: 10, // 0:10 do vídeo = momento do preço; antes disso o botão fica escondido
   linkRecusa: 'https://odonconcursos.com.br/',
   checkout: 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=REhGVTZwUDlIRU09&vch=PROQQ1597&utm_campaign=black_2anos',
@@ -294,12 +295,12 @@ function liberar(rolar) {
   if (liberado) return;
   liberado = true;
   document.body.classList.add('reveal');
-  store.set('1');
+  if (!CONFIG.ctaSempre) store.set('1');
   try { fbq('trackCustom', 'VSL_Oferta_Liberada'); } catch(e) {}
   if (rolar) document.getElementById('ctaTop').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 // já liberou antes neste navegador, ou ?cta=1 para testar
-if (store.get() === '1' || qs.get('cta') === '1') liberar(false);
+if (CONFIG.ctaSempre || store.get() === '1' || qs.get('cta') === '1') liberar(false);
 
 // player: libera quando o vídeo chega no preço (0:10)
 const vid = document.getElementById('vsl'), playBtn = document.getElementById('playBtn');
