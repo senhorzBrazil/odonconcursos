@@ -283,6 +283,7 @@ footer{padding:30px 0 40px;text-align:center;color:#6f6b78;font-size:13px;border
 const CONFIG = {
   ctaSempre: false, // true = CTA aparece sem esperar o vídeo (só para revisão)
   liberarEm: 4 * 60 + 32, // 4:32 do vídeo = momento do preço; antes disso o botão fica escondido
+  velocidade: 1.2, // velocidade do vídeo (o liberarEm conta no tempo do vídeo, não muda)
   linkRecusa: '/lp/concurso/black-vitalicia-downsell/', // "Não quero aproveitar" leva ao downsell (repassa a query string)
   checkout: 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=TWFydWxISm1QNFRBSDJueUI5aDd6dz09&vch=VITABLK3000&utm_source=upsell_vitalicio',
   kitAte: '2026-10-21T23:59:59-03:00',
@@ -329,8 +330,11 @@ if (CONFIG.ctaSempre || store.get() === '1' || qs.get('cta') === '1') liberar(fa
 
 // player: libera quando o vídeo chega no preço (4:32)
 const vid = document.getElementById('vsl'), playBtn = document.getElementById('playBtn');
+vid.defaultPlaybackRate = vid.playbackRate = CONFIG.velocidade;
+vid.preservesPitch = vid.webkitPreservesPitch = true;
+vid.addEventListener('loadedmetadata', () => { vid.playbackRate = CONFIG.velocidade; });
 playBtn.addEventListener('click', () => { vid.controls = true; vid.play(); });
-vid.addEventListener('play', () => { playBtn.classList.add('hide'); fbqOnce('VSL_Play'); });
+vid.addEventListener('play', () => { vid.playbackRate = CONFIG.velocidade; playBtn.classList.add('hide'); fbqOnce('VSL_Play'); });
 vid.addEventListener('timeupdate', () => { if (!liberado && vid.currentTime >= CONFIG.liberarEm) liberar(true); });
 vid.addEventListener('ended', () => fbqOnce('VSL_Fim'));
 const sent = {};
