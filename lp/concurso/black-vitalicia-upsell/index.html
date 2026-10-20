@@ -41,8 +41,15 @@ h2{font-size:clamp(28px,4.4vw,44px);font-weight:900}
 .center{text-align:center}
 
 /* barra topo */
-.topbar{background:var(--pink);text-align:center;padding:10px 16px;font:800 13px/1.3 var(--display);letter-spacing:.06em;text-transform:uppercase}
-.topbar b{color:#050505}
+.proc{position:sticky;top:0;z-index:70;background:#111015;border-bottom:1px solid var(--line);box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.proc .in{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 16px;text-align:left}
+.proc .spin{flex:none;width:22px;height:22px;border-radius:50%;border:3px solid rgba(238,42,123,.25);border-top-color:var(--pink-hi);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.proc b{display:block;font:800 15px/1.2 var(--display);letter-spacing:-.01em}
+.proc small{display:block;font-size:13px;color:var(--mute);margin-top:2px}
+.proc .bar{height:4px;background:rgba(238,42,123,.15);overflow:hidden}
+.proc .bar i{display:block;height:100%;width:40%;background:linear-gradient(90deg,transparent,var(--pink-hi),var(--pink),transparent);animation:load 1.6s ease-in-out infinite}
+@keyframes load{from{transform:translateX(-100%)}to{transform:translateX(250%)}}
 
 /* VSL */
 .vsl-sec{padding:44px 0 40px;background:radial-gradient(60% 50% at 50% 0%,rgba(238,42,123,.28),transparent 70%),#000}
@@ -158,13 +165,13 @@ footer{padding:30px 0 40px;text-align:center;color:#6f6b78;font-size:13px;border
 </head>
 <body>
 
-<div class="topbar">Parabéns pela matrícula! <b>Assista antes de começar</b></div>
+<div class="proc" role="status"><div class="in"><span class="spin"></span><div><b>Sua compra está sendo processada…</b><small>Não feche esta página. Enquanto isso, assista ao vídeo.</small></div></div><div class="bar"><i></i></div></div>
 
 <!-- VSL -->
 <section class="vsl-sec">
   <div class="wrap center">
     <span class="pill"><i></i>Condição exclusiva para você</span>
-    <h1>Parabéns! Seu curso vale até a prova. <span class="g1">Veja como estudar para sempre</span></h1>
+    <h1>Parabéns! Seu curso vale até a prova. <span class="g1">Veja como ter acesso até a sua aprovação</span></h1>
     <p class="sub">Antes de começar, assista a este vídeo curto. Tem uma condição que abrimos só para quem acabou de entrar.</p>
     <div class="player"><div class="ratio"><video id="vsl" src="/lp/concurso/black-vitalicia-upsell/vsl.mp4" poster="/lp/concurso/black-vitalicia-upsell/capa.jpg" playsinline preload="metadata"></video><button class="play" id="playBtn" aria-label="Assistir ao vídeo"><span><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span></button></div></div>
     <div class="sound"><svg viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>Ligue o som e assista com atenção</div>
