@@ -504,18 +504,8 @@
       </h1>
 
       <p class="hero-desc fade-in delay-3">
-        Abre <strong>sábado, 10 de outubro, às 14h</strong> e você responde até <strong>domingo, 11, às 23h59</strong>. Dispute o <strong>ranking</strong> com dentistas de todo o Brasil por uma vaga de <strong>Analista Judiciário</strong> com inicial de <strong>R$ 16.040,88</strong>. Questões no estilo da <strong>FCC</strong>: o edital já saiu e a prova é em <strong>17 de janeiro</strong>.
+        Responda no seu tempo, de onde estiver, e dispute o <strong>ranking</strong> com dentistas de todo o Brasil por uma vaga de <strong>Analista Judiciário</strong> com inicial de <strong>R$ 16.040,88</strong>. Questões no estilo da <strong>FCC</strong>: o edital já saiu e a prova é em <strong>17 de janeiro</strong>.
       </p>
-
-      <div class="cta-timer fade-in delay-3">
-        <span class="cta-timer-label js-timer-label">O simulado do TRT 8 abre sábado, 10/10, às 14h. Faltam:</span>
-        <span class="cta-timer-clock js-cta-timer">
-          <span class="cta-timer-box"><b data-dd>00</b><i>dias</i></span>
-          <span class="cta-timer-box"><b data-hh>00</b><i>horas</i></span>
-          <span class="cta-timer-box"><b data-mm>00</b><i>min</i></span>
-          <span class="cta-timer-box"><b data-ss>00</b><i>seg</i></span>
-        </span>
-      </div>
 
       <div class="hero-ctas fade-in delay-4">
         <a onclick="openModal()" class="bnt1">
@@ -527,7 +517,7 @@
       <div class="cta-micro fade-in delay-4">
         <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>100% gratuito</span>
         <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Com ranking nacional</span>
-        <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>10 e 11 de outubro</span>
+        <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Online, no seu tempo</span>
       </div>
     </div>
     <span class="photo-credit">Foto: Mercado Ver-o-Peso, Belém · Cayambe / Wikimedia Commons, CC BY-SA 3.0</span>
@@ -542,7 +532,7 @@
       </button>
       <div class="modal-body">
         <h3 id="modalTitle">Entrar no simulado com ranking</h3>
-        <p class="modal-text">Preencha seus dados e garanta sua vaga no simulado do concurso do TRT 8 para Odontologia. Ele abre sábado, 10 de outubro, às 14h, e fica no ar até domingo, 11, às 23h59 — com ranking nacional.</p>
+        <p class="modal-text">Preencha seus dados e garanta sua vaga no simulado do concurso do TRT 8 para Odontologia. Você recebe o acesso no grupo do WhatsApp, com ranking nacional.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -637,7 +627,7 @@
         nome: nome,
         email: document.getElementById('su-email').value,
         telefone: '+' + countryCode + phoneDigits,
-        evento: 'Simulado com ranking · Odontologia TRT 8 (10 e 11/10)',
+        evento: 'Simulado com ranking · Odontologia TRT 8',
         origem: 'LP simulado ranking TRT 8 dentista',
         data_contato: now.toISOString(),
         data_contato_br: now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR'),
@@ -674,48 +664,6 @@
       const REDIRECT_URL = 'https://mkt.odonconcursospage.com/lp/concurso/trt8-simulado-obrigado/';
       setTimeout(() => { window.location.href = REDIRECT_URL; }, 1200);
     });
-
-    /* ─── Contador do simulado: abre 10/10/2026 14h, encerra 11/10/2026 23h59 ─── */
-    (function () {
-      const ABRE    = new Date(2026, 9, 10, 14, 0, 0, 0).getTime();  // mês 9 = outubro
-      const ENCERRA = new Date(2026, 9, 11, 23, 59, 0, 0).getTime();
-      const clocks = document.querySelectorAll('.js-cta-timer');
-      if (!clocks.length) return;
-      const labels = document.querySelectorAll('.js-timer-label');
-      const pad = (n) => String(n).padStart(2, '0');
-
-      function tick() {
-        const agora = Date.now();
-
-        // Antes de sábado 14h o contador aponta para a abertura; com o simulado no ar,
-        // passa a contar para o encerramento de domingo 23h59; depois disso, zera.
-        let alvo = ABRE;
-        let texto = 'O simulado do TRT 8 abre sábado, 10/10, às 14h. Faltam:';
-        if (agora >= ENCERRA) {
-          alvo = agora;
-          texto = 'O simulado do TRT 8 foi encerrado. Deixe seus dados para ser avisado do próximo.';
-        } else if (agora >= ABRE) {
-          alvo = ENCERRA;
-          texto = 'O simulado do TRT 8 está no ar. Encerra domingo, 11/10, às 23h59, em:';
-        }
-        labels.forEach(l => { l.textContent = texto; });
-
-        let diff = alvo - agora;
-        if (diff < 0) diff = 0;
-        const d = Math.floor(diff / 86400000);
-        const h = Math.floor((diff % 86400000) / 3600000);
-        const m = Math.floor((diff % 3600000) / 60000);
-        const sec = Math.floor((diff % 60000) / 1000);
-        clocks.forEach(c => {
-          c.querySelector('[data-dd]').textContent = pad(d);
-          c.querySelector('[data-hh]').textContent = pad(h);
-          c.querySelector('[data-mm]').textContent = pad(m);
-          c.querySelector('[data-ss]').textContent = pad(sec);
-        });
-      }
-      tick();
-      setInterval(tick, 1000);
-    })();
   </script>
 
 </body>
