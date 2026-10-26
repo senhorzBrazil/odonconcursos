@@ -124,10 +124,10 @@ tr.sum td{font:800 15px var(--display);color:var(--mute);text-decoration:line-th
 tr.sum td:first-child{text-decoration:none;font-family:var(--body);font-weight:600}
 tr.price td{border-bottom:none;padding:18px 8px}
 tr.price td b{display:block;font:900 20px/1 var(--display);white-space:nowrap;margin-bottom:6px}
+tr.price td b .x{display:inline;font:inherit;color:inherit;margin:0}
 tr.price td span{font-size:13px;color:var(--mute)}
 tr.price td.o b{color:var(--ouro)}tr.price td.p b{color:var(--prata)}tr.price td.b b{color:var(--bronze)}
 tr.price td.o,tr.price td.p,tr.price td.b{border-radius:0 0 12px 12px}
-.hint{display:none;font-size:12.5px;color:var(--mute);margin-top:8px}
 .steps{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
 .steps b.big{display:block;font:900 30px/1 var(--display);margin:12px 0 8px}
 
@@ -155,7 +155,9 @@ footer{padding:28px 0 40px;border-top:1px solid var(--line);font-size:13px;color
  section{padding:56px 0}
  .hero{padding:28px 0 48px}
  .hero .grid{grid-template-columns:1fr}
- .hero .photo{order:-1;max-width:300px;width:70%;margin:0 auto -40px;aspect-ratio:4/5}
+ .hero .photo{order:-1;max-width:300px;width:70%;margin:0 auto -40px;aspect-ratio:4/5;
+  -webkit-mask-image:radial-gradient(75% 65% at 50% 40%,#000 55%,transparent 100%);mask-image:radial-gradient(75% 65% at 50% 40%,#000 55%,transparent 100%)}
+ .excl{font-size:11px;letter-spacing:.06em;padding:8px 14px}
  .tiers{grid-template-columns:1fr;gap:12px;margin-top:28px}
  .tier{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:12px}
  .tier .p{grid-column:2;grid-row:1/3;margin:0;text-align:right;font-size:28px}
@@ -168,7 +170,18 @@ footer{padding:28px 0 40px;border-top:1px solid var(--line);font-size:13px;color
  .kitrow{grid-template-columns:1fr}
  .pick .card{grid-template-columns:1fr;gap:12px}
  .bar nav{display:none}
- .hint{display:block}
+ table{min-width:0;font-size:13px}
+ th,td{padding:12px 3px}
+ th:first-child,td:first-child{width:37%;padding-right:8px}
+ td small{font-size:11px}
+ thead th{font-size:11px;letter-spacing:.06em;padding:12px 2px}
+ .yes{width:20px;height:20px}
+ tr.sum td{font-size:12px}
+ tr.price td{padding:14px 2px}
+ tr.price td:first-child{font-size:13px!important}
+ tr.price td b{font-size:15px;white-space:normal;line-height:1.15}
+ tr.price td span{font-size:11px;display:block;line-height:1.3}
+ tr.price td b .x{display:block;font-size:12px}
 }
 @media (max-width:420px){
  .tier{grid-template-columns:1fr}
@@ -327,12 +340,11 @@ footer{padding:28px 0 40px;border-top:1px solid var(--line);font-size:13px;color
           <tr><td>Kit físico OdonConcurseiro<small>R$ 200</small></td><td class="o"><i class="yes"></i></td><td class="p"><span class="no">—</span></td><td class="b"><span class="no">—</span></td></tr>
           <tr><td>Mentoria individual com a Prof. Manu (WhatsApp)<small>R$ 3.997</small></td><td class="o"><i class="yes"></i></td><td class="p"><span class="no">—</span></td><td class="b"><span class="no">—</span></td></tr>
           <tr class="sum"><td>Se fosse comprar separado</td><td class="o">R$ 22.382</td><td class="p">R$ 18.185</td><td class="b">R$ 11.185</td></tr>
-          <tr class="price"><td style="font:800 15px var(--display)">Na Black Vitalícia</td><td class="o"><b>12x R$ 397</b><span>ou R$ 3.997 à vista</span></td><td class="p"><b>12x R$ 299</b><span>ou R$ 2.997 à vista</span></td><td class="b"><b>12x R$ 197</b><span>ou R$ 1.997 à vista</span></td></tr>
+          <tr class="price"><td style="font:800 15px var(--display)">Na Black Vitalícia</td><td class="o"><b><span class="x">12x </span>R$ 397</b><span>ou R$ 3.997 à vista</span></td><td class="p"><b><span class="x">12x </span>R$ 299</b><span>ou R$ 2.997 à vista</span></td><td class="b"><b><span class="x">12x </span>R$ 197</b><span>ou R$ 1.997 à vista</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="hint">Arraste a tabela para o lado para ver os três planos.</p>
-    <div class="steps">
+        <div class="steps">
       <div class="card rv"><span class="tag t-b">Bronze</span> → <span class="tag t-p">Prata</span><b class="big">+ R$ 1.000</b><p>Libera a pós-graduação, que sozinha vale R$ 4.000, e coloca você no sorteio do notebook. É o degrau que mais devolve pelo que custa.</p></div>
       <div class="card rv"><span class="tag t-p">Prata</span> → <span class="tag t-o">Ouro</span><b class="big">+ R$ 1.000</b><p>Soma o kit físico e a mentoria individual com a Prof. Manu. É para quem quer acompanhamento de perto, não só o material.</p></div>
     </div>
