@@ -236,6 +236,28 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
 .sk-l b{display:block;font-size:15px;letter-spacing:0;color:#fff;margin-top:2px;text-transform:none}
 .sticky .bnt1{padding:14px 20px;font-size:13px;width:auto}
 
+/* captura */
+.modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px}
+.modal[hidden]{display:none}
+.m-back{position:absolute;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.m-box{position:relative;width:100%;max-width:440px;max-height:calc(100vh - 32px);overflow:auto;background:radial-gradient(80% 50% at 50% 0%,rgba(238,42,123,.2),transparent 70%),var(--panel);border:1px solid rgba(238,42,123,.55);border-radius:26px;padding:28px 24px 20px;box-shadow:0 30px 80px rgba(0,0,0,.6);animation:fsi .3s ease forwards}
+.modal.o .m-box{border-color:rgba(244,197,66,.7)}.modal.p .m-box{border-color:rgba(212,215,222,.5)}.modal.b .m-box{border-color:rgba(217,138,90,.6)}
+.m-tag{font:800 12px/1 var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--pink-hi)}
+.m-box h3{font-size:28px;margin-top:8px}
+.modal.o h3{color:var(--ouro)}.modal.p h3{color:var(--prata)}.modal.b h3{color:var(--bronze)}
+.m-price{font:900 20px/1.2 var(--display);margin-top:6px}.m-price span{font:500 14px var(--body);color:var(--mute);margin-left:4px}
+.m-sub{color:var(--mute);font-size:14.5px;margin:10px 0 6px}
+.m-x{position:absolute;top:12px;right:14px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--panel2);color:#fff;font-size:22px;line-height:1;cursor:pointer}
+#leadForm label{display:block;font:700 13px/1 var(--body);color:#d8d4de;margin:14px 0 7px}
+#leadForm input,#leadForm select{width:100%;font:500 16px/1.2 var(--body);color:#fff;background:#0a0a0d;border:1px solid #2c2b34;border-radius:14px;padding:14px;outline:none}
+#leadForm input:focus,#leadForm select:focus{border-color:var(--pink)}
+#leadForm input.bad{border-color:#ff4d6d}
+.m-phone{display:grid;grid-template-columns:104px 1fr;gap:8px}
+#leadForm .bnt1{width:100%;margin-top:20px;font-size:15px;padding:18px 20px}
+#leadForm .bnt1:disabled{opacity:.75;cursor:wait}
+.m-sec{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:12px;font-size:13px;color:var(--mute)}
+.m-sec svg{width:14px;height:14px}
+
 @media (max-width:980px){
   .plans{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto;gap:30px}
   .plan.o{transform:none}
@@ -527,6 +549,36 @@ footer{padding:30px 0 110px;text-align:center;color:#6f6b78;font-size:13px;borde
 
 <footer><div class="wrap">OdonConcursos · Black Vitalícia 2026 · Oferta exclusiva para alunos e ex-alunos</div></footer>
 
+<div class="modal" id="lead" hidden role="dialog" aria-modal="true" aria-labelledby="m-plan">
+  <div class="m-back" data-close></div>
+  <div class="m-box">
+    <button class="m-x" type="button" data-close aria-label="Fechar">×</button>
+    <div class="m-tag">Último passo</div>
+    <h3 id="m-plan">Plano Ouro</h3>
+    <div class="m-price" id="m-price"></div>
+    <p class="m-sub">Preencha seus dados para ir ao pagamento. Se precisar, o nosso comercial fala com você por aqui.</p>
+    <form id="leadForm" novalidate>
+      <label for="f-name">Nome</label>
+      <input id="f-name" type="text" autocomplete="name" placeholder="Seu nome" required>
+      <label for="f-email">E-mail</label>
+      <input id="f-email" type="email" autocomplete="email" inputmode="email" placeholder="seuemail@exemplo.com" required>
+      <label for="f-phone">WhatsApp</label>
+      <div class="m-phone">
+        <select id="f-country" aria-label="Código do país">
+          <option value="55" selected>🇧🇷 +55</option>
+          <option value="351">🇵🇹 +351</option>
+          <option value="1">🇺🇸 +1</option>
+          <option value="44">🇬🇧 +44</option>
+          <option value="54">🇦🇷 +54</option>
+        </select>
+        <input id="f-phone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="(11) 99999-9999" required>
+      </div>
+      <button class="bnt1" id="f-submit" type="submit">Ir para o pagamento <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <div class="m-sec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Seus dados estão seguros</div>
+    </form>
+  </div>
+</div>
+
 <div class="sticky" id="sticky"><div class="sk-in">
   <div class="sk-l">Black Vitalícia<b>a partir de 12x R$ 197</b></div>
   <a class="bnt1" href="#planos">Ver os planos</a>
@@ -538,10 +590,12 @@ const CONFIG = {
   fim: '2026-10-31T23:59:59-03:00', // fim da Black (horário de Brasília)
   // Link de pagamento de cada plano. null = o botão abre o WhatsApp do comercial com o nome do plano.
   checkout: {
-    ouro:   'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=TWFydWxISm1QNFRBSDJueUI5aDd6dz09',
-    prata:  null,
-    bronze: null
+    ouro:   'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=TWFydWxISm1QNFRBSDJueUI5aDd6dz09&utm_source=GRUPO&utm_campaign=black_alunos',
+    prata:  'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=eTI3YUljdlcyRXpBSDJueUI5aDd6dz09&utm_source=GRUPO&utm_campaign=black_alunos',
+    bronze: 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=bG9TSUdCaFlubXpBSDJueUI5aDd6dz09&utm_source=GRUPO&utm_campaign=black_alunos'
   },
+  // Captura antes do checkout: webhook Make compartilhado das LPs Odon (cenário "Captação Páginas" → planilha + Slack)
+  webhook: 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz',
   whatsapp: '5519994565534',
   msgWhatsapp: 'Oi! Sou aluno(a) e quero saber mais sobre a Black Vitalícia.'
 };
@@ -593,7 +647,7 @@ document.getElementById('plans').innerHTML = PLANOS.map(p => `
       <div class="por"><small>12x</small>${p.parc}</div>
       <div class="av">ou <b>${p.vista} à vista</b> no cartão ou no pix</div>
       <a class="bnt1" data-plan="${p.id}" href="#">Quero o ${p.nome}</a>
-      <div class="safe">${CONFIG.checkout[p.id] ? 'Pagamento seguro na OdonConcursos' : 'Você fala com o nosso comercial no WhatsApp'}</div>
+      <div class="safe">Pagamento seguro na OdonConcursos</div>
     </div>
   </div>`).join('');
 
@@ -601,15 +655,85 @@ function ligarBotoes(aberto) {
   document.querySelectorAll('[data-plan]').forEach(a => {
     const p = PLANOS.find(x => x.id === a.dataset.plan);
     if (!aberto) { a.textContent = 'Oferta encerrada'; a.removeAttribute('href'); a.classList.add('off'); return; }
-    a.href = linkPlano(p); a.target = '_blank'; a.rel = 'noopener';
+    a.href = linkPlano(p);
   });
 }
+// captura antes do checkout
+const modal = document.getElementById('lead');
+const form = document.getElementById('leadForm');
+const fPhone = document.getElementById('f-phone');
+let planoAtual = null;
+const tracking = {
+  utm_source: qs.get('utm_source') || '', utm_medium: qs.get('utm_medium') || '', utm_campaign: qs.get('utm_campaign') || '',
+  utm_content: qs.get('utm_content') || '', utm_term: qs.get('utm_term') || '', fbclid: qs.get('fbclid') || '',
+  referrer: document.referrer || '', landing_url: location.href
+};
+function abrirCaptura(p) {
+  planoAtual = p;
+  modal.className = 'modal ' + p.cls;
+  document.getElementById('m-plan').textContent = 'Plano ' + p.nome;
+  document.getElementById('m-price').innerHTML = `12x ${p.parc} <span>ou ${p.vista} à vista</span>`;
+  document.getElementById('f-submit').firstChild.textContent = `Ir para o pagamento do ${p.nome} `;
+  modal.hidden = false; document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('f-name').focus({ preventScroll: true }), 150);
+}
+function fecharCaptura() { modal.hidden = true; document.body.style.overflow = ''; }
+modal.addEventListener('click', e => { if (e.target.closest('[data-close]')) fecharCaptura(); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) fecharCaptura(); });
 document.addEventListener('click', e => {
   const a = e.target.closest('[data-plan]');
   if (!a || a.classList.contains('off')) return;
-  const p = PLANOS.find(x => x.id === a.dataset.plan);
+  e.preventDefault();
+  abrirCaptura(PLANOS.find(x => x.id === a.dataset.plan));
+});
+fPhone.addEventListener('input', () => {
+  if (document.getElementById('f-country').value !== '55') return;
+  const d = fPhone.value.replace(/\D/g, '').slice(0, 11);
+  if (d.length > 6) fPhone.value = `(${d.slice(0, 2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}`;
+  else if (d.length > 2) fPhone.value = `(${d.slice(0, 2)}) ${d.slice(2)}`;
+  else fPhone.value = d;
+});
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const nome = document.getElementById('f-name'), email = document.getElementById('f-email');
+  const country = document.getElementById('f-country').value, digits = fPhone.value.replace(/\D/g, '');
+  for (const [el, ok] of [[nome, nome.value.trim().length > 1], [email, /\S+@\S+\.\S+/.test(email.value)], [fPhone, country === '55' ? digits.length >= 10 : digits.length >= 6]]) {
+    el.classList.toggle('bad', !ok);
+    if (!ok) { el.focus(); return; }
+  }
+  const p = planoAtual, btn = document.getElementById('f-submit');
+  btn.disabled = true; btn.firstChild.textContent = 'Abrindo o pagamento… ';
+  const agora = new Date();
+  const payload = {
+    formulario: 'Black Vitalícia 3 planos · Checkout ' + p.nome,
+    produto: 'Black Friday 2026',
+    metodo: 'Landing Page',
+    plano: p.nome,
+    valor: `12x ${p.parc} ou ${p.vista} à vista`,
+    nome: nome.value.trim(),
+    email: email.value.trim(),
+    telefone: '+' + country + digits,
+    ja_e_aluno: 'Sim',
+    evento: 'Iniciou checkout Black Vitalícia · ' + p.nome,
+    origem: 'LP Black Vitalícia 3 planos',
+    data_contato: agora.toISOString(),
+    data_contato_br: agora.toLocaleDateString('pt-BR') + ' ' + agora.toLocaleTimeString('pt-BR'),
+    ...tracking
+  };
+  try {
+    await Promise.race([
+      fetch(CONFIG.webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), keepalive: true }),
+      new Promise(r => setTimeout(r, 2500))
+    ]);
+  } catch (err) { console.error('Webhook error:', err); }
   const valor = +p.vista.replace(/\D/g, '');
-  if (window.fbq) fbq('track', 'InitiateCheckout', { content_name: 'Black Vitalícia ' + p.nome, value: valor, currency: 'BRL' });
+  try {
+    if (window.fbq) {
+      fbq('track', 'Lead', { content_name: 'Black Vitalícia ' + p.nome, content_category: 'Black Friday 2026' });
+      fbq('track', 'InitiateCheckout', { content_name: 'Black Vitalícia ' + p.nome, value: valor, currency: 'BRL' });
+    }
+  } catch (err) {}
+  setTimeout(() => { location.href = linkPlano(p); }, 300);
 });
 
 const mos = document.getElementById('mosaic');
