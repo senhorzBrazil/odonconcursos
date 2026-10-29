@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light only" />
+  <meta name="supported-color-schemes" content="light" />
+  <meta name="theme-color" content="#060a18" />
+  <title>Números oficiais · OdonConcursos</title>
+  <meta name="description" content="Confira se o número que falou com você é um WhatsApp oficial da OdonConcursos." />
+  <meta property="og:title" content="Números oficiais · OdonConcursos" />
+  <meta property="og:description" content="Recebeu mensagem em nome da OdonConcursos? Confira aqui se o número é oficial." />
+  <meta property="og:image" content="https://mkt.odonconcursospage.com/lp/concurso/pm-ba-vendas/hero-desktop.jpg" />
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1038030425232337');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1038030425232337&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Cores explícitas + color-scheme fixo: o modo escuro automático do celular não inverte nada. */
+    :root, html, body { color-scheme: light only; }
+    :root {
+      --bg:          #060a18;
+      --bg-card:     #0e1838;
+      --line:        rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.16);
+      --text:        #ffffff;
+      --text-mute:   #9aa3bf;
+      --text-dim:    #6b7395;
+      --pink:        #e91e8c;
+      --pink-2:      #f0309a;
+      --pink-soft:   #f472b6;
+      --ok:          #22c55e;
+      --ok-soft:     rgba(34,197,94,.12);
+      --bad:         #ef4444;
+      --bad-soft:    rgba(239,68,68,.12);
+      --sans:    'Roboto', system-ui, -apple-system, sans-serif;
+      --display: 'Roboto Slab', Georgia, serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      background-image: radial-gradient(900px 500px at 50% -120px, rgba(233,30,140,.22), transparent 70%);
+      background-repeat: no-repeat;
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header { border-bottom: 1px solid var(--line); }
+    .header-in { max-width: 720px; margin: 0 auto; padding: 16px; display: flex; justify-content: center; }
+    .logo-img { height: 34px; width: auto; display: block; filter: brightness(0) invert(1); }
+
+    main { max-width: 640px; margin: 0 auto; padding: 44px 16px 56px; }
+
+    .kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--pink-soft);
+      border: 1px solid rgba(244,114,182,.35); border-radius: 999px; padding: 6px 12px;
+    }
+    h1 {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(30px, 7vw, 44px); line-height: 1.1; margin: 16px 0 12px;
+      text-shadow: 0 2px 18px rgba(0,0,0,.4);
+    }
+    .g1 {
+      background: linear-gradient(92deg, #ff5fb4 0%, var(--pink) 55%, #ff8ac8 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lead { color: var(--text-mute); font-size: 17px; line-height: 1.55; }
+
+    /* ---------- verificador ---------- */
+    .check {
+      margin-top: 28px; background: var(--bg-card);
+      border: 1px solid var(--line-strong); border-radius: 18px; padding: 22px;
+    }
+    .check label { display: block; font-weight: 700; font-size: 15px; margin-bottom: 10px; }
+    .row { display: flex; gap: 10px; }
+    .row input {
+      flex: 1; min-width: 0;
+      font: 600 18px var(--sans); color: var(--text);
+      background: rgba(255,255,255,.04); border: 1px solid var(--line-strong);
+      border-radius: 12px; padding: 14px 16px; outline: none;
+    }
+    .row input::placeholder { color: var(--text-dim); font-weight: 500; }
+    .row input:focus { border-color: var(--pink-soft); box-shadow: 0 0 0 3px rgba(233,30,140,.25); }
+
+    .bnt1 {
+      position: relative; overflow: hidden; flex: 0 0 auto;
+      border: 0; cursor: pointer; border-radius: 999px;
+      font: 800 16px var(--sans); color: #fff; padding: 0 24px;
+      background: radial-gradient(120% 140% at 50% 0%, var(--pink-2) 0%, var(--pink) 60%, #b5126b 100%);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset, 0 8px 24px rgba(233,30,140,.45), 0 0 40px rgba(233,30,140,.25);
+      transition: transform .2s ease;
+    }
+    .bnt1:hover { transform: scale(1.03); }
+    .bnt1::before {
+      content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent);
+      animation: shine 3.2s ease-in-out infinite;
+    }
+    @keyframes shine { 0% { left: -60%; } 60%, 100% { left: 130%; } }
+
+    .result { display: none; margin-top: 16px; border-radius: 14px; padding: 16px 18px; line-height: 1.5; font-size: 15.5px; }
+    .result.show { display: flex; gap: 14px; align-items: flex-start; animation: pop .25s ease; }
+    .result .ico { flex: 0 0 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 900; font-size: 18px; color: #fff; }
+    .result b { display: block; font-size: 17px; margin-bottom: 2px; }
+    .result.ok  { background: var(--ok-soft);  border: 1px solid rgba(34,197,94,.45); }
+    .result.ok .ico  { background: var(--ok); }
+    .result.bad { background: var(--bad-soft); border: 1px solid rgba(239,68,68,.45); }
+    .result.bad .ico { background: var(--bad); }
+    .result.warn { background: rgba(255,255,255,.04); border: 1px solid var(--line-strong); color: var(--text-mute); }
+    .result.warn .ico { background: var(--text-dim); }
+    @keyframes pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    /* ---------- lista ---------- */
+    .section-hr { margin: 40px 0 28px; border: 0; border-top: 1px solid var(--line); }
+    h2 { font-family: var(--display); font-weight: 800; font-size: 24px; margin-bottom: 6px; }
+    .sub { color: var(--text-mute); font-size: 15px; margin-bottom: 18px; }
+    .nums { list-style: none; display: grid; gap: 10px; }
+    .nums li {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px;
+    }
+    .nums li.hit { border-color: rgba(34,197,94,.6); box-shadow: 0 0 0 3px rgba(34,197,94,.15); }
+    .num { font-weight: 700; font-size: 18px; letter-spacing: .01em; display: flex; align-items: center; gap: 10px; }
+    .num .seal { width: 22px; height: 22px; border-radius: 50%; background: var(--ok); display: grid; place-items: center; font-size: 12px; font-weight: 900; color: #fff; flex: 0 0 22px; }
+    .wa {
+      font: 700 13.5px var(--sans); color: #fff; text-decoration: none; white-space: nowrap;
+      border: 1px solid var(--line-strong); border-radius: 999px; padding: 8px 14px;
+      transition: background .2s, border-color .2s;
+    }
+    .wa:hover { background: rgba(233,30,140,.15); border-color: var(--pink-soft); }
+
+    /* ---------- dicas ---------- */
+    .tips { list-style: none; display: grid; gap: 12px; }
+    .tips li { display: flex; gap: 12px; color: var(--text-mute); line-height: 1.5; font-size: 15.5px; }
+    .tips li::before { content: '!'; flex: 0 0 24px; height: 24px; border-radius: 50%; background: rgba(233,30,140,.18); color: var(--pink-soft); display: grid; place-items: center; font-weight: 900; font-size: 13px; margin-top: 1px; }
+    .tips b { color: var(--text); }
+
+    footer { text-align: center; color: var(--text-dim); font-size: 13px; padding: 24px 16px 40px; border-top: 1px solid var(--line); }
+
+    .fade { opacity: 0; animation: fadeSlideIn .6s ease forwards; }
+    .delay-1 { animation-delay: .08s; } .delay-2 { animation-delay: .16s; } .delay-3 { animation-delay: .24s; } .delay-4 { animation-delay: .32s; }
+    @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .fade { animation: none; opacity: 1; }
+      .bnt1::before, .result.show { animation: none; }
+    }
+    @media (max-width: 480px) {
+      .row { flex-direction: column; }
+      .bnt1 { padding: 15px 24px; }
+      .nums li { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-in">
+      <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img" />
+    </div>
+  </header>
+
+  <main>
+    <span class="kicker fade">Canal oficial</span>
+    <h1 class="fade delay-1">Esse número é <span class="g1">mesmo da Odon?</span></h1>
+    <p class="lead fade delay-2">Recebeu mensagem em nome da OdonConcursos? Digite o número abaixo e confira se ele é um dos nossos WhatsApps oficiais.</p>
+
+    <form class="check fade delay-3" id="form" autocomplete="off">
+      <label for="tel">Número que falou com você</label>
+      <div class="row">
+        <input id="tel" type="tel" inputmode="tel" placeholder="(19) 99999-9999" required />
+        <button class="bnt1" type="submit">Verificar</button>
+      </div>
+      <div class="result" id="result" role="status" aria-live="polite"></div>
+    </form>
+
+    <hr class="section-hr" />
+
+    <h2>Nossos números oficiais</h2>
+    <p class="sub">A OdonConcursos atende apenas por estes números. Qualquer outro não é nosso.</p>
+    <ul class="nums" id="nums"></ul>
+
+    <hr class="section-hr" />
+
+    <h2>Como se proteger</h2>
+    <ul class="tips">
+      <li><span>Se o número <b>não está nesta lista</b>, não é da OdonConcursos, mesmo que use nossa logo ou o nome de um professor.</span></li>
+      <li><span>Pagamentos são feitos <b>somente pelo checkout do site odonconcursos.com.br</b>. Desconfie de Pix ou boleto enviados por mensagem.</span></li>
+      <li><span>Na dúvida, chame um dos números acima e pergunte antes de pagar ou enviar seus dados.</span></li>
+    </ul>
+  </main>
+
+  <footer>© OdonConcursos · Preparatórios para concursos de Odontologia</footer>
+
+  <script>
+    // Lista oficial: para incluir ou remover um número, edite só aqui (formato com DDI 55).
+    const OFICIAIS = [
+      '5519990112297',
+      '5519993153278',
+      '5519994565534',
+      '5519993440882',
+    ];
+
+    const fmt = n => '(' + n.slice(2, 4) + ') ' + n.slice(4, 9) + '-' + n.slice(9);
+
+    // Chave de comparação: DDD + últimos 8 dígitos (aceita número com ou sem o 9 e com ou sem +55/0).
+    function chave(raw) {
+      let d = String(raw).replace(/\D/g, '');
+      if (d.length >= 12 && d.startsWith('55')) d = d.slice(2);
+      d = d.replace(/^0+/, '');
+      if (d.length !== 10 && d.length !== 11) return null;
+      return d.slice(0, 2) + d.slice(-8);
+    }
+
+    const lista = document.getElementById('nums');
+    lista.innerHTML = OFICIAIS.map(n => {
+      return '<li data-k="' + chave(n) + '">' +
+        '<span class="num"><span class="seal">✓</span>' + fmt(n) + '</span>' +
+        '<a class="wa" href="https://wa.me/' + n + '" target="_blank" rel="noopener">Abrir WhatsApp</a>' +
+      '</li>';
+    }).join('');
+
+    const input = document.getElementById('tel');
+    const result = document.getElementById('result');
+
+    // Máscara simples: (DD) 9XXXX-XXXX
+    input.addEventListener('input', () => {
+      let d = input.value.replace(/\D/g, '');
+      if (d.length > 11 && d.startsWith('55')) d = d.slice(2);
+      d = d.slice(0, 11);
+      let v = d;
+      if (d.length > 2) v = '(' + d.slice(0, 2) + ') ' + d.slice(2);
+      if (d.length > 7) v = '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
+      input.value = v;
+    });
+
+    function mostra(tipo, ico, titulo, texto) {
+      result.className = 'result show ' + tipo;
+      result.innerHTML = '<span class="ico">' + ico + '</span><span><b>' + titulo + '</b>' + texto + '</span>';
+    }
+
+    document.getElementById('form').addEventListener('submit', e => {
+      e.preventDefault();
+      lista.querySelectorAll('li').forEach(li => li.classList.remove('hit'));
+      const k = chave(input.value);
+      if (!k) {
+        mostra('warn', '?', 'Número incompleto', 'Digite o número com DDD, por exemplo (19) 99011-2297.');
+        return;
+      }
+      const li = lista.querySelector('li[data-k="' + k + '"]');
+      if (li) {
+        li.classList.add('hit');
+        mostra('ok', '✓', 'Número oficial da OdonConcursos', 'Pode conversar com tranquilidade. Esse é um dos nossos canais de atendimento.');
+        if (window.fbq) fbq('trackCustom', 'VerificouNumero', { oficial: true });
+      } else {
+        mostra('bad', '✕', 'Este número NÃO é da OdonConcursos', 'Não faça pagamentos nem envie seus dados. Fale com a gente por um dos números oficiais abaixo.');
+        if (window.fbq) fbq('trackCustom', 'VerificouNumero', { oficial: false });
+      }
+    });
+
+    // Permite link direto: /numeros-oficiais/?n=5519990112297
+    const q = new URLSearchParams(location.search).get('n');
+    if (q) { input.value = q; input.dispatchEvent(new Event('input')); document.getElementById('form').requestSubmit(); }
+  </script>
+</body>
+</html>
