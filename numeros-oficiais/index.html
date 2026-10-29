@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light only" />
   <meta name="supported-color-schemes" content="light" />
-  <meta name="theme-color" content="#060a18" />
-  <title>Números oficiais · OdonConcursos</title>
+  <meta name="theme-color" content="#ffffff" />
+  <title>Verificador de contatos · OdonConcursos</title>
   <meta name="description" content="Confira se o número que falou com você é um WhatsApp oficial da OdonConcursos." />
-  <meta property="og:title" content="Números oficiais · OdonConcursos" />
+  <meta property="og:title" content="Verificador de contatos · OdonConcursos" />
   <meta property="og:description" content="Recebeu mensagem em nome da OdonConcursos? Confira aqui se o número é oficial." />
   <meta property="og:image" content="https://mkt.odonconcursospage.com/lp/concurso/pm-ba-vendas/hero-desktop.jpg" />
 
@@ -32,188 +32,216 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     /* Cores explícitas + color-scheme fixo: o modo escuro automático do celular não inverte nada. */
     :root, html, body { color-scheme: light only; }
     :root {
-      --bg:          #060a18;
-      --bg-card:     #0e1838;
-      --line:        rgba(255,255,255,0.08);
-      --line-strong: rgba(255,255,255,0.16);
-      --text:        #ffffff;
-      --text-mute:   #9aa3bf;
-      --text-dim:    #6b7395;
-      --pink:        #e91e8c;
-      --pink-2:      #f0309a;
-      --pink-soft:   #f472b6;
-      --ok:          #22c55e;
-      --ok-soft:     rgba(34,197,94,.12);
-      --bad:         #ef4444;
-      --bad-soft:    rgba(239,68,68,.12);
-      --sans:    'Roboto', system-ui, -apple-system, sans-serif;
-      --display: 'Roboto Slab', Georgia, serif;
+      --ink:       #0b1535;
+      --text:      #1d1d27;
+      --mute:      #5c5c6e;
+      --pink:      #e91e8c;
+      --pink-dark: #c8137a;
+      --tint:      #fde6f2;
+      --tint-line: #f7c6e0;
+      --ok:        #16a34a;
+      --ok-bg:     #e8f8ee;
+      --bad:       #dc2626;
+      --bad-bg:    #fdecec;
+      --sans:    'Roboto', system-ui, sans-serif;
+      --display: 'Roboto Slab', 'Roboto', system-ui, serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { background: var(--bg); }
+    html, body { background: #ffffff; }
     body {
       font-family: var(--sans);
-      background: var(--bg);
-      background-image: radial-gradient(900px 500px at 50% -120px, rgba(233,30,140,.22), transparent 70%);
-      background-repeat: no-repeat;
       color: var(--text);
       min-height: 100vh;
+      display: flex; flex-direction: column;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
-    .header { border-bottom: 1px solid var(--line); }
-    .header-in { max-width: 720px; margin: 0 auto; padding: 16px; display: flex; justify-content: center; }
-    .logo-img { height: 34px; width: auto; display: block; filter: brightness(0) invert(1); }
-
-    main { max-width: 640px; margin: 0 auto; padding: 44px 16px 56px; }
-
-    .kicker {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--pink-soft);
-      border: 1px solid rgba(244,114,182,.35); border-radius: 999px; padding: 6px 12px;
+    main {
+      flex: 1;
+      width: 100%; max-width: 1080px; margin: 0 auto;
+      padding: 88px 24px 96px;
+      display: grid; grid-template-columns: 1fr 1.05fr; gap: 64px; align-items: start; align-content: start;
     }
+
+    /* ---------- coluna esquerda ---------- */
+    .logo { height: 44px; width: auto; display: block; margin-bottom: 26px; }
     h1 {
       font-family: var(--display); font-weight: 800;
-      font-size: clamp(30px, 7vw, 44px); line-height: 1.1; margin: 16px 0 12px;
-      text-shadow: 0 2px 18px rgba(0,0,0,.4);
+      font-size: clamp(34px, 4.4vw, 52px); line-height: 1.12;
+      letter-spacing: -.025em; color: var(--ink); max-width: 480px;
     }
+    /* G1 — texto em gradiente, igual às LPs */
     .g1 {
-      background: linear-gradient(92deg, #ff5fb4 0%, var(--pink) 55%, #ff8ac8 100%);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+      background: linear-gradient(92deg, var(--pink) 18.78%, #f472b6 79.67%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding-right: .08em;
     }
-    .lead { color: var(--text-mute); font-size: 17px; line-height: 1.55; }
+    h1 .seal {
+      display: inline-grid; place-items: center; vertical-align: .02em;
+      width: .62em; height: .62em; margin-left: .12em;
+      background: #22c55e; border-radius: .14em;
+      box-shadow: 0 0 0 .06em #bbf7d0;
+    }
+    h1 .seal svg { width: 62%; height: 62%; }
+    .sub {
+      font-family: var(--display); font-size: 22px; font-weight: 700; line-height: 1.22; color: var(--ink);
+      margin: 26px 0 18px; max-width: 360px;
+    }
+    .lead { font-size: 15.5px; line-height: 1.6; color: var(--text); max-width: 380px; }
+    .lead b { color: var(--pink-dark); }
 
-    /* ---------- verificador ---------- */
-    .check {
-      margin-top: 28px; background: var(--bg-card);
-      border: 1px solid var(--line-strong); border-radius: 18px; padding: 22px;
+    /* ---------- card verificador ---------- */
+    .card {
+      background: var(--tint); border-radius: 22px; padding: 22px;
+      border: 1px solid var(--tint-line);
     }
-    .check label { display: block; font-weight: 700; font-size: 15px; margin-bottom: 10px; }
-    .row { display: flex; gap: 10px; }
-    .row input {
-      flex: 1; min-width: 0;
-      font: 600 18px var(--sans); color: var(--text);
-      background: rgba(255,255,255,.04); border: 1px solid var(--line-strong);
-      border-radius: 12px; padding: 14px 16px; outline: none;
-    }
-    .row input::placeholder { color: var(--text-dim); font-weight: 500; }
-    .row input:focus { border-color: var(--pink-soft); box-shadow: 0 0 0 3px rgba(233,30,140,.25); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .step { background: #fff; border-radius: 14px; padding: 16px 14px 18px; }
+    .step .n { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1; color: var(--pink); }
+    .step p { font-size: 14px; line-height: 1.35; margin-top: 10px; color: var(--text); }
 
-    .bnt1 {
-      position: relative; overflow: hidden; flex: 0 0 auto;
-      border: 0; cursor: pointer; border-radius: 999px;
-      font: 800 16px var(--sans); color: #fff; padding: 0 24px;
-      background: radial-gradient(120% 140% at 50% 0%, var(--pink-2) 0%, var(--pink) 60%, #b5126b 100%);
-      box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset, 0 8px 24px rgba(233,30,140,.45), 0 0 40px rgba(233,30,140,.25);
-      transition: transform .2s ease;
+    form {
+      margin-top: 16px; background: #fff; border-radius: 16px; padding: 18px;
+      border: 1px solid rgba(0,0,0,.05);
     }
-    .bnt1:hover { transform: scale(1.03); }
-    .bnt1::before {
-      content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
-      background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent);
-      animation: shine 3.2s ease-in-out infinite;
+    form label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 10px; color: var(--ink); }
+    .field {
+      display: flex; align-items: center;
+      border: 1.5px solid #e4e4ec; border-radius: 12px; background: #fff;
+      transition: border-color .2s, box-shadow .2s;
     }
-    @keyframes shine { 0% { left: -60%; } 60%, 100% { left: 130%; } }
+    .field:focus-within { border-color: var(--pink); box-shadow: 0 0 0 4px rgba(233,30,140,.14); }
+    .ddi {
+      display: flex; align-items: center; gap: 8px; flex: 0 0 auto;
+      padding: 0 12px 0 14px; border-right: 1.5px solid #ececf2;
+      font-weight: 600; font-size: 15px; color: var(--ink);
+    }
+    .ddi svg { width: 24px; height: 17px; border-radius: 3px; display: block; }
+    .field input {
+      flex: 1; min-width: 0; border: 0; outline: none; background: transparent;
+      font: 500 17px var(--sans); color: var(--ink); padding: 14px 14px;
+    }
+    .field input::placeholder { color: #a6a6b5; }
 
-    .result { display: none; margin-top: 16px; border-radius: 14px; padding: 16px 18px; line-height: 1.5; font-size: 15.5px; }
-    .result.show { display: flex; gap: 14px; align-items: flex-start; animation: pop .25s ease; }
-    .result .ico { flex: 0 0 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 900; font-size: 18px; color: #fff; }
-    .result b { display: block; font-size: 17px; margin-bottom: 2px; }
-    .result.ok  { background: var(--ok-soft);  border: 1px solid rgba(34,197,94,.45); }
-    .result.ok .ico  { background: var(--ok); }
-    .result.bad { background: var(--bad-soft); border: 1px solid rgba(239,68,68,.45); }
+    .btn {
+      width: 100%; margin-top: 12px; border: 0; cursor: pointer;
+      font: 700 17px var(--sans); color: #fff;
+      background: var(--pink); border-radius: 12px; padding: 15px 20px;
+      transition: background .2s, transform .15s;
+    }
+    .btn:hover { background: var(--pink-dark); }
+    .btn:active { transform: scale(.99); }
+    .btn[disabled] { opacity: .75; cursor: wait; }
+
+    .result { display: none; margin-top: 14px; border-radius: 12px; padding: 14px 16px; font-size: 14.5px; line-height: 1.5; }
+    .result.show { display: flex; gap: 12px; align-items: flex-start; animation: pop .25s ease; }
+    .result .ico { flex: 0 0 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 800; }
+    .result .ico svg { width: 16px; height: 16px; }
+    .result b { display: block; font-size: 16px; margin-bottom: 2px; }
+    .result a { color: inherit; font-weight: 700; }
+    .result.ok   { background: var(--ok-bg);  color: #14532d; }
+    .result.ok .ico { background: var(--ok); }
+    .result.bad  { background: var(--bad-bg); color: #7f1d1d; }
     .result.bad .ico { background: var(--bad); }
-    .result.warn { background: rgba(255,255,255,.04); border: 1px solid var(--line-strong); color: var(--text-mute); }
-    .result.warn .ico { background: var(--text-dim); }
+    .result.warn { background: #f4f4f7; color: var(--mute); }
+    .result.warn .ico { background: #9a9aab; }
     @keyframes pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
-    /* ---------- lista ---------- */
-    .section-hr { margin: 40px 0 28px; border: 0; border-top: 1px solid var(--line); }
-    h2 { font-family: var(--display); font-weight: 800; font-size: 24px; margin-bottom: 6px; }
-    .sub { color: var(--text-mute); font-size: 15px; margin-bottom: 18px; }
-    .nums { list-style: none; display: grid; gap: 10px; }
-    .nums li {
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-      background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px;
-    }
-    .nums li.hit { border-color: rgba(34,197,94,.6); box-shadow: 0 0 0 3px rgba(34,197,94,.15); }
-    .num { font-weight: 700; font-size: 18px; letter-spacing: .01em; display: flex; align-items: center; gap: 10px; }
-    .num .seal { width: 22px; height: 22px; border-radius: 50%; background: var(--ok); display: grid; place-items: center; font-size: 12px; font-weight: 900; color: #fff; flex: 0 0 22px; }
-    .wa {
-      font: 700 13.5px var(--sans); color: #fff; text-decoration: none; white-space: nowrap;
-      border: 1px solid var(--line-strong); border-radius: 999px; padding: 8px 14px;
-      transition: background .2s, border-color .2s;
-    }
-    .wa:hover { background: rgba(233,30,140,.15); border-color: var(--pink-soft); }
+    .note { font-size: 13.5px; line-height: 1.5; text-align: center; color: var(--text); margin: 16px 10px 2px; }
+    .note b { color: var(--ink); }
 
-    /* ---------- dicas ---------- */
-    .tips { list-style: none; display: grid; gap: 12px; }
-    .tips li { display: flex; gap: 12px; color: var(--text-mute); line-height: 1.5; font-size: 15.5px; }
-    .tips li::before { content: '!'; flex: 0 0 24px; height: 24px; border-radius: 50%; background: rgba(233,30,140,.18); color: var(--pink-soft); display: grid; place-items: center; font-weight: 900; font-size: 13px; margin-top: 1px; }
-    .tips b { color: var(--text); }
-
-    footer { text-align: center; color: var(--text-dim); font-size: 13px; padding: 24px 16px 40px; border-top: 1px solid var(--line); }
+    /* ---------- rodapé ---------- */
+    footer { background: #000; color: #fff; position: relative; overflow: hidden; }
+    .wm {
+      position: absolute; left: 50%; bottom: -0.2em; transform: translateX(-50%);
+      font-family: var(--display); font-weight: 800; font-size: clamp(120px, 26vw, 340px); line-height: 1;
+      color: transparent; -webkit-text-stroke: 2px #1f1f26; white-space: nowrap;
+      pointer-events: none; user-select: none; letter-spacing: .02em;
+    }
+    .foot-in {
+      position: relative; max-width: 1080px; margin: 0 auto; padding: 72px 24px 64px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .foot-logo { height: 40px; width: auto; filter: brightness(0) invert(1); }
+    .foot-right { text-align: right; font-size: 13px; color: #b9b9c6; line-height: 1.7; }
+    .foot-right a { color: #fff; text-decoration: none; }
+    .foot-right small { display: block; font-size: 11.5px; color: #77778a; }
 
     .fade { opacity: 0; animation: fadeSlideIn .6s ease forwards; }
-    .delay-1 { animation-delay: .08s; } .delay-2 { animation-delay: .16s; } .delay-3 { animation-delay: .24s; } .delay-4 { animation-delay: .32s; }
+    .delay-1 { animation-delay: .08s; } .delay-2 { animation-delay: .16s; } .delay-3 { animation-delay: .24s; }
     @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
     @media (prefers-reduced-motion: reduce) {
       .fade { animation: none; opacity: 1; }
-      .bnt1::before, .result.show { animation: none; }
+      .result.show { animation: none; }
     }
-    @media (max-width: 480px) {
-      .row { flex-direction: column; }
-      .bnt1 { padding: 15px 24px; }
-      .nums li { flex-wrap: wrap; }
+
+    @media (max-width: 860px) {
+      main { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 40px 16px 56px; text-align: center; }
+      h1 { font-size: clamp(30px, 8.6vw, 44px); margin: 0 auto; }
+      .logo { margin: 0 auto 20px; height: 40px; }
+      .sub, .lead { margin-left: auto; margin-right: auto; }
+      .sub { font-size: 21px; margin-top: 18px; }
+      .card { text-align: left; padding: 14px; }
+      .steps { grid-template-columns: 1fr; gap: 8px; }
+      .step { display: flex; align-items: center; gap: 14px; padding: 14px 16px; }
+      .step p { margin-top: 0; }
+      form { padding: 16px; }
+      .foot-in { flex-direction: column; text-align: center; padding: 48px 16px 56px; }
+      .foot-right { text-align: center; }
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-in">
-      <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img" />
-    </div>
-  </header>
-
   <main>
-    <span class="kicker fade">Canal oficial</span>
-    <h1 class="fade delay-1">Esse número é <span class="g1">mesmo da Odon?</span></h1>
-    <p class="lead fade delay-2">Recebeu mensagem em nome da OdonConcursos? Digite o número abaixo e confira se ele é um dos nossos WhatsApps oficiais.</p>
+    <section class="fade">
+      <img class="logo" src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" />
+      <h1>Verificador de <span class="g1">contatos oficiais</span><span class="seal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></h1>
+      <p class="sub">Ficou na dúvida se o número é mesmo da equipe Odon?</p>
+      <p class="lead">Atenção: <b>golpistas estão usando o nome da OdonConcursos</b> para abordar alunos e dentistas. Para a sua segurança, criamos este verificador. Antes de responder, pagar ou enviar dados, confira aqui se o número é oficial.</p>
+    </section>
 
-    <form class="check fade delay-3" id="form" autocomplete="off">
-      <label for="tel">Número que falou com você</label>
-      <div class="row">
-        <input id="tel" type="tel" inputmode="tel" placeholder="(19) 99999-9999" required />
-        <button class="bnt1" type="submit">Verificar</button>
+    <section class="card fade delay-2">
+      <div class="steps">
+        <div class="step"><span class="n">1</span><p>Digite o número que falou com você</p></div>
+        <div class="step"><span class="n">2</span><p>Não esqueça de incluir o DDD</p></div>
+        <div class="step"><span class="n">3</span><p>Toque em verificar e veja o resultado</p></div>
       </div>
-      <div class="result" id="result" role="status" aria-live="polite"></div>
-    </form>
 
-    <hr class="section-hr" />
+      <form id="form" autocomplete="off">
+        <label for="tel">Digite o número que deseja verificar:</label>
+        <div class="field">
+          <span class="ddi">
+            <svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" fill="#009c3b"/><path d="M14 2.6 25.4 10 14 17.4 2.6 10z" fill="#ffdf00"/><circle cx="14" cy="10" r="4.3" fill="#002776"/></svg>
+            +55
+          </span>
+          <input id="tel" type="tel" inputmode="tel" placeholder="(19) 99999-9999" required />
+        </div>
+        <button class="btn" type="submit" id="btn">Verificar</button>
+        <div class="result" id="result" role="status" aria-live="polite"></div>
+      </form>
 
-    <h2>Nossos números oficiais</h2>
-    <p class="sub">A OdonConcursos atende apenas por estes números. Qualquer outro não é nosso.</p>
-    <ul class="nums" id="nums"></ul>
-
-    <hr class="section-hr" />
-
-    <h2>Como se proteger</h2>
-    <ul class="tips">
-      <li><span>Se o número <b>não está nesta lista</b>, não é da OdonConcursos, mesmo que use nossa logo ou o nome de um professor.</span></li>
-      <li><span>Pagamentos são feitos <b>somente pelo checkout do site odonconcursos.com.br</b>. Desconfie de Pix ou boleto enviados por mensagem.</span></li>
-      <li><span>Na dúvida, chame um dos números acima e pergunte antes de pagar ou enviar seus dados.</span></li>
-    </ul>
+      <p class="note"><b>Atenção:</b> pagamentos são feitos somente pelo checkout do site odonconcursos.com.br. Se receber contato de um número não verificado, não envie dados e denuncie o número.</p>
+    </section>
   </main>
 
-  <footer>© OdonConcursos · Preparatórios para concursos de Odontologia</footer>
+  <footer>
+    <div class="wm" aria-hidden="true">ODON</div>
+    <div class="foot-in">
+      <img class="foot-logo" src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" />
+      <div class="foot-right">
+        <a href="https://odonconcursos.com.br" target="_blank" rel="noopener">odonconcursos.com.br</a>
+        <small>© 2026 OdonConcursos. Todos os direitos reservados.</small>
+      </div>
+    </div>
+  </footer>
 
   <script>
     // Lista oficial: para incluir ou remover um número, edite só aqui (formato com DDI 55).
@@ -224,8 +252,6 @@
       '5519993440882',
     ];
 
-    const fmt = n => '(' + n.slice(2, 4) + ') ' + n.slice(4, 9) + '-' + n.slice(9);
-
     // Chave de comparação: DDD + últimos 8 dígitos (aceita número com ou sem o 9 e com ou sem +55/0).
     function chave(raw) {
       let d = String(raw).replace(/\D/g, '');
@@ -234,17 +260,12 @@
       if (d.length !== 10 && d.length !== 11) return null;
       return d.slice(0, 2) + d.slice(-8);
     }
-
-    const lista = document.getElementById('nums');
-    lista.innerHTML = OFICIAIS.map(n => {
-      return '<li data-k="' + chave(n) + '">' +
-        '<span class="num"><span class="seal">✓</span>' + fmt(n) + '</span>' +
-        '<a class="wa" href="https://wa.me/' + n + '" target="_blank" rel="noopener">Abrir WhatsApp</a>' +
-      '</li>';
-    }).join('');
+    const MAPA = Object.fromEntries(OFICIAIS.map(n => [chave(n), n]));
 
     const input = document.getElementById('tel');
     const result = document.getElementById('result');
+    const btn = document.getElementById('btn');
+    const form = document.getElementById('form');
 
     // Máscara simples: (DD) 9XXXX-XXXX
     input.addEventListener('input', () => {
@@ -257,33 +278,43 @@
       input.value = v;
     });
 
+    const ICO_OK  = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+    const ICO_BAD = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
     function mostra(tipo, ico, titulo, texto) {
       result.className = 'result show ' + tipo;
       result.innerHTML = '<span class="ico">' + ico + '</span><span><b>' + titulo + '</b>' + texto + '</span>';
     }
 
-    document.getElementById('form').addEventListener('submit', e => {
-      e.preventDefault();
-      lista.querySelectorAll('li').forEach(li => li.classList.remove('hit'));
+    function verifica() {
       const k = chave(input.value);
       if (!k) {
         mostra('warn', '?', 'Número incompleto', 'Digite o número com DDD, por exemplo (19) 99011-2297.');
         return;
       }
-      const li = lista.querySelector('li[data-k="' + k + '"]');
-      if (li) {
-        li.classList.add('hit');
-        mostra('ok', '✓', 'Número oficial da OdonConcursos', 'Pode conversar com tranquilidade. Esse é um dos nossos canais de atendimento.');
-        if (window.fbq) fbq('trackCustom', 'VerificouNumero', { oficial: true });
+      const oficial = MAPA[k];
+      if (oficial) {
+        mostra('ok', ICO_OK, 'Número verificado',
+          'Esse é um WhatsApp oficial da OdonConcursos. Pode conversar com tranquilidade. ' +
+          '<a href="https://wa.me/' + oficial + '" target="_blank" rel="noopener">Abrir conversa</a>');
       } else {
-        mostra('bad', '✕', 'Este número NÃO é da OdonConcursos', 'Não faça pagamentos nem envie seus dados. Fale com a gente por um dos números oficiais abaixo.');
-        if (window.fbq) fbq('trackCustom', 'VerificouNumero', { oficial: false });
+        mostra('bad', ICO_BAD, 'Número NÃO verificado',
+          'Esse número não pertence à OdonConcursos. Não faça pagamentos nem envie seus dados. ' +
+          '<a href="https://wa.me/' + OFICIAIS[0] + '" target="_blank" rel="noopener">Fale com o atendimento oficial</a>');
       }
+      if (window.fbq) fbq('trackCustom', 'VerificouNumero', { oficial: !!oficial });
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      result.className = 'result';
+      btn.disabled = true; btn.textContent = 'Verificando...';
+      setTimeout(() => { verifica(); btn.disabled = false; btn.textContent = 'Verificar'; }, 600);
     });
 
     // Permite link direto: /numeros-oficiais/?n=5519990112297
     const q = new URLSearchParams(location.search).get('n');
-    if (q) { input.value = q; input.dispatchEvent(new Event('input')); document.getElementById('form').requestSubmit(); }
+    if (q) { input.value = q; input.dispatchEvent(new Event('input')); form.requestSubmit(); }
   </script>
 </body>
 </html>
