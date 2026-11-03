@@ -1979,12 +1979,12 @@ body.show-hud #help{opacity:1}
     qrBox.appendChild(holder); qrReset.hidden = false; return true;
   }
   // padrão: LP de captura da lista de espera da Black (redireciona para o grupo)
-  const BLACK_URL = 'https://mkt.odonconcursospage.com/lp/concurso/black-friday-2026/';
-  const savedLink = store.get('qr3');
+  const BLACK_URL = 'https://mkt.odonconcursospage.com/lp/concurso/black-friday-2026/?utm_source=live&utm_medium=qrcode&utm_campaign=black_dia1';
+  const savedLink = store.get('qr4');
   drawQR(savedLink || BLACK_URL);
-  qrIn.addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); const v=qrIn.value.trim(); if(v && drawQR(v)) store.set('qr3', v); } e.stopPropagation(); });
-  qrIn.addEventListener('change', () => { const v=qrIn.value.trim(); if(v && drawQR(v)) store.set('qr3', v); });
-  qrReset.addEventListener('click', e => { e.stopPropagation(); store.del('qr3'); const o=qrBox.querySelector('.qr-svg'); if(o) o.remove(); qrPh.hidden=false; qrReset.hidden=true; qrIn.value=''; qrIn.focus(); });
+  qrIn.addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); const v=qrIn.value.trim(); if(v && drawQR(v)) store.set('qr4', v); } e.stopPropagation(); });
+  qrIn.addEventListener('change', () => { const v=qrIn.value.trim(); if(v && drawQR(v)) store.set('qr4', v); });
+  qrReset.addEventListener('click', e => { e.stopPropagation(); store.del('qr4'); const o=qrBox.querySelector('.qr-svg'); if(o) o.remove(); qrPh.hidden=false; qrReset.hidden=true; qrIn.value=''; qrIn.focus(); });
 
   // segundo QR (slide da contagem) espelha o link do primeiro
   const qrBox2 = document.getElementById('qr-code2');
