@@ -843,6 +843,13 @@ body.show-hud #help{opacity:1}
 .txp em{color:var(--pink-hi);font-style:normal;font-weight:800}
 .txp b{color:var(--pink-hi)}
 .txex{display:block;background:var(--panel);border:1px solid var(--pink);border-radius:18px;padding:.7em .9em}
+/* ---------- ir para o slide ---------- */
+#irslide{position:fixed;right:32px;bottom:32px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:230px;padding:16px 26px;border-radius:20px;background:rgba(5,5,5,.94);border:2px solid #ee2a7b;box-shadow:0 0 34px rgba(238,42,123,.5);color:#fff;font-family:system-ui,-apple-system,sans-serif}
+#irslide[hidden]{display:none}
+#irslide small{font-size:14px;color:#c9c5cf}
+#irslide b{font-size:54px;line-height:1.05;font-weight:800}
+#irslide span{font-size:14px;color:#ff5c9d}
+#irslide.erro{border-color:#f5b942}#irslide.erro span{color:#f5b942}
 
 </style>
 
@@ -1595,7 +1602,7 @@ body.show-hud #help{opacity:1}
   <button id="b-notes" type="button" aria-label="Notas do apresentador (N)"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/><path d="M8 8h8M8 12h5"/></svg></button>
   <button id="b-full" type="button" aria-label="Tela cheia (F)"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
 </div>
-<div id="help"><kbd>→</kbd> / clique avança · <kbd>←</kbd> volta · <kbd>N</kbd> notas · <kbd>F</kbd> tela cheia · clique no vídeo toca e pausa · <kbd>R</kbd> reinicia</div>
+<div id="help"><kbd>→</kbd> / clique avança · <kbd>←</kbd> volta · <kbd>N</kbd> notas · <kbd>F</kbd> tela cheia · clique no vídeo toca e pausa · <kbd>R</kbd> reinicia · <kbd>número</kbd> + <kbd>Enter</kbd> vai ao slide</div>
 <aside id="notes" hidden><h4 id="notes-h">Fala</h4><div id="notes-b"></div></aside>
 
 <script>
@@ -1673,6 +1680,7 @@ body.show-hud #help{opacity:1}
   document.addEventListener('keydown', e => {
     if(e.target.matches('input,textarea')) return;
     if(e.key==='Escape'){ const z=document.querySelector('.zoom.open'); if(z){ z.classList.remove('open'); return; } }
+    if(irTecla(e)){ e.preventDefault(); return; }
     const k = e.key;
     if(['ArrowRight','PageDown',' ','Enter','ArrowDown'].includes(k)){ e.preventDefault(); next(); }
     else if(['ArrowLeft','PageUp','ArrowUp','Backspace'].includes(k)){ e.preventDefault(); prev(); }
@@ -1925,6 +1933,26 @@ body.show-hud #help{opacity:1}
   }
   function vRestart(){
     if(!vS) return; vS.ended = false; vS.v.currentTime = 0; vS.started = true; const p = vS.v.play(); if(p&&p.catch) p.catch(()=>{});
+  }
+
+  // digitar o número do slide + Enter leva até ele
+  let irBuf='',irT;
+  const irEl=document.createElement('div'); irEl.id='irslide'; irEl.hidden=true; document.body.appendChild(irEl);
+  function irLimpa(){ irBuf=''; irEl.hidden=true; clearTimeout(irT); }
+  function irMostra(){
+    const n=+irBuf, ok=n>=1&&n<=total;
+    irEl.innerHTML=`<small>Ir para o slide</small><b>${irBuf}</b><span>${ok?'Enter para ir · Esc cancela':`vai de 1 a ${total}`}</span>`;
+    irEl.classList.toggle('erro',!ok); irEl.hidden=false;
+    clearTimeout(irT); irT=setTimeout(irLimpa,5000);
+  }
+  function irTecla(e){
+    if(e.ctrlKey||e.metaKey||e.altKey) return false;
+    if(/^[0-9]$/.test(e.key)){ if(irBuf.length<3) irBuf+=e.key; irMostra(); return true; }
+    if(!irBuf) return false;
+    if(e.key==='Enter'){ const n=+irBuf; if(n>=1&&n<=total){ irLimpa(); show(n-1,false); } else irMostra(); return true; }
+    if(e.key==='Backspace'){ irBuf=irBuf.slice(0,-1); irBuf?irMostra():irLimpa(); return true; }
+    if(e.key==='Escape'){ irLimpa(); return true; }
+    irLimpa(); return false;
   }
 
   // raios do BUM
