@@ -483,8 +483,8 @@ h2 .b,h3 .b{color:var(--blue-hi)}
 .bar div small{font:600 15px/1.2 var(--body);opacity:.85}
 .bar.on div{transform:none}
 .bar div:nth-child(2){transition-delay:.35s}.bar div:nth-child(3){transition-delay:.7s}
-.bar .r{flex:36;background:var(--blue)}
-.bar .a{flex:46;background:var(--pink)}
+.bar .r{flex:15;background:var(--blue)}
+.bar .a{flex:90;background:var(--pink)}
 .bar .q{flex:30;background:#fff;color:#050505}
 
 /* ---------- revisão rápida ---------- */
@@ -850,6 +850,11 @@ body.show-hud #help{opacity:1}
 #irslide b{font-size:54px;line-height:1.05;font-weight:800}
 #irslide span{font-size:14px;color:#ff5c9d}
 #irslide.erro{border-color:#f5b942}#irslide.erro span{color:#f5b942}
+/* ---------- estudo ativo e estudo livre revelado por partes ---------- */
+.notes3.ativo{flex:1;align-items:stretch;margin-top:34px;margin-bottom:10px}
+.notes3.ativo .note{font-size:27px;line-height:1.38;padding:30px}
+.notes3.ativo .note b{font-size:30px;line-height:1.15;margin-bottom:16px}
+.fr-c[hidden-card]{visibility:hidden}
 
 </style>
 
@@ -944,7 +949,6 @@ body.show-hud #help{opacity:1}
   </div>
   <div class="num">04</div>
 </section>
-<section class="slide xs " data-title="Área estilo Netflix" data-notes="[&quot;Com isso o mercado se viu obrigado a se atualizar e alguns tentaram trazer algo parecido com nosso cronograma, porém não conseguiram: o que chamam de cronograma muitas vezes é apenas a ordem de aulas, não é baseado nas suas horas, isso porque não têm plataforma voltada para o estudo de concurso.&quot;, &quot;Gente, esse negócio de “área estilo Netflix” é a pior coisa para um concurseiro, não tem um sentido lógico para o estudo dele.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Necessidade do aluno</div></div><div class="tx tx-g"><p class="in txp"><b>Gente,</b> esse negócio de “area estilo netflix” é a pior coisa para um concurseiro, não tem um sentido lógico para o estudo dele.</p></div><div class="num"></div></section>
 <section data-n="5" class="slide simslide" data-sim="cr" data-title="Cronograma">
   <div class="sim">
     <div class="simwin in" style="--d:0">
@@ -1226,18 +1230,17 @@ body.show-hud #help{opacity:1}
   </div>
   <div class="num">07</div>
 </section>
-<section class="slide xs " data-title="Neurologia da aprendizagem" data-notes="[&quot;E assim, gente, algumas dessas perguntas têm mais de uma resposta certa, concorda? Tem aprovado que revisou de um jeito, outro que revisou de outro jeito. Mas algumas coisas fizeram em comum: revisar, fazer muitas questões.&quot;, &quot;Fomos atrás de saber o que dá certo para a maioria e o que cada um pode fazer de diferente. E tem um negócio chamado Neurologia da aprendizagem, já ouviram falar?&quot;, &quot;Só que você concorda comigo que todas as perguntas não conseguem ser respondidas numa live ou vídeo de 30 minutos?&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Neurologia da aprendizagem</div></div><div class="tx tx-g"><p class="in txp">Neurologia da aprendizagem</p><p class="f txp">é sobre o que a ciência estudou sobre aprendizagem, como o cérebro armazena mais informações, o que faz ele esquecer</p></div><div class="num"></div></section>
 <section data-n="11" class="slide" data-title="Como estudar?">
   <svg class="neon n3" viewBox="0 0 400 400"><use href="#tg"/></svg>
   <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Projeto novo · Concurseiro PRO</div></div>
   <div class="eyebrow blue in" style="--d:0">Unimos o útil ao agradável</div>
   <div class="master in" style="--d:1">Mentoria<span>Odon Master</span></div>
-  <p class="lead in" style="--d:2">Vamos trazer um <b>compilado geral do que nossos alunos aprovados em menos tempo fizeram</b>.</p>
+  <p class="lead in" style="--d:2">Antes de explicar como ela vai funcionar, um compilado do que os nossos <b>alunos aprovados em menos tempo</b> fizeram:</p>
   <div class="track">
-    <div class="f">Vídeo aulas<small>Como a maioria assistiu as vídeos aulas?</small></div>
-    <div class="f">PDFs<small>Como incluíram os PDFs?</small></div>
-    <div class="f">Revisões<small>E as revisões?</small></div>
-    <div class="f">Questões<small>Questões?</small></div>
+    <div class="f">Vídeo aulas<small>Como a maioria assistiu</small></div>
+    <div class="f">PDFs<small>Como incluíram no estudo</small></div>
+    <div class="f">Revisões<small>Como e quando revisar</small></div>
+    <div class="f">Questões<small>Quantas e de quê</small></div>
   </div>
   <div class="cen"><div class="cn f"><span>Cenário 1</span><b>O ideal</b></div><div class="cn c2 f"><span>Cenário 2</span><b>Alternativas para quando algo está dando errado: o que fazer?</b></div></div>
   <div class="num">08</div>
@@ -1247,17 +1250,17 @@ body.show-hud #help{opacity:1}
   <h2 class="in" style="--d:0;font-size:54px">Os materiais que você tem à disposição</h2>
   <div class="mat">
     <div class="col est in" style="--d:1">
-      <h3><span class="chip p">Para estudo nós temos:</span></h3>
+      <h3><span class="chip p">Estudo</span></h3>
       <ul>
         <li>Vídeo aulas normais</li>
         <li>Vídeo aulas de questões</li>
-        <li class="both">PDF apostila (revisão tbm)</li>
+        <li class="both">PDF apostila <em>revisão também</em></li>
         <li>Questões curso / PDF</li>
-        <li class="both">Questões OdonQuestões (revisão tbm)</li>
+        <li class="both">Questões OdonQuestões <em>revisão também</em></li>
       </ul>
     </div>
     <div class="col rev f">
-      <h3><span class="chip bl">E de revisão nós temos:</span></h3>
+      <h3><span class="chip bl">Revisão</span></h3>
       <ul>
         <li>Mapas mentais</li>
         <li>Resumo inteligente</li>
@@ -1276,7 +1279,7 @@ body.show-hud #help{opacity:1}
 </section>
 <section data-n="13" class="slide" data-title="Divisão diária × semanal">
   <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Divisão do tempo</div></div>
-  <h2 class="in" style="--d:0;font-size:50px">“Tá, prof, mas como divido meu tempo para estudo?”</h2><p class="lead in" style="--d:1;margin-top:10px">Existe a <b>divisão de tempo diário e a divisão semanal</b></p>
+  <h2 class="in" style="--d:0;font-size:54px">“Tá, prof, mas como divido meu tempo para estudo?”</h2>
   <div class="split">
     <div class="big-card d in" style="--d:1">
       <svg class="glyph" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="5"><circle cx="50" cy="50" r="40"/><path d="M50 24v26l17 11" stroke-linecap="round"/></svg>
@@ -1292,87 +1295,97 @@ body.show-hud #help{opacity:1}
 </section>
 <section data-n="14" class="slide" data-title="Divisão diária">
   <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Divisão diária</div></div>
-  <h2 class="in" style="--d:0;font-size:56px">Você deve dividir o seu tempo diário em <em>3</em>:</h2>
+  <h2 class="in" style="--d:0;font-size:56px">Divida o seu tempo diário em <em>3</em></h2>
   <div class="three">
-    <div class="step r f"><div class="k">1</div><h3>Revisão rápida diária</h3><div class="t">- entre 10 a 15 minutos</div></div>
-    <div class="step f"><div class="k">2</div><h3>Estudar assunto novo</h3><div class="t">- depende da sua disponibilidade que colocou no cronograma</div></div>
-    <div class="step q f"><div class="k">3</div><h3>Resolver questões</h3><div class="t">- recomendado mínimo 30 minutos</div><p>(parece pouco mas quase ninguém faz isso com disciplina todo dia.)</p></div>
+    <div class="step r f"><div class="k">1</div><h3>Revisão rápida diária</h3><div class="t">10 a 15 minutos</div></div>
+    <div class="step f"><div class="k">2</div><h3>Estudar assunto novo</h3><div class="t">Depende da sua disponibilidade</div><p>A que você colocou no cronograma</p></div>
+    <div class="step q f"><div class="k">3</div><h3>Resolver questões</h3><div class="t">Mínimo recomendado: 30 minutos</div><p>Parece pouco, mas quase ninguém faz isso com disciplina todo dia.</p></div>
   </div>
   <div class="ex f">
-    <div class="ex-h"><b>Então por exemplo: você tem cerca de 2 horas diárias para estudar</b><span>ficaria assim:</span></div>
-    <div class="bar" id="daybar"><div class="r">10 a 15 minutos<small>de revisão diária</small></div><div class="a">1:30<small>de estudo de assunto</small></div><div class="q">30 minutos<small>de questões</small></div></div>
+    <div class="ex-h"><b>Exemplo: você tem cerca de 2 horas diárias para estudar</b><span>ficaria assim</span></div>
+    <div class="bar" id="daybar"><div class="r">10–15 min<small>revisão diária</small></div><div class="a">1h30<small>estudo de assunto</small></div><div class="q">30 min<small>questões</small></div></div>
   </div>
   <div class="num">11</div>
 </section>
-<section data-n="10" class="slide" data-title="Pirâmide da aprendizagem">
-  <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Neurologia da aprendizagem</div></div>
-  <div class="pyr-wrap">
-    <div>
-      <div class="gp">
-        <div class="gp-side"><span class="ps">Aprendizado passivo</span><span class="as">Aprendizado ativo</span></div>
-        <div class="gp-rows">
-          <div class="gp-r" style="--k:1"><i class="lt" style="width:59.2%"></i><i class="pk" style="background:#f7a8cb;clip-path:polygon(58.00% 0,63.00% 0,67.81% 100%,52.33% 100%)"></i><b>10%</b><span class="big" style="left:58.8%;right:37.8%">Ler</span></div>
-          <div class="gp-r" style="--k:2"><i class="lt" style="width:52.9%"></i><i class="pk" style="background:#f48dbb;clip-path:polygon(51.78% 0,68.28% 0,73.09% 100%,46.11% 100%)"></i><b>20%</b><span class="big" style="left:52.6%;right:32.5%">Escutar</span></div>
-          <div class="gp-r" style="--k:3"><i class="lt" style="width:46.7%"></i><i class="pk" style="background:#f272ab;clip-path:polygon(45.56% 0,73.56% 0,78.37% 100%,39.89% 100%)"></i><b>30%</b><span class="big" style="left:46.4%;right:27.2%">Ver</span></div>
-          <div class="gp-r" style="--k:4"><i class="lt" style="width:40.5%"></i><i class="pk" style="background:#ef579b;clip-path:polygon(39.33% 0,78.84% 0,83.66% 100%,33.67% 100%)"></i><b>50%</b><span class="big" style="left:40.1%;right:22.0%">Ver e escutar</span></div>
-          <div class="gp-r" style="--k:5"><i class="lt" style="width:34.3%"></i><i class="pk" style="background:#ec3f8c;clip-path:polygon(33.11% 0,84.13% 0,88.94% 100%,27.44% 100%)"></i><b>70%</b><span style="left:33.9%;right:16.7%">Conversar, perguntar, repetir, numerar, reproduzir, definir e debater</span></div>
-          <div class="gp-r" style="--k:6"><i class="lt" style="width:28.1%"></i><i class="pk" style="background:#e22d80;clip-path:polygon(26.89% 0,89.41% 0,94.22% 100%,21.22% 100%)"></i><b>80%</b><span style="left:27.7%;right:11.4%">Escrever, interpretar, expressar, revisar, identificar, comunicar, ampliar, demonstrar, praticar e diferenciar</span></div>
-          <div class="gp-r" style="--k:7"><i class="lt" style="width:21.8%"></i><i class="pk" style="background:#d81b72;clip-path:polygon(20.67% 0,94.69% 0,99.50% 100%,15.00% 100%)"></i><b>95%</b><span style="left:21.5%;right:6.1%">Explicar, resumir, estruturar, definir, generalizar, elaborar e ilustrar</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="brain">
-      <h3 class="in" style="--d:2">Pirâmide da <em>aprendizagem</em></h3>
-      <p class="in" style="--d:3">O que a ciência estudou sobre aprendizagem: como o cérebro armazena mais informação e o que faz ele esquecer.</p>
-      <p class="f">Cada aprovado revisou do seu jeito. Mas todos tinham algo em comum: <b style="color:#fff">revisaram e fizeram muitas questões.</b></p>
-    </div>
+<section data-n="15" class="slide" data-title="Como é a revisão rápida?">
+  <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow blue">Revisão rápida</div></div>
+  <h2 class="in" style="--d:0;font-size:52px">Quanto mais você força o cérebro a <em>buscar</em> uma informação, menos você esquece</h2>
+  <div class="phone in" style="--d:1"><span class="dial">(••) •••••-••••</span><span>É por isso que hoje ninguém decora o número de celular de ninguém: a informação está fácil demais. <b>Não revise indo direto ao assunto. Exercite.</b></span></div>
+  <div class="flow">
+    <div class="fl f"><div class="box"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/></svg><h3>Flashcards primeiro</h3><p>Do assunto que você estudou no dia anterior.</p></div></div>
+    <div class="fl f"><div class="box"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><h3>Errou? Anote a resposta CERTA</h3><p>No Word ou no seu caderno físico, se você gosta de caderno.</p></div></div>
+    <div class="fl alert f"><div class="box"><svg viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><h3>Errou metade ou mais?</h3><p>Você não absorveu o conteúdo. Anote a aula/assunto e marque: precisa de revisão.</p></div></div>
+    <div class="fl f"><div class="box"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><h3>Leia o resumo da aula</h3><p>O resumo gerado pela nossa plataforma.</p></div></div>
   </div>
-  <div class="num">07</div>
+  <div class="num">12</div>
 </section>
-<section class="slide xs " data-title="Como é a revisão rápida?" data-notes="[&quot;Lembra da pirâmide da aprendizagem? (falar sobre) Quanto mais você forçar o seu cérebro a buscar uma informação, menos você esquecerá. É por isso que hoje ninguém decora mais o número de celular de outra pessoa, porque a informação está muito fácil de acessar. Você não pode revisar indo direto ver aquele assunto, você tem que exercitar ele.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Revisão rápida</div></div><div class="tx tx-m"><p class="in txp">Você vai pegar o assunto que estudou no dia anterior e resolver primeiro os flashcards,</p><p class="f txp">Os que você errar, você vai copiar a resposta CERTA em um documento de word ou escrever no seu caderno se você gosta de caderno físico. O que você tem que notar aqui? se você errou uma ou outro flashcard, isso é normal,</p><p class="f txp">Se você tiver errado metade ou mais, significa que você não absorveu aquele conteúdo, você vai anotar nesse doc ou no seu caderno o nome da aula/assunto e marcar do lado que precisa fazer uma revisão dele.</p><p class="f txp">Terminado o flashcard, você vai ler o resumo da aula gerado pela nossa plataforma.</p></div><div class="num"></div></section>
 <section data-n="16" class="slide recap" data-title="Recapitulando: revisão rápida">
   <svg class="neon n2" viewBox="0 0 400 400"><use href="#tg"/></svg>
   <div class="stamp in" style="--d:0">Recapitulando</div>
-  <h2 class="in" style="--d:1">Revisão rápida diária é para</h2>
+  <h2 class="in" style="--d:1">Revisão rápida diária</h2>
   <ul>
-    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Resolver flashcards das aulas vistas no dia anterior,</li>
-    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Anotar o que errou e</li>
-    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Ler o resumo.</li>
+    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Resolver os flashcards das aulas vistas no dia anterior</li>
+    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Anotar o que errou</li>
+    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Ler o resumo</li>
   </ul>
-  <div class="clock pop" style="--d:3"><div><b>10 a 15</b><span>minutos<br>por dia</span></div></div>
+  <div class="clock pop" style="--d:3"><div><b>10–15</b><span>minutos<br>por dia</span></div></div>
   <div class="num">13</div>
 </section>
 <section data-n="17" class="slide" data-title="Estudar assunto novo">
   <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Estudar assunto novo</div></div>
-  <h2 class="in" style="--d:0;font-size:52px">Agora você vai estudar o <em>assunto novo</em> que o cronograma está indicando:</h2>
-  <p class="lead in" style="--d:1;margin-top:8px">Vai ver a vídeo aula e ler o PDF que acompanha a aula, tem 3 tipos de pessoas:</p><div class="types">
-    <div class="type f"><div class="n">1</div><div class="seq"><span>Vídeo aula</span><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg><span class="pdf">PDF</span></div><p>As que veem a vídeo aula primeiro e depois leem o pdf</p></div>
-    <div class="type f"><div class="n">2</div><div class="seq"><span class="pdf">PDF</span><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg><span>Vídeo aula</span></div><p>Tem as que leem o pdf primeiro e depois vão para a vídeo aula.</p></div>
-    <div class="type f"><div class="n">3</div><div class="seq"><span>Vídeo aula</span><b class="plus">+</b><span class="pdf">PDF</span></div><p>As que acompanham o PDF enquanto assistem a aula.</p></div>
+  <h2 class="in" style="--d:0;font-size:52px">Vídeo aula + o <em>PDF</em> que acompanha a aula</h2>
+  <div class="types">
+    <div class="type f"><div class="n">1</div><div class="seq"><span>Vídeo aula</span><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg><span class="pdf">PDF</span></div><p>Vê a vídeo aula primeiro e depois lê o PDF.</p></div>
+    <div class="type f"><div class="n">2</div><div class="seq"><span class="pdf">PDF</span><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg><span>Vídeo aula</span></div><p>Lê o PDF primeiro e depois vai para a vídeo aula.</p></div>
+    <div class="type f"><div class="n">3</div><div class="seq"><span>Vídeo aula</span><b class="plus">+</b><span class="pdf">PDF</span></div><p>Acompanha o PDF enquanto assiste à aula.</p></div>
   </div>
   <div class="ask f"><svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg><span>E você, é do tipo <em>1, 2 ou 3</em>? Responde no chat!</span></div>
   <div class="num">14</div>
 </section>
 <section class="slide vslide vh" data-title="Depoimento: Leonardo" data-notes="[&quot;Veja o caso aqui do Leonardo, ele era do tipo 2. Leonardo: Lia o PDF durante o dia para saber o que viria na aula. Vídeo de 1min32s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Leonardo</h2><p class="vcred">1º lugar em Coronel Murta (banca IBGP). Menos de 4 meses de estudo.</p><p class="vtema">Lia o PDF durante o dia para saber o que viria na aula</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/assunto-01-leonardo.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section>
-<section class="slide xs " data-title="Estudo ativo" data-notes="[&quot;Gente, o que não pode é estudar de forma passiva, prestar atenção em outra coisa durante a aula, dormir, etc.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Estudar assunto novo</div></div><div class="tx tx-m"><p class="in txp">Então se você une as duas coisas, e faz um estudo ativo, seu estudo fica bem mais consolidado, então grifa pdf, faz seus resumos se você gosta disso, só cuidado para não gastar muito tempo fazendo anotações de tudo da aula, isso pode ser uma armadilha.</p><p class="f txp">O pdf tbm surge como um material de urgencia, pra disciplinas mais simples, que vc tem muita familiaridade, pode ser uma estrategia boa naquele cenario real que eu falei pra vcs, de vc estar acumulando estudo e nao conseguindo cumprir o cronograma, mas eu vou falar disso com vcs mais pra frente. No geral é isso, o pdf vai servir pra acompanhar a aula e fazer com que a sua revisao seja realmente uma revisão.</p></div><div class="num"></div></section>
+<section class="slide xs " data-title="Estudo ativo" data-notes="[&quot;As 3 formas estão certas. Gente, o que não pode é estudar de forma passiva, prestar atenção em outra coisa durante a aula, dormir, etc.&quot;, &quot;Então se você une as duas coisas, e faz um estudo ativo, seu estudo fica bem mais consolidado: grifa PDF, faz seus resumos se gosta, só cuidado para não gastar muito tempo fazendo anotações de tudo da aula, isso pode ser uma armadilha.&quot;, &quot;O PDF também surge como material de urgência, pra disciplinas mais simples. É uma boa estratégia naquele cenário de estar acumulando estudo, mas vou falar disso mais pra frente. No geral, o PDF vai servir pra acompanhar a aula e fazer com que a sua revisão seja realmente uma revisão.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Estudar assunto novo</div></div><h2 class="in" style="--d:0;font-size:56px">Gente, o que não pode é estudar de forma <em>passiva</em></h2><div class="notes3 ativo">
+    <div class="note ok f"><b>As 3 formas estão certas</b>O que não pode é estudar de forma passiva: prestar atenção em outra coisa, dormir durante a aula.
+    </div>
+    <div class="note f"><b>Una as duas coisas num estudo ativo</b>Então se você une as duas coisas, e faz um estudo ativo, seu estudo fica bem mais consolidado. Grifa o PDF, faz seus resumos se você gosta disso, só cuidado para não gastar muito tempo fazendo anotações de tudo da aula: isso pode ser uma armadilha.</div>
+    <div class="note f"><b>PDF como material de urgência</b>Em disciplinas mais simples, que você tem muita familiaridade, é uma boa estratégia quando está acumulando estudo. No geral, o PDF vai servir pra acompanhar a aula e fazer com que a sua revisão seja realmente uma revisão.</div>
+  </div>
+  <div class="num"></div></section>
 <section class="slide xs " data-title="Questões: 30 minutos" data-notes="[&quot;Terceira divisão do seu dia é resolver questões. Recomendamos 30 minutos. Não adianta querer 2 horas de questões por dia sem ter visto a teoria. Quanto menos teoria para ver, mais questões, lá perto de bater o edital.&quot;, &quot;Quer uma prova?&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Questões</div></div><div class="xc"><h2 class="in big">Terceira divisão do seu dia: <em>resolver questões</em></h2><p class="lead in" style="--d:1"><b>Recomendamos 30 minutos.</b> Quanto menos teoria você tem para ver, mais questões você vai fazer.</p></div><div class="num"></div></section>
 <section class="slide vslide vv" data-title="Depoimento: Anabelle" data-notes="[&quot;Anabelle: Base teórica forte: teoria e questões andando juntas. Vídeo de 1min18s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Anabelle</h2><p class="vcred">1º lugar no TRF 6 (BH), 1º lugar na PMMG (2024) e PMMG (2026) novamente aprovada e formada.</p><p class="vtema">Base teórica forte: teoria e questões andando juntas</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/questoes-01-anabelle.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section><section class="slide vslide vv" data-title="Depoimento: Bárbara" data-notes="[&quot;Bárbara: Aulas e, depois, questões. Vídeo de 0min05s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Bárbara</h2><p class="vcred">EBSERH. 5 meses de estudo.</p><p class="vtema">Aulas e, depois, questões</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/questoes-02-barbara.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section><section class="slide vslide vh" data-title="Depoimento: Rômulo" data-notes="[&quot;Rômulo: Começar pela vídeo aula, não estudar apenas por questões. Vídeo de 1min58s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Rômulo</h2><p class="vcred">Itaquaquecetuba com 1 mês de estudo e Catalão com 3 meses, onde tomou posse.</p><p class="vtema">Começar pela vídeo aula, não estudar apenas por questões</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/questoes-03-romulo.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section><section class="slide vslide vh" data-title="Depoimento: Leonardo" data-notes="[&quot;Leonardo: Fazer muitas questões. Vídeo de 0min24s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Leonardo</h2><p class="vcred">1º lugar em Coronel Murta (banca IBGP). Menos de 4 meses de estudo.</p><p class="vtema">Fazer muitas questões</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/questoes-04-leonardo.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section>
-<section class="slide xs " data-title="Como fazer questão" data-notes="[&quot;E como você vai fazer questão?&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Questões</div></div><h2 class="in tx-h">E como você vai fazer questão?</h2><div class="tx tx-g"><p class="f txp">Irá fazer questões dos assuntos que você estudou no dia. então se você viu dois assuntos no dia, vai fazer questões desses 2 assuntos, mas aqui mora o pulo do gato, sabe aquele segredinho de aprovado? o nome dele se chama <em>“caderno de erros”</em></p></div><div class="num"></div></section>
-<section class="slide xs " data-title="Caderno de erros" data-notes="[&quot;Você não vai fazer apenas as questões, fechar o computador e acabou.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Caderno de erros</div></div><div class="tx tx-m"><p class="in txp">Se você errou uma questão, você vai analisar e ver pq errou: se foi pq esqueceu, se foi pq se confundiu, ou pq não sabia, e você vai pegar a resposta certa para aquela questão e anotar no seu caderno de erros.</p><p class="f txp">Ex: questão tá perguntando qual que seria a classe dos adesivos e as etapas que envolvem a classificação, você errou a alternativa. você não vai anotar no caderno a alternativa que errou, você vai anotar a resposta certa, então você vai colocar no word:</p><p class="f txp"><span class="txex">A quarta geração dos sistemas adesivos é considerado padrão ouro e envolve as etapas do ácido primer e adesivo em frascos diferentes. - <b>estudei e esqueci</b></span></p></div><div class="num"></div></section>
-<section class="slide xs " data-title="Caderno no OdonQuestões" data-notes="[&quot;Aluno, você não tem ideia do poder que esse caderno de erros tem. Toda vez que você se sentir perdido, não souber o que revisar, ele vai estar lá te dizendo exatamente o que você precisa revisar.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Caderno de erros</div></div><div class="tx tx-g"><p class="in txp">Se você está fazendo a questão no odonquestões, basta você salvar a questão errada em um caderno, cria cadernos para cada disciplina. e anota lá em anotações o porque errou.</p></div><div class="num"></div></section>
+<section data-n="18" class="slide" data-title="Questões">
+  <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Questões</div></div>
+  <h2 class="in" style="--d:0;font-size:52px">O pulo do gato: o <em>caderno de erros</em></h2>
+  <div class="qz">
+    <div class="qz-left">
+      <div class="rule in" style="--d:1"><b>30 minutos</b><span>De questões por dia. Quando estiver perto de bater o edital, <strong>quanto menos teoria falta ver, mais questões</strong> você vai fazer.</span></div>
+      <div class="rule in" style="--d:2"><b>Assuntos do dia</b><span>Você vai fazer questões <strong>dos assuntos que estudou no mesmo dia</strong>. Viu dois assuntos? Questões dos dois.</span></div>
+      <div class="rule f"><b>Errou?</b><span>Analise por que errou, <strong>anote a resposta certa e o motivo do erro</strong> em um Word ou caderno físico, se preferir.
+        <div class="why" style="margin-top:8px"><span class="chip p">Esqueci</span><span class="chip p">Me confundi</span><span class="chip p">Não sabia</span></div></span></div>
+      <div class="rule f"><b style="font-size:24px">Odon<br>Questões</b><span>Se você está fazendo questões no OdonQuestões, salve a questão errada em um caderno (<strong>crie um caderno para cada disciplina</strong>, ex.: Dentística) e escreva em <strong>anotações</strong> por que errou.</span></div>
+    </div>
+    <div class="notebook f fs">
+      <div class="nh">Caderno de erros · Dentística</div>
+      <div class="lbl">Não anote a alternativa que você marcou</div>
+      <div class="wrong">Os adesivos de 5ª geração são o padrão ouro…</div>
+      <div class="lbl">Anote a resposta certa</div>
+      <div class="right">A <b>quarta geração</b> dos sistemas adesivos é considerada padrão ouro e envolve as etapas do <b>ácido, primer e adesivo em frascos diferentes.</b></div>
+      <div style="margin-top:8px"><span class="tag">Estudei e esqueci</span></div>
+    </div>
+  </div>
+  <div class="num">15</div>
+</section>
 <section data-n="19" class="slide recap" data-title="Recapitulando: questões">
   <svg class="neon n2" viewBox="0 0 400 400"><use href="#tg"/></svg>
   <div class="stamp in" style="--d:0">Recapitulando</div>
-  <h2 class="in" style="--d:1">Recapitulando como estudar por questões diariamente:</h2>
+  <h2 class="in" style="--d:1">Como estudar por questões diariamente</h2>
   <ul>
     <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>30 minutos por dia</li>
     <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Resolver questões dos assuntos vistos no dia</li>
-    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Anotar a resposta certa em um caderno de erros que pode ser no word, odonquestões ou físico.</li>
+    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Anotar a resposta certa em um caderno de erros, que pode ser no Word, no OdonQuestões ou físico</li>
   </ul>
   <div class="clock pop" style="--d:3"><div><b>30</b><span>minutos<br>por dia</span></div></div>
   <div class="num">16</div>
 </section>
-<section class="slide xs " data-title="Por que dividir na semana" data-notes="[&quot;Agora vamos ver como dividir o tempo na semana.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Divisão semanal</div></div><div class="tx tx-g"><p class="in txp">É aqui que você vai conseguir resolver aquele problema de revisar, matéria acumulada, um dia que não conseguiu estudar e pulou,</p></div><div class="num"></div></section>
 <section data-n="20" class="slide" data-title="Divisão semanal">
   <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow blue">Divisão semanal</div></div>
   <div class="week">
@@ -1382,8 +1395,8 @@ body.show-hud #help{opacity:1}
       <em class="dn-tag p" style="left:323px;top:362px">80%</em><em class="dn-tag bl" style="left:108px;top:72px">20%</em>
     </div>
     <div class="legend">
-      <div class="lg p in" style="--d:1"><b>80%</b><div><h3>Divisão diária</h3><p>80% do seu tempo de estudo na semana é para essa divisão diária falada anteriormente</p></div></div>
-      <div class="lg bl in" style="--d:2"><b>20%</b><div><h3>Estudo livre</h3><p>20% é o que vamos chamar de estudo livre (revisar, aprofundar, desacumular)</p></div></div>
+      <div class="lg p in" style="--d:1"><b>80%</b><div><h3>Divisão diária</h3><p>Revisão rápida, assunto novo e questões, tudo o que o cronograma indicou.</p></div></div>
+      <div class="lg bl in" style="--d:2"><b>20%</b><div><h3>Estudo livre</h3><p>Revisar, aprofundar, desacumular.</p></div></div>
       <div class="cal f">
         <div class="cal-row"><span>Opção 1</span><i>SEG</i><i>TER</i><i>QUA</i><i>QUI</i><i class="fr">SEX · livre</i><i class="off">SÁB</i></div>
         <div class="cal-row"><span>Opção 2</span><i>SEG</i><i>TER</i><i>QUA</i><i>QUI</i><i>SEX</i><i class="fr">SÁB · livre</i></div>
@@ -1392,13 +1405,6 @@ body.show-hud #help{opacity:1}
   </div>
   <div class="num">17</div>
 </section>
-<section class="slide xs " data-title="Estudo livre: quando" data-notes="[&quot;Vou explicar melhor sobre esse estudo livre.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Divisão semanal</div></div><div class="tx tx-m"><p class="in txp">Ah, prof, eu botei no meu cronograma que ia estudar de segunda a sexta, isso dá para cada dia 20%, então ou você vê tudo de assunto que o cronograma indicou entre segunda e quinta, e na sexta faz esse estudo livre. ou estuda de segunda a sexta o que o cronograma indicou e faz o estudo livre no sábado.</p><p class="f txp">E o que é esse estudo livre: por mais que o nome seja livre, não quer dizer que você vai estudar apenas o que gosta ou o que quer, significa que ele vai ser adaptado para cada situação e pessoa.</p></div><div class="num"></div></section>
-<section class="slide xs " data-title="Estudo livre: questões" data-notes="[&quot;Primeira parte do estudo livre: questões.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Estudo livre · 40 minutos</div></div><div class="tx tx-p"><p class="in txp">Nesse dia de estudo livre você vai dividir ele em 3 partes (exemplo 2 horas):</p><p class="f txp"><b>Questões:</b> VOCÊ REVISA O QUE JÁ SABE SEM PRECISAR VOLTAR AO ASSUNTO E TREINA AO MESMO TEMPO, ASSIM VC PEGA O MODELO DA BANCA</p><p class="f txp">(não apenas do assunto especifico semana, mas dos assuntos ja estudado das matérias estudadas )</p><p class="f txp">Ex: na semana estudou portugues, farmacologia, sus, dentística, informática.</p><p class="f txp">Vc vai fazer questões de todos os assuntos que já estudou dessas matérias.</p><p class="f txp">Ou se teve simulado no fds passado, analisar as questões erradas, ver pq errou.</p><p class="f txp">Salvando as questões que errou e tentando entender pq errou (anotando e salvando no caderno de erros)</p><p class="f txp">O BENEFICIO DISSO É QUE VC MESMO VAI PERCEBER OS ASSUNTOS QUE MAIS CAEM, QUAL PERFIL QUE ELA COBRA MAIS</p><p class="f txp"><em>40 MINUTOS</em></p></div><div class="num"></div></section>
-<section class="slide vslide vh" data-title="Depoimento: Natan" data-notes="[&quot;Natan: Resolvia questões e anotava a frequência dos assuntos. Vídeo de 0min18s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Natan</h2><p class="vcred">Aprovado em 3 cargos em Uberaba (banca AOCP) e 1 cargo em Veríssimo-MG. 5 meses de estudo.</p><p class="vtema">Resolvia questões e anotava a frequência dos assuntos</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/livre-01-natan.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section><section class="slide vslide vv" data-title="Depoimento: Cinthia" data-notes="[&quot;Cinthia: Assinei o OdonQuestões e você pega a manha das bancas. Vídeo de 0min22s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Cinthia</h2><p class="vcred">SMS BH. 8 meses de estudo.</p><p class="vtema">Assinei o OdonQuestões e você pega a manha das bancas</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/livre-02-cinthia.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section>
-<section class="slide xs " data-title="Estudo livre: caderno de erros" data-notes="[&quot;Segunda parte do estudo livre: caderno de erros.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Estudo livre · 40 minutos</div></div><div class="tx tx-m"><p class="in txp"><b>Caderno de erros:</b> AQUI VOCÊ VAI REGISTRAR E SABER EXATAMENTE ONDE ESTÁ ERRANDO</p><p class="f txp">Ler os erros corrigidos do seu caderno até ter certeza que aprendeu, caso ache que não precisa mais rever aquele erro no caderno, destaque ele numa cor que você predefiniu como aprendido.</p><p class="f txp"><em>40 MINUTOS</em></p></div><div class="num"></div></section>
-<section class="slide vslide vv" data-title="Depoimento: Anabelle" data-notes="[&quot;Anabelle: Revisava pelo próprio caderno de erros. Vídeo de 1min32s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Anabelle</h2><p class="vcred">1º lugar no TRF 6 (BH), 1º lugar na PMMG (2024) e PMMG (2026) novamente aprovada e formada.</p><p class="vtema">Revisava pelo próprio caderno de erros</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/caderno-01-anabelle.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section><section class="slide vslide vh" data-title="Depoimento: Rômulo" data-notes="[&quot;Rômulo: Como revisava: pegava das questões. Vídeo de 0min47s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Rômulo</h2><p class="vcred">Itaquaquecetuba com 1 mês de estudo e Catalão com 3 meses, onde tomou posse.</p><p class="vtema">Como revisava: pegava das questões</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/caderno-02-romulo.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section>
-<section class="slide xs " data-title="Estudo livre: voltar a teoria" data-notes="[&quot;Terceira parte do estudo livre: voltar à teoria.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Estudo livre · 40 minutos</div></div><div class="tx tx-p"><p class="in txp"><b>Voltar a teoria:</b> VAI REVER APENAS O QUE NÃO ABSORVEU E GANHAR TEMPO</p><p class="f txp">Você vai olhar para o dashboard “meu desempenho” do odonquestões ou para o seu caderno de erros, ver os assuntos que mais errou e que nao está conseguindo acertar pq não entendeu direito ou está esquecendo e estudar ele de novo, porém, é importante tentar ver ele por outro método além da vídeo aula (resumo, apostila, mapa mental, questões comentadas, etc)</p><p class="f txp"><b>ou SE VC TA COM MATERIA ACUMULADA</b></p><p class="f txp">Estudar os assuntos que acumularam e não conseguiu seguir, e uma dica que dou é tentar ganhar tempo aqui, se você for assistir todas as vídeo aulas que estão atrasadas, pior ainda na velocidade 1, você não vai colocar em dias nunca, tenta aprender por pdf, se ver que errou muita questão, vai para a vídeo aula mas tenta assistir numa velocidade maior.</p><p class="f txp"><em>40 MINUTOS</em></p></div><div class="num"></div></section>
-<section class="slide vslide vv" data-title="Depoimento: Quézia" data-notes="[&quot;Quézia: Em alguns conteúdos dá pra ir direto pro PDF. Vídeo de 0min39s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Quézia</h2><p class="vcred">Uberaba-MG (banca AOCP, onde assumiu), EBSERH e Dores do Indaiá-MG. Menos de 1 ano de estudo.</p><p class="vtema">Em alguns conteúdos dá pra ir direto pro PDF</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/teoria-01-quezia.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section><section class="slide vslide vv" data-title="Depoimento: Yasmim" data-notes="[&quot;Yasmim: Quando não conseguia ver a aula, via o PDF para ganhar tempo. Vídeo de 0min39s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Yasmim</h2><p class="vcred">Ribeirão das Neves-MG e prova objetiva da PMMG. 1 mês de estudo.</p><p class="vtema">Quando não conseguia ver a aula, via o PDF para ganhar tempo</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/teoria-02-yasmim.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section>
 <section data-n="21" class="slide" data-title="Estudo livre">
   <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow blue">Estudo livre · exemplo de 2 horas</div></div>
   <h2 class="in" style="--d:0;font-size:50px">Livre não é estudar só o que você gosta. É <span class="b">adaptado</span> para cada situação.</h2>
@@ -1421,7 +1427,87 @@ body.show-hud #help{opacity:1}
       <div class="cap">Você revisa o que já sabe sem precisar voltar ao assunto e treina ao mesmo tempo, assim você pega o modelo da banca</div>
       <p>De todos os assuntos já estudados dessas matérias. Teve simulado? Analise as erradas. Você mesmo vai perceber o que mais cai e o perfil que a banca cobra.</p>
     </div>
+    <div class="fr-c" hidden-card="1" data-o="2" style="--c:#6f9be0">
+      <div class="hd"><div class="k">2</div><div class="ring"><svg viewBox="0 0 88 88"><circle class="rb" cx="44" cy="44" r="37"/><circle class="rf" cx="44" cy="44" r="37"/></svg><b>40<small>MIN</small></b></div></div>
+      <h3>Caderno de erros</h3>
+      <div class="cap">Aqui você vai registrar e saber exatamente onde está errando</div>
+      <p>Leia os erros corrigidos até ter certeza de que aprendeu. Já aprendeu? Destaque na cor que você definiu como “aprendido”.</p>
+    </div>
+    <div class="fr-c" hidden-card="1" data-o="3" style="--c:#FF1A8C">
+      <div class="hd"><div class="k">3</div><div class="ring"><svg viewBox="0 0 88 88"><circle class="rb" cx="44" cy="44" r="37"/><circle class="rf" cx="44" cy="44" r="37"/></svg><b>40<small>MIN</small></b></div></div>
+      <h3>Voltar à teoria</h3>
+      <div class="cap">Vai rever apenas o que não absorveu e ganhar tempo</div>
+      <p>Pelo dashboard “Meu desempenho” ou pelo caderno de erros, por outro método além da vídeo aula.</p>
+      <div class="ou">OU</div>
+      <p>Se você está com matéria acumulada: tente pelo PDF e, se errar muito, vá para a vídeo aula em velocidade maior.</p>
+    </div>
+  </div>
+  <div class="num">18</div>
+</section>
+<section class="slide vslide vh" data-title="Depoimento: Natan" data-notes="[&quot;Natan: Resolvia questões e anotava a frequência dos assuntos. Vídeo de 0min18s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Natan</h2><p class="vcred">Aprovado em 3 cargos em Uberaba (banca AOCP) e 1 cargo em Veríssimo-MG. 5 meses de estudo.</p><p class="vtema">Resolvia questões e anotava a frequência dos assuntos</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/livre-01-natan.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section><section class="slide vslide vv" data-title="Depoimento: Cinthia" data-notes="[&quot;Cinthia: Assinei o OdonQuestões e você pega a manha das bancas. Vídeo de 0min22s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Cinthia</h2><p class="vcred">SMS BH. 8 meses de estudo.</p><p class="vtema">Assinei o OdonQuestões e você pega a manha das bancas</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/livre-02-cinthia.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section>
+<section data-n="21" class="slide" data-title="Estudo livre">
+  <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow blue">Estudo livre · exemplo de 2 horas</div></div>
+  <h2 class="in" style="--d:0;font-size:50px">Livre não é estudar só o que você gosta. É <span class="b">adaptado</span> para cada situação.</h2>
+  <div class="free">
+    <div class="pie in" style="--d:1">
+      <div class="dn">
+        <svg class="ring3" viewBox="0 0 280 280" aria-hidden="true">
+          <circle cx="140" cy="140" r="108" fill="none" stroke="#1a1a20" stroke-width="62"/>
+          <circle class="seg3 f" data-o="1" cx="140" cy="140" r="108" stroke="#FF7A00"/>
+          <circle class="seg3 f" data-o="2" cx="140" cy="140" r="108" stroke="#3d6fb5" style="stroke-dashoffset:-226.2"/>
+          <circle class="seg3 f" data-o="3" cx="140" cy="140" r="108" stroke="#FF1A8C" style="stroke-dashoffset:-452.4"/>
+        </svg>
+        <div class="ctr"><svg viewBox="-145 -25 1090 850" aria-hidden="true"><path d="M215 78 A367 367 0 0 1 718 213M138 138 A367 367 0 0 0 302 755M768 383 A370 370 0 0 1 398 770" stroke="#EE2A7B" stroke-width="22" fill="none"/><circle cx="400" cy="395" r="300" stroke="#EE2A7B" stroke-width="50" fill="none"/><path d="M601 440 A205 205 0 1 1 547 263" stroke="#0c0a3e" stroke-width="60" stroke-linecap="round" fill="none"/><circle cx="400" cy="400" r="70" stroke="#0c0a3e" stroke-width="50" fill="none"/><path d="M462 366 L812 274" stroke="#0c0a3e" stroke-width="50"/><path d="M772 236 L892 198 L866 262 L926 300 L838 330 L792 302 Z" fill="#0c0a3e"/></svg></div>
+      </div>
+      <div class="lgd"><span><i style="background:#FF7A00"></i>Questões<b>33,3%</b></span><span><i style="background:#3d6fb5"></i>Caderno de erros<b>33,3%</b></span><span><i style="background:#FF1A8C"></i>Voltar teoria<b>33,3%</b></span></div>
+    </div>
+    <div class="fr-c" data-o="1" style="--c:#FF7A00">
+      <div class="hd"><div class="k">1</div><div class="ring"><svg viewBox="0 0 88 88"><circle class="rb" cx="44" cy="44" r="37"/><circle class="rf" cx="44" cy="44" r="37"/></svg><b>40<small>MIN</small></b></div></div>
+      <h3>Questões</h3>
+      <div class="cap">Você revisa o que já sabe sem precisar voltar ao assunto e treina ao mesmo tempo, assim você pega o modelo da banca</div>
+      <p>De todos os assuntos já estudados dessas matérias. Teve simulado? Analise as erradas. Você mesmo vai perceber o que mais cai e o perfil que a banca cobra.</p>
+    </div>
     <div class="fr-c f" data-o="2" style="--c:#6f9be0">
+      <div class="hd"><div class="k">2</div><div class="ring"><svg viewBox="0 0 88 88"><circle class="rb" cx="44" cy="44" r="37"/><circle class="rf" cx="44" cy="44" r="37"/></svg><b>40<small>MIN</small></b></div></div>
+      <h3>Caderno de erros</h3>
+      <div class="cap">Aqui você vai registrar e saber exatamente onde está errando</div>
+      <p>Leia os erros corrigidos até ter certeza de que aprendeu. Já aprendeu? Destaque na cor que você definiu como “aprendido”.</p>
+    </div>
+    <div class="fr-c" hidden-card="1" data-o="3" style="--c:#FF1A8C">
+      <div class="hd"><div class="k">3</div><div class="ring"><svg viewBox="0 0 88 88"><circle class="rb" cx="44" cy="44" r="37"/><circle class="rf" cx="44" cy="44" r="37"/></svg><b>40<small>MIN</small></b></div></div>
+      <h3>Voltar à teoria</h3>
+      <div class="cap">Vai rever apenas o que não absorveu e ganhar tempo</div>
+      <p>Pelo dashboard “Meu desempenho” ou pelo caderno de erros, por outro método além da vídeo aula.</p>
+      <div class="ou">OU</div>
+      <p>Se você está com matéria acumulada: tente pelo PDF e, se errar muito, vá para a vídeo aula em velocidade maior.</p>
+    </div>
+  </div>
+  <div class="num">18</div>
+</section>
+<section class="slide vslide vv" data-title="Depoimento: Anabelle" data-notes="[&quot;Anabelle: Revisava pelo próprio caderno de erros. Vídeo de 1min32s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Anabelle</h2><p class="vcred">1º lugar no TRF 6 (BH), 1º lugar na PMMG (2024) e PMMG (2026) novamente aprovada e formada.</p><p class="vtema">Revisava pelo próprio caderno de erros</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/caderno-01-anabelle.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section><section class="slide vslide vh" data-title="Depoimento: Rômulo" data-notes="[&quot;Rômulo: Como revisava: pegava das questões. Vídeo de 0min47s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Rômulo</h2><p class="vcred">Itaquaquecetuba com 1 mês de estudo e Catalão com 3 meses, onde tomou posse.</p><p class="vtema">Como revisava: pegava das questões</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/caderno-02-romulo.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section>
+<section data-n="21" class="slide" data-title="Estudo livre">
+  <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow blue">Estudo livre · exemplo de 2 horas</div></div>
+  <h2 class="in" style="--d:0;font-size:50px">Livre não é estudar só o que você gosta. É <span class="b">adaptado</span> para cada situação.</h2>
+  <div class="free">
+    <div class="pie in" style="--d:1">
+      <div class="dn">
+        <svg class="ring3" viewBox="0 0 280 280" aria-hidden="true">
+          <circle cx="140" cy="140" r="108" fill="none" stroke="#1a1a20" stroke-width="62"/>
+          <circle class="seg3 f" data-o="1" cx="140" cy="140" r="108" stroke="#FF7A00"/>
+          <circle class="seg3 f" data-o="2" cx="140" cy="140" r="108" stroke="#3d6fb5" style="stroke-dashoffset:-226.2"/>
+          <circle class="seg3 f" data-o="3" cx="140" cy="140" r="108" stroke="#FF1A8C" style="stroke-dashoffset:-452.4"/>
+        </svg>
+        <div class="ctr"><svg viewBox="-145 -25 1090 850" aria-hidden="true"><path d="M215 78 A367 367 0 0 1 718 213M138 138 A367 367 0 0 0 302 755M768 383 A370 370 0 0 1 398 770" stroke="#EE2A7B" stroke-width="22" fill="none"/><circle cx="400" cy="395" r="300" stroke="#EE2A7B" stroke-width="50" fill="none"/><path d="M601 440 A205 205 0 1 1 547 263" stroke="#0c0a3e" stroke-width="60" stroke-linecap="round" fill="none"/><circle cx="400" cy="400" r="70" stroke="#0c0a3e" stroke-width="50" fill="none"/><path d="M462 366 L812 274" stroke="#0c0a3e" stroke-width="50"/><path d="M772 236 L892 198 L866 262 L926 300 L838 330 L792 302 Z" fill="#0c0a3e"/></svg></div>
+      </div>
+      <div class="lgd"><span><i style="background:#FF7A00"></i>Questões<b>33,3%</b></span><span><i style="background:#3d6fb5"></i>Caderno de erros<b>33,3%</b></span><span><i style="background:#FF1A8C"></i>Voltar teoria<b>33,3%</b></span></div>
+    </div>
+    <div class="fr-c" data-o="1" style="--c:#FF7A00">
+      <div class="hd"><div class="k">1</div><div class="ring"><svg viewBox="0 0 88 88"><circle class="rb" cx="44" cy="44" r="37"/><circle class="rf" cx="44" cy="44" r="37"/></svg><b>40<small>MIN</small></b></div></div>
+      <h3>Questões</h3>
+      <div class="cap">Você revisa o que já sabe sem precisar voltar ao assunto e treina ao mesmo tempo, assim você pega o modelo da banca</div>
+      <p>De todos os assuntos já estudados dessas matérias. Teve simulado? Analise as erradas. Você mesmo vai perceber o que mais cai e o perfil que a banca cobra.</p>
+    </div>
+    <div class="fr-c" data-o="2" style="--c:#6f9be0">
       <div class="hd"><div class="k">2</div><div class="ring"><svg viewBox="0 0 88 88"><circle class="rb" cx="44" cy="44" r="37"/><circle class="rf" cx="44" cy="44" r="37"/></svg><b>40<small>MIN</small></b></div></div>
       <h3>Caderno de erros</h3>
       <div class="cap">Aqui você vai registrar e saber exatamente onde está errando</div>
@@ -1438,15 +1524,16 @@ body.show-hud #help{opacity:1}
   </div>
   <div class="num">18</div>
 </section>
+<section class="slide vslide vv" data-title="Depoimento: Quézia" data-notes="[&quot;Quézia: Em alguns conteúdos dá pra ir direto pro PDF. Vídeo de 0min39s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Quézia</h2><p class="vcred">Uberaba-MG (banca AOCP, onde assumiu), EBSERH e Dores do Indaiá-MG. Menos de 1 ano de estudo.</p><p class="vtema">Em alguns conteúdos dá pra ir direto pro PDF</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/teoria-01-quezia.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section><section class="slide vslide vv" data-title="Depoimento: Yasmim" data-notes="[&quot;Yasmim: Quando não conseguia ver a aula, via o PDF para ganhar tempo. Vídeo de 0min39s (já acelerado). Apresente a pessoa e clique para o vídeo começar. No fim ele para, e o próximo clique segue.&quot;]"><div class="vinfo"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Aprovados Odon</div><h2>Yasmim</h2><p class="vcred">Ribeirão das Neves-MG e prova objetiva da PMMG. 1 mês de estudo.</p><p class="vtema">Quando não conseguia ver a aula, via o PDF para ganhar tempo</p></div><div class="vbox"><video playsinline preload="none" data-src="cortes/teoria-02-yasmim.mp4?v=3"></video><button class="vplay" type="button" aria-label="Tocar o vídeo"><span>▶</span></button><div class="verr" hidden></div><div class="vbar"><i></i></div></div></section>
 <section data-n="22" class="slide recap" data-title="Recapitulando: semana">
   <svg class="neon n2" viewBox="0 0 400 400"><use href="#tg"/></svg>
   <div class="stamp in" style="--d:0">Recapitulando</div>
-  <h2 class="in" style="--d:1;font-size:29px;line-height:1.3;font-weight:700;letter-spacing:0;max-width:1120px">Você vai tentar dividir sua semana em 80% do tempo para ver tudo do cronograma e 20% de estudo livre. se você estuda de segunda a sexta, você veria tudo do cronograma de segunda a quinta e na sexta seria esse estudo livre.</h2><p class="lead in" style="--d:2;margin-top:18px;font-size:32px"><b>O estudo livre vai:</b></p>
+  <h2 class="in" style="--d:1">80% do tempo para ver tudo do cronograma e 20% de estudo livre</h2>
   <ul>
-    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>-te fazer revisar por questões e identificar o que precisa rever</li>
-    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>-te fazer revisar apenas o que precisa pelo caderno de erros</li>
-    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>-te fazer voltar a teoria apenas no que for necessário e ganhando tempo</li>
-    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>-desacumular assuntos que você atrasou</li>
+    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Te faz revisar por questões e identificar o que precisa rever</li>
+    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Te faz revisar apenas o que precisa pelo caderno de erros</li>
+    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Te faz voltar à teoria apenas no que for necessário, ganhando tempo</li>
+    <li class="f"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i>Desacumula assuntos que você atrasou</li>
   </ul>
   <div class="clock pop" style="--d:3;border-color:rgba(107,123,255,.7);box-shadow:0 0 60px rgba(51,70,224,.4),inset 0 0 50px rgba(51,70,224,.2)"><div><b>80/20</b><span>na semana</span></div></div>
   <div class="num">19</div>
@@ -1473,13 +1560,35 @@ body.show-hud #help{opacity:1}
   <p class="lead in" style="--d:7">É um conteúdo denso, e vocês precisam de um acompanhamento nosso ainda maior. Nosso maior diferencial é pegar na mão de vocês.</p>
   <div class="num">21</div>
 </section>
-<section class="slide xs " data-title="Como funcionará a mentoria" data-notes="[&quot;Nós teremos dois tipos de mentoria.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Mentoria</div></div><h2 class="in tx-h">Nós teremos <em>dois tipos</em> de mentoria:</h2><div class="tx tx-g"><p class="f txp">A mentoria geral que vamos chamar de <em>Odonclass</em> e nela teremos encontro no mínimo uma vez por mês:</p><p class="f txp">e nela vamos abordar desde</p><p class="f txp">qual edital escolher,</p><p class="f txp">como interpretar um edital até</p><p class="f txp">o que fazer depois de aprovado, e muito mais.</p></div><div class="num"></div></section>
-<section class="slide xs " data-title="Mentoria: o que vamos aprofundar" data-notes="[&quot;A intenção é criar um time unido, que você se inspire e queira ser o próximo a estar aqui fazendo live conosco como aprovado.&quot;]"><div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow ">Mentoria</div></div><div class="tx tx-p"><p class="in txp">Na mentoria vamos destrinchar e aprofundar cada coisa falada aqui:</p><p class="f txp">como estudar cada coisa</p><p class="f txp">técnicas</p><p class="f txp">revisões</p><p class="f txp">Além disso, vamos trazer aprovados para compartilhar com vocês o que eles fizeram de igual, de diferente, pq cada um tem seu jeito, tem uma aluna nossa que passou usando o método pomodoro, ela vem para contar exatamente como utilizava.</p></div><div class="num"></div></section>
+<section data-n="25" class="slide" data-title="Como funcionará a mentoria">
+  <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow">Mentoria · para todos os alunos do Concurseiro PRO</div></div>
+  <h2 class="in" style="--d:0;font-size:56px">Teremos <em>dois tipos</em> de mentoria</h2>
+  <div class="mt">
+    <div class="mt-card g in" style="--d:1">
+      <div class="k">Mentoria geral</div>
+      <h3>OdonClass</h3>
+      <span class="freq">Encontro no mínimo 1 vez por mês</span>
+      <ul>
+        <li class="f">Desde qual edital escolher e como interpretar um edital até o que fazer depois de aprovado</li>
+        <li class="f">Destrinchar e aprofundar cada coisa falada aqui: como estudar cada coisa, técnicas, revisões</li>
+        <li class="f">Aprovados compartilhando o que fizeram de igual e de diferente, como a aluna que passou usando o método Pomodoro</li>
+      </ul>
+      <p class="f">A intenção é criar um time unido, que você se inspire e queira ser o próximo a estar aqui fazendo live conosco como aprovado.</p>
+    </div>
+    <div class="mt-card e in" style="--d:2">
+      <div class="k">Mentoria por edital</div>
+      <h3>Sprint de editais</h3>
+      <span class="freq">Quando sai um edital muito bom</span>
+      <p>Encontros focados nos bons editais. Os detalhes estão no próximo slide.</p>
+    </div>
+  </div>
+  <div class="num">22</div>
+</section>
 <section data-n="26" class="slide" data-title="Mentoria: sprint de editais">
   <div class="top"><i class="logo" role="img" aria-label="Odon Concursos"></i><div class="eyebrow blue">Mentoria · sprint de editais</div></div>
   <div class="ed-wrap">
     <div>
-      <h2 class="in" style="--d:0;font-size:46px"><span style="display:block;color:var(--pink-hi);font-size:30px;margin-bottom:12px">E a outra forma de mentoria é para o sprint de editais:</span>Saiu um edital muito bom, a gente vai ter encontros onde vou com vcs:</h2>
+      <h2 class="in" style="--d:0;font-size:46px">Saiu um edital muito bom? A gente vai ter encontros onde vou com vocês:</h2>
       <ul class="list2">
         <li class="f"><b>1</b>Destrinchar o edital</li>
         <li class="f"><b>2</b>Trazer análise da banca</li>
@@ -1510,7 +1619,6 @@ body.show-hud #help{opacity:1}
         <div class="f"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-7"/></svg><span><b>Esta aula aqui</b> foi uma mentoria</span></div>
         <div class="f"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-7"/></svg><span><b>A live passada com o Rômulo</b> também foi um dos encontros</span></div>
         <div class="f"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-7"/></svg><span>E o nível vai ser sempre esse: <b>é daqui pra cima</b></span></div>
-        <div class="f"><span>Só que quando a gente fala de ser algo fixo mesmo como em uma segunda do mês, começará em janeiro.</span></div>
         <div class="f when-q"><span><b>Cês gostaram da ideia da mentoria?</b></span></div>
       </div>
     </div>
@@ -1607,7 +1715,7 @@ body.show-hud #help{opacity:1}
 
 <script>
 (function(){
-  const NOTES = [["Boa noite, galera! Vamos nos acomodando. Dar 5 minutos (clique no cronômetro para iniciar).", "Vá pegar sua água e se preparar para uma mentoria incrível do Odon."], ["O segredo dos nossos aprovados: como organizar seus estudos, como estudar, revisar, como recalcular a rota quando acumula estudo, o lançamento da nossa mentoria e como funcionará nossa Black Vitalícia."], ["Antigamente: apostilas físicas gigantes, vendidas em banca de jornal. Vocês lembram?", "A internet evoluiu e todo mundo só queria vídeo aula. Um tempo depois as apostilas viraram PDF.", "Os cursinhos davam só vídeo aula, muitas vezes sem PDF. Depois tiveram que se atualizar. Tem cursinho que até hoje não dá PDF para acompanhar a aula.", "O Odon nasceu de apostilas: o PDF é ponto forte desde o começo. E depois de lançar o curso fomos aprimorando o método."], ["No começo os alunos mandavam muita mensagem: por onde começo, qual matéria… Daí nasceu o cronograma.", "Quem lembra dos primeiros cronogramas? Eram em PDF, feitos à mão para cada aluno.", "O mercado tentou copiar, mas muitas vezes é só a ordem das aulas, não é baseado nas suas horas. Eles não têm plataforma voltada para concurso. Área estilo Netflix é a pior coisa para o concurseiro."], ["Mas quem está com a gente sabe que nunca paramos de evoluir. Somos OBCECADOS pelo nosso aluno (às vezes até demais, tomo bronca aqui kkk).", "Vídeo aulas completas e atualizadas, PDFs completos, simulados e cronograma baseado no edital. Plataforma com mais de 85 mil questões e 20 mil comentadas por professores.", "E ainda: resumo da aula com erros mais frequentes, dicas para a prova e pontos-chave, e flashcards para as revisões."], ["Cronograma: baseado nas suas horas semanais e exatamente na prova que você vai fazer. Fez diferença para centenas de aprovados.", "(O cursor mostra: escolher a semana e marcar as aulas concluídas.)"], ["Plataforma de questões: mais de 85 mil questões e 20 mil comentadas por professores.", "(O cursor filtra Dentística › Sistemas adesivos › IBFC, só comentadas, resolve, vê o comentário e salva no caderno.)"], ["Resumo da aula gerado pela plataforma: pontos-chave, erros comuns e dicas para prova.", "(O cursor ouve o resumo, percorre os destaques, marca para revisão e gera o PDF.)"], ["Flashcards: revisão ativa, forçando o cérebro a buscar a informação.", "(O cursor vira os cards e marca acertos e erros. Os contadores sobem.)"], ["Mesmo assim estamos sempre escutando nossos alunos. As perguntas que vinham eram estas (vão aparecendo uma a uma).", "Bota aí nos comentários se você já teve essas dúvidas."], ["Algumas dessas perguntas têm mais de uma resposta certa. Tem aprovado que revisou de um jeito, outro de outro jeito. Mas todos revisaram e fizeram muitas questões.", "Neurologia da aprendizagem: o que a ciência estudou sobre como o cérebro armazena e o que faz esquecer."], ["Vocês pediam mentoria, mais contato comigo e adoravam quando trazíamos aprovados. Então vamos lançar a Mentoria OdonClass, projeto novo para todos os alunos do Concurseiro PRO.", "Antes, um compilado do que os aprovados em menos tempo fizeram: vídeo aulas, PDFs, revisões, questões.", "Primeiro o cenário ideal de cada tópico. Depois as alternativas: se algo der errado (acumulei, não consigo seguir), o que eu faço?"], ["Primeiro: listar os materiais que você tem à disposição. O que é de estudo e o que é de revisão.", "PDF apostila e questões do OdonQuestões servem para os dois."], ["“Tá, prof, mas como divido meu tempo e como estudo por cada função dessa?” Existe a divisão diária e a divisão semanal."], ["Divida o dia em 3: revisão rápida (10 a 15 min), assunto novo (depende da disponibilidade no cronograma) e questões (mínimo 30 min).", "Exemplo com 2 horas: 10 a 15 min de revisão, 1h30 de assunto, 30 min de questões."], ["Lembra da pirâmide? Quanto mais você força o cérebro a buscar, menos esquece. Por isso ninguém decora mais número de celular.", "Pegue o assunto do dia anterior e faça primeiro os flashcards. Errou? Copie a resposta CERTA no Word ou no caderno.", "Errar um ou outro é normal. Errou metade ou mais: não absorveu. Anote a aula e marque que precisa revisar.", "Terminou os flashcards: leia o resumo da aula gerado pela plataforma."], ["Revisão rápida diária: flashcards das aulas do dia anterior, anotar o que errou e ler o resumo. 10 a 15 minutos por dia."], ["Agora o assunto novo que o cronograma indica: vídeo aula + PDF que acompanha a aula.", "Tipo 1: vídeo e depois PDF. Tipo 2: PDF e depois vídeo. Tipo 3: PDF enquanto assiste. As 3 estão certas. Bota no chat: você é 1, 2 ou 3?", "Não pode estudar passivo. Unindo os dois num estudo ativo, o estudo consolida. Cuidado para não anotar tudo da aula, é armadilha.", "O PDF também é material de urgência para disciplinas simples, quando o estudo está acumulando. Falo disso mais pra frente."], ["Terceira parte do dia: 30 min de questões. Não adianta 2 horas de questões sem ter visto teoria. Quanto menos teoria falta, mais questões.", "Questões dos assuntos do dia. E o pulo do gato, segredinho de aprovado: o caderno de erros.", "Errou? Veja por quê: esqueceu, confundiu ou não sabia. Anote a resposta CERTA, não a alternativa errada. Exemplo dos sistemas adesivos.", "No OdonQuestões: salve a errada num caderno por disciplina e anote por que errou. Quando estiver perdido, o caderno diz exatamente o que revisar."], ["Recapitulando: 30 minutos por dia, questões dos assuntos do dia, resposta certa no caderno de erros (Word, OdonQuestões ou físico).", "Já vimos o dia: revisar rápido o dia anterior, assunto novo e questões."], ["Agora a semana. É aqui que se resolve revisão, matéria acumulada, dia que pulou.", "80% do tempo para a divisão diária. 20% de estudo livre: revisar, aprofundar, desacumular.", "Estuda de segunda a sexta? Vê o cronograma de segunda a quinta e faz o estudo livre na sexta. Ou segue o cronograma até sexta e faz o livre no sábado."], ["Livre não quer dizer estudar só o que gosta: ele é adaptado a cada situação e pessoa. Exemplo de 2 horas.", "1) Questões, 40 min: de todos os assuntos já estudados das matérias da semana (ex.: português, farmacologia, SUS, dentística, informática). Teve simulado? Analise as erradas.", "2) Caderno de erros, 40 min: ler os erros corrigidos até ter certeza. Aprendeu? Destaque na cor definida.", "3) Voltar à teoria, 40 min: dashboard “Meu desempenho” ou caderno de erros, rever por outro método. Ou desacumular: tente PDF; se errar muito, vídeo aula em velocidade maior."], ["Recapitulando: 80% cronograma, 20% estudo livre. Estudo livre: revisa por questões, revisa só o necessário pelo caderno de erros, volta à teoria ganhando tempo e desacumula.", "“Prof, não estou conseguindo fazer tudo isso, quais opções tenho?”"], ["Não existe certo ou errado, existe o que vai dar certo pra você.", "PDF antes da aula: estuda o PDF, acelera a aula e desacelera nos pontos difíceis.", "Estudo completo nos mais cobrados: difícil ou muito cobrado = vídeo + PDF. Fácil E pouco cobrado (tem que ser ambos) = só PDF, aula só se tiver dificuldade.", "Estudar só por questões, primeiro e apenas? Não é a melhor opção (explicar)."], ["Sabendo de tudo isso, a cabeça de vocês fez BUM! É muita coisa, um conteúdo denso, e vocês precisam de um acompanhamento ainda maior.", "Nosso maior diferencial é pegar na mão de vocês. Então vamos lançar a mentoria para todos os alunos do Concurseiro PRO."], ["Dois tipos de mentoria. A geral, OdonClass: encontro no mínimo uma vez por mês.", "Desde qual edital escolher, como interpretar um edital, até o que fazer depois de aprovado. Destrinchar como estudar, técnicas e revisões.", "Aprovados contando o que fizeram de igual e diferente. Tem uma aluna que passou usando Pomodoro e vem contar como usava.", "A intenção é criar um time unido, que você se inspire e queira ser o próximo aprovado fazendo live conosco."], ["A outra forma é o sprint de editais. Saiu um bom edital: destrinchar o edital, análise da banca, o que mais cai, live com aprovado da banca, votação de aula ao vivo e live de véspera.", "Legal, né? Ninguém faz isso. Vai ser desafiador, mas é um compromisso meu e da equipe com nossos alunos."], ["A mentoria vai começar em janeiro. Na verdade já começou: esta aula foi uma mentoria, a live passada com o Rômulo também. Vi que vocês amaram. É daqui pra cima.", "Só que, quando a gente fala de ser algo fixo mesmo, como em uma segunda do mês, começará em janeiro.", "Cês gostaram da ideia da mentoria?"], ["Prévia da Black. Dia 05/11 às 20:00: explicação completa da Black.", "Desconto exclusivo para quem quer ser vitalício. Muitos brindes exclusivos!", "Dicas sobre os brindes: 1) é físico e vai chegar na sua casa, o que vocês acham que é? 2) outro tem a ver com a prova de títulos; 3) e o outro é uma surpresa enorme.", "QR code: abre a página da Lista VIP da Black.", "E aí, gente, o que acharam? Gostaram?"], ["A contagem é até 05/11 às 20:00.", "Agora: entre na lista pelo QR code. Até 05/11: fique de olho no grupo. Dia 05/11 às 20:00: explicação completa da Black."]];
+  const NOTES = [["Boa noite, galera! Vamos nos acomodando. Dar 5 minutos (clique no cronômetro para iniciar).", "Vá pegar sua água e se preparar para uma mentoria incrível do Odon."], ["O segredo dos nossos aprovados: como organizar seus estudos, como estudar, revisar, como recalcular a rota quando acumula estudo, o lançamento da nossa mentoria e como funcionará nossa Black Vitalícia."], ["Antigamente: apostilas físicas gigantes, vendidas em banca de jornal. Vocês lembram?", "A internet evoluiu e todo mundo só queria vídeo aula. Um tempo depois as apostilas viraram PDF.", "Os cursinhos davam só vídeo aula, muitas vezes sem PDF. Depois tiveram que se atualizar. Tem cursinho que até hoje não dá PDF para acompanhar a aula.", "O Odon nasceu de apostilas: o PDF é ponto forte desde o começo. E depois de lançar o curso fomos aprimorando o método."], ["No começo os alunos mandavam muita mensagem: por onde começo, qual matéria… Daí nasceu o cronograma.", "Quem lembra dos primeiros cronogramas? Eram em PDF, feitos à mão para cada aluno.", "O mercado tentou copiar, mas muitas vezes é só a ordem das aulas, não é baseado nas suas horas. Eles não têm plataforma voltada para concurso. Área estilo Netflix é a pior coisa para o concurseiro."], ["Mas quem está com a gente sabe que nunca paramos de evoluir. Somos OBCECADOS pelo nosso aluno (às vezes até demais, tomo bronca aqui kkk).", "Vídeo aulas completas e atualizadas, PDFs completos, simulados e cronograma baseado no edital. Plataforma com mais de 85 mil questões e 20 mil comentadas por professores.", "E ainda: resumo da aula com erros mais frequentes, dicas para a prova e pontos-chave, e flashcards para as revisões."], ["Cronograma: baseado nas suas horas semanais e exatamente na prova que você vai fazer. Fez diferença para centenas de aprovados.", "(O cursor mostra: escolher a semana e marcar as aulas concluídas.)"], ["Plataforma de questões: mais de 85 mil questões e 20 mil comentadas por professores.", "(O cursor filtra Dentística › Sistemas adesivos › IBFC, só comentadas, resolve, vê o comentário e salva no caderno.)"], ["Resumo da aula gerado pela plataforma: pontos-chave, erros comuns e dicas para prova.", "(O cursor ouve o resumo, percorre os destaques, marca para revisão e gera o PDF.)"], ["Flashcards: revisão ativa, forçando o cérebro a buscar a informação.", "(O cursor vira os cards e marca acertos e erros. Os contadores sobem.)"], ["Mesmo assim estamos sempre escutando nossos alunos. As perguntas que vinham eram estas (vão aparecendo uma a uma).", "Bota aí nos comentários se você já teve essas dúvidas."], ["Algumas dessas perguntas têm mais de uma resposta certa. Tem aprovado que revisou de um jeito, outro de outro jeito. Mas todos revisaram e fizeram muitas questões.", "Neurologia da aprendizagem: o que a ciência estudou sobre como o cérebro armazena e o que faz esquecer."], ["Vocês pediam mentoria, mais contato comigo e adoravam quando trazíamos aprovados. Então vamos lançar a Mentoria OdonClass, projeto novo para todos os alunos do Concurseiro PRO.", "Antes, um compilado do que os aprovados em menos tempo fizeram: vídeo aulas, PDFs, revisões, questões.", "Primeiro o cenário ideal de cada tópico. Depois as alternativas: se algo der errado (acumulei, não consigo seguir), o que eu faço?"], ["Primeiro: listar os materiais que você tem à disposição. O que é de estudo e o que é de revisão.", "PDF apostila e questões do OdonQuestões servem para os dois."], ["“Tá, prof, mas como divido meu tempo e como estudo por cada função dessa?” Existe a divisão diária e a divisão semanal."], ["Divida o dia em 3: revisão rápida (10 a 15 min), assunto novo (depende da disponibilidade no cronograma) e questões (mínimo 30 min).", "Exemplo com 2 horas: 10 a 15 min de revisão, 1h30 de assunto, 30 min de questões."], ["Lembra da pirâmide? Quanto mais você força o cérebro a buscar, menos esquece. Por isso ninguém decora mais número de celular.", "Pegue o assunto do dia anterior e faça primeiro os flashcards. Errou? Copie a resposta CERTA no Word ou no caderno.", "Errar um ou outro é normal. Errou metade ou mais: não absorveu. Anote a aula e marque que precisa revisar.", "Terminou os flashcards: leia o resumo da aula gerado pela plataforma."], ["Revisão rápida diária: flashcards das aulas do dia anterior, anotar o que errou e ler o resumo. 10 a 15 minutos por dia."], ["Agora o assunto novo que o cronograma indica: vídeo aula + PDF que acompanha a aula.", "Tipo 1: vídeo e depois PDF. Tipo 2: PDF e depois vídeo. Tipo 3: PDF enquanto assiste. As 3 estão certas. Bota no chat: você é 1, 2 ou 3?", "Não pode estudar passivo. Unindo os dois num estudo ativo, o estudo consolida. Cuidado para não anotar tudo da aula, é armadilha.", "O PDF também é material de urgência para disciplinas simples, quando o estudo está acumulando. Falo disso mais pra frente."], ["Terceira parte do dia: 30 min de questões. Não adianta 2 horas de questões sem ter visto teoria. Quanto menos teoria falta, mais questões.", "Questões dos assuntos do dia. E o pulo do gato, segredinho de aprovado: o caderno de erros.", "Errou? Veja por quê: esqueceu, confundiu ou não sabia. Anote a resposta CERTA, não a alternativa errada. Exemplo dos sistemas adesivos.", "No OdonQuestões: salve a errada num caderno por disciplina e anote por que errou. Quando estiver perdido, o caderno diz exatamente o que revisar."], ["Recapitulando: 30 minutos por dia, questões dos assuntos do dia, resposta certa no caderno de erros (Word, OdonQuestões ou físico).", "Já vimos o dia: revisar rápido o dia anterior, assunto novo e questões."], ["Agora a semana. É aqui que se resolve revisão, matéria acumulada, dia que pulou.", "80% do tempo para a divisão diária. 20% de estudo livre: revisar, aprofundar, desacumular.", "Estuda de segunda a sexta? Vê o cronograma de segunda a quinta e faz o estudo livre na sexta. Ou segue o cronograma até sexta e faz o livre no sábado."], ["Livre não quer dizer estudar só o que gosta: ele é adaptado a cada situação e pessoa. Exemplo de 2 horas.", "1) Questões, 40 min: de todos os assuntos já estudados das matérias da semana (ex.: português, farmacologia, SUS, dentística, informática). Teve simulado? Analise as erradas.", "2) Caderno de erros, 40 min: ler os erros corrigidos até ter certeza. Aprendeu? Destaque na cor definida.", "3) Voltar à teoria, 40 min: dashboard “Meu desempenho” ou caderno de erros, rever por outro método. Ou desacumular: tente PDF; se errar muito, vídeo aula em velocidade maior."], ["Recapitulando: 80% cronograma, 20% estudo livre. Estudo livre: revisa por questões, revisa só o necessário pelo caderno de erros, volta à teoria ganhando tempo e desacumula.", "“Prof, não estou conseguindo fazer tudo isso, quais opções tenho?”"], ["Não existe certo ou errado, existe o que vai dar certo pra você.", "PDF antes da aula: estuda o PDF, acelera a aula e desacelera nos pontos difíceis.", "Estudo completo nos mais cobrados: difícil ou muito cobrado = vídeo + PDF. Fácil E pouco cobrado (tem que ser ambos) = só PDF, aula só se tiver dificuldade.", "Estudar só por questões, primeiro e apenas? Não é a melhor opção (explicar)."], ["Sabendo de tudo isso, a cabeça de vocês fez BUM! É muita coisa, um conteúdo denso, e vocês precisam de um acompanhamento ainda maior.", "Nosso maior diferencial é pegar na mão de vocês. Então vamos lançar a mentoria para todos os alunos do Concurseiro PRO."], ["Dois tipos de mentoria. A geral, OdonClass: encontro no mínimo uma vez por mês.", "Desde qual edital escolher, como interpretar um edital, até o que fazer depois de aprovado. Destrinchar como estudar, técnicas e revisões.", "Aprovados contando o que fizeram de igual e diferente. Tem uma aluna que passou usando Pomodoro e vem contar como usava.", "A intenção é criar um time unido, que você se inspire e queira ser o próximo aprovado fazendo live conosco."], ["A outra forma é o sprint de editais. Saiu um bom edital: destrinchar o edital, análise da banca, o que mais cai, live com aprovado da banca, votação de aula ao vivo e live de véspera.", "Legal, né? Ninguém faz isso. Vai ser desafiador, mas é um compromisso meu e da equipe com nossos alunos."], ["A mentoria vai começar em janeiro. Na verdade já começou: esta aula foi uma mentoria, a live passada com o Rômulo também. Vi que vocês amaram. É daqui pra cima.", "Só que, quando a gente fala de ser algo fixo mesmo, como em uma segunda do mês, começará em janeiro.", "Cês gostaram da ideia da mentoria?"], ["Prévia da Black. Dia 05/11 às 20:00: explicação completa da Black.", "Desconto exclusivo para quem quer ser vitalício. Muitos brindes exclusivos!", "Dicas sobre os brindes: 1) é físico e vai chegar na sua casa, o que vocês acham que é? 2) outro tem a ver com a prova de títulos; 3) e o outro é uma surpresa enorme.", "QR code: abre a página da Lista VIP da Black.", "Depois de amanhã, quinta-feira, dia 05, às 20 horas, vou abrir ao vivo aqui no YouTube a Black Friday do OdonConcursos.", "Esse ano estamos com brindes e preços imperdíveis, e só quem estiver na live vai ter exclusividade de comprar com desconto.", "E aí, gente, o que acharam? Gostaram?"], ["A contagem é até 05/11 às 20:00.", "Agora: entre na lista pelo QR code. Até 05/11: fique de olho no grupo. Dia 05/11 às 20:00: explicação completa da Black."]];
 
   const stage = document.getElementById('stage');
   const slides = [...document.querySelectorAll('.slide')];
