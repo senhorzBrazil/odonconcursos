@@ -719,6 +719,22 @@
       .vunesp-card { scroll-snap-align: start; }
     }
 
+    .sp-box { max-width: 1100px; margin: 30px auto 0; }
+    .sp-tit { font-family: var(--display); font-size: 19px; font-weight: 700; color: var(--text); margin: 0 0 14px; }
+    .sp-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .sp-card { margin: 0; min-width: 0; }
+    .sp-card img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); background: var(--bg-card); }
+    .sp-card figcaption { margin-top: 8px; font-size: 12.5px; line-height: 1.45; color: var(--text-mute); }
+    .sp-card figcaption strong { display: block; font-size: 13px; color: var(--text); }
+    .sp-lista { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 24px; }
+    .sp-lista li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 13.5px; line-height: 1.45; color: var(--text-mute); }
+    .sp-lista strong { color: var(--text); }
+    @media (max-width: 760px) {
+      .sp-grid { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: 46%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+      .sp-card { scroll-snap-align: start; }
+      .sp-lista { grid-template-columns: 1fr; }
+    }
+
     /* ─── PLANO (Guaratinguetá SP) ─── */
     .plans-grid {
       display: grid;
@@ -1345,21 +1361,53 @@
     <p class="sec-intro">O Odon Concursos é um ecossistema especializado <strong>exclusivamente em concursos de Odontologia</strong>, com aprovados em <strong>secretarias de saúde, forças militares e órgãos federais por todo o Brasil</strong> — exatamente o perfil do concurso de Guaratinguetá.</p>
     <div class="vunesp-box">
       <h3 class="vunesp-tit">1º lugar em Campinas e em Osasco <span class="g1">com a Vunesp</span></h3>
-      <p class="vunesp-txt">A Vunesp é a mesma banca da prova de Guaratinguetá. No estado de São Paulo, os alunos do Odon somam <strong>14 aprovações em 13 municípios, 10 delas em 1º lugar</strong>.</p>
+      <p class="vunesp-txt">A Vunesp é a mesma banca da prova de Guaratinguetá. No estado de São Paulo, os alunos do Odon somam <strong>13 aprovações em 12 municípios, 9 delas em 1º lugar</strong>.</p>
       <div class="vunesp-grid">
         <figure class="vunesp-card">
-          <img loading="lazy" decoding="async" width="720" height="897" src="/lp/concurso/guaratingueta-sp-vendas/aprovado-fabricio-campinas.jpg" alt="Fabrício Castro Vilela, 1º lugar para Dentista em Campinas-SP pela Vunesp">
-          <figcaption><strong>Fabrício Castro Vilela</strong><span class="vunesp-pos">1º lugar · Dentista</span>Prefeitura de Campinas · Vunesp · 2025<br>10 meses de estudo</figcaption>
+          <img loading="lazy" decoding="async" width="720" height="891" src="/lp/concurso/guaratingueta-sp-vendas/aprovado-fabricio-campinas.jpg" alt="Fabrício Castro Vilela, 1º lugar para Dentista em Campinas-SP pela Vunesp">
+          <figcaption><strong>Fabrício Castro Vilela</strong><span class="vunesp-pos">1º lugar · Dentista</span>Prefeitura de Campinas · Vunesp · 2025</figcaption>
         </figure>
         <figure class="vunesp-card">
-          <img loading="lazy" decoding="async" width="720" height="894" src="/lp/concurso/guaratingueta-sp-vendas/aprovada-anne-osasco.jpg" alt="Anne Evelyn Oliveira Moura, 1º lugar para Endodontista em Osasco-SP pela Vunesp">
-          <figcaption><strong>Anne Evelyn Oliveira Moura</strong><span class="vunesp-pos">1º lugar · Endodontista</span>Prefeitura de Osasco · Vunesp · 2024<br>8 meses de estudo</figcaption>
+          <img loading="lazy" decoding="async" width="720" height="897" src="/lp/concurso/guaratingueta-sp-vendas/aprovada-anne-osasco.jpg" alt="Anne Evelyn Oliveira Moura, 1º lugar para Endodontista em Osasco-SP pela Vunesp">
+          <figcaption><strong>Anne Evelyn Oliveira Moura</strong><span class="vunesp-pos">1º lugar · Endodontista</span>Prefeitura de Osasco · Vunesp · 2024</figcaption>
         </figure>
         <figure class="vunesp-card">
-          <img loading="lazy" decoding="async" width="720" height="891" src="/lp/concurso/guaratingueta-sp-vendas/aprovada-marcela-campinas.jpg" alt="Marcela Elisa Bueno, 12º lugar para Dentista em Campinas-SP pela Vunesp">
-          <figcaption><strong>Marcela Elisa Bueno</strong><span class="vunesp-pos">12º lugar · Dentista</span>Prefeitura de Campinas · Vunesp · 2025<br>2 meses de estudo</figcaption>
+          <img loading="lazy" decoding="async" width="720" height="894" src="/lp/concurso/guaratingueta-sp-vendas/aprovada-marcela-campinas.jpg" alt="Marcela Elisa Bueno, 12º lugar para Dentista em Campinas-SP pela Vunesp">
+          <figcaption><strong>Marcela Elisa Bueno</strong><span class="vunesp-pos">12º lugar · Dentista</span>Prefeitura de Campinas · Vunesp · 2025</figcaption>
         </figure>
       </div>
+    </div>
+    <div class="sp-box">
+      <h3 class="sp-tit">Outros aprovados do Odon em São Paulo</h3>
+      <div class="sp-grid">
+        <figure class="sp-card">
+          <img loading="lazy" decoding="async" width="520" height="640" src="/lp/concurso/guaratingueta-sp-vendas/sp-gabriel-morungaba.jpg" alt="Gabriel Voltarelli da Silva, 1º lugar · Endodontista">
+          <figcaption><strong>Gabriel Voltarelli da Silva</strong><span class="vunesp-pos">1º lugar · Endodontista</span>CISMETRO, Morungaba · Recrutamento Brasil</figcaption>
+        </figure>
+        <figure class="sp-card">
+          <img loading="lazy" decoding="async" width="520" height="643" src="/lp/concurso/guaratingueta-sp-vendas/sp-beatriz-indaiatuba.jpg" alt="Beatriz de Lima Kattarov, 1º lugar · Dentista PNE">
+          <figcaption><strong>Beatriz de Lima Kattarov</strong><span class="vunesp-pos">1º lugar · Dentista PNE</span>Indaiatuba · Consulplan</figcaption>
+        </figure>
+        <figure class="sp-card">
+          <img loading="lazy" decoding="async" width="520" height="647" src="/lp/concurso/guaratingueta-sp-vendas/sp-isabela-atibaia.jpg" alt="Isabela Lima de Mendonça, 1º lugar · Dentista">
+          <figcaption><strong>Isabela Lima de Mendonça</strong><span class="vunesp-pos">1º lugar · Dentista</span>Atibaia · IBAM</figcaption>
+        </figure>
+        <figure class="sp-card">
+          <img loading="lazy" decoding="async" width="520" height="645" src="/lp/concurso/guaratingueta-sp-vendas/sp-natalia-rubineia.jpg" alt="Natália Ferreira Pimenta, 1º lugar · Dentista">
+          <figcaption><strong>Natália Ferreira Pimenta</strong><span class="vunesp-pos">1º lugar · Dentista</span>Rubinéia · IUDS</figcaption>
+        </figure>
+        <figure class="sp-card">
+          <img loading="lazy" decoding="async" width="520" height="647" src="/lp/concurso/guaratingueta-sp-vendas/sp-sara-cotia.jpg" alt="Sara Elisama Silva de Melo, 2º lugar · Dentista">
+          <figcaption><strong>Sara Elisama Silva de Melo</strong><span class="vunesp-pos">2º lugar · Dentista</span>Cotia · RBO</figcaption>
+        </figure>
+      </div>
+      <ul class="sp-lista">
+        <li><strong>Tatiana Gomes</strong> · 1º lugar<br>Dentista, Guarantã · Aplicativa</li>
+        <li><strong>Gustavo Lucas dos Santos</strong> · 1º lugar<br>Dentista para PNE, Praia Grande · IBAM</li>
+        <li><strong>Yohana Lourenço Dias</strong> · 1º lugar<br>Dentista, Pariqueira-Açu · Aplicativa</li>
+        <li><strong>Rômulo Dias Jesuino</strong> · 3º lugar<br>Dentista, Itaquaquecetuba · IGDRH</li>
+        <li><strong>Catarina Bellini Paladine</strong> · 3º lugar, com a mesma nota do 1º<br>Dentista, Embu das Artes · INEPAM</li>
+      </ul>
     </div>
     <div class="depo-videos">
       <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Lp6OBEG7wbs?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
