@@ -702,6 +702,23 @@
     .prova-nota strong { color: var(--text); font-weight: 700; }
     @media (max-width: 620px) { .prova-table th, .prova-table td { padding: 11px 10px; font-size: 13px; } }
 
+    /* ─── APROVADOS VUNESP ─── */
+    .vunesp-box { max-width: 1100px; margin: 34px auto 0; padding: 26px; border-radius: 18px; border: 1px solid rgba(233,30,140,.28); background: rgba(233,30,140,.05); }
+    .vunesp-tit { font-family: var(--display); font-size: clamp(22px, 3vw, 30px); line-height: 1.2; font-weight: 700; color: var(--text); margin: 0 0 10px; }
+    .vunesp-txt { font-size: 15.5px; line-height: 1.65; color: var(--text-mute); margin: 0 0 22px; }
+    .vunesp-txt strong { color: var(--text); }
+    .vunesp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .vunesp-card { margin: 0; min-width: 0; }
+    .vunesp-card img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); background: var(--bg-card); }
+    .vunesp-card figcaption { margin-top: 12px; font-size: 13.5px; line-height: 1.55; color: var(--text-mute); }
+    .vunesp-card figcaption strong { display: block; font-size: 15px; color: var(--text); }
+    .vunesp-pos { display: block; font-weight: 700; color: var(--lime-soft); }
+    @media (max-width: 760px) {
+      .vunesp-box { padding: 20px 16px; }
+      .vunesp-grid { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: 74%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+      .vunesp-card { scroll-snap-align: start; }
+    }
+
     /* ─── PLANO (Guaratinguetá SP) ─── */
     .plans-grid {
       display: grid;
@@ -1326,8 +1343,23 @@
     <div class="s-label">Quem estudou, aprovou</div>
     <h2 class="sec-title">Mais de 1.200 dentistas já foram <span class="g1">aprovados</span> com o Odon</h2>
     <p class="sec-intro">O Odon Concursos é um ecossistema especializado <strong>exclusivamente em concursos de Odontologia</strong>, com aprovados em <strong>secretarias de saúde, forças militares e órgãos federais por todo o Brasil</strong> — exatamente o perfil do concurso de Guaratinguetá.</p>
-    <div class="prova-nota">
-      <strong>Primeiros lugares em São Paulo com a Vunesp.</strong> Alunos do Odon já conquistaram primeiros lugares em concursos de São Paulo aplicados pela Vunesp, a mesma banca da prova de Guaratinguetá.
+    <div class="vunesp-box">
+      <h3 class="vunesp-tit">1º lugar em Campinas e em Osasco <span class="g1">com a Vunesp</span></h3>
+      <p class="vunesp-txt">A Vunesp é a mesma banca da prova de Guaratinguetá. No estado de São Paulo, os alunos do Odon somam <strong>14 aprovações em 13 municípios, 10 delas em 1º lugar</strong>.</p>
+      <div class="vunesp-grid">
+        <figure class="vunesp-card">
+          <img loading="lazy" decoding="async" width="720" height="897" src="/lp/concurso/guaratingueta-sp-vendas/aprovado-fabricio-campinas.jpg" alt="Fabrício Castro Vilela, 1º lugar para Dentista em Campinas-SP pela Vunesp">
+          <figcaption><strong>Fabrício Castro Vilela</strong><span class="vunesp-pos">1º lugar · Dentista</span>Prefeitura de Campinas · Vunesp · 2025<br>10 meses de estudo</figcaption>
+        </figure>
+        <figure class="vunesp-card">
+          <img loading="lazy" decoding="async" width="720" height="894" src="/lp/concurso/guaratingueta-sp-vendas/aprovada-anne-osasco.jpg" alt="Anne Evelyn Oliveira Moura, 1º lugar para Endodontista em Osasco-SP pela Vunesp">
+          <figcaption><strong>Anne Evelyn Oliveira Moura</strong><span class="vunesp-pos">1º lugar · Endodontista</span>Prefeitura de Osasco · Vunesp · 2024<br>8 meses de estudo</figcaption>
+        </figure>
+        <figure class="vunesp-card">
+          <img loading="lazy" decoding="async" width="720" height="891" src="/lp/concurso/guaratingueta-sp-vendas/aprovada-marcela-campinas.jpg" alt="Marcela Elisa Bueno, 12º lugar para Dentista em Campinas-SP pela Vunesp">
+          <figcaption><strong>Marcela Elisa Bueno</strong><span class="vunesp-pos">12º lugar · Dentista</span>Prefeitura de Campinas · Vunesp · 2025<br>2 meses de estudo</figcaption>
+        </figure>
+      </div>
     </div>
     <div class="depo-videos">
       <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Lp6OBEG7wbs?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
@@ -1337,8 +1369,8 @@
     </div>
 
     <div class="depo-imgs">
-      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-2.webp" alt="Prova de aprovação">
       <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-1.webp" alt="Prova de aprovação">
+      <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-2.webp" alt="Prova de aprovação">
       <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-3.webp" alt="Prova de aprovação">
       <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-5.webp" alt="Prova de aprovação">
       <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-6.webp" alt="Prova de aprovação">
