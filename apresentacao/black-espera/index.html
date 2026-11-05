@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="dark">
+<title>Black Odon · já vamos começar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap">
+<style>
+/* Tela de espera da live: trailer da Black repetindo + contagem de 5 minutos. */
+:root{--pink:#EE2A7B;--pink-hi:#ff5c9d}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:#000;color:#fff;font-family:Montserrat,system-ui,sans-serif;overflow:hidden}
+video{position:fixed;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+#cd{position:fixed;right:2.4vw;top:3vh;display:flex;align-items:center;gap:1.1vw;padding:1.1vw 1.8vw 1.1vw 1.2vw;border-radius:999px;
+  background:rgba(5,5,5,.86);border:2px solid var(--pink);box-shadow:0 0 40px rgba(238,42,123,.45);backdrop-filter:blur(6px)}
+#cd .dot{width:3.4vw;height:3.4vw;min-width:34px;min-height:34px;border-radius:50%;background:var(--pink);box-shadow:0 0 24px var(--pink);display:grid;place-items:center}
+#cd .dot i{width:34%;height:34%;border-radius:50%;background:#fff;animation:pulse 1.2s ease-in-out infinite}
+#cd b{font:900 clamp(34px,5.4vw,104px)/1 Montserrat,sans-serif;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+#cd span{font:800 clamp(13px,1.35vw,26px)/1.15 Montserrat,sans-serif;color:var(--pink-hi);text-transform:uppercase;letter-spacing:.06em;max-width:12em}
+#cd.fim b{font-size:clamp(26px,3.6vw,70px)}
+@keyframes pulse{50%{transform:scale(.55);opacity:.6}}
+#start{position:fixed;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.55);border:0;color:#fff;cursor:pointer;font:inherit}
+#start div{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+#start .play{width:120px;height:120px;border-radius:50%;background:var(--pink);box-shadow:0 0 50px var(--pink);display:grid;place-items:center;font-size:48px;padding-left:8px}
+#start b{font-weight:900;font-size:28px}
+#start small{font-weight:700;font-size:16px;color:#d6d1db}
+#start[hidden]{display:none}
+#help{position:fixed;left:2vw;bottom:2vh;font:700 13px/1.4 Montserrat,sans-serif;color:rgba(255,255,255,.55);opacity:0;transition:opacity .3s}
+body.mouse #help{opacity:1}
+kbd{font:inherit;border:1px solid rgba(255,255,255,.35);border-radius:5px;padding:0 5px}
+</style>
+</head>
+<body>
+<video id="v" src="trailer.mp4" loop muted playsinline autoplay preload="auto"></video>
+<div id="cd" role="timer" aria-live="off"><div class="dot"><i></i></div><b id="t">5:00</b><span id="l">para começarmos</span></div>
+<button id="start" type="button" aria-label="Iniciar o trailer com som e a contagem de 5 minutos">
+  <div><span class="play">▶</span><b>Iniciar com som e a contagem</b><small>clique ou aperte espaço · F para tela cheia</small></div>
+</button>
+<div id="help"><kbd>Espaço</kbd> inicia ou pausa a contagem · <kbd>R</kbd> volta para 5:00 · <kbd>M</kbd> liga e desliga o som · <kbd>F</kbd> tela cheia</div>
+<script>
+(function(){
+  const TOTAL = 5 * 60;
+  const v = document.getElementById('v'), t = document.getElementById('t'), l = document.getElementById('l'), cd = document.getElementById('cd'), start = document.getElementById('start');
+  let fim = null, resto = TOTAL, tick = null;
+  const mostra = s => { t.textContent = Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+  function atualiza(){
+    const s = Math.max(0, Math.ceil((fim - Date.now()) / 1000));
+    resto = s; mostra(s);
+    if(s === 0){ clearInterval(tick); tick = null; fim = null; cd.classList.add('fim'); t.textContent = 'Já vamos começar!'; l.textContent = ''; }
+  }
+  function roda(){ if(tick || resto === 0) return; fim = Date.now() + resto * 1000; tick = setInterval(atualiza, 250); atualiza(); }
+  function pausa(){ if(!tick) return; clearInterval(tick); tick = null; fim = null; }
+  function zera(){ pausa(); resto = TOTAL; cd.classList.remove('fim'); l.textContent = 'para começarmos'; mostra(resto); }
+  function inicia(){
+    start.hidden = true; v.muted = false;
+    const p = v.play(); if(p && p.catch) p.catch(() => { v.muted = true; v.play(); });
+    roda();
+  }
+  function tela(){
+    try{ if(!document.fullscreenElement){ const r = document.documentElement.requestFullscreen(); if(r && r.catch) r.catch(() => {}); } else document.exitFullscreen(); }catch(e){}
+  }
+  start.addEventListener('click', inicia);
+  document.addEventListener('keydown', e => {
+    const k = e.key.toLowerCase();
+    if(k === ' ' || k === 'enter'){ e.preventDefault(); if(!start.hidden) inicia(); else (tick ? pausa() : roda()); }
+    else if(k === 'r') zera();
+    else if(k === 'm') v.muted = !v.muted;
+    else if(k === 'f') tela();
+  });
+  let hm; document.addEventListener('mousemove', () => { document.body.classList.add('mouse'); clearTimeout(hm); hm = setTimeout(() => document.body.classList.remove('mouse'), 2000); });
+  v.play().catch(() => {});
+  mostra(resto);
+})();
+</script>
+</body>
+</html>
