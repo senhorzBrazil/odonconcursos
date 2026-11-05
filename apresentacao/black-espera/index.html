@@ -1630,46 +1630,51 @@ body.show-hud #help{opacity:1}
   show(m ? (+m[1]-1) : 0, false);
 })();
 
-</script><!-- 2ª versão: o cronômetro da capa abre o trailer em loop, com a contagem e os números oficiais -->
+</script><!-- 2ª versão: botão discreto "Iniciar apresentação" na capa abre o trailer em loop com os números oficiais.
+     O trailer só fecha com Esc ou "próxima" (seta, Page Down, espaço, Enter) e volta para a capa. O cronômetro da capa segue normal. -->
 <style>
-#esp{position:fixed;inset:0;z-index:5000;background:#000;display:none;cursor:pointer}
+#esp{position:fixed;inset:0;z-index:5000;background:#000;display:none;cursor:none}
 #esp.on{display:block}
 #esp video{position:absolute;left:0;right:0;top:0;width:100%;height:calc(100% - var(--faixa));object-fit:contain;background:#000}
-#esp{--faixa:clamp(120px,19vh,210px)}
-#esp .faixa{position:absolute;left:0;right:0;bottom:0;height:var(--faixa);display:flex;align-items:center;justify-content:space-between;gap:3vw;padding:0 2.4vw;background:linear-gradient(90deg,#120610,#050505 55%,#120610);border-top:2px solid #EE2A7B;box-shadow:0 -10px 40px rgba(238,42,123,.25);font-family:Montserrat,system-ui,sans-serif;color:#fff}
-#esp .esp-num small{display:block;font:800 clamp(12px,1.2vw,22px)/1.2 Montserrat,sans-serif;color:#ff5c9d;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6vh}
-#esp .esp-num ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,auto);gap:.4vh 2.6vw}
+#esp{--faixa:clamp(110px,17vh,190px)}
+#esp .faixa{position:absolute;left:0;right:0;bottom:0;height:var(--faixa);display:flex;align-items:center;justify-content:center;padding:0 2.4vw;background:linear-gradient(90deg,#120610,#050505 50%,#120610);border-top:2px solid #EE2A7B;box-shadow:0 -10px 40px rgba(238,42,123,.25);font-family:Montserrat,system-ui,sans-serif;color:#fff;text-align:center}
+#esp .esp-num small{display:block;font:800 clamp(12px,1.2vw,22px)/1.2 Montserrat,sans-serif;color:#ff5c9d;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8vh}
+#esp .esp-num ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.4vh 3vw}
 #esp .esp-num li{display:flex;align-items:center;gap:.7vw;font:900 clamp(18px,2.1vw,40px)/1.15 Montserrat,sans-serif;font-variant-numeric:tabular-nums}
 #esp .esp-num li i{width:clamp(10px,.9vw,16px);height:clamp(10px,.9vw,16px);border-radius:50%;background:#25D366;flex:none}
-#esp .esp-num p{font:700 clamp(11px,1vw,18px)/1.3 Montserrat,sans-serif;color:#d6d1db;margin:.7vh 0 0}
-#esp .esp-cd{flex:none;display:flex;align-items:center;gap:1.1vw;padding:1.1vw 1.8vw 1.1vw 1.2vw;border-radius:999px;background:rgba(5,5,5,.86);border:2px solid #EE2A7B;box-shadow:0 0 40px rgba(238,42,123,.45)}
-#esp .esp-cd .dot{width:3.4vw;height:3.4vw;min-width:34px;min-height:34px;border-radius:50%;background:#EE2A7B;box-shadow:0 0 24px #EE2A7B;display:grid;place-items:center}
-#esp .esp-cd .dot i{width:34%;height:34%;border-radius:50%;background:#fff;animation:esppulse 1.2s ease-in-out infinite}
-#esp .esp-cd b{font:900 clamp(34px,5.4vw,104px)/1 Montserrat,sans-serif;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-#esp .esp-cd span{font:800 clamp(13px,1.35vw,26px)/1.15 Montserrat,sans-serif;color:#ff5c9d;text-transform:uppercase;letter-spacing:.06em;max-width:12em}
-@keyframes esppulse{50%{transform:scale(.55);opacity:.6}}
+#esp .esp-num p{font:700 clamp(11px,1vw,18px)/1.3 Montserrat,sans-serif;color:#d6d1db;margin:.8vh 0 0}
+/* botão do apresentador: só aparece na capa e com o mouse mexendo, como os controles */
+#esp-ini{position:fixed;top:18px;right:18px;z-index:4000;display:none;align-items:center;gap:8px;font:700 13px/1 Montserrat,system-ui,sans-serif;color:#fff;background:rgba(20,20,26,.78);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 14px;cursor:pointer;opacity:0;transition:opacity .25s}
+#esp-ini i{width:0;height:0;border-left:8px solid #EE2A7B;border-top:5px solid transparent;border-bottom:5px solid transparent}
+body.na-capa #esp-ini{display:inline-flex}
+body.na-capa.show-hud #esp-ini{opacity:.85}
+#esp-ini:hover{opacity:1!important;border-color:#EE2A7B}
 </style>
+<button id="esp-ini" type="button" title="Abre o trailer em loop. Esc ou próxima volta para a capa."><i></i>Iniciar apresentação</button>
 <div id="esp" aria-hidden="true">
   <video id="esp-v" src="../black-nao-alunos/videos/trailer.mp4" loop playsinline preload="auto"></video>
   <div class="faixa">
     <div class="esp-num"><small>Estes são os nossos números oficiais</small><ul><li><i></i>(19) 99011-2297</li><li><i></i>(19) 99315-3278</li><li><i></i>(19) 99456-5534</li><li><i></i>(19) 99344-0882</li></ul><p>Na dúvida, confira: mkt.odonconcursospage.com/numeros-oficiais</p></div>
-    <div class="esp-cd"><div class="dot"><i></i></div><b id="esp-t">5:00</b><span>para começarmos</span></div>
   </div>
 </div>
 <script>
 (function(){
-  const esp=document.getElementById('esp'), v=document.getElementById('esp-v'), t=document.getElementById('esp-t'), capa=document.getElementById('timer-t');
-  let iv=null;
-  function abre(){ esp.classList.add('on'); v.muted=false; v.currentTime=0; const p=v.play(); if(p&&p.catch) p.catch(()=>{ v.muted=true; v.play(); }); clearInterval(iv); iv=setInterval(()=>{ t.textContent=capa.textContent; },200); t.textContent=capa.textContent; }
-  function fecha(){ esp.classList.remove('on'); v.pause(); clearInterval(iv); iv=null; }
-  // captura: lê o cronômetro antes do clique mexer nele; parado (5:00 ou já terminado) = vai começar, então abre o trailer
-  document.addEventListener('click',e=>{ if(e.target.closest && e.target.closest('#timer') && (capa.textContent==='5:00' || !/^\d/.test(capa.textContent))) abre(); },true);
-  esp.addEventListener('click',e=>{ e.stopPropagation(); fecha(); });
+  const esp=document.getElementById('esp'), v=document.getElementById('esp-v'), ini=document.getElementById('esp-ini');
+  const capa=document.querySelector('.slide');
+  const marca=()=>document.body.classList.toggle('na-capa', capa.classList.contains('active') && !esp.classList.contains('on'));
+  setInterval(marca,250); marca();
+  function abre(){ esp.classList.add('on'); marca(); v.muted=false; v.currentTime=0; const p=v.play(); if(p&&p.catch) p.catch(()=>{ v.muted=true; v.play().catch(()=>{}); }); }
+  function fecha(){ esp.classList.remove('on'); v.pause(); marca(); }
+  ini.addEventListener('click',e=>{ e.stopPropagation(); abre(); });
+  // com o trailer aberto: só Esc ou "próxima" fecham; M liga e desliga o som; o resto é ignorado para não mexer nos slides
+  const SAIR=['Escape','ArrowRight','PageDown',' ','Enter','ArrowDown'];
   document.addEventListener('keydown',e=>{
     if(!esp.classList.contains('on')) return;
     e.preventDefault(); e.stopImmediatePropagation();
-    if(e.key==='m'||e.key==='M') v.muted=!v.muted; else fecha();
+    if(SAIR.includes(e.key)) fecha();
+    else if(e.key==='m'||e.key==='M') v.muted=!v.muted;
   },true);
+  esp.addEventListener('click',e=>{ e.stopPropagation(); });
 })();
 </script>
 </body></html>
