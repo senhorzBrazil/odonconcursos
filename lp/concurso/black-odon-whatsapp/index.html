@@ -878,7 +878,7 @@ function tick() {
   encerrado = fim;
   document.getElementById('urgTx').textContent = fim ? 'Fale com o comercial da Odon pelo WhatsApp' : (t <= T_PRAZO ? 'A condição da Black vale até segunda, 09/11, às 23h59' : 'A condição de hoje vale até 23h59');
   document.getElementById('urgTm').style.display = fim ? 'none' : '';
-  document.querySelectorAll('[data-endbox]').forEach(b => b.style.display = fim ? 'none' : '');
+  if (fim) document.querySelectorAll('[data-endbox]').forEach(b => b.style.display = 'none');
 }
 tick(); setInterval(tick, 1000);
 </script>
