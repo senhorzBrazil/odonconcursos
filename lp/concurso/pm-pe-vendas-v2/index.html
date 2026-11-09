@@ -745,20 +745,20 @@
         </div>
         <div class="offer-r" data-cd="box">
           <span class="pill">Oferta de lançamento</span>
-          <h4 data-cd="title">Condição especial <span>até 05/11</span></h4>
+          <h4 data-cd="title">Condição especial <span>até 18/11</span></h4>
           <div class="cd">
             <div><b data-cd="d">00</b><small>dias</small></div>
             <div><b data-cd="h">00</b><small>horas</small></div>
             <div><b data-cd="m">00</b><small>min</small></div>
             <div><b data-cd="s">00</b><small>seg</small></div>
           </div>
-          <p class="cd-note">A condição acaba às <strong>23h59 de 5 de novembro</strong>, último dia de inscrição no concurso.</p>
+          <p class="cd-note">A condição acaba às <strong>23h59 de 18 de novembro</strong>.</p>
           <button class="btn btn-gold btn-lg" onclick="openModal('pmpe')">Quero a condição especial <i data-lucide="arrow-right"></i></button>
           <button class="btn btn-ghost" onclick="openModal('contato')"><i data-lucide="message-circle"></i> Fale conosco</button>
           <div class="safe"><i data-lucide="lock"></i> Seus dados estão seguros · acesso liberado na hora</div>
         </div>
       </div>
-      <p class="warn"><strong>Atenção:</strong> a condição especial vale até as 23h59 de 05/11/2026. Depois dessa data ela não volta.</p>
+      <p class="warn"><strong>Atenção:</strong> a condição especial vale até as 23h59 de 18/11/2026. Depois dessa data ela não volta.</p>
     </div>
   </section>
 
@@ -806,7 +806,7 @@
         <details><summary>Serve para quem está começando do zero?</summary><div class="a">Sim. O preparatório atende tanto iniciantes quanto quem já estuda. A ordem das aulas mostra por onde começar e o que priorizar, e o tira-dúvidas com os professores destrava o que você não entender no caminho.</div></details>
         <details><summary>Tem limite de idade?</summary><div class="a">Tem. O edital exige <strong>idade máxima de 30 anos</strong> na data da inscrição para Oficial Dentista, além de graduação em Odontologia e registro no CRO.</div></details>
         <details><summary>Como a redação conta?</summary><div class="a">A redação vale até <strong>30 pontos</strong> e é eliminatória: quem fizer menos de 9 pontos sai do concurso. Somada à objetiva, de 70 questões e 70 pontos, ela fecha os 100 pontos da primeira etapa.</div></details>
-        <details><summary>Qual é a condição especial?</summary><div class="a">O preparatório está com uma condição especial de lançamento válida até as <strong>23h59 de 05/11/2026</strong>, o último dia de inscrição no concurso. Preencha seus dados e você é levado direto para o checkout, em ambiente seguro.</div></details>
+        <details><summary>Qual é a condição especial?</summary><div class="a">O preparatório está com uma condição especial de lançamento válida até as <strong>23h59 de 18/11/2026</strong>. Preencha seus dados e você é levado direto para o checkout, em ambiente seguro.</div></details>
         <details><summary>O preparatório é online?</summary><div class="a">Sim, 100% online e gravado. Você assiste de onde estiver, no seu ritmo, com os PDFs, os mapas mentais e o banco de questões sempre à mão.</div></details>
       </div>
     </div>
@@ -816,7 +816,7 @@
   <section class="sec dark final">
     <div class="wrap">
       <h2 class="display">A vaga de Oficial Dentista<br><span class="gold">pode ser sua.</span></h2>
-      <p>Aulas de todas as disciplinas do edital, banco de questões no estilo AOCP e <strong>acesso até 21/02/2027</strong>. A condição especial vai até 05/11.</p>
+      <p>Aulas de todas as disciplinas do edital, banco de questões no estilo AOCP e <strong>acesso até 21/02/2027</strong>. A condição especial vai até 18/11.</p>
       <div class="cd">
         <div><b data-cd="d">00</b><small>dias</small></div>
         <div><b data-cd="h">00</b><small>horas</small></div>
@@ -994,7 +994,7 @@
       var pad = function (n) { return String(n).padStart(2, '0'); };
       var DAY = 86400000;
       var PROVA = new Date('2027-02-21T08:00:00-03:00').getTime();
-      var FIM = new Date('2026-11-05T23:59:00-03:00').getTime();
+      var FIM = new Date('2026-11-18T23:59:00-03:00').getTime();
       var INICIO_ACESSO = new Date('2026-10-05T00:00:00-03:00').getTime();
 
       // Barra do topo: tempo até a prova
@@ -1004,7 +1004,7 @@
         for (var k in v) document.querySelectorAll('[data-pv="' + k + '"]').forEach(function (el) { el.textContent = v[k]; });
       }
 
-      // Cronômetro da condição especial: termina 05/11/2026 às 23h59 (Brasília)
+      // Cronômetro da condição especial: termina 18/11/2026 às 23h59 (Brasília)
       function oferta() {
         var diff = Math.max(0, FIM - Date.now());
         var t = Math.floor(diff / 1000);
