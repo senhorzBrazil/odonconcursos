@@ -435,6 +435,24 @@
 
     .form-submit { width: 100%; margin-top: 8px; padding: 16px; }
 
+    /* ─── PERGUNTAS DE QUALIFICAÇÃO ─── */
+    .q-step { display: none; }
+    .q-step.is-on { display: block; animation: fadeSlideIn .35s ease-out both; }
+    .q-dots { display: flex; gap: 6px; margin-bottom: 18px; }
+    .q-dots i { width: 26px; height: 4px; border-radius: 4px; background: var(--line-strong); }
+    .q-dots i.on { background: var(--lime); }
+    .q-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .q-opt {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+      padding: 20px 12px; border-radius: 14px; cursor: pointer;
+      background: #050507; border: 1px solid var(--line-strong); color: var(--text);
+      font-family: var(--sans); font-size: 16px; font-weight: 700; transition: border-color .18s, background .18s, transform .12s;
+    }
+    .q-opt:hover { border-color: rgba(233,30,140,.6); background: rgba(233,30,140,.08); }
+    .q-opt:active { transform: scale(.97); }
+    .q-opt svg { width: 22px; height: 22px; stroke: var(--lime); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .q-hint { font-size: 12px; color: var(--text-faint); margin-top: 14px; text-align: center; }
+
     .modal-secure {
       display: flex; align-items: center; justify-content: center; gap: 8px;
       font-size: 11px; color: var(--text-faint); margin-top: 16px;
@@ -473,7 +491,7 @@
       <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img">
     </div>
     <a onclick="openModal()" class="nav-pill">
-      Baixar grátis
+      Pegar meu material
       <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </nav>
@@ -486,15 +504,15 @@
 
         <div class="hero-badge fade-in delay-1">
           <i data-lucide="book-open"></i>
-          <span>Material gratuito · PM PE · Oficial Dentista</span>
+          <span>Para dentistas · Material gratuito · PM PE</span>
         </div>
 
         <h1 class="hero-h1 fade-in delay-2">
-          Baixe grátis o ebook de <span class="g1">História de Pernambuco</span> para a prova da PM PE
+          Dentista, pegue grátis seu material de <span class="g1">História de Pernambuco</span> para a prova da PM PE
         </h1>
 
         <p class="hero-desc fade-in delay-3">
-          O concurso de <strong>Oficial Dentista da PM PE</strong> não cobra só Odontologia. Este ebook, preparado a partir da live do <strong>prof. Diedson Alves</strong>, resume os temas de História de Pernambuco do edital para a prova de <strong>21/02/2027</strong>, banca AOCP.
+          Vai fazer o concurso de <strong>Oficial Dentista da Polícia Militar de Pernambuco</strong>? A prova não cobra só Odontologia. Este ebook, preparado a partir da live do <strong>prof. Diedson Alves</strong>, resume os temas de História de Pernambuco do edital para a prova de <strong>21/02/2027</strong>, banca AOCP.
         </p>
 
         <ul class="inside fade-in delay-3">
@@ -506,7 +524,7 @@
 
         <div class="hero-ctas fade-in delay-4">
           <a onclick="openModal()" class="bnt1">
-            <span>Quero o ebook grátis</span>
+            <span>Pegar meu material</span>
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
@@ -530,7 +548,32 @@
         <i data-lucide="x"></i>
       </button>
       <div class="modal-body">
-        <h3 id="modalTitle">Receber o ebook grátis</h3>
+        <div class="q-dots" aria-hidden="true"><i class="on" id="dot1"></i><i id="dot2"></i><i id="dot3"></i></div>
+
+        <!-- Pergunta 1 -->
+        <div class="q-step is-on" id="step-q1">
+          <h3>Você é dentista?</h3>
+          <p class="modal-text">Responda para liberarmos o seu material de História de Pernambuco para a PM PE.</p>
+          <div class="q-opts">
+            <button type="button" class="q-opt" onclick="respDentista('Sim')"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg>Sim</button>
+            <button type="button" class="q-opt" onclick="respDentista('Não')"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>Não</button>
+          </div>
+          <p class="q-hint">Ainda está na graduação de Odontologia? Responda <b>sim</b>.</p>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="q-step" id="step-q2">
+          <h3>Você já é formado(a)?</h3>
+          <p class="modal-text">Em Odontologia.</p>
+          <div class="q-opts">
+            <button type="button" class="q-opt" onclick="respFormado('Sim')"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg>Sim</button>
+            <button type="button" class="q-opt" onclick="respFormado('Não')"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>Ainda não</button>
+          </div>
+        </div>
+
+        <!-- Dados -->
+        <div class="q-step" id="step-form">
+        <h3 id="modalTitle">Pegar meu material</h3>
         <p class="modal-text">Preencha seus dados para receber o ebook de História de Pernambuco para a PM PE.</p>
 
         <form id="signupForm">
@@ -556,10 +599,11 @@
             <input class="form-input" type="email" id="su-email" required placeholder="seu@email.com" autocomplete="email">
           </div>
           <button type="submit" id="su-submit" class="bnt-lime form-submit">
-            Quero o ebook grátis
+            Pegar meu material
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </form>
+        </div>
 
         <div class="modal-secure">
           <i data-lucide="lock"></i>
@@ -575,10 +619,7 @@
     // Webhook que recebe os dados do formulário (Make) — mesmo das demais capturas
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
-    // Número do comercial da OdonConcursos — destino do redirect pós-cadastro
-    const COMERCIAL_WHATSAPP = '5519994565534';
-
-    // Captura UTMs e IDs de clique da URL no carregamento da página
+        // Captura UTMs e IDs de clique da URL no carregamento da página
     const tracking = (() => {
       const p = new URLSearchParams(window.location.search);
       const get = (k) => p.get(k) || '';
@@ -595,7 +636,21 @@
       };
     })();
 
+    // Qualificação: só dentista (formado ou não) vira Lead no pixel
+    const quali = { dentista: '', formado: '' };
+    function irPara(id, dot) {
+      document.querySelectorAll('#signupModal .q-step').forEach(el => el.classList.toggle('is-on', el.id === id));
+      ['dot1','dot2','dot3'].forEach((d, i) => document.getElementById(d).classList.toggle('on', i < dot));
+    }
+    function respDentista(v) {
+      quali.dentista = v;
+      if (v === 'Sim') { irPara('step-q2', 2); } else { quali.formado = ''; irPara('step-form', 3); }
+    }
+    function respFormado(v) { quali.formado = v; irPara('step-form', 3); }
+
     function openModal() {
+      quali.dentista = ''; quali.formado = '';
+      irPara('step-q1', 1);
       document.getElementById('signupModal').classList.add('is-open');
       document.body.style.overflow = 'hidden';
     }
@@ -619,8 +674,16 @@
 
       const now = new Date();
       const nome = document.getElementById('su-name').value;
+      const ehDentista = quali.dentista === 'Sim';
+      const qualificacao = ehDentista
+        ? (quali.formado === 'Sim' ? 'Dentista formado' : 'Dentista não formado (graduando)')
+        : 'NÃO É DENTISTA - DESCARTAR LEAD';
       const payload = {
-        formulario: 'PM PE · Ebook História de PE',
+        formulario: ehDentista ? 'PM PE · Ebook História de PE' : 'PM PE · Ebook História de PE · NÃO É DENTISTA - DESCARTAR LEAD',
+        dentista: quali.dentista || 'Não respondeu',
+        formado: ehDentista ? quali.formado : '-',
+        qualificacao: qualificacao,
+        descartar_lead: !ehDentista,
         produto: 'PM PE',
         metodo: 'Landing Page',
         nome: nome,
@@ -647,16 +710,16 @@
         console.error('Webhook error:', err);
       }
 
-      // Evento de Lead no Meta Pixel (pessoa virou lead)
+      // Evento de Lead no Meta Pixel: SÓ para dentista (formado ou não). Não dentista não dispara.
       try {
-        if (typeof fbq === 'function') {
-          fbq('track', 'Lead', { content_name: 'LP PM PE Dentista (ebook História de PE)', content_category: 'PM PE' });
+        if (ehDentista && typeof fbq === 'function') {
+          fbq('track', 'Lead', { content_name: 'LP PM PE Dentista (ebook História de PE)', content_category: 'PM PE', status: qualificacao });
         }
       } catch (err) { console.error('Meta Pixel error:', err); }
 
       // Confirmação + redirecionamento para a página de obrigado (grupo do WhatsApp)
       this.style.display = 'none';
-      document.querySelector('#signupModal .modal-text').textContent = 'Aguarde um instante, estamos te redirecionando…';
+      document.querySelector('#step-form .modal-text').textContent = 'Aguarde um instante, estamos te redirecionando…';
       document.getElementById('modalTitle').textContent = 'Enviando suas informações';
       lucide.createIcons();
 
