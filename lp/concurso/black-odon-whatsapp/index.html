@@ -424,6 +424,7 @@ footer .brand{height:34px;margin:0 auto 12px}
 .plan.destaque .badge{background:#25D366!important;color:#06210f!important;box-shadow:0 0 30px rgba(37,211,102,.5)}
 .plan.destaque .nm{color:#7ef0a8}
 @media (max-width:980px){.plan.destaque{transform:none;order:-1;margin-bottom:8px}}
+.m-ok .bnt1{width:100%}
 </style>
 </head>
 <body>
@@ -718,8 +719,8 @@ footer .brand{height:34px;margin:0 auto 12px}
     <div class="m-ok" id="m-ok" hidden>
       <div class="m-ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
       <h4>Você está na lista de espera</h4>
-      <p id="m-ok-tx">Assim que o plano abrir, você recebe o aviso no WhatsApp.</p>
-      <button class="bnt2" type="button" data-close>Fechar</button>
+      <p id="m-ok-tx">Falta 1 passo: entre no grupo do WhatsApp. É por lá que chega o aviso.</p>
+      <a class="bnt1" id="m-ok-grupo" href="#" rel="noopener">Entrar no grupo</a>
     </div>
   </div>
 </div>
@@ -736,6 +737,7 @@ const CONFIG = {
   fim: '2026-11-30T23:59:59-03:00',   // depois disso o timer some (a captura continua funcionando)
   webhook: 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz',
   whatsapp: '5519994565534', // WhatsApp comercial
+  grupoEspera: 'https://sndflw.com/i/OMce0WcpA2duKSCac8QN', // grupos da lista de espera (SendFlow)
   oficiais: ['5519990112297', '5519993153278', '5519994565534', '5519993440882']
 };
 const PLANOS = [
@@ -775,7 +777,7 @@ document.getElementById('plans').innerHTML = PLANOS.map(p => `
       <a class="bnt1" data-plan="${p.id}" href="#">Quero o ${p.nome}</a>
     </div>` : `<div class="wa-box espera">
       <span class="hoje">Indisponível no momento</span>
-      <p>Entre na lista de espera do ${p.nome} e seja avisado no WhatsApp quando ele abrir.</p>
+      <p>Entre na lista de espera do ${p.nome} e no grupo do WhatsApp, onde chega o aviso.</p>
       <a class="bnt2" data-plan="${p.id}" href="#">Entrar na lista de espera</a>
     </div>`}
   </div>`).join('');
@@ -795,8 +797,8 @@ function abrirCaptura(p) {
   const esp = !!p.espera;
   modal.className = 'modal ' + p.cls + (esp ? ' is-espera' : '');
   document.getElementById('m-plan').textContent = esp ? 'Lista de espera · ' + p.full : (p.id === 'geral' ? 'Receba a condição da Black' : p.full);
-  document.getElementById('m-wa-tx').textContent = esp ? 'O aviso chega no seu WhatsApp' : 'A condição chega pelo WhatsApp do comercial';
-  document.getElementById('m-sub').textContent = esp ? `Deixe seus dados para entrar na lista de espera do ${p.nome}. Avisamos você quando ele abrir.` : 'Preencha seus dados. Ao enviar, o WhatsApp do comercial abre com a sua mensagem pronta.';
+  document.getElementById('m-wa-tx').textContent = esp ? 'O aviso chega no grupo do WhatsApp' : 'A condição chega pelo WhatsApp do comercial';
+  document.getElementById('m-sub').textContent = esp ? `Deixe seus dados para entrar na lista de espera do ${p.nome}. Depois, você entra no grupo do WhatsApp, onde chega o aviso.` : 'Preencha seus dados. Ao enviar, o WhatsApp do comercial abre com a sua mensagem pronta.';
   document.getElementById('f-submit-tx').textContent = esp ? 'Entrar na lista de espera ' : 'Falar com o comercial ';
   document.getElementById('f-submit').disabled = false;
   form.hidden = false; document.getElementById('m-ok').hidden = true;
@@ -868,10 +870,11 @@ form.addEventListener('submit', async e => {
     ]);
   } catch (err) { console.error('Webhook error:', err); }
   if (p.espera) {
-    try { if (window.fbq) fbq('track', 'Lead', { content_name: 'Black Odon · Lista de espera · ' + p.nome, content_category: 'Black Friday 2026' }); } catch (err) {}
-    document.getElementById('m-ok-tx').textContent = `Assim que o ${p.full} abrir, você recebe o aviso no WhatsApp.`;
+    try { if (window.fbq) { fbq('track', 'Lead', { content_name: 'Black Odon · Lista de espera · ' + p.nome, content_category: 'Black Friday 2026' }); fbq('track', 'Contact', { content_name: 'Grupo WhatsApp lista de espera vitalício' }); } } catch (err) {}
+    document.getElementById('m-ok-grupo').href = CONFIG.grupoEspera;
     form.hidden = true; document.getElementById('m-ok').hidden = false; modal.classList.add('done');
     form.reset();
+    setTimeout(() => { location.href = CONFIG.grupoEspera; }, 1200);
     return;
   }
   try {
