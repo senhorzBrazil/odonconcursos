@@ -412,6 +412,18 @@ footer .brand{height:34px;margin:0 auto 12px}
 .m-ok .bnt2{cursor:pointer}
 .m-box [hidden]{display:none!important}
 .modal.done .m-wa,.modal.done .m-sub{display:none}
+
+/* destaque: só o PRO 2 anos está à venda; vitalícios apagados */
+.plan.espera{border-color:rgba(255,255,255,.12)!important;background:var(--panel)!important;box-shadow:none!important;transform:none!important}
+.plan.espera .badge{background:#2a2830!important;color:#a9a5b3!important;box-shadow:none!important;border:1px solid rgba(255,255,255,.14)}
+.plan.espera .nm,.plan.espera .tl,.plan.espera .its{opacity:.5;filter:grayscale(1)}
+.plan.espera .wa-box .hoje{background:transparent;color:#a9a5b3;border:1px dashed rgba(255,255,255,.3)}
+.plan.espera .wa-box p{color:#a9a5b3}
+.plan.espera .bnt2{width:100%;margin-top:20px;padding:17px 24px}
+.plan.destaque{border:2px solid #25D366!important;background:linear-gradient(170deg,rgba(37,211,102,.16),rgba(37,211,102,.02) 45%),var(--panel)!important;box-shadow:0 0 70px rgba(37,211,102,.22)!important;transform:translateY(-12px) scale(1.03);z-index:1}
+.plan.destaque .badge{background:#25D366!important;color:#06210f!important;box-shadow:0 0 30px rgba(37,211,102,.5)}
+.plan.destaque .nm{color:#7ef0a8}
+@media (max-width:980px){.plan.destaque{transform:none;order:-1;margin-bottom:8px}}
 </style>
 </head>
 <body>
@@ -752,8 +764,8 @@ const waLink = (msg, n) => `https://wa.me/${n || CONFIG.whatsapp}?text=${encodeU
 const Y = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
 const X = '<svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7 7 17"/></svg>';
 document.getElementById('plans').innerHTML = PLANOS.map(p => `
-  <div class="plan ${p.cls}">
-    ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
+  <div class="plan ${p.cls}${p.espera ? ' espera' : ''}${p.wa ? ' destaque' : ''}">
+    <span class="badge">${p.espera ? 'Lista de espera' : 'Disponível agora'}</span>
     <div class="nm">${p.nome}</div>
     <div class="tl">${p.full}</div>
     <ul class="its">${p.itens.map(([n, y, s]) => `<li class="${y ? 'y' : 'x'}">${y ? Y : X}<span>${n}${y && s ? `<small>${s}</small>` : ''}</span></li>`).join('')}</ul>
@@ -762,9 +774,9 @@ document.getElementById('plans').innerHTML = PLANOS.map(p => `
       <p>O consultor passa o valor e as formas de pagamento do ${p.nome}.</p>
       <a class="bnt1" data-plan="${p.id}" href="#">Quero o ${p.nome}</a>
     </div>` : `<div class="wa-box espera">
-      <span class="hoje">Lista de espera</span>
+      <span class="hoje">Indisponível no momento</span>
       <p>Entre na lista de espera do ${p.nome} e seja avisado no WhatsApp quando ele abrir.</p>
-      <a class="bnt1" data-plan="${p.id}" href="#">Entrar na lista de espera</a>
+      <a class="bnt2" data-plan="${p.id}" href="#">Entrar na lista de espera</a>
     </div>`}
   </div>`).join('');
 
