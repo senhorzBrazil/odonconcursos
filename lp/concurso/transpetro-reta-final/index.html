@@ -1205,7 +1205,7 @@
         </div>
 
         <h1 class="hero-h1 fade-in delay-2">
-          <span data-cd="hl">Faltam <span class="g1">poucos dias</span> para a prova da <span class="nowrap">Transpetro</span>.</span> Agora é revisão, questão e estratégia.
+          <span data-cd="hl">O melhor material para quem tem apenas <span class="g1 nowrap">poucos dias</span> para ser aprovado na <span class="nowrap">Transpetro</span> para o cargo de dentista.</span>
         </h1>
 
         <p class="hero-desc fade-in delay-3">
@@ -1769,9 +1769,9 @@
         var diasTxt = dias === 1 ? '1 dia' : dias + ' dias';
         set('dias-txt', dias > 0 ? diasTxt : 'só hoje');
         document.querySelectorAll('[data-cd="hl"]').forEach(function (el) {
-          el.innerHTML = dias > 1 ? 'Faltam <span class="g1">' + diasTxt + '</span> para a prova da <span class="nowrap">Transpetro</span>.'
-            : dias === 1 ? 'Falta <span class="g1">1 dia</span> para a prova da <span class="nowrap">Transpetro</span>.'
-            : 'Hoje é <span class="g1">dia de prova</span> da <span class="nowrap">Transpetro</span>.';
+          var fim = ' para ser aprovado na <span class="nowrap">Transpetro</span> para o cargo de dentista.';
+          el.innerHTML = dias > 0 ? 'O melhor material para quem tem apenas <span class="g1 nowrap">' + diasTxt + '</span>' + fim
+            : 'O melhor material para a <span class="g1">reta final</span> da <span class="nowrap">Transpetro</span> para o cargo de dentista.';
         });
         if (diff === 0) {
           set('short', 'hoje');
