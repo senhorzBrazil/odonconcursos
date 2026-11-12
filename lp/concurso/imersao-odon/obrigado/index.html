@@ -81,6 +81,7 @@ h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 34px rgba(238,42,123,.
 .wa::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite}
 @keyframes shine{0%,55%{left:-60%}100%{left:130%}}
 .wa svg{flex:none;width:26px;height:26px;fill:currentColor}
+.wa-top{margin-top:18px;animation-delay:.6s}
 .fine{display:block;margin-top:14px;font-size:13px;color:#8b8794}
 
 .aviso{margin:26px 0 0;text-align:left;border-radius:20px;padding:18px 20px;background:linear-gradient(160deg,rgba(245,185,66,.18),rgba(245,185,66,.04) 70%),var(--panel);border:1.5px solid rgba(245,185,66,.7);box-shadow:0 0 30px rgba(245,185,66,.15)}
@@ -105,7 +106,7 @@ h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 34px rgba(238,42,123,.
 <main class="wrap">
   <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="4 12.5 9.5 18 20 6.5"/></svg></div>
 
-  <div class="eyebrow in" style="--d:1">Cadastro na Imersão Odon feito</div>
+  <div class="eyebrow in" style="--d:1">Imersão Odon · cadastro feito</div>
   <h1 class="in" style="--d:2"><span id="hi">Falta 1 passo:</span> entre no <em>grupo oficial</em></h1>
   <p class="lead in" style="--d:3">Os avisos da <b>Imersão Odon</b> e dos seus <b>4 dias de acesso à plataforma</b>, a partir de domingo, 22/11, às 10h, chegam pelo grupo oficial do WhatsApp.</p>
 
@@ -114,22 +115,27 @@ h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 34px rgba(238,42,123,.
     <p id="avisoTexto"></p>
   </div>
 
+  <a href="https://sndflw.com/i/OMce0WcpA2duKSCac8QN" class="wa wa-top in" style="--d:5" rel="noopener" data-grupo>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.04c-.25.7-1.44 1.33-1.99 1.38-.53.05-1.02.24-3.42-.72-2.9-1.14-4.75-4.09-4.9-4.28-.14-.19-1.17-1.56-1.17-2.97 0-1.41.74-2.11 1-2.4.25-.29.55-.36.73-.36l.52.01c.17.01.4-.06.62.48.25.6.85 2.07.92 2.22.07.15.12.33.02.52-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.17.29.75 1.23 1.61 1.99 1.1.98 2.03 1.29 2.32 1.43.29.14.46.12.63-.07.17-.19.72-.85.91-1.14.19-.29.39-.24.65-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.39Z"/></svg>
+    Entrar no grupo e liberar meu acesso
+  </a>
+
   <div class="steps">
     <div class="step in" style="--d:4"><div class="n">✓</div><p><b>Cadastro feito.</b> Seu lugar na Imersão Odon está garantido.</p></div>
-    <div class="step on in" style="--d:5"><div class="n">2</div><p><b>Entre no grupo</b> pelo botão abaixo. É por lá que chegam os avisos e os links.</p></div>
+    <div class="step on in" style="--d:5"><div class="n">2</div><p><b>Entre no grupo</b> pelo botão. Só quem está no grupo recebe o acesso.</p></div>
     <div class="step in" style="--d:6"><div class="n">3</div><p><b>Ative as notificações</b> do grupo para não perder a liberação no domingo, às 10h.</p></div>
   </div>
 
-  <a href="https://sndflw.com/i/OMce0WcpA2duKSCac8QN" id="waCta" class="wa" rel="noopener">
+  <a href="https://sndflw.com/i/OMce0WcpA2duKSCac8QN" id="waCta" class="wa" rel="noopener" data-grupo>
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.04c-.25.7-1.44 1.33-1.99 1.38-.53.05-1.02.24-3.42-.72-2.9-1.14-4.75-4.09-4.9-4.28-.14-.19-1.17-1.56-1.17-2.97 0-1.41.74-2.11 1-2.4.25-.29.55-.36.73-.36l.52.01c.17.01.4-.06.62.48.25.6.85 2.07.92 2.22.07.15.12.33.02.52-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.17.29.75 1.23 1.61 1.99 1.1.98 2.03 1.29 2.32 1.43.29.14.46.12.63-.07.17-.19.72-.85.91-1.14.19-.29.39-.24.65-.14.26.09 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.69-.18 1.39Z"/></svg>
-    Entrar no grupo oficial
+    Entrar no grupo e liberar meu acesso
   </a>
   <span class="fine">Grupo oficial da OdonConcursos no WhatsApp</span>
 </main>
 
 <script>
   // AVISO: preencha o texto para o bloco aparecer (null = escondido)
-  const AVISO = { titulo: 'Aviso importante', texto: null };
+  const AVISO = { titulo: 'Atenção', texto: 'O acesso à plataforma será liberado <b>apenas para quem estiver no grupo</b>. Entre agora pelo botão abaixo.' };
   if (AVISO.texto) {
     document.getElementById('avisoTitulo').textContent = AVISO.titulo;
     document.getElementById('avisoTexto').innerHTML = AVISO.texto;
@@ -139,9 +145,9 @@ h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 34px rgba(238,42,123,.
   const nome = new URLSearchParams(location.search).get('nome');
   if (nome) document.getElementById('hi').textContent = nome.replace(/[<>]/g, '').slice(0, 30) + ', falta 1 passo:';
 
-  document.getElementById('waCta').addEventListener('click', function () {
+  document.querySelectorAll('[data-grupo]').forEach(a => a.addEventListener('click', function () {
     try { if (typeof fbq === 'function') fbq('track', 'Contact', { content_name: 'Grupo WhatsApp Imersão Odon' }); } catch (e) {}
-  });
+  }));
 </script>
 </body>
 </html>
