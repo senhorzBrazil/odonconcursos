@@ -108,7 +108,7 @@ h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 34px rgba(238,42,123,.
 
   <div class="eyebrow in" style="--d:1">Imersão Odon · cadastro feito</div>
   <h1 class="in" style="--d:2"><span id="hi">Falta 1 passo:</span> entre no <em>grupo oficial</em></h1>
-  <p class="lead in" style="--d:3">Os avisos da <b>Imersão Odon</b> e dos seus <b>4 dias de acesso à plataforma</b>, a partir de domingo, 22/11, às 10h, chegam pelo grupo oficial do WhatsApp.</p>
+  <p class="lead in" style="--d:3">O link dos <b>4 dias de acesso à plataforma</b> da <b>Imersão Odon</b>, a partir de domingo, 22/11, às 10h, será enviado <b>só no grupo oficial</b> do WhatsApp.</p>
 
   <div class="aviso in" id="aviso" style="--d:4" hidden>
     <div class="aviso-t"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 21h20L12 3z"/><path d="M12 10v5M12 18h.01"/></svg><span id="avisoTitulo">Aviso importante</span></div>
@@ -121,8 +121,8 @@ h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 34px rgba(238,42,123,.
   </a>
 
   <div class="steps">
-    <div class="step in" style="--d:4"><div class="n">✓</div><p><b>Cadastro feito.</b> Seu lugar na Imersão Odon está garantido.</p></div>
-    <div class="step on in" style="--d:5"><div class="n">2</div><p><b>Entre no grupo</b> pelo botão. Só quem está no grupo recebe o acesso.</p></div>
+    <div class="step in" style="--d:4"><div class="n">✓</div><p><b>Cadastro feito.</b> Ele ainda não garante o seu acesso.</p></div>
+    <div class="step on in" style="--d:5"><div class="n">2</div><p><b>Entre no grupo</b> pelo botão. O link de acesso será enviado só por lá.</p></div>
     <div class="step in" style="--d:6"><div class="n">3</div><p><b>Ative as notificações</b> do grupo para não perder a liberação no domingo, às 10h.</p></div>
   </div>
 
@@ -135,7 +135,7 @@ h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 34px rgba(238,42,123,.
 
 <script>
   // AVISO: preencha o texto para o bloco aparecer (null = escondido)
-  const AVISO = { titulo: 'Atenção', texto: 'O acesso à plataforma será liberado <b>apenas para quem estiver no grupo</b>. Entre agora pelo botão abaixo.' };
+  const AVISO = { titulo: 'Atenção', texto: 'O cadastro <b>não garante</b> o acesso. O link da plataforma será enviado <b>apenas no grupo</b>: só quem estiver no grupo terá acesso. Entre agora pelo botão abaixo.' };
   if (AVISO.texto) {
     document.getElementById('avisoTitulo').textContent = AVISO.titulo;
     document.getElementById('avisoTexto').innerHTML = AVISO.texto;
