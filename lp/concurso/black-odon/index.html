@@ -7,10 +7,10 @@
 <meta name="color-scheme" content="only light">
 <meta name="supported-color-schemes" content="light">
 <meta name="theme-color" content="#050505">
-<title>Black Odon · Concurseiro PRO vitalício</title>
-<meta name="description" content="Concurseiro PRO + OdonQuestões vitalício, até a sua aprovação. Condição válida até segunda, 09/11, às 23h59.">
-<meta property="og:title" content="Black Odon · até segunda, 09/11, às 23h59">
-<meta property="og:description" content="Concurseiro PRO + OdonQuestões vitalício, até a sua aprovação. Condição válida até segunda, 09/11, às 23h59.">
+<title>Black Odon · Concurseiro PRO 2 anos</title>
+<meta name="description" content="Concurseiro PRO, OdonQuestões e Mentoria por 2 anos na Black Odon, em até 12x no cartão.">
+<meta property="og:title" content="Black Odon · Concurseiro PRO 2 anos liberado">
+<meta property="og:description" content="Concurseiro PRO, OdonQuestões e Mentoria por 2 anos na Black Odon, em até 12x no cartão.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mkt.odonconcursospage.com/lp/concurso/black-odon/">
 <meta property="og:image" content="https://mkt.odonconcursospage.com/lp/concurso/black-odon/og.jpg?v=3">
@@ -380,27 +380,74 @@ footer .brand{height:34px;margin:0 auto 12px}
 .vsl-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .vsl .cta-row{margin-top:26px;display:flex}
 @media(max-width:480px){.vsl{padding:48px 0}.vsl-box{border-radius:14px;margin-top:20px}}
+/* versão WhatsApp: cards sem preço */
+.plan .wa-box{margin-top:auto;padding-top:24px;text-align:center}
+.plan .wa-box .hoje{background:rgba(37,211,102,.16);color:#7ef0a8;border:1px solid rgba(37,211,102,.45)}
+.plan .wa-box p{color:#d6d2dd;font-size:14.5px;margin-top:12px}
+.bnt1 .wa-ic,.bnt2 .wa-ic{width:20px;height:20px;fill:currentColor;stroke:none}
+.wa-card{justify-content:center;border-color:rgba(37,211,102,.45)!important;text-align:left}
+.wa-steps{list-style:none;display:grid;gap:14px;margin-top:14px;counter-reset:p}
+.wa-steps li{display:flex;gap:12px;align-items:flex-start;color:#e4e1ea;counter-increment:p}
+.wa-steps li::before{content:counter(p);flex:none;width:28px;height:28px;border-radius:50%;background:#25D366;color:#06210f;font:900 14px/28px var(--display);text-align:center}
+.nums span{display:flex;align-items:center;justify-content:center;gap:8px;font:800 17px/1 var(--display);padding:18px 10px;border-radius:18px;background:var(--panel);border:1px solid rgba(37,211,102,.4)}
+.nums span svg{width:18px;height:18px;flex:none;color:#25D366}
+.m-wa{display:flex;gap:8px;align-items:center;font:800 15px/1.3 var(--display);color:#7ef0a8;margin-top:8px}
+.m-wa svg{width:18px;height:18px;flex:none;fill:#25D366}
+@media (max-width:560px){.nums span{font-size:15px}}
+.brand{mix-blend-mode:normal}
+
+/* planos sem WhatsApp (Plus e Essencial): CTA desabilitado */
+.wa-box.off{opacity:.75}
+.wa-box.off .hoje{color:#a9a5b3}
+.bnt1.is-off{background:#2a2830 !important;color:#8d8a96 !important;box-shadow:none !important;cursor:not-allowed;pointer-events:none;animation:none !important}
+.bnt1.is-off::before,.bnt1.is-off::after{display:none !important}
+
+/* planos vitalícios: lista de espera */
+.wa-box.espera .hoje{background:rgba(255,255,255,.08);color:#f1eef6;border:1px solid rgba(255,255,255,.28)}
+.m-ok{text-align:center;padding:18px 4px 6px}
+.m-ok-ic{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:#25D366;display:grid;place-items:center}
+.m-ok-ic svg{width:28px;height:28px;fill:none;stroke:#06210f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.m-ok h4{font:900 22px/1.2 var(--display);color:#fff}
+.m-ok p{color:#d6d2dd;margin:10px 0 20px;font-size:15px}
+.m-ok .bnt2{cursor:pointer}
+.m-box [hidden]{display:none!important}
+.modal.done .m-wa,.modal.done .m-sub{display:none}
+
+/* destaque: só o PRO 2 anos está à venda; vitalícios apagados */
+.plan.espera{border-color:rgba(255,255,255,.12)!important;background:var(--panel)!important;box-shadow:none!important;transform:none!important}
+.plan.espera .badge{background:#2a2830!important;color:#a9a5b3!important;box-shadow:none!important;border:1px solid rgba(255,255,255,.14)}
+.plan.espera .nm,.plan.espera .tl,.plan.espera .its{opacity:.5;filter:grayscale(1)}
+.plan.espera .wa-box .hoje{background:transparent;color:#a9a5b3;border:1px dashed rgba(255,255,255,.3)}
+.plan.espera .wa-box p{color:#a9a5b3}
+.plan.espera .bnt2{width:100%;margin-top:20px;padding:17px 24px}
+.plan.destaque{border:2px solid #25D366!important;background:linear-gradient(170deg,rgba(37,211,102,.16),rgba(37,211,102,.02) 45%),var(--panel)!important;box-shadow:0 0 70px rgba(37,211,102,.22)!important;transform:translateY(-12px) scale(1.03);z-index:1}
+.plan.destaque .badge{background:#25D366!important;color:#06210f!important;box-shadow:0 0 30px rgba(37,211,102,.5)}
+.plan.destaque .nm{color:#7ef0a8}
+@media (max-width:980px){.plan.destaque{transform:none;order:-1;margin-bottom:8px}}
+.m-ok .bnt1{width:100%}
+
+/* 12/11: só PRO 2 anos à venda (checkout), vitalícios com oferta encerrada */
+.wa-card .por-card{margin-top:14px}
+.wa-card .por-card .por{font:900 40px/1 var(--display);color:#fff}
+.wa-card .por-card .por small{font-size:18px;margin-right:6px;opacity:.8}
+.wa-card .por-card .av{color:#d6d2dd;margin-top:8px;font-size:15px}
+.plan.destaque .pz .hoje{background:rgba(37,211,102,.16);color:#7ef0a8;border:1px solid rgba(37,211,102,.45)}
+.modal [hidden]{display:none!important}
 </style>
 </head>
 <body>
-
-<div class="urg" role="timer" aria-live="off"><div class="wrap">
-  <div class="tx"><i></i><span id="urgTx">Esta condição vale até segunda, 09/11, às 23h59</span></div>
-  <div class="tm" id="urgTm"><b><span data-d>00</span><small>d</small></b><b><span data-h>00</span><small>h</small></b><b><span data-m>00</span><small>min</small></b><b><span data-s>00</span><small>s</small></b></div>
-</div></div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="photo" role="img" aria-label="Prof. Manu, OdonConcursos"></div>
   <div class="wrap"><div class="hero-in">
-    <img class="brand fadeSlideIn" src="/lp/concurso/black-odon/img/logo.jpg" alt="OdonConcursos" width="172" height="60">
-    <span class="pill fadeSlideIn delay-1"><i></i>Black Odon · até segunda, 09/11</span>
+    <img class="brand fadeSlideIn" src="/lp/concurso/black-odon-whatsapp/img/logo.png" alt="OdonConcursos" width="190" height="60">
+    <span class="pill fadeSlideIn delay-1"><i></i>Black Odon · PRO 2 anos liberado</span>
     <h1 class="fadeSlideIn delay-2">Black <span class="g1">Odon</span></h1>
-    <p class="sub fadeSlideIn delay-3">O curso mais completo para concursos de odontologia, com acesso <span>vitalício</span>, até a sua aprovação.</p>
-    <p class="desc fadeSlideIn delay-3">Sem renovar todo ano e sem procurar curso de novo quando sair o próximo edital. Três planos, e o preço que você vê aqui vale só até segunda, 09/11, às 23h59.</p>
-    <div class="mini-tiers fadeSlideIn delay-4" id="miniTiers"></div>
+    <p class="sub fadeSlideIn delay-3">O curso mais completo para concursos de odontologia, com <span>2 anos</span> de acesso a tudo o que cai na prova.</p>
+    <p class="desc fadeSlideIn delay-3">Curso, questões e mentoria para os editais dos próximos 2 anos, em até 12x no cartão. Os planos vitalícios já foram encerrados e estão com lista de espera.</p>
     <div class="cta-row fadeSlideIn delay-5">
-      <a class="bnt1" href="#planos">Ver os 3 planos <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+      <a class="bnt1" href="#planos">Ver os pacotes <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
     </div>
     <div class="cta-micro fadeSlideIn delay-5"><span>Até 12x no cartão</span><span>Pix ou cartão à vista</span><span>Checkout oficial do Odon</span></div>
   </div></div>
@@ -414,7 +461,7 @@ footer .brand{height:34px;margin:0 auto 12px}
     <div class="vsl-box">
       <iframe src="https://www.youtube-nocookie.com/embed/legq0Vx8Um4?start=1080&rel=0&modestbranding=1&playsinline=1" title="Black Odon 2026: como vai funcionar" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
-    <div class="cta-row" style="justify-content:center"><a class="bnt1" href="#planos">Ver os 3 planos <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
+    <div class="cta-row" style="justify-content:center"><a class="bnt1" href="#planos">Ver os pacotes <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
   </div>
 </section>
 
@@ -422,21 +469,12 @@ footer .brand{height:34px;margin:0 auto 12px}
 <section id="planos" class="offers">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">Escolha o seu plano</span>
+      <span class="eyebrow">Os planos da Black</span>
       <h2>Plus, Essencial ou <span class="g1">PRO 2 anos</span></h2>
-      <p class="lead">No Plus e no Essencial, o curso e as questões ficam vitalícios. O PRO 2 anos é a porta de entrada, com 2 anos de acesso.</p>
-      <div style="margin-top:26px;display:flex;flex-direction:column;align-items:center" data-endbox>
-        <div class="clock-label">Este preço acaba em</div>
-        <div class="clock" data-clock>
-          <div><b data-u="d">00</b><small>dias</small></div>
-          <div><b data-u="h">00</b><small>horas</small></div>
-          <div><b data-u="m">00</b><small>min</small></div>
-          <div><b data-u="s">00</b><small>seg</small></div>
-        </div>
-      </div>
+      <p class="lead">A oferta do Plus e do Essencial (vitalícios) foi encerrada. O PRO 2 anos está liberado: curso, questões e mentoria por 2 anos.</p>
     </div>
     <div class="plans" id="plans"></div>
-    <p class="nota-preco" id="notaPreco"></p>
+    <p class="nota-preco"><b>Queria um vitalício?</b> Entre na lista de espera do Plus ou do Essencial e no grupo do WhatsApp: se a oferta voltar, o aviso chega por lá primeiro.</p>
     <div class="pay-row"><span>Cartão em até 12x</span><span>À vista no cartão ou no pix</span><span>Sem limite em um cartão? Divida em dois cartões ou pix + cartão com o comercial</span></div>
   </div>
 </section>
@@ -497,27 +535,27 @@ footer .brand{height:34px;margin:0 auto 12px}
   <div class="wrap">
     <div class="center">
       <span class="eyebrow">Para quem é</span>
-      <h2>O vitalício é <span class="g1">para você se…</span></h2>
+      <h2>O PRO 2 anos é <span class="g1">para você se…</span></h2>
     </div>
     <div class="fit">
       <div class="card" style="border-color:rgba(238,42,123,.45)">
         <h3 style="font-size:22px">É para quem</h3>
         <ul>
           <li><i class="yes"></i>Quer um curso completo e confiável para passar</li>
-          <li><i class="yes"></i>Não quer ficar todo ano renovando curso</li>
-          <li><i class="yes"></i>Não quer procurar curso de novo quando abrir edital no futuro</li>
-          <li><i class="yes"></i>Quer economizar e não gastar mais com curso para concurso</li>
+          <li><i class="yes"></i>Quer estar pronto para os editais dos próximos 2 anos</li>
+          <li><i class="yes"></i>Quer cronograma, PDFs, questões e mentoria em um lugar só</li>
+          <li><i class="yes"></i>Quer aproveitar a melhor condição do ano</li>
         </ul>
       </div>
       <div class="card bad">
         <h3 style="font-size:22px;color:#a9a5b3">Não é para quem</h3>
         <ul>
-          <li><span class="nx">✕</span>Prefere pagar o curso todo ano</li>
-          <li><span class="nx">✕</span>Topa arriscar pagar mais caro no futuro</li>
+          <li><span class="nx">✕</span>Quer só um material solto, sem método</li>
+          <li><span class="nx">✕</span>Prefere pagar mais caro depois da Black</li>
         </ul>
       </div>
     </div>
-    <p class="quote">Quem já renovou 1, 2, até 3 vezes sabe: o concurso que você quer pode demorar a sair. <b>No vitalício, o acesso continua até a sua aprovação.</b></p>
+    <p class="quote">O concurso que você quer pode sair a qualquer momento. <b>No PRO 2 anos, você tem 2 anos de acesso para chegar pronto na prova.</b></p>
   </div>
 </section>
 
@@ -549,17 +587,12 @@ footer .brand{height:34px;margin:0 auto 12px}
         <div class="ph nb" role="img" aria-label="Notebook"><svg viewBox="0 0 120 80" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"><rect x="22" y="12" width="76" height="48" rx="4"/><rect x="29" y="19" width="62" height="34" rx="1" fill="rgba(238,42,123,.35)" stroke="none"/><path d="M10 64h100l-6 8H16z" fill="rgba(255,255,255,.12)"/><path d="M52 64h16"/></svg></div>
         <div class="val">Valor do prêmio <s>R$ 3.000</s></div>
       </article>
-      <article class="bonus" style="justify-content:center;border-color:rgba(244,197,66,.45)">
-        <span class="eyebrow" style="color:var(--ouro);margin:0">A conta do Plus</span>
-        <h3>Quanto valeria tudo isso</h3>
-        <div class="vt" style="margin-top:6px;max-width:none">
-          <div><span>5 anos de Concurseiro PRO + OdonQuestões<small>1º ano R$ 2.597 + R$ 1.397 por renovação</small></span><b>R$ 8.185</b></div>
-          <div><span>Mentoria OdonClass</span><b>R$ 3.000</b></div>
-          <div><span>Pós-graduação<small>valor mínimo de venda</small></span><b>R$ 4.000</b></div>
-          <div><span>Notebook (sorteio)</span><b>R$ 3.000</b></div>
-          <div class="tot"><span>Total</span><b>R$ 18.185</b></div>
-        </div>
-        <p class="vt-hoje" id="vtHoje"></p>
+      <article class="bonus wa-card">
+        <span class="eyebrow" style="color:#7ef0a8;margin:0">Disponível agora</span>
+        <h3>Concurseiro PRO 2 anos</h3>
+        <p>Curso, OdonQuestões e Mentoria OdonClass por 2 anos.</p>
+        <div class="por-card" id="pro2Card"></div>
+        <div class="cta-row" style="margin-top:22px"><a class="bnt1" data-plan="pro2" href="#">Quero o PRO 2 anos</a></div>
       </article>
     </div>
   </div>
@@ -614,7 +647,8 @@ footer .brand{height:34px;margin:0 auto 12px}
   <div class="wrap">
     <div class="center"><span class="eyebrow">Dúvidas</span><h2>Perguntas <span class="g1">frequentes</span></h2></div>
     <div class="faq">
-      <details><summary>Até quando vale este preço?</summary><p>O preço desta página vale até segunda, 09/11, às 23h59, no horário de Brasília. Os bônus continuam depois disso: o que muda é o preço.</p></details>
+      <details><summary>Ainda dá para comprar o Plus ou o Essencial?</summary><p>Não. A oferta dos planos vitalícios foi encerrada. Entre na lista de espera e no grupo do WhatsApp: se a oferta voltar, o aviso chega por lá primeiro.</p></details>
+      <details><summary>O PRO 2 anos está disponível?</summary><p>Sim. O PRO 2 anos está liberado: escolha o plano, preencha seus dados e siga para o checkout oficial do Odon.</p></details>
       <details><summary>O que fica vitalício?</summary><p>No Plus e no Essencial, o Concurseiro PRO e o OdonQuestões ficam liberados até a sua aprovação, com as melhorias e áreas novas que chegarem. No PRO 2 anos, o acesso é de 2 anos.</p></details>
       <details><summary>Qual a diferença entre os planos?</summary><p>O Plus tem tudo: curso e questões vitalícios, Mentoria OdonClass, pós-graduação e sorteio do notebook. O Essencial é igual ao Plus, só que sem a pós. O PRO 2 anos tem curso, questões e mentoria por 2 anos, sem pós e sem sorteio.</p></details>
       <details><summary>Como funciona a pós-graduação?</summary><p>É bônus do plano Plus. A matrícula abre a partir de 1º de dezembro e os 4 meses contam a partir dela. A pós não é vitalícia.</p></details>
@@ -629,19 +663,10 @@ footer .brand{height:34px;margin:0 auto 12px}
 <section class="final">
   <div class="wrap">
     <span class="eyebrow">Black Odon</span>
-    <h2>Garanta o seu plano <span class="g1">até segunda</span></h2>
-    <p class="lead">Escolha o plano, preencha seus dados e siga para o checkout oficial do Odon. Ficou alguma dúvida? O comercial responde pelo WhatsApp.</p>
-    <div style="margin-top:28px" data-endbox>
-      <div class="clock-label">Este preço acaba em</div>
-      <div class="clock" data-clock>
-        <div><b data-u="d">00</b><small>dias</small></div>
-        <div><b data-u="h">00</b><small>horas</small></div>
-        <div><b data-u="m">00</b><small>min</small></div>
-        <div><b data-u="s">00</b><small>seg</small></div>
-      </div>
-    </div>
+    <h2>Garanta o seu <span class="g1">PRO 2 anos</span></h2>
+    <p class="lead">Preencha seus dados e siga para o checkout oficial do Odon. Ficou alguma dúvida? O comercial responde pelo WhatsApp.</p>
     <div class="cta-row">
-      <a class="bnt1" href="#planos">Escolher o meu plano</a>
+      <a class="bnt1" data-plan="pro2" href="#">Quero o PRO 2 anos</a>
       <a class="bnt2" id="waBtn" target="_blank" rel="noopener" href="#">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.4.1.1.1.8-.2 1.4z"/></svg>
         Falar com o comercial
@@ -650,7 +675,7 @@ footer .brand{height:34px;margin:0 auto 12px}
   </div>
 </section>
 
-<footer><div class="wrap"><img class="brand" src="/lp/concurso/black-odon/img/logo.jpg" alt="OdonConcursos" width="98" height="34" loading="lazy">OdonConcursos · Black Odon 2026</div></footer>
+<footer><div class="wrap"><img class="brand" src="/lp/concurso/black-odon-whatsapp/img/logo.png" alt="OdonConcursos" width="108" height="34" loading="lazy">OdonConcursos · Black Odon 2026</div></footer>
 
 <div class="modal" id="lead" hidden role="dialog" aria-modal="true" aria-labelledby="m-plan">
   <div class="m-back" data-close></div>
@@ -659,7 +684,8 @@ footer .brand{height:34px;margin:0 auto 12px}
     <div class="m-tag">Último passo</div>
     <h3 id="m-plan">Plus</h3>
     <div class="m-price" id="m-price"></div>
-    <p class="m-sub">Preencha seus dados para ir ao pagamento. Se precisar, o nosso comercial fala com você por aqui.</p>
+    <div class="m-wa" id="m-wa" hidden><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.4.1.1.1.8-.2 1.4z"/></svg><span>O aviso chega no grupo do WhatsApp</span></div>
+    <p class="m-sub" id="m-sub">Preencha seus dados para ir ao pagamento. Se precisar, o nosso comercial fala com você por aqui.</p>
     <form id="leadForm" novalidate>
       <label for="f-name">Nome</label>
       <input id="f-name" type="text" autocomplete="name" placeholder="Seu nome" required>
@@ -676,60 +702,49 @@ footer .brand{height:34px;margin:0 auto 12px}
         </select>
         <input id="f-phone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="(11) 99999-9999" required>
       </div>
-      <button class="bnt1" id="f-submit" type="submit">Ir para o pagamento <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button class="bnt1" id="f-submit" type="submit"><span id="f-submit-tx">Ir para o pagamento </span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       <div class="m-sec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Seus dados estão seguros</div>
     </form>
+    <div class="m-ok" id="m-ok" hidden>
+      <div class="m-ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h4>Você está na lista de espera</h4>
+      <p>Falta 1 passo: entre no grupo do WhatsApp. É por lá que chega o aviso.</p>
+      <a class="bnt1" id="m-ok-grupo" href="#" rel="noopener">Entrar no grupo</a>
+    </div>
   </div>
 </div>
 
 <div class="sticky" id="sticky"><div class="sk-in">
-  <div class="sk-l">Até segunda · acaba em<b id="skClock">00:00:00</b></div>
-  <a class="bnt1" href="#planos">Ver os planos</a>
+  <div class="sk-l">PRO 2 anos liberado<b id="skPreco"></b></div>
+  <a class="bnt1" data-plan="pro2" href="#">Quero o PRO 2 anos</a>
 </div></div>
 
 <script>
 /* ============ CONFIG ============ */
 const CONFIG = {
-  fim: '2026-11-09T23:59:59-03:00', // fim da Black Odon (horário de Brasília)
-  prazo: '2026-11-09T23:59:59-03:00', // o timer conta até aqui; depois volta a zerar às 23h59 de cada dia
-  // Link de pagamento de cada plano. null = depois do cadastro, abre o WhatsApp do comercial com o nome do plano.
+  // Só o PRO 2 anos está à venda. Plus e Essencial: oferta encerrada, lista de espera.
   checkout: {
-    plus:      'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=YWsvVWdzNkN5OERBSDJueUI5aDd6dz09&utm_source=lp',
-    essencial: 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=bG9TSUdCaFlubXpBSDJueUI5aDd6dz09&utm_source=lp',
-    pro2:      'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=MUlTWmc4UDRXZmJBSDJueUI5aDd6dz09&utm_source=lp'
+    pro2: 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=MUlTWmc4UDRXZmJBSDJueUI5aDd6dz09&utm_source=lp'
   },
-  // Preços por fase. O timer do topo sempre conta até 23h59 do dia (Brasília).
-  // 'depois' aparece como "depois da meia-noite" só enquanto existir.
-  fases: [
-    { ate: '2026-11-09T23:59:59-03:00', precos: { plus: ['R$ 399', 'R$ 3.997'], essencial: ['R$ 359', 'R$ 3.597'], pro2: ['R$ 197', 'R$ 1.997'] } }
-  ],
+  precos: { pro2: ['R$ 197', 'R$ 1.997'] },
+  grupoEspera: 'https://sndflw.com/i/OMce0WcpA2duKSCac8QN', // grupo da lista de espera dos vitalícios (SendFlow)
   webhook: 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz',
   whatsapp: '5519994565534',
   msgWhatsapp: 'Oi! Vim pela página da Black Odon e tenho uma dúvida.',
   oficiais: ['5519990112297', '5519993153278', '5519994565534', '5519993440882']
 };
 const PLANOS = [
-  { id: 'plus',      cls: 'o', nome: 'Plus',       full: 'Black Vitalícia Plus',      titulo: 'Vitalício com a pós',      badge: 'Mais completo', de: 'R$ 18.185',
+  { id: 'plus',      cls: 'o', nome: 'Plus',       full: 'Black Vitalícia Plus',      espera: true,
     itens: [['Concurseiro PRO vitalício', 1], ['OdonQuestões vitalício', 1], ['Mentoria OdonClass', 1, 'Encontros e sprint de edital'], ['Pós-graduação em Estratégia Saúde da Família', 1, '4 meses, matrícula a partir de 1º/12'], ['Sorteio de um notebook', 1]] },
-  { id: 'essencial', cls: 'p', nome: 'Essencial',  full: 'Black Vitalícia Essencial', titulo: 'Vitalício sem a pós',      badge: 'Sem a pós',     de: 'R$ 14.185',
+  { id: 'essencial', cls: 'p', nome: 'Essencial',  full: 'Black Vitalícia Essencial', espera: true,
     itens: [['Concurseiro PRO vitalício', 1], ['OdonQuestões vitalício', 1], ['Mentoria OdonClass', 1, 'Encontros e sprint de edital'], ['Pós-graduação', 0], ['Sorteio de um notebook', 1]] },
-  { id: 'pro2',      cls: 'b', nome: 'PRO 2 anos', full: 'Concurseiro PRO 2 anos',    titulo: 'A entrada da Black',       badge: 'Entrada Black', de: '',
+  { id: 'pro2',      cls: 'b', nome: 'PRO 2 anos', full: 'Concurseiro PRO 2 anos',
     itens: [['Concurseiro PRO por 2 anos', 1], ['OdonQuestões por 2 anos', 1], ['Mentoria OdonClass por 2 anos', 1], ['Pós-graduação', 0], ['Sorteio de um notebook', 0]] }
 ];
 /* ================================ */
 
 const qs = new URLSearchParams(location.search);
-const offset = qs.get('t') ? new Date(qs.get('t')) - Date.now() : 0; // ?t=2026-11-06T10:00:00-03:00 para testar
-const now = () => Date.now() + offset;
-const T_FIM = +new Date(CONFIG.fim);
-const T_PRAZO = +new Date(CONFIG.prazo);
-const fase = () => CONFIG.fases.find(f => now() <= +new Date(f.ate)) || CONFIG.fases[CONFIG.fases.length - 1];
-const preco = p => fase().precos[p.id];
-// fim do dia de hoje no horário de Brasília (UTC-3, sem horário de verão)
-function fimDoDia() {
-  const br = new Date(now() - 3 * 36e5);
-  return Date.UTC(br.getUTCFullYear(), br.getUTCMonth(), br.getUTCDate(), 23, 59, 59) + 3 * 36e5 + 999;
-}
+const preco = p => CONFIG.precos[p.id];
 
 function comUtm(url) {
   try {
@@ -744,32 +759,29 @@ const linkPlano = p => CONFIG.checkout[p.id] ? comUtm(CONFIG.checkout[p.id]) : w
 const Y = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
 const X = '<svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7 7 17"/></svg>';
 function render() {
-  const f = fase();
-  document.getElementById('plans').innerHTML = PLANOS.map(p => {
-    const [parc, vista] = preco(p), dep = f.depois && f.depois[p.id];
-    return `
-  <div class="plan ${p.cls}">
-    ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
+  document.getElementById('plans').innerHTML = PLANOS.map(p => `
+  <div class="plan ${p.cls}${p.espera ? ' espera' : ' destaque'}">
+    <span class="badge">${p.espera ? 'Oferta encerrada' : 'Disponível agora'}</span>
     <div class="nm">${p.nome}</div>
     <div class="tl">${p.full}</div>
     <ul class="its">${p.itens.map(([n, y, s]) => `<li class="${y ? 'y' : 'x'}">${y ? Y : X}<span>${n}${y && s ? `<small>${s}</small>` : ''}</span></li>`).join('')}</ul>
-    <div class="pz">
-      <span class="hoje">Até segunda, 23h59</span>
-      ${p.de ? `<div class="de" style="margin-top:12px">Separado custaria <s>${p.de}</s></div>` : ''}
-      <div class="por"><small>12x</small>${parc}</div>
-      <div class="av">ou <b>${vista} à vista</b> no cartão ou no pix</div>
+    ${p.espera ? `<div class="wa-box espera">
+      <span class="hoje">Oferta encerrada</span>
+      <p>Entre na lista de espera do ${p.nome} e no grupo do WhatsApp, onde chega o aviso.</p>
+      <a class="bnt2" data-plan="${p.id}" href="#">Entrar na lista de espera</a>
+    </div>` : `<div class="pz">
+      <span class="hoje">Liberado</span>
+      <div class="por"><small>12x</small>${preco(p)[0]}</div>
+      <div class="av">ou <b>${preco(p)[1]} à vista</b> no cartão ou no pix</div>
       <a class="bnt1" data-plan="${p.id}" href="#">Quero o ${p.nome}</a>
-      <div class="dep">${dep ? `Depois da meia-noite: <s>12x ${dep[0]}</s> ou ${dep[1]}` : (p.id === 'pro2' ? 'Mesmo valor durante toda a Black' : 'Pagamento seguro na OdonConcursos')}</div>
-    </div>
-  </div>`;
-  }).join('');
-  document.getElementById('miniTiers').innerHTML = PLANOS.map(p => `<a class="mt-${p.cls}" href="#planos">${p.nome} <b>12x ${preco(p)[0]}</b></a>`).join('');
-  document.getElementById('notaPreco').innerHTML = f.depois
-    ? '<b>Esse preço vale só hoje, até 23h59.</b> Depois da meia-noite, o Plus sobe R$ 400 e o Essencial sobe R$ 600. Os bônus continuam: o que muda é o preço.'
-    : '<b>Esse preço vale até segunda, 09/11, às 23h59.</b> Garanta o seu plano antes do fim do prazo.';
-  document.getElementById('vtHoje').innerHTML = `<span>12x ${preco(PLANOS[0])[0]}</span> no Plus, até segunda: vitalício e todos os bônus.`;
-  document.getElementById('trPreco').innerHTML = '<td style="font:800 15px var(--display)">Até segunda, 23h59</td>' +
-    PLANOS.map(p => `<td class="${p.cls}"><b>12x ${preco(p)[0]}</b><span>ou ${preco(p)[1]} à vista</span></td>`).join('');
+      <div class="dep">Pagamento seguro na OdonConcursos</div>
+    </div>`}
+  </div>`).join('');
+  const pro2 = PLANOS.find(p => !p.espera), [pp, pv] = preco(pro2);
+  document.getElementById('pro2Card').innerHTML = `<div class="por"><small>12x</small>${pp}</div><div class="av">ou <b>${pv} à vista</b> no cartão ou no pix</div>`;
+  document.getElementById('skPreco').textContent = `12x ${pp}`;
+  document.getElementById('trPreco').innerHTML = '<td style="font:800 15px var(--display)">Condição da Black</td>' +
+    PLANOS.map(p => p.espera ? `<td class="${p.cls}"><span>Oferta encerrada</span></td>` : `<td class="${p.cls}"><b>12x ${preco(p)[0]}</b><span>ou ${preco(p)[1]} à vista</span></td>`).join('');
 }
 render();
 
@@ -785,11 +797,17 @@ const tracking = {
 };
 function abrirCaptura(p) {
   planoAtual = p;
-  const [parc, vista] = preco(p);
-  modal.className = 'modal ' + p.cls;
-  document.getElementById('m-plan').textContent = p.full;
-  document.getElementById('m-price').innerHTML = `12x ${parc} <span>ou ${vista} à vista</span>`;
-  document.getElementById('f-submit').firstChild.textContent = 'Ir para o pagamento ';
+  const esp = !!p.espera;
+  modal.className = 'modal ' + p.cls + (esp ? ' is-espera' : '');
+  document.getElementById('m-plan').textContent = esp ? 'Lista de espera · ' + p.full : p.full;
+  const mp = document.getElementById('m-price');
+  mp.hidden = esp;
+  if (!esp) { const [parc, vista] = preco(p); mp.innerHTML = `12x ${parc} <span>ou ${vista} à vista</span>`; }
+  document.getElementById('m-wa').hidden = !esp;
+  document.getElementById('m-sub').textContent = esp ? `A oferta do ${p.nome} foi encerrada. Deixe seus dados para entrar na lista de espera e, depois, no grupo do WhatsApp, onde chega o aviso.` : 'Preencha seus dados para ir ao pagamento. Se precisar, o nosso comercial fala com você por aqui.';
+  document.getElementById('f-submit-tx').textContent = esp ? 'Entrar na lista de espera ' : 'Ir para o pagamento ';
+  document.getElementById('f-submit').disabled = false;
+  form.hidden = false; document.getElementById('m-ok').hidden = true;
   modal.hidden = false; document.body.style.overflow = 'hidden';
   setTimeout(() => document.getElementById('f-name').focus({ preventScroll: true }), 150);
 }
@@ -800,8 +818,7 @@ document.addEventListener('click', e => {
   const a = e.target.closest('[data-plan]');
   if (!a) return;
   e.preventDefault();
-  if (a.classList.contains('off')) return;
-  abrirCaptura(PLANOS.find(x => x.id === a.dataset.plan));
+  abrirCaptura(PLANOS.find(x => x.id === a.dataset.plan) || PLANOS.find(x => !x.espera));
 });
 fPhone.addEventListener('input', () => {
   if (document.getElementById('f-country').value !== '55') return;
@@ -818,9 +835,40 @@ form.addEventListener('submit', async e => {
     el.classList.toggle('bad', !ok);
     if (!ok) { el.focus(); return; }
   }
-  const p = planoAtual, [parc, vista] = preco(p), btn = document.getElementById('f-submit');
-  btn.disabled = true; btn.firstChild.textContent = 'Abrindo o pagamento… ';
+  const p = planoAtual, btn = document.getElementById('f-submit');
+  btn.disabled = true;
+  document.getElementById('f-submit-tx').textContent = p.espera ? 'Enviando… ' : 'Abrindo o pagamento… ';
   const agora = new Date();
+  if (p.espera) {
+    const payloadEspera = {
+      formulario: 'Black Odon · Não alunos · Lista de espera vitalício',
+      produto: 'Black Friday 2026',
+      metodo: 'Landing Page',
+      plano: p.full,
+      nome: nome.value.trim(),
+      email: email.value.trim(),
+      telefone: '+' + country + digits,
+      ja_e_aluno: 'Não',
+      evento: 'Entrou na lista de espera do vitalício',
+      origem: 'LP Black Odon · Lista de espera · ' + p.full,
+      data_contato: agora.toISOString(),
+      data_contato_br: agora.toLocaleDateString('pt-BR') + ' ' + agora.toLocaleTimeString('pt-BR'),
+      ...tracking
+    };
+    try {
+      await Promise.race([
+        fetch(CONFIG.webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payloadEspera), keepalive: true }),
+        new Promise(r => setTimeout(r, 2500))
+      ]);
+    } catch (err) { console.error('Webhook error:', err); }
+    try { if (window.fbq) { fbq('track', 'Lead', { content_name: 'Black Odon · Lista de espera · ' + p.nome, content_category: 'Black Friday 2026' }); fbq('track', 'Contact', { content_name: 'Grupo WhatsApp lista de espera vitalício' }); } } catch (err) {}
+    document.getElementById('m-ok-grupo').href = CONFIG.grupoEspera;
+    form.hidden = true; document.getElementById('m-ok').hidden = false; modal.classList.add('done');
+    form.reset();
+    setTimeout(() => { location.href = CONFIG.grupoEspera; }, 1200);
+    return;
+  }
+  const [parc, vista] = preco(p);
   const payload = {
     formulario: 'Black Odon · Não alunos · Checkout ' + p.nome,
     produto: 'Black Friday 2026',
@@ -896,27 +944,6 @@ function barra() {
 }
 addEventListener('scroll', barra, { passive: true }); barra();
 
-const pad = n => String(n).padStart(2, '0');
-let faseAtual = fase(), encerrado = null;
-function tick() {
-  const t = now(), fim = t > T_FIM;
-  if (fase() !== faseAtual) { faseAtual = fase(); render(); encerrado = null; }
-  let diff = fim ? 0 : Math.max(0, (t <= T_PRAZO ? T_PRAZO + 999 : fimDoDia()) - t);
-  const d = Math.floor(diff / 864e5); diff -= d * 864e5;
-  const h = Math.floor(diff / 36e5); diff -= h * 36e5;
-  const m = Math.floor(diff / 6e4); const s = Math.floor((diff - m * 6e4) / 1e3);
-  const v = { d: pad(d), h: pad(h), m: pad(m), s: pad(s) };
-  document.querySelectorAll('[data-clock] [data-u]').forEach(b => b.textContent = v[b.dataset.u]);
-  document.querySelector('[data-d]').textContent = v.d; document.querySelector('[data-h]').textContent = v.h; document.querySelector('[data-m]').textContent = v.m; document.querySelector('[data-s]').textContent = v.s;
-  document.getElementById('skClock').textContent = fim ? 'Encerrada' : `${v.d}d ${v.h}h ${v.m}min ${v.s}s`;
-  if (encerrado === fim) return;
-  encerrado = fim;
-  document.querySelectorAll('[data-plan]').forEach(a => { a.classList.toggle('off', fim); if (fim) a.textContent = 'Oferta encerrada'; });
-  document.getElementById('urgTx').textContent = fim ? 'A Black Odon foi encerrada' : 'Esta condição vale até segunda, 09/11, às 23h59';
-  document.getElementById('urgTm').style.display = fim ? 'none' : '';
-  document.querySelectorAll('[data-endbox] .clock-label').forEach(l => l.textContent = fim ? 'A Black Odon foi encerrada' : 'Este preço acaba em');
-}
-tick(); setInterval(tick, 1000);
 </script>
 </body>
 </html>
