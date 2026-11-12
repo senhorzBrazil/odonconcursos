@@ -73,10 +73,10 @@ button,input,select{font:inherit;color:inherit}
 .hero{position:relative;overflow:hidden;padding:52px 0 96px;
   background:radial-gradient(60% 80% at 85% 15%,rgba(238,42,123,.32),rgba(238,42,123,0) 70%),
              radial-gradient(45% 60% at 0% 100%,rgba(51,70,224,.24),rgba(51,70,224,0) 70%),#000}
-.hero .grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 440px;gap:56px;align-items:center;margin-top:44px}
+.hero .grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:52px;align-items:center;margin-top:40px}
 .datechip{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:9px 16px 9px 12px;background:rgba(238,42,123,.14);border:1px solid rgba(238,42,123,.55);font:800 14px/1 var(--display);letter-spacing:.04em;text-transform:uppercase}
 .datechip svg{width:20px;height:20px;stroke:var(--pink-hi);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.title{font:900 clamp(60px,9vw,124px)/.86 var(--display);letter-spacing:-.05em;text-transform:uppercase;margin-top:22px}
+.title{font:900 clamp(56px,6.4vw,94px)/.88 var(--display);letter-spacing:-.05em;text-transform:uppercase;margin-top:22px}
 .title span{display:block}
 .title em{font-style:normal;background:linear-gradient(100deg,#ff7fb2 0%,#EE2A7B 45%,#b80f57 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 28px rgba(238,42,123,.55))}
 .sub{font:800 clamp(20px,2.3vw,28px)/1.22 var(--display);letter-spacing:-.01em;margin-top:22px;max-width:600px;text-wrap:balance}
@@ -196,15 +196,22 @@ h2.h .b{color:var(--blue-hi)}
 .tab.on{border-color:rgba(238,42,123,.7);background:linear-gradient(160deg,rgba(238,42,123,.22),rgba(238,42,123,.03) 60%),var(--panel)}
 .tab.on .ti{background:var(--pink);box-shadow:0 0 18px rgba(238,42,123,.6)}
 .tab.on p{max-height:90px;opacity:1}
-.simwin{border-radius:20px;overflow:hidden;background:#17161c;box-shadow:0 0 0 1px #2c2b35,0 40px 90px -40px rgba(238,42,123,.7);transform:perspective(1600px) rotateY(-4deg) rotateX(2deg);transition:transform .6s ease}
-.simwin:hover{transform:none}
+.simwin{border-radius:20px;overflow:hidden;background:#17161c;box-shadow:0 0 0 1px #2c2b35,0 0 0 8px rgba(255,255,255,.03),0 40px 90px -30px rgba(238,42,123,.75)}
 .simbar{height:36px;display:flex;align-items:center;gap:8px;padding:0 14px;border-bottom:1px solid #26252d}
 .simbar i{width:11px;height:11px;border-radius:50%;background:#ff5f57}
 .simbar i:nth-child(2){background:#febc2e}.simbar i:nth-child(3){background:#28c840}
 .simbar span{margin-left:12px;flex:1;min-width:0;height:22px;border-radius:7px;background:#0d0d11;font:600 12px/22px var(--body);color:#8b8794;padding:0 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.simwrap{position:relative;width:100%;aspect-ratio:600/500;overflow:hidden;background:#0d0d11}
-.simwrap>.win{position:absolute;left:0;top:0;transform-origin:0 0;opacity:0;visibility:hidden;transition:opacity .35s}
-.simwrap>.win.on{opacity:1;visibility:visible}
+.simwrap{position:relative;width:100%;overflow:hidden;background:#0d0d11}
+.stage{position:relative;width:100%;aspect-ratio:600/500;overflow:hidden}
+.stage>.win{position:absolute;left:0;top:0;transform-origin:0 0;opacity:0;visibility:hidden;transition:opacity .35s}
+.stage>.win.on{opacity:1;visibility:visible}
+/* menu da plataforma (o cursor clica aqui) */
+.pnav{display:flex;gap:6px;padding:8px;background:#0c0a3e;border-bottom:1px solid rgba(255,255,255,.08)}
+.pt{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;gap:7px;height:34px;border:0;border-radius:9px;background:rgba(255,255,255,.06);color:#c9c7e6;font:700 12.5px/1 var(--display);cursor:pointer;white-space:nowrap;transition:background .25s,color .25s,box-shadow .25s}
+.pt svg{flex:none;width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pt:hover{background:rgba(255,255,255,.12);color:#fff}
+.pt.on{background:var(--pink);color:#fff;box-shadow:0 0 16px rgba(238,42,123,.55)}
+.pt.press{transform:scale(.96)}
 .cursor{position:absolute;left:0;top:0;z-index:50;width:30px;height:30px;pointer-events:none;transition:transform .85s cubic-bezier(.45,.05,.25,1)}
 .cursor svg{width:30px;height:30px;filter:drop-shadow(0 3px 4px rgba(0,0,0,.45));transition:transform .15s;transform-origin:3px 2px}
 .cursor.down svg{transform:scale(.82)}
@@ -422,6 +429,53 @@ h2.h .b{color:var(--blue-hi)}
 footer{border-top:1px solid var(--line);padding:30px 0 40px;text-align:center;font-size:13px;color:#6f6b78}
 footer img{height:30px;margin-bottom:10px;opacity:.85}
 
+/* barra do topo com contador */
+.topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:center;gap:16px;padding:9px 16px;background:linear-gradient(90deg,#b80f57,#EE2A7B 50%,#b80f57);box-shadow:0 6px 24px rgba(238,42,123,.35)}
+.tb-t{font:800 13px/1.2 var(--display);letter-spacing:.06em;text-transform:uppercase}
+.tb-t b{font-weight:900}
+.tc{display:flex;gap:5px}
+.tc span{display:flex;align-items:baseline;gap:1px;background:rgba(0,0,0,.3);border-radius:8px;padding:6px 8px}
+.tc b{font:900 16px/1 var(--display);font-variant-numeric:tabular-nums}
+.tc small{font:700 10px/1 var(--display);opacity:.85}
+.tb-cta{border:0;border-radius:999px;background:#fff;color:#c3135e;font:900 12px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;padding:9px 16px;cursor:pointer;transition:transform .2s}
+.tb-cta:hover{transform:scale(1.05)}
+
+/* CTA do topo */
+.hero-cta{width:auto;display:inline-flex;margin-top:30px;padding:18px 38px;font-size:17px}
+.cta-micro{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;font-size:14px;color:var(--mute)}
+.hanim{min-width:0}
+
+/* pop-up */
+.modal{position:fixed;inset:0;z-index:100;display:flex;overflow-y:auto;padding:34px 16px}
+.modal[hidden]{display:none}
+.mbg{position:fixed;inset:0;background:rgba(5,5,5,.82);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.modal .formcard{margin:auto;width:100%;max-width:440px;animation:mpop .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes mpop{from{opacity:0;transform:translateY(22px) scale(.97)}}
+.mx{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:#f1edf3;color:#2a2730;font-size:22px;line-height:1;cursor:pointer}
+.mx:hover{background:#e6dfe9}
+body.lock{overflow:hidden}
+
+/* aprovados */
+.deps-h{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+.deps-v{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 18px;margin-top:20px;scrollbar-width:thin;scrollbar-color:var(--pink) transparent}
+.deps-v .dep{flex:0 0 250px;scroll-snap-align:start}
+.dep{background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.dep .vd{position:relative;background:#000;cursor:pointer}
+.dep.h .vd{aspect-ratio:16/9}.dep.v .vd{aspect-ratio:9/16}
+.dep video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+.dep.tocando video{object-fit:contain}
+.dep .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.65));border:0;cursor:pointer}
+.dep .play i{width:64px;height:64px;border-radius:50%;background:var(--pink);display:grid;place-items:center;box-shadow:0 0 0 8px rgba(238,42,123,.25),0 10px 30px rgba(0,0,0,.5);transition:transform .2s}
+.dep .play i::before{content:"";margin-left:5px;border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent}
+.dep .vd:hover .play i{transform:scale(1.08)}
+.dep .play em{position:absolute;right:12px;top:12px;font:700 12px/1 var(--body);font-style:normal;color:#fff;background:rgba(0,0,0,.55);padding:6px 9px;border-radius:999px}
+.dep.tocando .play{display:none}
+.dep .tx{padding:16px 18px 18px}
+.dep .tx b{display:block;font:900 18px/1.1 var(--display)}
+.dep .tx span{display:block;color:var(--pink-hi);font:700 13px/1.35 var(--body);margin-top:6px}
+.dep .tx p{color:#cfcbd8;font-size:14.5px;margin-top:8px;font-style:italic}
+.deps-dica{text-align:center;color:var(--mute);font-size:13px;margin-top:4px}
+
 @media (max-width:1020px){
   .hero{padding:30px 0 72px}
   .hero .grid{grid-template-columns:1fr;gap:40px;margin-top:30px}
@@ -433,7 +487,9 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
   .tab .ti{left:10px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%}
   .tab h3{font-size:15px;white-space:nowrap}
   .tab p{display:none}
-  .simwin{transform:none}
+  .hero-cta{width:100%}
+  .deps-h{grid-template-columns:1fr}
+  .deps-v .dep{flex-basis:230px}
   .stats{grid-template-columns:1fr 1fr}
   .who,.steps{grid-template-columns:1fr}
 }
@@ -441,6 +497,15 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
   .wrap{padding:0 16px}
   .tabs{margin:0 -16px;padding:0 16px 4px}
   .nav .eyebrow{display:none}
+  .topbar{gap:10px;padding:8px 10px}
+  .tb-t{font-size:11px;letter-spacing:.03em}
+  .tb-cta{display:none}
+  .tc span{padding:5px 6px}
+  .tc b{font-size:14px}
+  .pnav{gap:4px;padding:6px}
+  .pt{height:30px;font-size:10.5px;border-radius:7px;gap:0}
+  .pt svg{display:none}
+  .cta-micro{justify-content:center;font-size:13px}
   .logo{height:34px}
   .title{font-size:clamp(52px,17vw,72px)}
   .desc{font-size:16.5px}
@@ -473,6 +538,12 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
   </defs>
 </svg>
 
+<div class="topbar" role="region" aria-label="Contagem para a liberação">
+  <span class="tb-t">Plataforma liberada em <b>22/11 às 10h</b></span>
+  <div class="tc" data-count><span><b data-u="d">00</b><small>d</small></span><span><b data-u="h">00</b><small>h</small></span><span><b data-u="m">00</b><small>m</small></span><span><b data-u="s">00</b><small>s</small></span></div>
+  <button class="tb-cta" type="button" data-open>Garantir acesso</button>
+</div>
+
 <header class="hero">
   <svg class="target" viewBox="0 0 945 825" aria-hidden="true">
     <g class="orbit">
@@ -500,91 +571,21 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
         <h1 class="title in" style="--d:2"><span>Semana</span><em>Odon</em></h1>
         <p class="sub in" style="--d:3">A plataforma da Odon vai ser <b>liberada para você</b>.</p>
         <p class="desc in" style="--d:4">Cronograma montado pelo edital, <b>mais de 85 mil questões</b>, resumo inteligente das aulas e flashcards. Cadastre-se e receba o acesso no domingo, <b>22/11, às 10h</b>.</p>
-        <div class="count in" style="--d:5" data-count>
-          <div><b data-u="d">00</b><small>dias</small></div>
-          <div><b data-u="h">00</b><small>horas</small></div>
-          <div><b data-u="m">00</b><small>min</small></div>
-          <div><b data-u="s">00</b><small>seg</small></div>
-        </div>
-        <p class="count-cap in" style="--d:5" data-cap>Para a <em>liberação da plataforma</em></p>
+        <button class="cta hero-cta in" style="--d:5" type="button" data-open>Quero meu acesso <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="cta-micro in" style="--d:5"><span>✓ Leva 20 segundos</span><span>✓ Para alunos e não alunos</span></p>
       </div>
 
-      <div class="formcard in" style="--d:4" id="cadastro">
-        <span class="tag">Semana Odon</span>
-        <form id="leadForm" novalidate>
-          <h2>Garanta seu <em>acesso</em> à plataforma</h2>
-          <p class="fsub">Leva 20 segundos. O acesso chega no seu e-mail e WhatsApp.</p>
-          <div class="field">
-            <label for="f-name">Nome</label>
-            <input class="input" id="f-name" name="nome" type="text" autocomplete="name" placeholder="Seu nome" required>
-          </div>
-          <div class="field">
-            <label for="f-email">E-mail</label>
-            <input class="input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="seuemail@exemplo.com" required>
-          </div>
-          <div class="field">
-            <label for="f-phone">WhatsApp</label>
-            <div class="phone">
-              <select class="select" id="f-country" aria-label="Código do país">
-                <option value="55" selected>🇧🇷 +55</option>
-                <option value="351">🇵🇹 +351</option>
-                <option value="1">🇺🇸 +1</option>
-                <option value="44">🇬🇧 +44</option>
-                <option value="54">🇦🇷 +54</option>
-              </select>
-              <input class="input" id="f-phone" name="telefone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="(11) 99999-9999" required>
-            </div>
-          </div>
-          <fieldset class="field">
-            <legend>Você já é aluno da Odon?</legend>
-            <div class="seg" id="f-aluno">
-              <input type="radio" name="aluno" id="al-sim" value="Sim"><label for="al-sim">Sim, sou aluno</label>
-              <input type="radio" name="aluno" id="al-nao" value="Não"><label for="al-nao">Ainda não</label>
-            </div>
-          </fieldset>
-          <p class="ferr" id="f-err" role="alert"></p>
-          <button class="cta" id="f-submit" type="submit">
-            Quero meu acesso
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-          <div class="secure"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Seus dados estão seguros</div>
-        </form>
-        <div class="done" aria-live="polite">
-          <div class="ok"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></div>
-          <h2 id="done-h">Cadastro feito!</h2>
-          <p>A plataforma é liberada no <b>domingo, 22/11, às 10h</b>. O acesso chega no seu <b>e-mail e WhatsApp</b>. Fique de olho.</p>
-          <div class="when">22/11 · 10h · Semana Odon</div>
-          <a class="cal" id="calLink" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Salvar na minha agenda</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<div class="ticker" aria-hidden="true">
-  <div class="track">
-    <span>Semana Odon</span><span>Plataforma liberada 22/11 às 10h</span><span>85 mil+ questões</span><span>Cronograma pelo edital</span><span>Resumo inteligente</span><span>Flashcards</span>
-    <span>Semana Odon</span><span>Plataforma liberada 22/11 às 10h</span><span>85 mil+ questões</span><span>Cronograma pelo edital</span><span>Resumo inteligente</span><span>Flashcards</span>
-  </div>
-</div>
-
-<section class="block alt" id="plataforma">
-  <div class="wrap">
-    <div class="eyebrow rv">Por dentro da plataforma</div>
-    <h2 class="h rv" style="margin-top:20px">Uma plataforma feita para <em>concurso de Odontologia</em></h2>
-    <p class="lead rv">Não é uma área de vídeos estilo Netflix. Cada ferramenta foi pensada para quem precisa <b>estudar o edital certo, no tempo que tem</b>. Veja como funciona:</p>
-
-    <div class="show rv">
-      <div class="tabs" role="tablist" aria-label="Ferramentas da plataforma">
-        <button class="tab on" role="tab" aria-selected="true" data-k="cr"><span class="ti"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><h3>Cronograma</h3><p>Montado pelo edital da sua prova e pelas suas horas semanais.</p><i class="bar"></i></button>
-        <button class="tab" role="tab" aria-selected="false" data-k="qz"><span class="ti"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span><h3>Banco de questões</h3><p>Filtre por disciplina, assunto e banca e veja o comentário do professor.</p><i class="bar"></i></button>
-        <button class="tab" role="tab" aria-selected="false" data-k="rs"><span class="ti"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><h3>Resumo inteligente</h3><p>Pontos-chave, erros comuns e dicas para prova de cada aula. Ouça ou gere o PDF.</p><i class="bar"></i></button>
-        <button class="tab" role="tab" aria-selected="false" data-k="fc"><span class="ti"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="14" height="13" rx="2"/><path d="M7 4h12a2 2 0 0 1 2 2v11"/></svg></span><h3>Flashcards</h3><p>Revisão ativa das aulas do dia anterior, marcando acertos e erros.</p><i class="bar"></i></button>
-      </div>
-
+      <div class="hanim in" style="--d:4">
       <div class="simwin">
         <div class="simbar"><i></i><i></i><i></i><span id="simurl">Plataforma Odon · Cronograma de estudo</span></div>
         <div class="simwrap" id="simwrap">
+          <div class="pnav" role="tablist" aria-label="Ferramentas da plataforma">
+            <button class="pt on" type="button" role="tab" data-k="cr"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Cronograma</button>
+            <button class="pt" type="button" role="tab" data-k="qz"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>Questões</button>
+            <button class="pt" type="button" role="tab" data-k="rs"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>Resumo</button>
+            <button class="pt" type="button" role="tab" data-k="fc"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="14" height="13" rx="2"/><path d="M7 4h12a2 2 0 0 1 2 2v11"/></svg>Flashcards</button>
+          </div>
+          <div class="stage" id="stage">
           <div class="win w-cr">
         <div>
           <div class="hd"><div class="wk">16</div><div class="hex"><svg viewBox="0 0 24 24"><path d="M3 11h10a2 2 0 0 1 0 4H9m4-4V7a2 2 0 0 1 4 0v6l2-1a2 2 0 0 1 2 3l-4 5H9a4 4 0 0 1-4-4v-2"/></svg></div>
@@ -666,11 +667,28 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
         </div>
         <div class="grid"><div class="fcard" data-t="c1"><div class="ci"><div class="gl fc fr"><div class="ph"><em>PERGUNTA 1</em><span class="lv">FÁCIL</span></div><div class="q">Quais são as duas principais causas de dor no peito citadas no consultório odontológico?</div><span class="pd">Pendente</span><div class="tp">Toque para ver a resposta.</div></div><div class="gl fc bk"><div class="ph"><em>RESPOSTA</em><span class="lv">FÁCIL</span></div><div class="ans">Angina de peito e infarto agudo do miocárdio.</div><div class="ab"><span style="background:#1f9d6b" data-r="a">Acertei</span><span style="background:#c9433a" data-r="e">Errei</span></div></div></div></div><div class="fcard" data-t="c2"><div class="ci"><div class="gl fc fr"><div class="ph"><em>PERGUNTA 2</em><span class="lv">FÁCIL</span></div><div class="q">O que causa a angina de peito?</div><span class="pd">Pendente</span><div class="tp">Toque para ver a resposta.</div></div><div class="gl fc bk"><div class="ph"><em>RESPOSTA</em><span class="lv">FÁCIL</span></div><div class="ans">Redução temporária do fluxo sanguíneo nas artérias coronárias.</div><div class="ab"><span style="background:#1f9d6b" data-r="a">Acertei</span><span style="background:#c9433a" data-r="e">Errei</span></div></div></div></div><div class="fcard" data-t="c3"><div class="ci"><div class="gl fc fr"><div class="ph"><em>PERGUNTA 3</em><span class="lv">FÁCIL</span></div><div class="q">Qual é a principal diferença entre angina e infarto na resposta à dor?</div><span class="pd">Pendente</span><div class="tp">Toque para ver a resposta.</div></div><div class="gl fc bk"><div class="ph"><em>RESPOSTA</em><span class="lv">FÁCIL</span></div><div class="ans">Na angina, a dor cede com repouso ou vasodilatador sublingual. No infarto, ela persiste.</div><div class="ab"><span style="background:#1f9d6b" data-r="a">Acertei</span><span style="background:#c9433a" data-r="e">Errei</span></div></div></div></div><div class="fcard" data-t="c4"><div class="ci"><div class="gl fc fr"><div class="ph"><em>PERGUNTA 4</em><span class="lv md">MÉDIO</span></div><div class="q">Quais fatores podem desencadear crises de angina?</div><span class="pd">Pendente</span><div class="tp">Toque para ver a resposta.</div></div><div class="gl fc bk"><div class="ph"><em>RESPOSTA</em><span class="lv md">MÉDIO</span></div><div class="ans">Esforço físico, estresse emocional, frio e refeições pesadas.</div><div class="ab"><span style="background:#1f9d6b" data-r="a">Acertei</span><span style="background:#c9433a" data-r="e">Errei</span></div></div></div></div></div>
         </div>
+          </div>
           <div class="cursor" aria-hidden="true"><span class="rip"></span><svg viewBox="0 0 24 24"><path d="M3 2 L3 19 L7.5 14.6 L10.6 21.4 L13.4 20.2 L10.3 13.5 L16.6 13.5 Z" fill="#fff" stroke="#0c0a3e" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
           <div class="toast"></div>
         </div>
       </div>
+      </div>
     </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span>Semana Odon</span><span>Plataforma liberada 22/11 às 10h</span><span>85 mil+ questões</span><span>Cronograma pelo edital</span><span>Resumo inteligente</span><span>Flashcards</span>
+    <span>Semana Odon</span><span>Plataforma liberada 22/11 às 10h</span><span>85 mil+ questões</span><span>Cronograma pelo edital</span><span>Resumo inteligente</span><span>Flashcards</span>
+  </div>
+</div>
+
+<section class="block alt" id="plataforma">
+  <div class="wrap">
+    <div class="eyebrow rv">Por dentro da plataforma</div>
+    <h2 class="h rv" style="margin-top:20px">Uma plataforma feita para <em>concurso de Odontologia</em></h2>
+    <p class="lead rv">Não é uma área de vídeos estilo Netflix. Cada ferramenta foi pensada para quem precisa <b>estudar o edital certo, no tempo que tem</b>. No topo da página você vê cada ferramenta funcionando.</p>
 
     <div class="stats">
       <div class="stat rv"><b data-n="85" data-suf=" mil+">0</b><span>questões no banco</span></div>
@@ -683,22 +701,14 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
 
 <hr class="section-hr">
 
-<section class="block">
+<section class="block" id="aprovados">
   <div class="wrap">
-    <div class="eyebrow blue rv">Para quem é</div>
-    <h2 class="h rv" style="margin-top:20px">Aluno ou não, a Semana Odon é <span class="b">para você</span></h2>
-    <div class="who">
-      <div class="wcard hot rv">
-        <span class="pill">Ainda não é aluno</span>
-        <h3>Conheça por dentro antes de decidir</h3>
-        <p>Use a plataforma na prática: monte seu cronograma, resolva questões da sua banca e veja como é estudar com método.</p>
-      </div>
-      <div class="wcard rv">
-        <span class="pill">Já é aluno Odon</span>
-        <h3>Seja o primeiro a usar as novidades</h3>
-        <p>Cadastre-se para receber o aviso da liberação e aproveitar tudo o que chega na plataforma desde o primeiro minuto.</p>
-      </div>
-    </div>
+    <div class="eyebrow rv">Aprovados Odon</div>
+    <h2 class="h rv" style="margin-top:20px">Quem já estudou com a Odon e <em>aprovou o método</em></h2>
+    <p class="lead rv">Dentistas que usaram o cronograma, os PDFs e as questões da Odon e hoje estão aprovados. <b>Dê o play e ouça de quem passou.</b></p>
+    <div class="deps-h" id="depsH"></div>
+    <div class="deps-v" id="depsV"></div>
+    <p class="deps-dica">Arraste para o lado para ver mais depoimentos</p>
   </div>
 </section>
 
@@ -724,7 +734,7 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
       <div><b data-u="m">00</b><small>min</small></div>
       <div><b data-u="s">00</b><small>seg</small></div>
     </div>
-    <a href="#cadastro" class="cta rv" id="goForm">Quero meu acesso <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="#cadastro" class="cta rv" data-open>Quero meu acesso <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -734,6 +744,59 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
     © 2026 OdonConcursos · Todos os direitos reservados
   </div>
 </footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" hidden>
+  <div class="mbg" data-close></div>
+      <div class="formcard" id="cadastro">
+        <button class="mx" type="button" data-close aria-label="Fechar">&times;</button>
+        <span class="tag">Semana Odon</span>
+        <form id="leadForm" novalidate>
+          <h2 id="m-title">Garanta seu <em>acesso</em> à plataforma</h2>
+          <p class="fsub">Leva 20 segundos. O acesso chega no seu e-mail e WhatsApp.</p>
+          <div class="field">
+            <label for="f-name">Nome</label>
+            <input class="input" id="f-name" name="nome" type="text" autocomplete="name" placeholder="Seu nome" required>
+          </div>
+          <div class="field">
+            <label for="f-email">E-mail</label>
+            <input class="input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="seuemail@exemplo.com" required>
+          </div>
+          <div class="field">
+            <label for="f-phone">WhatsApp</label>
+            <div class="phone">
+              <select class="select" id="f-country" aria-label="Código do país">
+                <option value="55" selected>🇧🇷 +55</option>
+                <option value="351">🇵🇹 +351</option>
+                <option value="1">🇺🇸 +1</option>
+                <option value="44">🇬🇧 +44</option>
+                <option value="54">🇦🇷 +54</option>
+              </select>
+              <input class="input" id="f-phone" name="telefone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="(11) 99999-9999" required>
+            </div>
+          </div>
+          <fieldset class="field">
+            <legend>Você já é aluno da Odon?</legend>
+            <div class="seg" id="f-aluno">
+              <input type="radio" name="aluno" id="al-sim" value="Sim"><label for="al-sim">Sim, sou aluno</label>
+              <input type="radio" name="aluno" id="al-nao" value="Não"><label for="al-nao">Ainda não</label>
+            </div>
+          </fieldset>
+          <p class="ferr" id="f-err" role="alert"></p>
+          <button class="cta" id="f-submit" type="submit">
+            Quero meu acesso
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <div class="secure"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Seus dados estão seguros</div>
+        </form>
+        <div class="done" aria-live="polite">
+          <div class="ok"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></div>
+          <h2 id="done-h">Cadastro feito!</h2>
+          <p>A plataforma é liberada no <b>domingo, 22/11, às 10h</b>. O acesso chega no seu <b>e-mail e WhatsApp</b>. Fique de olho.</p>
+          <div class="when">22/11 · 10h · Semana Odon</div>
+          <a class="cal" id="calLink" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Salvar na minha agenda</a>
+        </div>
+      </div>
+</div>
 
 <script>
 (function(){
@@ -780,11 +843,47 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
   }), { threshold:.5 });
   document.querySelectorAll('[data-n]').forEach(el => nio.observe(el));
 
-  document.getElementById('goForm').addEventListener('click', e => {
-    e.preventDefault();
-    document.getElementById('cadastro').scrollIntoView({ behavior:'smooth', block:'center' });
-    setTimeout(() => document.getElementById('f-name').focus({ preventScroll:true }), 650);
-  });
+  // ---------- pop-up de cadastro ----------
+  const modal = document.getElementById('modal');
+  let lastFocus = null;
+  function openModal(){
+    lastFocus = document.activeElement;
+    modal.hidden = false; document.body.classList.add('lock');
+    const f = document.getElementById('f-name'); if(f && !document.getElementById('cadastro').classList.contains('sent')) setTimeout(() => f.focus(), 60);
+  }
+  function closeModal(){ modal.hidden = true; document.body.classList.remove('lock'); if(lastFocus) lastFocus.focus({ preventScroll:true }); }
+  document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); openModal(); }));
+  modal.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', closeModal));
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && !modal.hidden) closeModal(); });
+
+  // ---------- aprovados (vídeos já publicados na apresentação da Black) ----------
+  const DEPS = [
+    ['natan','h','Natan','Aprovado em 3 cargos em Uberaba (AOCP) e em Veríssimo-MG, com 5 meses de estudo','De garçom a aprovado','1:37'],
+    ['leonardo','h','Leonardo','1º lugar em Coronel Murta (IBGP), com menos de 4 meses de estudo','PDFs, cronograma e suporte','1:30'],
+    ['barbara','v','Bárbara','1º lugar na EBSERH, com 5 meses de estudo','Curso completo e direcionado para a banca','1:16'],
+    ['yasmim','v','Yasmim','Ribeirão das Neves-MG e prova objetiva da PMMG, com 1 mês de estudo','“Parece que eles conheciam a prova”','2:47'],
+    ['quezia','v','Quézia','Uberaba-MG (AOCP), EBSERH e Dores do Indaiá-MG, com menos de 1 ano de estudo','Proximidade real com o professor','2:59'],
+    ['cinthia','v','Cinthia','SMS BH, com 8 meses de estudo','“Só falta sentar na cadeira e estudar por você”','1:07'],
+    ['anabelle','v','Anabelle','1º lugar no TRF 6 (BH) e 1º lugar na PMMG','Pesquisou entre os cursos e escolheu o Odon','0:15'],
+    ['guilherme','v','Guilherme','Nomeado em São Joaquim de Bicas-MG','Professores que não deixam o aluno na mão','1:52']
+  ];
+  const VID = '/apresentacao/black-nao-alunos/videos/';
+  const depHtml = ([id, o, nome, res, frase, dur]) => '<article class="dep ' + o + ' rv">'
+    + '<div class="vd"><video preload="none" playsinline poster="/lp/concurso/black-odon/img/dep-' + id + '.jpg" data-src="' + VID + id + '.mp4"></video>'
+    + '<button class="play" type="button" aria-label="Assistir ao depoimento de ' + nome + '"><i></i><em>' + dur + '</em></button></div>'
+    + '<div class="tx"><b>' + nome + '</b><span>' + res + '</span><p>' + frase + '</p></div></article>';
+  document.getElementById('depsH').innerHTML = DEPS.filter(d => d[1] === 'h').map(depHtml).join('');
+  document.getElementById('depsV').innerHTML = DEPS.filter(d => d[1] === 'v').map(depHtml).join('');
+  document.querySelectorAll('.dep.rv').forEach(el => io.observe(el));
+  document.querySelectorAll('.dep .vd').forEach(box => box.addEventListener('click', () => {
+    const card = box.closest('.dep'), v = box.querySelector('video');
+    if(card.classList.contains('tocando')) return;
+    document.querySelectorAll('.dep.tocando video').forEach(o => o.pause());
+    if(!v.src) v.src = v.dataset.src;
+    card.classList.add('tocando'); v.controls = true; v.play();
+    try { if(window.fbq) fbq('trackCustom', 'Depoimento_Play', { nome: card.querySelector('b').textContent }); } catch(x){}
+  }));
+  document.addEventListener('play', e => { document.querySelectorAll('.dep video').forEach(o => { if(o !== e.target) o.pause(); }); }, true);
 
   // ---------- formulário ----------
   const phone = document.getElementById('f-phone');
@@ -846,18 +945,18 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
     const first = nome.value.trim().split(/\s+/)[0];
     document.getElementById('done-h').textContent = 'Cadastro feito, ' + first + '!';
     document.getElementById('cadastro').classList.add('sent');
-    document.getElementById('cadastro').scrollIntoView({ behavior:'smooth', block:'center' });
   });
 
   // ---------- vitrine: simulação de uso da plataforma ----------
   const wrap = document.getElementById('simwrap');
   const cur = wrap.querySelector('.cursor'), tst = wrap.querySelector('.toast');
-  const wins = { cr:wrap.querySelector('.w-cr'), qz:wrap.querySelector('.w-qz'), rs:wrap.querySelector('.w-rs'), fc:wrap.querySelector('.w-fc') };
+  const stage = document.getElementById('stage');
+  const wins = { cr:stage.querySelector('.w-cr'), qz:stage.querySelector('.w-qz'), rs:stage.querySelector('.w-rs'), fc:stage.querySelector('.w-fc') };
   const URLS = { cr:'Plataforma Odon · Cronograma de estudo', qz:'Plataforma Odon · OdonQuestões', rs:'Plataforma Odon · Resumo da aula', fc:'Plataforma Odon · Sessão de revisão' };
   const ORDER = ['cr','qz','rs','fc'];
-  const tabs = [...document.querySelectorAll('.tab')];
+  const tabs = [...wrap.querySelectorAll('.pt')];
   let K = 1;
-  function fit(){ K = wrap.clientWidth / 600; Object.values(wins).forEach(w => w.style.transform = 'scale(' + K + ')'); }
+  function fit(){ K = stage.clientWidth / 600; Object.values(wins).forEach(w => w.style.transform = 'scale(' + K + ')'); }
   fit(); window.addEventListener('resize', fit); if(window.ResizeObserver) new ResizeObserver(fit).observe(wrap);
   const home = () => { const w = wrap.clientWidth, h = wrap.clientHeight; return 'translate(' + (w*.86) + 'px,' + (h*.9) + 'px)'; };
 
@@ -989,43 +1088,42 @@ footer img{height:30px;margin-bottom:10px;opacity:.85}
     };
     return a;
   }
-  function setBar(k, pct, ms){
-    tabs.forEach(t => { const b = t.querySelector('.bar'); b.style.transition = 'none'; b.style.width = '0'; });
-    const b = tabs.find(t => t.dataset.k === k).querySelector('.bar');
-    void b.offsetWidth; b.style.transition = 'width ' + ms + 'ms linear'; b.style.width = pct;
-  }
-  const DUR = { cr:13500, qz:21000, rs:13500, fc:16000 }; // duração aproximada de cada demonstração
-  function show(k, auto){
+  const tabOf = k => tabs.find(t => t.dataset.k === k);
+  function activate(k){
     active = k;
-    const tk = {}; token = tk;
     tabs.forEach(t => { const on = t.dataset.k === k; t.classList.toggle('on', on); t.setAttribute('aria-selected', on); });
     Object.entries(wins).forEach(([kk, w]) => w.classList.toggle('on', kk === k));
     document.getElementById('simurl').textContent = URLS[k];
     tst.classList.remove('open');
+  }
+  // ciclo automático: o cursor clica no menu, a tela abre, a demonstração roda e passa para a próxima
+  async function cycle(k, tk, viaMenu){
     const a = api(wins[k], tk);
     SIM[k].reset(a);
-    cur.style.transition = 'none'; cur.style.transform = home(); void cur.offsetWidth; cur.style.transition = '';
-    if(reduce || !visible){ setBar(k, '0', 0); return; }
-    setBar(k, '100%', DUR[k]);
-    (async () => {
-      try {
-        await SIM[k].run(a);
-        if(token !== tk) return;
-        show(ORDER[(ORDER.indexOf(k)+1) % ORDER.length], true);
-      } catch(x){}
-    })();
+    if(viaMenu){
+      await a.move(tabOf(k)); await a.click();
+      const t = tabOf(k); t.classList.add('press'); setTimeout(() => t.classList.remove('press'), 160);
+    }
+    activate(k);
+    await SIM[k].run(a);
+    await a.wait(300);
+    await cycle(ORDER[(ORDER.indexOf(k)+1) % ORDER.length], tk, true);
   }
-  tabs.forEach(t => t.addEventListener('click', () => {
-    show(t.dataset.k, false);
-    if(innerWidth <= 1020) t.scrollIntoView({ behavior:'smooth', inline:'center', block:'nearest' });
-  }));
-  // roda só quando a vitrine está na tela
+  function start(k, viaMenu){
+    const tk = {}; token = tk;
+    if(reduce || !visible){ activate(k); SIM[k].reset(api(wins[k], tk)); return; }
+    cur.style.transition = 'none'; cur.style.transform = home(); void cur.offsetWidth; cur.style.transition = '';
+    if(!viaMenu) activate(k);
+    cycle(k, tk, viaMenu).catch(() => {});
+  }
+  tabs.forEach(t => t.addEventListener('click', () => start(t.dataset.k, false)));
+  // roda só quando a animação está na tela
   new IntersectionObserver(es => es.forEach(e => {
     const was = visible; visible = e.isIntersecting;
-    if(visible && !was) show(active, true);
-    if(!visible && was){ token = null; }
-  }), { threshold:.25 }).observe(wrap);
-  show('cr', true);
+    if(visible && !was) start(active, true);
+    if(!visible && was) token = null;
+  }), { threshold:.2 }).observe(wrap);
+  activate('cr');
 })();
 </script>
 </body>
