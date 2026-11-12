@@ -1409,8 +1409,8 @@
           </div>
           <div class="plan-price">
             <div class="plan-offer-tag">Investimento</div>
-            <div class="plan-main">12x de R$ 74,75</div>
-            <div class="plan-cash">ou <strong>R$ 897,00 à vista</strong> · cartão em até 12x ou Pix</div>
+            <div class="plan-main">12x de R$ 24,75</div>
+            <div class="plan-cash">ou <strong>R$ 297,00 à vista</strong> · cartão em até 12x ou Pix</div>
           </div>
           <a onclick="openModal()" class="bnt1">
             <span>Quero entrar na reta final</span>
@@ -1505,7 +1505,7 @@
     </a>
     <div class="cta-micro">
       <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Matrícula 100% online</span>
-      <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>12x de R$ 74,75</span>
+      <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>12x de R$ 24,75</span>
     </div>
   </div>
 
@@ -1556,7 +1556,7 @@
           Como funciona o pagamento?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Você preenche nome, WhatsApp e e-mail e segue para a página de compra da OdonConcursos, em ambiente seguro. São <strong>12x de R$ 74,75</strong> no cartão ou <strong>R$ 897,00 à vista</strong> no Pix.</div>
+        <div class="faq-a">Você preenche nome, WhatsApp e e-mail e segue para a página de compra da OdonConcursos, em ambiente seguro. São <strong>12x de R$ 24,75</strong> no cartão ou <strong>R$ 297,00 à vista</strong> no Pix.</div>
       </details>
     </div>
   </section>
@@ -1629,7 +1629,7 @@
     lucide.createIcons();
 
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
-    // Checkout do preparatório Petrobras / Transpetro (R$ 897), o mesmo da LP /transpetro
+    // Checkout do preparatório Petrobras / Transpetro (vendido a R$ 297 na reta final)
     const CURSO_URL = 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=UzIzQS9xMzJxV2s9';
     const NOME_OFERTA = 'Reta Final Transpetro - Preparatório Petrobras / Transpetro';
 
@@ -1661,7 +1661,7 @@
     function openModal() {
       try {
         if (typeof fbq === 'function') {
-          fbq('track', 'InitiateCheckout', { content_name: NOME_OFERTA, content_category: 'Petrobras', value: 897, currency: 'BRL' });
+          fbq('track', 'InitiateCheckout', { content_name: NOME_OFERTA, content_category: 'Petrobras', value: 297, currency: 'BRL' });
         }
       } catch (err) { console.error('Meta Pixel error:', err); }
       document.getElementById('signupForm').style.display = '';
