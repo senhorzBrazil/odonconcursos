@@ -1205,7 +1205,7 @@
         </div>
 
         <h1 class="hero-h1 fade-in delay-2">
-          Faltam <span class="g1"><span data-cd="dias">24</span> dias</span> para a prova da <span class="nowrap">Transpetro</span>. Agora é revisão, questão e estratégia.
+          <span data-cd="hl">Faltam <span class="g1">poucos dias</span> para a prova da <span class="nowrap">Transpetro</span>.</span> Agora é revisão, questão e estratégia.
         </h1>
 
         <p class="hero-desc fade-in delay-3">
@@ -1455,7 +1455,7 @@
 
     <div class="offer-warn">
       <svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <div class="offer-warn-text"><strong>Cada dia conta:</strong> quem entra hoje tem <strong><span data-cd="dias">24</span> dias</strong> para revisar e treinar. Quem deixa para a semana da prova chega só com a revisão da véspera.</div>
+      <div class="offer-warn-text"><strong>Cada dia conta:</strong> quem entra hoje tem <strong><span data-cd="dias-txt">os dias que faltam</span></strong> para revisar e treinar. Quem deixa para a semana da prova chega só com a revisão da véspera.</div>
     </div>
   </div>
 
@@ -1765,7 +1765,14 @@
         var hoje = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
         hoje.setHours(0, 0, 0, 0);
         var dias = Math.max(0, Math.round((new Date(2026, 11, 6) - hoje) / 86400000));
-        set('dias', String(dias));
+        // sem número fixo no HTML: o texto padrão ("poucos dias") nunca fica velho; aqui vira o número do dia, no singular/plural certo
+        var diasTxt = dias === 1 ? '1 dia' : dias + ' dias';
+        set('dias-txt', dias > 0 ? diasTxt : 'só hoje');
+        document.querySelectorAll('[data-cd="hl"]').forEach(function (el) {
+          el.innerHTML = dias > 1 ? 'Faltam <span class="g1">' + diasTxt + '</span> para a prova da <span class="nowrap">Transpetro</span>.'
+            : dias === 1 ? 'Falta <span class="g1">1 dia</span> para a prova da <span class="nowrap">Transpetro</span>.'
+            : 'Hoje é <span class="g1">dia de prova</span> da <span class="nowrap">Transpetro</span>.';
+        });
         if (diff === 0) {
           set('short', 'hoje');
           set('title', 'É dia de prova. Boa prova!');
