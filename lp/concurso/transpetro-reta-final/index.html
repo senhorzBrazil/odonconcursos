@@ -1163,6 +1163,12 @@
     @media (max-width: 900px) { .rf-steps { grid-template-columns: 1fr 1fr; row-gap: 26px; } }
     @media (max-width: 560px) { .rf-steps { grid-template-columns: 1fr; } }
     .trailer-video video { width: 100%; height: 100%; display: block; object-fit: cover; background: #000; }
+    #trailer { text-align: center; }
+    #trailer .s-label { justify-content: center; }
+    #trailer .s-label::after { content: ''; display: block; width: 28px; height: 1px; background: var(--lime); opacity: .6; }
+    #trailer .sec-title, #trailer .sec-intro { margin-left: auto; margin-right: auto; }
+    .trailer-cta { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 32px; }
+    .trailer-cta .cta-micro { justify-content: center; }
 </style>
 </head>
 <body>
@@ -1240,6 +1246,16 @@
       <video controls playsinline preload="none" poster="/lp/concurso/transpetro-reta-final/trailer-odon.jpg">
         <source src="/lp/concurso/transpetro-reta-final/trailer-odon.mp4" type="video/mp4">
       </video>
+    </div>
+    <div class="trailer-cta">
+      <a onclick="openModal()" class="bnt1">
+        <span>Quero entrar na reta final</span>
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <div class="cta-micro">
+        <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Acesso na hora</span>
+        <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>12x de R$ 24,75</span>
+      </div>
     </div>
   </section>
 
