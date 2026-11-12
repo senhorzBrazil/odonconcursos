@@ -983,6 +983,9 @@ body.lock{overflow:hidden}
     const first = nome.value.trim().split(/\s+/)[0];
     document.getElementById('done-h').textContent = 'Cadastro feito, ' + first + '!';
     document.getElementById('cadastro').classList.add('sent');
+    // vai para o obrigado (grupo oficial no WhatsApp), levando nome e UTMs
+    const q = new URLSearchParams(location.search); q.set('nome', first);
+    setTimeout(() => { location.href = '/lp/concurso/imersao-odon/obrigado/?' + q.toString(); }, 700);
   });
 
   // ---------- vitrine: simulação de uso da plataforma ----------
