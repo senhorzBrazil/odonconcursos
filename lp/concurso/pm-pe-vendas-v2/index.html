@@ -801,12 +801,12 @@
       </div>
       <div class="faq">
         <details><summary>O edital da PM PE já saiu? Quando me inscrevo?</summary><div class="a">Já. O edital foi publicado em <strong>29 de setembro de 2026</strong>, com 1.320 vagas no total, sendo <strong>10 para Oficial Dentista</strong>. As inscrições vão de <strong>5/10 a 5/11/2026</strong>, no site do Instituto AOCP, com taxa de <strong>R$ 220,00</strong> e pagamento até <strong>06/11</strong>. Quem concorre pelas cotas ou como PcD envia os documentos de <strong>16/10 a 06/11</strong>.</div></details>
-        <details><summary>Como faço para me inscrever no preparatório?</summary><div class="a">Você preenche seus dados no formulário e é levado direto para o <strong>checkout da OdonConcursos</strong>, já com a condição especial aplicada. Confirmado o pagamento, seu acesso às aulas é liberado. Se preferir tirar dúvidas antes, use o botão <strong>Fale conosco</strong>.</div></details>
+        <details><summary>Como faço para me inscrever no preparatório?</summary><div class="a">Você preenche seus dados no formulário e é levado para o <strong>WhatsApp da nossa equipe comercial</strong>, que faz a sua matrícula já com a condição especial aplicada. Confirmado o pagamento, seu acesso às aulas é liberado.</div></details>
         <details><summary>Até quando eu tenho acesso ao curso?</summary><div class="a">O curso fica disponível até <strong>21/02/2027</strong>, o dia da prova. Depois dessa data o conteúdo é desativado.</div></details>
         <details><summary>Serve para quem está começando do zero?</summary><div class="a">Sim. O preparatório atende tanto iniciantes quanto quem já estuda. A ordem das aulas mostra por onde começar e o que priorizar, e o tira-dúvidas com os professores destrava o que você não entender no caminho.</div></details>
         <details><summary>Tem limite de idade?</summary><div class="a">Tem. O edital exige <strong>idade máxima de 30 anos</strong> na data da inscrição para Oficial Dentista, além de graduação em Odontologia e registro no CRO.</div></details>
         <details><summary>Como a redação conta?</summary><div class="a">A redação vale até <strong>30 pontos</strong> e é eliminatória: quem fizer menos de 9 pontos sai do concurso. Somada à objetiva, de 70 questões e 70 pontos, ela fecha os 100 pontos da primeira etapa.</div></details>
-        <details><summary>Qual é a condição especial?</summary><div class="a">O preparatório está com uma condição especial de lançamento válida até as <strong>23h59 de 18/11/2026</strong>. Preencha seus dados e você é levado direto para o checkout, em ambiente seguro.</div></details>
+        <details><summary>Qual é a condição especial?</summary><div class="a">O preparatório está com uma condição especial de lançamento válida até as <strong>23h59 de 18/11/2026</strong>. Preencha seus dados e a nossa equipe comercial garante a condição para você pelo WhatsApp.</div></details>
         <details><summary>O preparatório é online?</summary><div class="a">Sim, 100% online e gravado. Você assiste de onde estiver, no seu ritmo, com os PDFs, os mapas mentais e o banco de questões sempre à mão.</div></details>
       </div>
     </div>
@@ -853,7 +853,7 @@
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal()" aria-label="Fechar"><i data-lucide="x"></i></button>
       <h3 id="modalTitle">Falta pouco para sua vaga</h3>
-      <p class="modal-text">Preencha seus dados para garantir a condição especial. Em seguida você é levado direto para o checkout do preparatório da PM PE.</p>
+      <p class="modal-text">Preencha seus dados para garantir a condição especial. Em seguida você fala com a nossa equipe comercial no WhatsApp para fechar a sua matrícula.</p>
       <form class="form" id="signupForm">
         <div><label for="su-name">Nome completo</label><input id="su-name" type="text" required autocomplete="name"></div>
         <div>
@@ -881,7 +881,7 @@
     // Webhook que recebe os leads (Make) — o mesmo usado nas demais LPs do Odon.
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
-    // Checkout do preparatório da PM PE
+    // Checkout do preparatório da PM PE (fora de uso desde 13/11: o cadastro leva ao comercial)
     const CURSO_URL = 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=ZTZJZ3Z3MW5BSU09&utm_source=lp';
 
     // WhatsApp comercial — destino do "Fale conosco"
@@ -890,13 +890,17 @@
     const OFERTAS = {
       pmpe: {
         nome: 'Preparatório PM PE Oficial Dentista',
-        url: CURSO_URL,
+        url: null, // sem checkout direto: depois do cadastro o lead vai para o comercial
+        botao: 'Quero a condição especial',
+        msg: 'Quero garantir a condição especial do preparatório da PM PE (Oficial Dentista). Poderia me ajudar? Sou o ',
         titulo: 'Falta pouco para sua vaga',
-        texto: 'Preencha seus dados para garantir a condição especial. Em seguida você é levado direto para o checkout do preparatório da PM PE.'
+        texto: 'Preencha seus dados para garantir a condição especial. Em seguida você fala com a nossa equipe comercial no WhatsApp para fechar a sua matrícula.'
       },
       contato: {
         nome: 'Fale conosco · PM PE',
         url: null,
+        botao: 'Falar com a equipe',
+        msg: 'Vi o anúncio sobre o concurso de Odontologia da PM PE e gostaria de saber mais. Poderia me ajudar? Sou o ',
         titulo: 'Fale com a nossa equipe',
         texto: 'Preencha seus dados e você é levado para o WhatsApp da nossa equipe para tirar suas dúvidas sobre o preparatório da PM PE.'
       }
@@ -924,9 +928,10 @@
       document.getElementById('modalTitle').textContent = ofertaAtual.titulo;
       document.querySelector('#signupModal .modal-text').textContent = ofertaAtual.texto;
       document.getElementById('signupForm').style.display = '';
+      const ctaAntigo = document.getElementById('su-cta'); if (ctaAntigo) ctaAntigo.remove();
       const btn = document.getElementById('su-submit');
       btn.disabled = false;
-      btn.innerHTML = (ofertaAtual.url ? 'Quero a condição especial' : 'Falar com a equipe') + ' <i data-lucide="arrow-right"></i>';
+      btn.innerHTML = ofertaAtual.botao + ' <i data-lucide="arrow-right"></i>';
       lucide.createIcons();
       document.getElementById('signupModal').classList.add('is-open');
       document.body.style.overflow = 'hidden';
@@ -974,18 +979,21 @@
 
       this.style.display = 'none';
       document.getElementById('modalTitle').textContent = 'Dados recebidos ✓';
-      let destino;
-      if (ofertaAtual.url) {
-        document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o checkout do preparatório da PM PE…';
-        const qs = window.location.search.replace(/^\?/, '');
-        const base = ofertaAtual.url;
-        destino = qs ? base + (base.includes('?') ? '&' : '?') + qs : base;
-      } else {
-        document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o WhatsApp da nossa equipe…';
-        const msg = `Vi o anúncio sobre o concurso de Odontologia da PM PE e gostaria de saber mais. Poderia me ajudar? Sou o ${nome}`;
-        destino = 'https://wa.me/' + COMERCIAL_WHATSAPP + '?text=' + encodeURIComponent(msg);
-      }
-      setTimeout(() => { window.location.href = destino; }, 1200);
+      // Sem checkout: o passo de obrigado leva para o comercial (WhatsApp), com botão visível
+      // caso o redirecionamento automático não abra.
+      const txt = document.querySelector('#signupModal .modal-text');
+      txt.textContent = 'Pronto! Agora fale com a nossa equipe comercial no WhatsApp para garantir a sua condição especial.';
+      const destino = 'https://wa.me/' + COMERCIAL_WHATSAPP + '?text=' + encodeURIComponent(ofertaAtual.msg + nome);
+      const cta = document.createElement('a');
+      cta.id = 'su-cta';
+      cta.className = 'btn btn-gold';
+      cta.href = destino;
+      cta.style.textDecoration = 'none';
+      cta.innerHTML = 'Falar com o comercial no WhatsApp <i data-lucide="arrow-right"></i>';
+      cta.addEventListener('click', () => clearTimeout(redir));
+      txt.insertAdjacentElement('afterend', cta);
+      lucide.createIcons();
+      const redir = setTimeout(() => { window.location.href = destino; }, 2500);
     });
   </script>
 
