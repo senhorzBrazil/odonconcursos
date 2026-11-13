@@ -1585,3 +1585,9 @@ p, li, span, b, strong, summary, .lead, .btn { text-wrap: balance; }
 .tk-stub { min-width: 112px; }
 .tk-stub span { font-size: clamp(22px, 2.3vw, 30px); }
 .pv-n.sm { font-size: 26px; }
+
+/* bônus da oferta: ícone próprio em cada bloco */
+.bonus-ic::before { background-color: rgba(238,42,123,.1); background-size: 28px 28px; border: 1px solid rgba(238,42,123,.45); border-radius: 12px; }
+.bonus-crono::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff5c9d' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='17' rx='2'/%3E%3Cpath d='M3 10h18M8 2v4M16 2v4M8 15l2.500 2.500L16 13'/%3E%3C/svg%3E"); }
+.bonus-quest::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff5c9d' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 12c0-2.800 1.600-5 3.500-5 3 0 4 10 7 10 1.900 0 3.500-2.200 3.500-5s-1.600-5-3.500-5c-3 0-4 10-7 10C8.600 17 7 14.800 7 12z' transform='translate(-2 0)'/%3E%3C/svg%3E"); }
+.offer-left .bonus + .bonus { margin-top: 18px; }
