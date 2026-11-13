@@ -29,708 +29,470 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Roboto+Slab:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preload" as="image" href="/lp/concurso/ministerio-da-saude/hero.jpg" />
 
   <style>
-    /* ─── RESET ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeSlideIn {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes shinery {
-      0%, 100% { left: -10%; opacity: 0; }
-      20%      { opacity: 1; }
-      48%      { left: 110%; opacity: 1; }
-      51%      { opacity: 0; }
-    }
-    @keyframes pulseGlow {
-      0%, 100% { opacity: .5; }
-      50%      { opacity: 1; }
-    }
+    @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes shinery { 0%, 100% { left: -10%; opacity: 0; } 20% { opacity: 1; } 48% { left: 110%; opacity: 1; } 51% { opacity: 0; } }
+    @keyframes kenburns { from { transform: scale(1.02); } to { transform: scale(1.1); } }
+    @keyframes pulseDot { 0%, 100% { box-shadow: 0 0 0 0 rgba(52,211,153,.55); } 60% { box-shadow: 0 0 0 7px rgba(52,211,153,0); } }
     .fade-in { animation: fadeSlideIn .7s ease-out both; }
-    .delay-1 { animation-delay: .10s; }
-    .delay-2 { animation-delay: .22s; }
-    .delay-3 { animation-delay: .34s; }
-    .delay-4 { animation-delay: .46s; }
-    .delay-5 { animation-delay: .58s; }
+    .delay-1 { animation-delay: .10s; } .delay-2 { animation-delay: .22s; } .delay-3 { animation-delay: .34s; }
+    .delay-4 { animation-delay: .46s; } .delay-5 { animation-delay: .58s; }
+    .rv { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .rv.on { opacity: 1; transform: none; }
 
-    /* ─── BASE ─── */
     :root {
-      --bg:           #060a18;
-      --bg-card:      #0e1838;
-      --line:         rgba(255,255,255,0.08);
-      --line-strong:  rgba(255,255,255,0.16);
-      --text:         #ffffff;
-      --text-mute:    #9aa3bf;
-      --text-faint:   #4b5273;
-
-      /* primary accent — OdonConcursos pink family */
-      --lime:         #e91e8c;
-      --lime-soft:    #f472b6;
-      --orange:       #e91e8c;
-      --orange-2:     #f0309a;
-
-      --sans:    'Roboto', system-ui, sans-serif;
+      --bg: #04060f; --bg-2: #0a1026; --card: #0e1838;
+      --line: rgba(255,255,255,.09); --line-strong: rgba(255,255,255,.18);
+      --text: #ffffff; --mute: #a3acc8; --faint: #55608a;
+      --pink: #e91e8c; --pink-2: #f0309a; --pink-soft: #f472b6;
+      --ink: #0b1535; --ink-mute: #475569;
+      --sans: 'Roboto', system-ui, sans-serif;
       --display: 'Roboto Slab', 'Roboto', system-ui, serif;
     }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
 
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
-      font-weight: 400;
-    }
-
-    .bg-orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(120px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .orb-1 {
-      width: 700px; height: 700px;
-      top: -240px; right: -120px;
-      background: radial-gradient(circle, rgba(233,30,140,.08), transparent 70%);
-      animation: pulseGlow 8s ease-in-out infinite;
-    }
-
-    /* ─── NAV ─── */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      border-bottom: 1px solid var(--line);
-      background: rgba(3,7,18,.78);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      padding: 0 clamp(20px,5vw,64px);
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .logo { display: flex; align-items: center; }
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 200; height: 64px; padding: 0 clamp(20px,5vw,64px);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      border-bottom: 1px solid var(--line); background: rgba(4,6,15,.78);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
     .logo-img { height: 34px; width: auto; display: block; filter: brightness(0) invert(1); }
-    .nav-pill {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border: 1px solid var(--line-strong);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 11px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      font-weight: 600;
-      padding: 8px 20px;
-      border-radius: 999px;
-      text-decoration: none;
-      white-space: nowrap;
-      cursor: pointer;
-      transition: background .18s, border-color .18s;
-    }
-    .nav-pill:hover { background: rgba(233,30,140,.08); border-color: rgba(233,30,140,.4); }
+    .nav-pill { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,.04); color: #fff; font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+      font-weight: 600; padding: 8px 20px; border-radius: 999px; white-space: nowrap; cursor: pointer; transition: background .18s, border-color .18s; }
+    .nav-pill:hover { background: rgba(233,30,140,.1); border-color: rgba(233,30,140,.45); }
     .nav-pill svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; }
 
-    /* ─── G1 — gradient text ─── */
-    .g1 {
-      background: linear-gradient(92deg, var(--lime) 18.78%, var(--lime-soft) 79.67%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1.25;
-      padding-bottom: .22em;
-      padding-right: .12em;
-    }
+    .g1 { background: linear-gradient(92deg, var(--pink) 18%, var(--pink-soft) 80%); -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; padding-bottom: .1em; white-space: nowrap; }
 
-    /* ─── HERO (única dobra) ─── */
-    .hero-section {
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-    }
-    .hero-wrap {
-      position: relative;
-      z-index: 2;
-      padding: clamp(36px,6vh,72px) clamp(20px,5vw,64px);
-      width: min(1200px, 100%);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: clamp(32px,5vw,72px);
-      align-items: center;
-      text-align: left;
-    }
-    .hero-left { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; position: relative; z-index: 2; min-width: 0; max-width: 100%; }
-    .hero-right { position: relative; min-height: 540px; min-width: 0; }
-    .hero-h1, .hero-desc { overflow-wrap: break-word; word-wrap: break-word; }
+    /* HERO */
+    .hero { position: relative; overflow: hidden; background: #000; }
+    .hero-photo { position: absolute; top: 0; right: 0; bottom: 0; left: 36%; overflow: hidden; }
+    .hero-photo i { position: absolute; inset: 0; background: url("/lp/concurso/ministerio-da-saude/hero.jpg") 72% 38% / cover no-repeat;
+      filter: saturate(.85) contrast(1.04) brightness(1.02); animation: kenburns 22s ease-out both; transform-origin: 70% 45%; }
+    .hero-shade { position: absolute; inset: 0; pointer-events: none; background:
+      linear-gradient(90deg, #000 0%, #000 33%, rgba(0,0,0,.84) 42%, rgba(0,0,0,.34) 55%, rgba(0,0,0,.06) 72%, rgba(0,0,0,.18) 100%),
+      linear-gradient(0deg, #04060f 0%, rgba(4,6,15,.75) 14%, rgba(4,6,15,0) 40%),
+      linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 22%),
+      radial-gradient(ellipse 50% 60% at 12% 30%, rgba(233,30,140,.16), transparent 70%); }
+    .hero-wrap { position: relative; z-index: 2; width: min(1200px,100%); margin: 0 auto;
+      min-height: min(88vh, 860px); padding: clamp(48px,8vh,96px) clamp(20px,5vw,64px) clamp(110px,16vh,170px);
+      display: flex; align-items: center; }
+    .hero-left { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; max-width: 600px; min-width: 0; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 999px; padding: 8px 16px; }
+    .hero-badge i { width: 8px; height: 8px; border-radius: 50%; background: #34d399; animation: pulseDot 1.8s ease-out infinite; flex-shrink: 0; }
+    .hero-badge span { font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: #e6e9f5; }
+    .hero-h1 { font-family: var(--display); font-size: clamp(34px,4.3vw,60px); font-weight: 800; line-height: 1.06; letter-spacing: -.028em;
+      text-shadow: 0 2px 30px rgba(0,0,0,.6); overflow-wrap: break-word; }
+    .hero-desc { font-size: clamp(15px,1.4vw,18px); line-height: 1.7; color: #c9cfe3; max-width: 540px; text-shadow: 0 1px 14px rgba(0,0,0,.7); }
+    .hero-desc strong { color: #fff; font-weight: 600; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .cta-micro { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+    .cta-micro > span { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #c9cfe3; font-weight: 500; }
+    .ck { color: var(--pink-soft); display: inline-flex; }
+    .ck svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .photo-credit { position: absolute; right: 18px; bottom: 96px; z-index: 2; font-size: 10px; letter-spacing: .04em; color: rgba(255,255,255,.45); }
 
-    @media (max-width: 900px) {
-      .hero-wrap { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
-      .hero-section {
-        align-items: flex-start;
-        min-height: 100svh;
-        background:
-          linear-gradient(to top, #ffffff 44%, rgba(255,255,255,.6) 60%, rgba(255,255,255,0) 78%),
-          url("/lp/concurso/ministerio-da-saude/LP_mobile_Dentista.jpg") top center / 100% auto no-repeat,
-          #ffffff;
-      }
-      .hero-left { padding-top: clamp(260px, 88vw, 480px); }
-    }
-    @media (min-width: 901px) {
-      .hero-section {
-        min-height: calc(100vh - 64px);
-        background:
-          linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,.94) 22%, rgba(255,255,255,.5) 42%, rgba(255,255,255,0) 60%),
-          url("/lp/concurso/ministerio-da-saude/LP_desktop_Dentista.jpg") center right / cover no-repeat,
-          #ffffff;
-      }
-    }
+    .timer { display: flex; flex-direction: column; gap: 10px; }
+    .timer-label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--pink-soft); }
+    .timer-clock { display: inline-flex; gap: 8px; }
+    .timer-box { display: inline-flex; flex-direction: column; align-items: center; min-width: 62px; padding: 10px;
+      border-radius: 12px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    .timer-box b { font-family: var(--display); font-size: 24px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+    .timer-box small { font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--mute); margin-top: 5px; font-weight: 600; }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(233,30,140,.3);
-      background: rgba(255,255,255,.72);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border-radius: 999px;
-      padding: 7px 16px;
-      width: fit-content;
-    }
-    .hero-badge span {
-      font-size: 10.5px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #d6177e;
-    }
-    .hero-badge svg { width: 14px; height: 14px; stroke: var(--lime); fill: none; stroke-width: 1.7; }
-
-    .hero-h1 {
-      font-family: var(--display);
-      font-size: clamp(32px, 3.6vw, 52px);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -.025em;
-      color: #0b1535;
-      max-width: min(600px, 100%);
-    }
-
-    .hero-desc {
-      font-size: clamp(15px,1.5vw,18px);
-      line-height: 1.7;
-      color: #475569;
-      font-weight: 400;
-      max-width: min(560px, 100%);
-    }
-    .hero-desc strong { color: #0b1535; font-weight: 600; }
-
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: flex-start; margin-top: 2px; }
-
-    .cta-micro {
-      display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: flex-start;
-      margin-top: 4px;
-    }
-    .cta-micro span {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 13px; color: #475569; font-weight: 500;
-    }
-    .cta-micro .check-square { color: var(--lime); display: inline-flex; }
-    .cta-micro svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-
-    /* ─── COUNTDOWN (data fixa: simulado 19/09) ─── */
-    .cta-timer { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin-top: 2px; }
-    .cta-timer-label { font-size: 13px; font-weight: 700; color: #d6177e; line-height: 1.45; max-width: 460px; }
-    .cta-timer-clock { display: inline-flex; gap: 8px; }
-    .cta-timer-box {
-      display: inline-flex; flex-direction: column; align-items: center;
-      min-width: 58px; padding: 9px 10px;
-      border-radius: 12px;
-      border: 1px solid rgba(233,30,140,.4);
-      background: rgba(255,255,255,.72);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-    }
-    .cta-timer-box b { font-family: var(--display); font-size: 22px; font-weight: 800; color: #0b1535; line-height: 1; font-variant-numeric: tabular-nums; }
-    .cta-timer-box i { font-style: normal; font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: #475569; margin-top: 5px; font-weight: 600; }
-
-    /* ─── SHINY CTA (pink) ─── */
-    .bnt1 {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 17px 36px;
-      font-family: var(--sans);
-      font-size: 14.5px;
-      font-weight: 700;
-      letter-spacing: .01em;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 999px;
-      background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--orange) 0, var(--orange-2) 100%);
-      box-shadow:
-        0 0 20px rgba(233,30,140,.5),
-        0 0 40px rgba(240,48,154,.4),
-        0 10px 25px rgba(233,30,140,.25);
-      overflow: hidden;
-      transition: all .35s ease;
-      isolation: isolate;
-      border: none;
-      cursor: pointer;
-    }
-    .bnt1:hover {
-      background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--orange-2) 0, var(--orange) 100%);
-      box-shadow:
-        0 0 25px rgba(233,30,140,.6),
-        0 0 60px rgba(240,48,154,.5),
-        0 15px 35px rgba(233,30,140,.3);
-      transform: scale(1.04);
-    }
-    .bnt1::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      width: 90px;
-      height: 160%;
-      background: linear-gradient(10deg, #ffd9ec 12.81%, rgba(255,217,236,0) 66.66%);
-      transform: translateX(-50%) skew(-25deg);
-      animation: shinery 3s ease-in-out infinite;
-      filter: blur(4px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .bnt1::after {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: 999px;
-      border: 2px solid var(--orange);
-      pointer-events: none;
-    }
+    /* CTA */
+    .bnt1 { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 17px 36px;
+      font-family: var(--sans); font-size: 14.5px; font-weight: 700; letter-spacing: .01em; color: #fff; text-decoration: none; border-radius: 999px;
+      background: radial-gradient(38.67% 91.17% at 50% 8.83%, var(--pink) 0, var(--pink-2) 100%);
+      box-shadow: 0 0 20px rgba(233,30,140,.5), 0 0 40px rgba(240,48,154,.4), 0 10px 25px rgba(233,30,140,.25);
+      overflow: hidden; transition: all .35s ease; isolation: isolate; border: none; cursor: pointer; }
+    .bnt1:hover { box-shadow: 0 0 25px rgba(233,30,140,.6), 0 0 60px rgba(240,48,154,.5), 0 15px 35px rgba(233,30,140,.3); transform: scale(1.04); }
+    .bnt1::before { content: ''; position: absolute; bottom: 0; width: 90px; height: 160%;
+      background: linear-gradient(10deg, #ffd9ec 12.81%, rgba(255,217,236,0) 66.66%); transform: translateX(-50%) skew(-25deg);
+      animation: shinery 3s ease-in-out infinite; filter: blur(4px); pointer-events: none; z-index: 0; }
+    .bnt1::after { content: ''; position: absolute; inset: -2px; border-radius: 999px; border: 2px solid var(--pink); pointer-events: none; }
     .bnt1 span, .bnt1 svg { position: relative; z-index: 2; }
     .bnt1 svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2.4; fill: none; }
+    .bnt-sec { display: inline-flex; align-items: center; gap: 8px; padding: 16px 26px; border-radius: 999px; font-size: 14px; font-weight: 600;
+      color: #fff; text-decoration: none; border: 1px solid var(--line-strong); background: rgba(255,255,255,.05); transition: background .2s, border-color .2s; }
+    .bnt-sec:hover { background: rgba(233,30,140,.12); border-color: rgba(233,30,140,.5); }
 
-    .bnt-lime {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 16px 32px;
-      font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 999px;
-      background: linear-gradient(92deg, var(--lime) 0%, var(--lime-soft) 100%);
-      box-shadow: 0 0 20px rgba(233,30,140,.3), 0 8px 22px rgba(233,30,140,.18);
-      transition: filter .2s, transform .12s;
-      cursor: pointer;
-      border: none;
-    }
-    .bnt-lime:hover { filter: brightness(1.08); }
-    .bnt-lime svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2.4; fill: none; }
+    /* NÚMEROS (sobrepõe o topo) */
+    .nums-wrap { position: relative; z-index: 3; margin-top: -84px; padding: 0 clamp(20px,5vw,64px); }
+    .nums { width: min(1200px,100%); margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr);
+      border: 1px solid var(--line-strong); border-radius: 22px; overflow: hidden;
+      background: linear-gradient(180deg, rgba(20,30,66,.92), rgba(10,16,38,.96)); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 30px 80px rgba(0,0,0,.55); }
+    .num { padding: 26px 24px; border-right: 1px solid var(--line); }
+    .num:last-child { border-right: 0; }
+    .num b { display: block; font-family: var(--display); font-size: clamp(26px,2.7vw,36px); font-weight: 800; line-height: 1.05; letter-spacing: -.02em; }
+    .num span { display: block; margin-top: 8px; font-size: 13px; line-height: 1.5; color: var(--mute); }
 
-    /* ─── MODAL CAPTURA ─── */
-    .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 300;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      background: rgba(3,7,18,.92);
-      backdrop-filter: blur(8px);
-      opacity: 0;
-      visibility: hidden;
-      transition: all .3s ease;
-      overflow-y: auto;
-    }
-    .modal.is-open { opacity: 1; visibility: visible; }
-    .modal-content {
-      width: 100%;
-      max-width: 440px;
-      margin: auto;
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      overflow: hidden;
-      transform: scale(.96) translateY(20px);
-      transition: transform .3s ease;
-      position: relative;
-    }
-    .modal.is-open .modal-content { transform: scale(1) translateY(0); }
-    .modal-bar {
-      height: 4px;
-      background: linear-gradient(90deg, var(--lime), var(--lime-soft), var(--lime));
-    }
-    .modal-close {
-      position: absolute;
-      top: 14px; right: 14px;
-      width: 32px; height: 32px;
-      border: none;
-      background: transparent;
-      color: var(--text-faint);
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%;
-      transition: color .2s, background .2s;
-      z-index: 5;
-    }
-    .modal-close:hover { color: var(--text); background: rgba(255,255,255,.05); }
-    .modal-close svg { width: 18px; height: 18px; stroke-width: 2; }
-    .modal-body { padding: 30px; }
-    .modal h3 { font-family: var(--display); font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-    .modal-text { font-size: 13.5px; color: var(--text-mute); line-height: 1.6; margin-bottom: 24px; }
+    /* SEÇÕES */
+    .sec { position: relative; padding: clamp(64px,9vw,108px) clamp(20px,5vw,64px); }
+    .sec.light { background: #ffffff; color: var(--ink); }
+    .sec.soft { background: #f4f5fb; color: var(--ink); }
+    .sec.dark { background: radial-gradient(ellipse 70% 60% at 85% 0%, rgba(233,30,140,.1), transparent 60%), var(--bg); }
+    .sec-in { width: min(1120px,100%); margin: 0 auto; }
+    .kicker { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: var(--pink); margin-bottom: 14px; }
+    .kicker::before { content: ''; width: 26px; height: 2px; background: var(--pink); border-radius: 2px; }
+    .sec h2 { font-family: var(--display); font-size: clamp(27px,3.2vw,42px); font-weight: 800; line-height: 1.13; letter-spacing: -.022em; max-width: 780px; }
+    .lead { margin-top: 16px; font-size: clamp(15px,1.4vw,17.5px); line-height: 1.7; max-width: 720px; }
+    .light .lead, .soft .lead { color: var(--ink-mute); } .light .lead strong, .soft .lead strong { color: var(--ink); font-weight: 600; }
+    .dark .lead { color: var(--mute); } .dark .lead strong { color: #fff; font-weight: 600; }
+    .nota { margin-top: 22px; font-size: 13px; line-height: 1.65; color: #64748b; max-width: 860px; }
+    .sec-cta { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 
-    .form-row { margin-bottom: 16px; }
-    .form-row label {
-      display: block;
-      font-size: 10px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--text-mute);
-      margin-bottom: 8px;
-    }
-    .form-input, .form-select {
-      width: 100%;
-      background: #050507;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 14px 16px;
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 14px;
-      outline: none;
-      transition: border-color .2s;
-    }
-    .form-input:focus, .form-select:focus { border-color: rgba(233,30,140,.5); }
-    .form-input::placeholder { color: var(--text-faint); }
-    .phone-row { display: flex; gap: 8px; }
-    .phone-row .form-select { width: 100px; flex-shrink: 0; padding: 14px 10px; text-align: center; }
-    .phone-row .form-input { flex: 1; }
+    /* PERFIS */
+    .perfis { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 40px; }
+    .perfil { background: #fff; border: 1px solid rgba(11,21,53,.1); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 14px;
+      transition: transform .25s ease, box-shadow .25s ease, opacity .6s ease; }
+    .perfil:hover { transform: translateY(-4px); box-shadow: 0 22px 50px rgba(11,21,53,.1); }
+    .perfil.top { background: linear-gradient(160deg, #0e1838, #060a18); color: #fff; border-color: rgba(233,30,140,.5); box-shadow: 0 24px 60px rgba(233,30,140,.18); }
+    .perfil-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .perfil-cod { font-family: var(--display); font-size: 13px; font-weight: 700; color: #64748b; letter-spacing: .06em; }
+    .perfil.top .perfil-cod { color: var(--mute); }
+    .perfil-tag { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: #b8126b; background: rgba(233,30,140,.1); border-radius: 999px; padding: 6px 12px; }
+    .perfil.top .perfil-tag { color: #fff; background: var(--pink); }
+    .perfil h3 { font-family: var(--display); font-size: 20px; font-weight: 700; line-height: 1.25; }
+    .perfil-sal { font-family: var(--display); font-size: clamp(28px,3vw,36px); font-weight: 800; letter-spacing: -.02em; color: #d6177e; line-height: 1; }
+    .perfil.top .perfil-sal { color: var(--pink-soft); }
+    .perfil-sal small { font-family: var(--sans); font-size: 12.5px; font-weight: 500; color: #64748b; margin-left: 8px; letter-spacing: 0; }
+    .perfil.top .perfil-sal small { color: var(--mute); }
+    .perfil-bar { height: 8px; border-radius: 99px; background: rgba(11,21,53,.08); overflow: hidden; }
+    .perfil.top .perfil-bar { background: rgba(255,255,255,.12); }
+    .perfil-bar i { display: block; height: 100%; width: 0; border-radius: 99px; background: linear-gradient(90deg, var(--pink), var(--pink-soft)); transition: width 1.1s cubic-bezier(.2,.7,.2,1) .2s; }
+    .on .perfil-bar i, .on .bar-t i { width: var(--w); }
+    .perfil-vagas { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+    .perfil-vagas b { font-size: 16px; } .perfil-vagas span { font-size: 13px; color: #64748b; }
+    .perfil.top .perfil-vagas span { color: var(--mute); }
+    .perfil p { font-size: 14.5px; line-height: 1.65; color: var(--ink-mute); }
+    .perfil.top p { color: #c9cfe3; }
+    .perfil p strong { color: var(--ink); font-weight: 600; } .perfil.top p strong { color: #fff; }
 
-    .form-submit { width: 100%; margin-top: 8px; padding: 16px; }
+    /* ANTES DE PAGAR */
+    .saiba { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 40px; }
+    .saiba div { position: relative; background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 18px; padding: 26px 26px 26px 84px; }
+    .saiba em { position: absolute; left: 24px; top: 22px; font-style: normal; font-family: var(--display); font-size: 34px; font-weight: 800; line-height: 1;
+      background: linear-gradient(180deg, var(--pink-soft), var(--pink)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .saiba b { display: block; font-size: 16.5px; margin-bottom: 8px; }
+    .saiba span { font-size: 14.5px; line-height: 1.65; color: var(--mute); }
 
-    .modal-secure {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      font-size: 11px; color: var(--text-faint); margin-top: 16px;
-    }
-    .modal-secure svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; }
+    /* PROVA */
+    .prova { display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; margin-top: 40px; align-items: start; }
+    .bars { background: #fff; border: 1px solid rgba(11,21,53,.1); border-radius: 22px; padding: 28px; display: grid; gap: 18px; }
+    .bars-title { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: #64748b; }
+    .bar { display: grid; grid-template-columns: 1fr 34px; gap: 6px 12px; align-items: center; }
+    .bar-n { grid-column: 1; grid-row: 1; font-size: 15px; font-weight: 600; }
+    .bar b { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-family: var(--display); font-size: 24px; font-weight: 800; text-align: right; }
+    .bar-t { grid-column: 1; grid-row: 2; height: 10px; border-radius: 99px; background: rgba(11,21,53,.07); overflow: hidden; }
+    .bar-t i { display: block; height: 100%; width: 0; border-radius: 99px; background: #9aa5c4; transition: width 1.1s cubic-bezier(.2,.7,.2,1) .15s; }
+    .bar.hl .bar-t i { background: linear-gradient(90deg, var(--pink), var(--pink-soft)); }
+    .bar.hl b, .bar.hl .bar-n { color: #d6177e; }
+    .bars-total { border-top: 1px solid rgba(11,21,53,.1); padding-top: 16px; font-size: 14px; color: var(--ink-mute); }
+    .bars-total strong { color: var(--ink); }
+    .side { display: grid; gap: 14px; }
+    .side div { background: #fff; border: 1px solid rgba(11,21,53,.1); border-radius: 18px; padding: 22px 24px; }
+    .side div.hl { background: linear-gradient(160deg, #0e1838, #060a18); color: #fff; border-color: rgba(233,30,140,.45); }
+    .side b { display: block; font-size: 16px; margin-bottom: 8px; }
+    .side span { font-size: 14.5px; line-height: 1.65; color: var(--ink-mute); }
+    .side .hl span { color: #c9cfe3; } .side .hl strong { color: var(--pink-soft); }
 
-    /* ─── MOBILE ─── */
-    @media (max-width: 640px) {
-      .nav { padding: 0 20px; height: 56px; }
-      .nav-pill { padding: 7px 14px; font-size: 10px; }
-      .nav-pill svg { display: none; }
+    /* CRONOGRAMA */
+    .crono { position: relative; margin-top: 40px; display: grid; gap: 14px; max-width: 820px; padding-left: 34px; }
+    .crono::before { content: ''; position: absolute; left: 9px; top: 10px; bottom: 10px; width: 2px; background: linear-gradient(180deg, var(--pink), rgba(233,30,140,.12)); }
+    .crono li { position: relative; list-style: none; display: grid; grid-template-columns: 160px 1fr; gap: 18px; align-items: baseline;
+      background: #fff; border: 1px solid rgba(11,21,53,.1); border-radius: 14px; padding: 16px 20px; }
+    .crono li::before { content: ''; position: absolute; left: -31px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: #fff; border: 2px solid var(--pink); }
+    .crono li.hl { border-color: rgba(233,30,140,.5); box-shadow: 0 10px 28px rgba(233,30,140,.1); }
+    .crono li.hl::before { background: var(--pink); box-shadow: 0 0 0 5px rgba(233,30,140,.16); }
+    .crono b { font-family: var(--display); font-size: 15.5px; color: #d6177e; }
+    .crono span { font-size: 15px; line-height: 1.5; color: #334155; }
 
-      .hero-wrap { padding: 36px 20px 44px; }
-      .hero-left { gap: 20px; }
-      .hero-h1 { font-size: clamp(29px, 8.4vw, 42px); line-height: 1.08; }
-      .hero-desc { font-size: 15px; }
-      .hero-ctas { flex-direction: column; gap: 12px; align-items: stretch; width: 100%; }
-      .bnt1 { width: 100%; justify-content: center; }
-      .cta-micro { justify-content: center; }
-      .cta-timer { align-items: center; width: 100%; }
-      .cta-timer-label { text-align: center; }
-      .cta-timer-clock { justify-content: center; }
+    /* FAIXA ODON */
+    .faixa { position: relative; overflow: hidden; padding: clamp(72px,10vw,120px) clamp(20px,5vw,64px); text-align: center; background: #000; }
+    .faixa-bg { position: absolute; inset: 0; background: url("/lp/concurso/ministerio-da-saude/letreiro.jpg") 30% 45% / cover no-repeat; filter: saturate(.8) brightness(.8); }
+    .faixa-shade { position: absolute; inset: 0; background:
+      linear-gradient(180deg, rgba(4,6,15,.9) 0%, rgba(4,6,15,.56) 45%, rgba(4,6,15,.92) 100%),
+      radial-gradient(ellipse 60% 70% at 50% 50%, rgba(233,30,140,.14), transparent 70%); }
+    .faixa .sec-in { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+    .faixa h2 { font-family: var(--display); font-size: clamp(28px,3.4vw,46px); font-weight: 800; line-height: 1.12; letter-spacing: -.022em; max-width: 760px; }
+    .faixa .lead { color: #c9cfe3; } .faixa .lead strong { color: #fff; font-weight: 600; }
+    .materias { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; }
+    .materias > span { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; padding: 10px 16px; border-radius: 999px;
+      border: 1px solid var(--line-strong); background: rgba(255,255,255,.07); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    .faixa .sec-cta { justify-content: center; }
 
-      .modal-body { padding: 26px 22px; }
-    }
-    /* ─── SEÇÕES (tema claro) ─── */
-    .sec { position: relative; z-index: 1; background: #ffffff; color: #0b1535; padding: clamp(52px,8vw,92px) clamp(20px,5vw,64px); }
-    .sec.alt { background: #f5f6fb; }
-    .sec-in { width: min(1080px, 100%); margin: 0 auto; }
-    .sec-kicker { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: #d6177e; margin-bottom: 12px; }
-    .sec h2 { font-family: var(--display); font-size: clamp(26px,3vw,38px); font-weight: 800; line-height: 1.15; letter-spacing: -.02em; max-width: 760px; }
-    .sec-lead { margin-top: 14px; font-size: clamp(15px,1.4vw,17px); line-height: 1.7; color: #475569; max-width: 720px; }
-    .sec-lead strong { color: #0b1535; font-weight: 600; }
-    .section-hr { background: #ffffff; padding: 0 clamp(20px,5vw,64px); position: relative; z-index: 1; }
-    .section-hr hr { border: 0; height: 1px; width: min(1080px,100%); margin: 0 auto; background: linear-gradient(90deg, transparent, rgba(11,21,53,.14), transparent); }
-
-    .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 34px; }
-    .num { background: #fff; border: 1px solid rgba(11,21,53,.1); border-radius: 16px; padding: 22px 20px; }
-    .num b { display: block; font-family: var(--display); font-size: clamp(24px,2.6vw,32px); font-weight: 800; color: #d6177e; line-height: 1.1; }
-    .num span { display: block; margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: #475569; }
-
-    .perfis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 34px; }
-    .perfil { background: #fff; border: 1px solid rgba(11,21,53,.1); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
-    .perfil.top { border-color: rgba(233,30,140,.45); box-shadow: 0 12px 34px rgba(233,30,140,.1); }
-    .perfil-tag { align-self: flex-start; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: #d6177e; background: rgba(233,30,140,.08); border-radius: 999px; padding: 5px 12px; }
-    .perfil h3 { font-family: var(--display); font-size: 19px; font-weight: 700; line-height: 1.25; }
-    .perfil h3 small { display: block; font-family: var(--sans); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 6px; }
-    .perfil-row { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip { font-size: 12.5px; font-weight: 600; color: #0b1535; background: #f1f3f9; border-radius: 8px; padding: 6px 10px; }
-    .chip.pink { background: rgba(233,30,140,.1); color: #b8126b; }
-    .perfil p { font-size: 14px; line-height: 1.6; color: #475569; }
-    .perfil p strong { color: #0b1535; font-weight: 600; }
-    .nota { margin-top: 18px; font-size: 13px; line-height: 1.6; color: #64748b; max-width: 820px; }
-
-    .saiba { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 30px; }
-    .saiba div { background: #fff; border: 1px solid rgba(11,21,53,.1); border-left: 4px solid #e91e8c; border-radius: 12px; padding: 18px 20px; }
-    .saiba b { display: block; font-size: 15px; margin-bottom: 6px; }
-    .saiba span { font-size: 14px; line-height: 1.6; color: #475569; }
-
-    .prova { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; margin-top: 34px; align-items: start; }
-    .tabela { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid rgba(11,21,53,.1); border-radius: 14px; overflow: hidden; font-size: 14.5px; }
-    .tabela th, .tabela td { text-align: left; padding: 13px 16px; border-bottom: 1px solid rgba(11,21,53,.08); }
-    .tabela th { font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: #64748b; background: #f5f6fb; }
-    .tabela td:last-child, .tabela th:last-child { text-align: right; font-weight: 700; white-space: nowrap; }
-    .tabela tr:last-child td { border-bottom: 0; }
-    .tabela tr.hl td { background: rgba(233,30,140,.07); color: #b8126b; font-weight: 700; }
-    .prova-side { display: flex; flex-direction: column; gap: 14px; }
-    .prova-side div { background: #fff; border: 1px solid rgba(11,21,53,.1); border-radius: 14px; padding: 18px 20px; }
-    .prova-side b { display: block; font-size: 15px; margin-bottom: 6px; }
-    .prova-side span { font-size: 14px; line-height: 1.6; color: #475569; }
-
-    .crono { margin-top: 30px; display: grid; gap: 10px; max-width: 760px; }
-    .crono li { list-style: none; display: grid; grid-template-columns: 150px 1fr; gap: 16px; align-items: baseline; background: #fff; border: 1px solid rgba(11,21,53,.1); border-radius: 12px; padding: 14px 18px; }
-    .crono b { font-family: var(--display); font-size: 15px; color: #d6177e; }
-    .crono span { font-size: 14.5px; line-height: 1.5; color: #334155; }
-    .crono li.hl { border-color: rgba(233,30,140,.45); }
-
-    .faq { margin-top: 28px; display: grid; gap: 10px; max-width: 820px; }
-    .faq details { background: #fff; border: 1px solid rgba(11,21,53,.1); border-radius: 12px; padding: 0 20px; }
-    .faq summary { cursor: pointer; list-style: none; padding: 17px 0; font-weight: 600; font-size: 15.5px; display: flex; justify-content: space-between; gap: 16px; }
+    /* FAQ */
+    .faq { margin-top: 34px; display: grid; gap: 10px; max-width: 860px; }
+    .faq details { background: #fff; border: 1px solid rgba(11,21,53,.1); border-radius: 14px; padding: 0 22px; transition: border-color .2s, box-shadow .2s; }
+    .faq details[open] { border-color: rgba(233,30,140,.45); box-shadow: 0 10px 28px rgba(11,21,53,.06); }
+    .faq summary { cursor: pointer; list-style: none; padding: 19px 0; font-weight: 600; font-size: 16px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
     .faq summary::-webkit-details-marker { display: none; }
-    .faq summary::after { content: '+'; color: #d6177e; font-size: 20px; line-height: 1; font-weight: 400; }
-    .faq details[open] summary::after { content: '–'; }
-    .faq p { padding: 0 0 18px; font-size: 14.5px; line-height: 1.7; color: #475569; }
+    .faq summary::after { content: '+'; flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+      background: rgba(233,30,140,.1); color: #d6177e; font-size: 18px; font-weight: 500; transition: transform .25s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq p { padding: 0 0 20px; font-size: 15px; line-height: 1.7; color: var(--ink-mute); }
 
-    .sec-cta { margin-top: 34px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
-    .final { text-align: center; }
-    .final h2, .final .sec-lead { margin-left: auto; margin-right: auto; }
-    .final .sec-cta { align-items: center; }
+    .footer { background: #04060f; padding: 40px clamp(20px,5vw,64px) 96px; border-top: 1px solid var(--line); }
+    .footer p { width: min(1120px,100%); margin: 0 auto 10px; font-size: 12px; line-height: 1.7; color: #7d87a8; }
+    .footer a { color: var(--pink-soft); }
 
-    .footer { position: relative; z-index: 1; background: #060a18; padding: 36px clamp(20px,5vw,64px) 44px; }
-    .footer p { width: min(1080px,100%); margin: 0 auto 10px; font-size: 12px; line-height: 1.7; color: #7d87a8; }
-    .footer a { color: #f472b6; }
+    /* BARRA FIXA (celular) */
+    .sticky { display: none; }
 
-    .modal-ok { display: none; text-align: center; }
-    .modal-ok .bnt-lime { width: 100%; margin-top: 6px; }
+    /* MODAL */
+    .modal { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; padding: 16px;
+      background: rgba(3,7,18,.92); backdrop-filter: blur(8px); opacity: 0; visibility: hidden; transition: all .3s ease; overflow-y: auto; }
+    .modal.is-open { opacity: 1; visibility: visible; }
+    .modal-content { width: 100%; max-width: 440px; margin: auto; background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      overflow: hidden; transform: scale(.96) translateY(20px); transition: transform .3s ease; position: relative; }
+    .modal.is-open .modal-content { transform: scale(1) translateY(0); }
+    .modal-bar { height: 4px; background: linear-gradient(90deg, var(--pink), var(--pink-soft), var(--pink)); }
+    .modal-close { position: absolute; top: 14px; right: 14px; width: 32px; height: 32px; border: none; background: transparent; color: var(--faint);
+      cursor: pointer; border-radius: 50%; font-size: 22px; line-height: 1; z-index: 5; }
+    .modal-close:hover { color: #fff; background: rgba(255,255,255,.06); }
+    .modal-body { padding: 30px; }
+    .modal h3 { font-family: var(--display); font-size: 22px; font-weight: 700; margin-bottom: 6px; padding-right: 26px; }
+    .modal-text { font-size: 13.5px; color: var(--mute); line-height: 1.6; margin-bottom: 24px; }
+    .form-row { margin-bottom: 16px; }
+    .form-row label { display: block; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; color: var(--mute); margin-bottom: 8px; }
+    .form-input, .form-select { width: 100%; background: #050507; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; color: #fff;
+      font-family: var(--sans); font-size: 16px; outline: none; transition: border-color .2s; }
+    .form-input:focus, .form-select:focus { border-color: rgba(233,30,140,.5); }
+    .form-input::placeholder { color: var(--faint); }
+    .phone-row { display: flex; gap: 8px; }
+    .phone-row .form-select { width: 104px; flex-shrink: 0; padding: 14px 10px; text-align: center; }
+    .bnt-form { width: 100%; margin-top: 8px; padding: 16px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fff; text-decoration: none;
+      border-radius: 999px; border: none; cursor: pointer; background: linear-gradient(92deg, var(--pink) 0%, var(--pink-soft) 100%);
+      box-shadow: 0 0 20px rgba(233,30,140,.3), 0 8px 22px rgba(233,30,140,.18); transition: filter .2s; }
+    .bnt-form:hover { filter: brightness(1.08); }
+    .bnt-form svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2.4; fill: none; }
+    .modal-secure { text-align: center; font-size: 11px; color: var(--faint); margin-top: 16px; }
+    .modal-ok { display: none; }
 
-    @media (max-width: 860px) {
-      .nums { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 900px) {
+      .hero-photo { position: relative; left: 0; height: 44svh; min-height: 290px; max-height: 440px; }
+      .hero-photo i { background-position: 70% 40%; }
+      .hero-shade { background:
+        linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 14%, rgba(0,0,0,0) 26%, #000 min(44svh,440px), #000 100%),
+        radial-gradient(ellipse 90% 30% at 50% 60%, rgba(233,30,140,.14), transparent 70%); }
+      .hero-wrap { min-height: 0; margin-top: -64px; padding: 0 20px 118px; }
+      .hero-left { gap: 20px; }
+      .photo-credit { display: none; }
+      .nums { grid-template-columns: repeat(2,1fr); }
+      .num { padding: 20px 18px; }
+      .num:nth-child(2) { border-right: 0; }
+      .num:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
       .perfis, .saiba, .prova { grid-template-columns: 1fr; }
       .crono li { grid-template-columns: 1fr; gap: 4px; }
-      .sec-cta { align-items: stretch; }
+      .sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 150; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: rgba(4,6,15,.94); border-top: 1px solid var(--line-strong);
+        backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transform: translateY(110%); transition: transform .35s ease; }
+      .sticky.on { transform: none; }
+      .sticky b { display: block; font-size: 13.5px; } .sticky small { font-size: 11.5px; color: var(--mute); }
+      .sticky .bnt1 { padding: 12px 20px; font-size: 13px; flex-shrink: 0; }
+    }
+    @media (max-width: 640px) {
+      .nav { padding: 0 20px; height: 56px; }
+      .nav-pill { padding: 7px 14px; font-size: 10px; } .nav-pill svg { display: none; }
+      .hero-h1 { font-size: clamp(31px,9vw,42px); }
+      .hero-ctas, .sec-cta { flex-direction: column; align-items: stretch; width: 100%; }
+      .hero-ctas .bnt1, .sec-cta .bnt1, .bnt-sec { width: 100%; justify-content: center; }
+      .timer-box { min-width: 0; flex: 1; } .timer, .timer-clock { width: 100%; }
+      .perfil { padding: 24px 22px; }
+      .saiba div { padding: 68px 22px 24px; }
+      .bars { padding: 22px 20px; }
+      .modal-body { padding: 26px 22px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .fade-in, .bnt1::before, .orb-1 { animation: none !important; }
+      .fade-in, .bnt1::before, .hero-photo i, .hero-badge i { animation: none !important; }
+      .rv { opacity: 1; transform: none; transition: none; }
       html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
 
-  <!-- BG ORB -->
-  <div class="bg-orb orb-1"></div>
-
-  <!-- NAV -->
   <nav class="nav">
-    <div class="logo">
-      <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img">
-    </div>
-    <a onclick="openModal()" class="nav-pill">
-      Quero me preparar
-      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
+    <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img">
+    <a onclick="openModal()" class="nav-pill">Quero me preparar <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </nav>
 
-  <!-- HERO — ÚNICA DOBRA -->
-  <section class="hero-section">
+  <!-- TOPO -->
+  <header class="hero">
+    <div class="hero-photo" role="img" aria-label="Edifício sede do Ministério da Saúde, na Esplanada dos Ministérios, em Brasília"><i></i></div>
+    <div class="hero-shade"></div>
+    <span class="photo-credit">Foto: Jefferson Rudy/Agência Senado</span>
     <div class="hero-wrap">
       <div class="hero-left">
-        <div class="hero-badge fade-in delay-1">
-          <i data-lucide="file-text"></i>
-          <span>Edital publicado · Ministério da Saúde · 2026</span>
-        </div>
-
-        <h1 class="hero-h1 fade-in delay-2">
-          Ministério da Saúde abre <span class="g1">280 vagas</span> que dentista pode disputar
-        </h1>
-
-        <p class="hero-desc fade-in delay-3">
-          O processo seletivo aceita <strong>graduação em Odontologia</strong> em 4 dos 6 perfis, com salários de <strong>R$ 4.740,51 a R$ 10.354,29</strong> e auxílio alimentação de R$ 1.192. A prova não cobra Odontologia: <strong>metade das questões é Legislação do SUS</strong>. Inscrições até <strong>14/12</strong> e prova em <strong>17/01/2027</strong>.
-        </p>
-
-        <div class="cta-timer fade-in delay-4">
-          <div class="cta-timer-label" id="cdLabel">Inscrições encerram em 14/12, às 23h59</div>
-          <div class="cta-timer-clock" id="cdClock">
-            <div class="cta-timer-box"><b id="cd-d">--</b><i>dias</i></div>
-            <div class="cta-timer-box"><b id="cd-h">--</b><i>horas</i></div>
-            <div class="cta-timer-box"><b id="cd-m">--</b><i>min</i></div>
-            <div class="cta-timer-box"><b id="cd-s">--</b><i>seg</i></div>
+        <div class="hero-badge fade-in delay-1"><i></i><span>Inscrições abertas · Edital nº 1/2026</span></div>
+        <h1 class="hero-h1 fade-in delay-2">Ministério da Saúde abre <span class="g1">280 vagas</span> que dentista pode disputar</h1>
+        <p class="hero-desc fade-in delay-3">O processo seletivo aceita <strong>graduação em Odontologia</strong> em 4 dos 6 perfis, com salários de <strong>R$ 4.740,51 a R$ 10.354,29</strong>. A prova não cobra Odontologia: <strong>metade das questões é Legislação do SUS</strong>.</p>
+        <div class="timer fade-in delay-4">
+          <div class="timer-label" id="cdLabel">Inscrições encerram em 14/12, às 23h59</div>
+          <div class="timer-clock" id="cdClock">
+            <div class="timer-box"><b id="cd-d">--</b><small>dias</small></div>
+            <div class="timer-box"><b id="cd-h">--</b><small>horas</small></div>
+            <div class="timer-box"><b id="cd-m">--</b><small>min</small></div>
+            <div class="timer-box"><b id="cd-s">--</b><small>seg</small></div>
           </div>
         </div>
-
-        <div class="hero-ctas fade-in delay-4">
-          <a onclick="openModal()" class="bnt1">
-            <span>Quero me preparar com a Odon</span>
-            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+        <div class="hero-ctas fade-in delay-5">
+          <a onclick="openModal()" class="bnt1"><span>Quero me preparar com a Odon</span><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#perfis" class="bnt-sec">Ver os 4 perfis</a>
         </div>
-
-        <div class="cta-micro fade-in delay-4">
-          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Taxa de R$ 60</span>
-          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Prova em 7 capitais</span>
-          <span><span class="check-square"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Banca Instituto Avalia</span>
+        <div class="cta-micro fade-in delay-5">
+          <span><span class="ck"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Taxa de R$ 60</span>
+          <span><span class="ck"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Prova em 7 capitais</span>
+          <span><span class="ck"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Banca Instituto Avalia</span>
         </div>
       </div>
-
-      <!-- coluna direita: vazia (BG com a pessoa via imagem de fundo) -->
-      <div class="hero-right" aria-hidden="true"></div>
     </div>
-  </section>
+  </header>
 
   <!-- NÚMEROS -->
-  <section class="sec alt">
-    <div class="sec-in">
-      <div class="sec-kicker">O edital em números</div>
-      <h2>O que o edital oferece para quem é <span class="g1">formado em Odontologia</span></h2>
-      <p class="sec-lead">O Edital nº 1, publicado no Diário Oficial da União em 12/11/2026, abre 300 vagas imediatas e 459 de cadastro reserva em seis perfis de nível superior. Quatro deles aceitam o seu diploma.</p>
-      <div class="nums">
-        <div class="num"><b>280</b><span>vagas imediatas nos 4 perfis abertos a dentistas, mais 395 de cadastro reserva</span></div>
-        <div class="num"><b>R$ 10.354,29</b><span>é o maior salário, no perfil de Gestor. Analista recebe R$ 7.647,20</span></div>
-        <div class="num"><b>R$ 60</b><span>de taxa, igual para todos os perfis, paga por Pix ou GRU até 15/12</span></div>
-        <div class="num"><b>17/01/2027</b><span>é o dia da prova objetiva, à tarde, com 4 horas de duração</span></div>
-      </div>
+  <div class="nums-wrap">
+    <div class="nums rv">
+      <div class="num"><b class="g1">280</b><span>vagas imediatas nos perfis abertos a dentistas, mais 395 de cadastro reserva</span></div>
+      <div class="num"><b>R$ 10.354</b><span>é o maior salário, no perfil de Gestor. Analista recebe R$ 7.647,20</span></div>
+      <div class="num"><b>R$ 1.192</b><span>de auxílio alimentação, além de auxílio transporte e pré-escolar</span></div>
+      <div class="num"><b>17/01/2027</b><span>é o dia da prova objetiva, à tarde, com 4 horas de duração</span></div>
     </div>
-  </section>
+  </div>
 
   <!-- PERFIS -->
-  <section class="sec" id="perfis">
+  <section class="sec soft" id="perfis" style="margin-top:-70px;padding-top:calc(clamp(64px,9vw,108px) + 70px)">
     <div class="sec-in">
-      <div class="sec-kicker">Onde o dentista entra</div>
+      <div class="kicker">Onde o dentista entra</div>
       <h2>Os <span class="g1">4 perfis</span> em que você pode se inscrever</h2>
-      <p class="sec-lead">Não existe cargo de cirurgião-dentista neste edital. O que existe são perfis de análise e gestão que pedem diploma de uma lista de cursos, e Odontologia está na lista. Você escolhe <strong>um perfil só</strong> e não dá para trocar depois de inscrito.</p>
+      <p class="lead">O Edital nº 1, publicado no Diário Oficial da União em 12/11/2026, não tem cargo de cirurgião-dentista. Ele abre perfis de análise e gestão que pedem diploma de uma lista de cursos, e Odontologia está na lista. Você escolhe <strong>um perfil só</strong> e não dá para trocar depois de inscrito.</p>
       <div class="perfis">
-        <div class="perfil top">
-          <span class="perfil-tag">Onde estão as vagas</span>
-          <h3><small>Código 403</small>Analista de Requisitos Processuais, Normativos, Econômicos, Financeiros e Políticas de Saúde</h3>
-          <div class="perfil-row"><span class="chip pink">R$ 7.647,20</span><span class="chip">218 vagas</span><span class="chip">236 no cadastro reserva</span></div>
+        <article class="perfil top rv">
+          <div class="perfil-head"><span class="perfil-cod">Código 403</span><span class="perfil-tag">Onde estão as vagas</span></div>
+          <h3>Analista de Requisitos Processuais, Normativos, Econômicos, Financeiros e Políticas de Saúde</h3>
+          <div class="perfil-sal">R$ 7.647,20<small>por mês</small></div>
+          <div class="perfil-bar"><i style="--w:78%"></i></div>
+          <div class="perfil-vagas"><b>218 vagas</b><span>+ 236 no cadastro reserva</span></div>
           <p>Concentra 73% das vagas do edital: <strong>194 em Brasília</strong> e 4 em cada uma das outras seis capitais. O trabalho é analisar prestação de contas, requisitos normativos e resultados das políticas de saúde, com emissão de pareceres.</p>
-        </div>
-        <div class="perfil">
-          <span class="perfil-tag">Maior salário</span>
-          <h3><small>Código 406</small>Gestor</h3>
-          <div class="perfil-row"><span class="chip pink">R$ 10.354,29</span><span class="chip">16 vagas</span><span class="chip">47 no cadastro reserva</span></div>
+        </article>
+        <article class="perfil rv">
+          <div class="perfil-head"><span class="perfil-cod">Código 406</span><span class="perfil-tag">Maior salário</span></div>
+          <h3>Gestor</h3>
+          <div class="perfil-sal">R$ 10.354,29<small>por mês</small></div>
+          <div class="perfil-bar"><i style="--w:6%"></i></div>
+          <div class="perfil-vagas"><b>16 vagas</b><span>+ 47 no cadastro reserva</span></div>
           <p>Todas as vagas são em <strong>Brasília</strong>. Função gerencial: define diretrizes, propõe projetos e coordena equipes. A prova tem 50 questões e inclui Administração Pública, Finanças Públicas e Políticas Públicas.</p>
-        </div>
-        <div class="perfil">
-          <span class="perfil-tag">Exige especialização</span>
-          <h3><small>Código 405</small>Analista Técnico em Equipamentos</h3>
-          <div class="perfil-row"><span class="chip pink">R$ 7.647,20</span><span class="chip">18 vagas</span><span class="chip">50 no cadastro reserva</span></div>
-          <p>Além do diploma, pede <strong>especialização em Engenharia Clínica ou em Gestão em Saúde</strong>. São 12 vagas em Brasília e 1 em cada outra capital. O trabalho é emitir pareceres técnicos e econômicos sobre equipamentos médico-hospitalares.</p>
-        </div>
-        <div class="perfil">
-          <span class="perfil-tag">Qualquer graduação</span>
-          <h3><small>Código 401</small>Técnico Administrativo</h3>
-          <div class="perfil-row"><span class="chip pink">R$ 4.740,51</span><span class="chip">28 vagas</span><span class="chip">62 no cadastro reserva</span></div>
+        </article>
+        <article class="perfil rv">
+          <div class="perfil-head"><span class="perfil-cod">Código 405</span><span class="perfil-tag">Exige especialização</span></div>
+          <h3>Analista Técnico em Equipamentos</h3>
+          <div class="perfil-sal">R$ 7.647,20<small>por mês</small></div>
+          <div class="perfil-bar"><i style="--w:6%"></i></div>
+          <div class="perfil-vagas"><b>18 vagas</b><span>+ 50 no cadastro reserva</span></div>
+          <p>Além do diploma, pede <strong>especialização em Engenharia Clínica ou em Gestão em Saúde</strong>. São 12 vagas em Brasília e 1 em cada outra capital, para emitir pareceres técnicos e econômicos sobre equipamentos médico-hospitalares.</p>
+        </article>
+        <article class="perfil rv">
+          <div class="perfil-head"><span class="perfil-cod">Código 401</span><span class="perfil-tag">Qualquer graduação</span></div>
+          <h3>Técnico Administrativo</h3>
+          <div class="perfil-sal">R$ 4.740,51<small>por mês</small></div>
+          <div class="perfil-bar"><i style="--w:10%"></i></div>
+          <div class="perfil-vagas"><b>28 vagas</b><span>+ 62 no cadastro reserva</span></div>
           <p>Aceita qualquer curso superior, então a concorrência vem de todas as áreas. São 22 vagas em Brasília e 1 em cada outra capital, em atividades de suporte administrativo.</p>
-        </div>
+        </article>
       </div>
-      <p class="nota">Os perfis 402 (Analista de Dados) e 404 (Analista Técnico em Edificações) não aceitam Odontologia. Todos os perfis têm 40 horas semanais e recebem auxílio alimentação de R$ 1.192,00, auxílio transporte, auxílio pré-escolar, férias e 13º proporcionais.</p>
+      <p class="nota">A barra mostra a fatia de cada perfil nas 280 vagas imediatas abertas a dentistas. Os perfis 402 (Analista de Dados) e 404 (Analista Técnico em Edificações) não aceitam Odontologia. Todos têm jornada de 40 horas semanais, férias e 13º proporcionais.</p>
       <div class="sec-cta"><a onclick="openModal()" class="bnt1"><span>Quero me preparar com a Odon</span><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
     </div>
   </section>
 
-  <!-- ANTES DE SE INSCREVER -->
-  <section class="sec alt">
+  <!-- ANTES DE PAGAR -->
+  <section class="sec dark">
     <div class="sec-in">
-      <div class="sec-kicker">Sem letra miúda</div>
+      <div class="kicker">Sem letra miúda</div>
       <h2>Quatro pontos para pesar <span class="g1">antes de pagar a taxa</span></h2>
+      <p class="lead">A vaga é boa para quem quer experiência federal e salário fixo, mas não é a mesma coisa que um concurso de dentista.</p>
       <div class="saiba">
-        <div><b>É contrato temporário, não cargo efetivo</b><span>O contrato dura 1 ano e pode ser prorrogado, conforme a Lei nº 8.745/1993. Não há estabilidade, e a renovação depende de avaliação de desempenho.</span></div>
-        <div><b>O trabalho não é clínico</b><span>Você não atende paciente. A rotina é de análise, parecer, prestação de contas e gestão dentro do Ministério.</span></div>
-        <div><b>É 100% presencial</b><span>São 40 horas semanais na cidade de lotação que você escolher na inscrição: Brasília, Belém, Belo Horizonte, Curitiba, Goiânia, Recife ou São Paulo.</span></div>
-        <div><b>Quem teve contrato temporário federal recente fica de fora</b><span>O edital barra quem foi contratado pela Lei nº 8.745/1993 nos últimos 24 meses, salvo as exceções da própria lei.</span></div>
+        <div class="rv"><em>01</em><b>É contrato temporário, não cargo efetivo</b><span>O contrato dura 1 ano e pode ser prorrogado, conforme a Lei nº 8.745/1993. Não há estabilidade, e a renovação depende de avaliação de desempenho.</span></div>
+        <div class="rv"><em>02</em><b>O trabalho não é clínico</b><span>Você não atende paciente. A rotina é de análise, parecer, prestação de contas e gestão dentro do Ministério.</span></div>
+        <div class="rv"><em>03</em><b>É 100% presencial</b><span>São 40 horas semanais na cidade de lotação escolhida na inscrição: Brasília, Belém, Belo Horizonte, Curitiba, Goiânia, Recife ou São Paulo.</span></div>
+        <div class="rv"><em>04</em><b>Contrato temporário federal recente impede</b><span>O edital barra quem foi contratado pela Lei nº 8.745/1993 nos últimos 24 meses, salvo as exceções da própria lei.</span></div>
       </div>
     </div>
   </section>
 
   <!-- PROVA -->
-  <section class="sec" id="prova">
+  <section class="sec light" id="prova">
     <div class="sec-in">
-      <div class="sec-kicker">Como é a prova</div>
+      <div class="kicker">Como é a prova</div>
       <h2>Metade da prova é <span class="g1">Legislação do SUS</span></h2>
-      <p class="sec-lead">Para Técnico e Analista são 40 questões de múltipla escolha, com 5 alternativas. Quem já estuda para concurso de Odontologia conhece essas matérias: são as mesmas da parte geral dos editais de dentista.</p>
+      <p class="lead">Para Técnico e Analista são 40 questões de múltipla escolha, com 5 alternativas. Quem já estuda para concurso de Odontologia conhece essas matérias: são as mesmas da parte geral dos editais de dentista.</p>
       <div class="prova">
-        <table class="tabela">
-          <thead><tr><th>Matéria</th><th>Questões</th></tr></thead>
-          <tbody>
-            <tr class="hl"><td>Legislação Federal do SUS</td><td>20</td></tr>
-            <tr><td>Língua Portuguesa</td><td>5</td></tr>
-            <tr><td>Direito Administrativo</td><td>5</td></tr>
-            <tr><td>Direito Constitucional</td><td>5</td></tr>
-            <tr><td>Raciocínio Lógico</td><td>5</td></tr>
-          </tbody>
-        </table>
-        <div class="prova-side">
-          <div><b>O que cai de SUS</b><span>Leis nº 8.080/1990 e nº 8.142/1990, Decretos nº 7.508/2011 e nº 1.232/1994 e Lei Complementar nº 141/2012. É pouco conteúdo para 20 questões, então a cobrança tende a ser no detalhe da lei.</span></div>
-          <div><b>Nota de corte</b><span>A objetiva vale 80 pontos. Quem fizer menos de 50% ou zerar alguma área está eliminado.</span></div>
-          <div><b>Títulos valem 20 pontos e têm prazo agora</b><span>Experiência profissional e cursos somam até 20 pontos, mas os documentos precisam ser enviados <strong>até 15/12/2026</strong>, junto com a inscrição. Depois da prova não dá mais.</span></div>
+        <div class="bars rv">
+          <div class="bars-title">Questões por matéria</div>
+          <div class="bar hl"><span class="bar-n">Legislação Federal do SUS</span><span class="bar-t"><i style="--w:100%"></i></span><b>20</b></div>
+          <div class="bar"><span class="bar-n">Língua Portuguesa</span><span class="bar-t"><i style="--w:25%"></i></span><b>5</b></div>
+          <div class="bar"><span class="bar-n">Direito Administrativo</span><span class="bar-t"><i style="--w:25%"></i></span><b>5</b></div>
+          <div class="bar"><span class="bar-n">Direito Constitucional</span><span class="bar-t"><i style="--w:25%"></i></span><b>5</b></div>
+          <div class="bar"><span class="bar-n">Raciocínio Lógico</span><span class="bar-t"><i style="--w:25%"></i></span><b>5</b></div>
+          <div class="bars-total"><strong>40 questões, 80 pontos.</strong> Menos de 50% ou zero em alguma área elimina.</div>
+        </div>
+        <div class="side">
+          <div class="rv"><b>O que cai de SUS</b><span>Leis nº 8.080/1990 e nº 8.142/1990, Decretos nº 7.508/2011 e nº 1.232/1994 e Lei Complementar nº 141/2012. É pouco conteúdo para 20 questões, então a cobrança tende a ser no detalhe da lei.</span></div>
+          <div class="hl rv"><b>Títulos valem 20 pontos e o prazo é agora</b><span>Experiência profissional e cursos somam até 20 pontos, mas os documentos precisam ser enviados <strong>até 15/12/2026</strong>, junto com a inscrição. Depois da prova não dá mais.</span></div>
         </div>
       </div>
       <p class="nota">No perfil de Gestor a prova tem 50 questões: 10 de SUS, 10 de Administração Pública Federal, 5 de Finanças Públicas, 5 de Políticas Públicas e as mesmas 20 de conhecimentos gerais. Só tem os títulos analisados quem ficar dentro de 8 vezes o número de vagas do perfil.</p>
     </div>
   </section>
 
-  <div class="section-hr"><hr></div>
-
   <!-- CRONOGRAMA -->
-  <section class="sec" id="datas">
+  <section class="sec soft" id="datas">
     <div class="sec-in">
-      <div class="sec-kicker">Datas do edital</div>
+      <div class="kicker">Datas do edital</div>
       <h2>O <span class="g1">calendário</span> até o resultado final</h2>
-      <p class="sec-lead">Da data de hoje até a prova são cerca de dois meses. As inscrições são feitas só pelo site do Instituto Avalia.</p>
+      <p class="lead">São cerca de dois meses até a prova. As inscrições são feitas só pelo site do Instituto Avalia.</p>
       <ul class="crono">
-        <li><b>12 a 16/11/2026</b><span>Pedido de isenção da taxa (CadÚnico, baixa renda ou doador de medula óssea)</span></li>
-        <li class="hl"><b>até 14/12/2026</b><span>Inscrições em avalia.org.br, até as 23h59</span></li>
-        <li class="hl"><b>até 15/12/2026</b><span>Pagamento da taxa e envio dos títulos e da experiência profissional</span></li>
-        <li><b>07/01/2027</b><span>Divulgação do local e do horário da prova</span></li>
-        <li class="hl"><b>17/01/2027</b><span>Prova objetiva, à tarde, em Belém, Belo Horizonte, Brasília, Curitiba, Goiânia, Recife e São Paulo</span></li>
-        <li><b>18/01/2027</b><span>Gabarito preliminar e cadernos de questões</span></li>
-        <li><b>10/02/2027</b><span>Resultado da prova objetiva depois dos recursos</span></li>
-        <li><b>30/03/2027</b><span>Resultado final e homologação</span></li>
+        <li class="rv"><b>12 a 16/11/2026</b><span>Pedido de isenção da taxa (CadÚnico, baixa renda ou doador de medula óssea)</span></li>
+        <li class="hl rv"><b>até 14/12/2026</b><span>Inscrições em avalia.org.br, até as 23h59</span></li>
+        <li class="hl rv"><b>até 15/12/2026</b><span>Pagamento da taxa de R$ 60 e envio dos títulos e da experiência profissional</span></li>
+        <li class="rv"><b>07/01/2027</b><span>Divulgação do local e do horário da prova</span></li>
+        <li class="hl rv"><b>17/01/2027</b><span>Prova objetiva, à tarde, em Belém, Belo Horizonte, Brasília, Curitiba, Goiânia, Recife e São Paulo</span></li>
+        <li class="rv"><b>18/01/2027</b><span>Gabarito preliminar e cadernos de questões</span></li>
+        <li class="rv"><b>10/02/2027</b><span>Resultado da prova objetiva depois dos recursos</span></li>
+        <li class="rv"><b>30/03/2027</b><span>Resultado final e homologação</span></li>
       </ul>
     </div>
   </section>
 
   <!-- ODON -->
-  <section class="sec alt final">
+  <section class="faixa">
+    <div class="faixa-bg"></div><div class="faixa-shade"></div>
     <div class="sec-in">
-      <div class="sec-kicker">Como a Odon ajuda</div>
+      <div class="kicker">Como a Odon ajuda</div>
       <h2>As cinco matérias da prova <span class="g1">já estão na Odon</span></h2>
-      <p class="sec-lead">A OdonConcursos é o preparatório feito só para dentistas, e a plataforma tem aulas de <strong>SUS, Português, Raciocínio Lógico, Direito Constitucional e Direito Administrativo</strong>. Deixe seu contato e a nossa equipe te mostra por onde começar nos dois meses até a prova.</p>
+      <p class="lead">A OdonConcursos é o preparatório feito só para dentistas. Deixe seu contato e a nossa equipe te mostra por onde começar nos dois meses até a prova.</p>
+      <div class="materias">
+        <span><span class="ck"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>SUS</span><span><span class="ck"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Português</span><span><span class="ck"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Raciocínio Lógico</span><span><span class="ck"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Direito Constitucional</span><span><span class="ck"><svg viewBox="0 0 24 24"><polyline points="5 12.5 10 17.5 19 7.5"/></svg></span>Direito Administrativo</span>
+      </div>
       <div class="sec-cta"><a onclick="openModal()" class="bnt1"><span>Quero falar com a equipe da Odon</span><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="sec" id="duvidas">
+  <section class="sec light" id="duvidas">
     <div class="sec-in">
-      <div class="sec-kicker">Dúvidas</div>
+      <div class="kicker">Dúvidas</div>
       <h2>Perguntas que o dentista <span class="g1">mais faz</span></h2>
       <div class="faq">
         <details><summary>Tem vaga de cirurgião-dentista nesse edital?</summary><p>Não. O edital não tem cargo de dentista nem prova de Odontologia. Ele aceita o diploma de Odontologia como requisito para os perfis 401, 403, 405 e 406, que são de análise, gestão e suporte administrativo.</p></details>
@@ -744,24 +506,26 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <p>OdonConcursos · Preparatório especializado em concursos de Odontologia.</p>
     <p>Informações sobre vagas, remuneração, requisitos, prazos e etapas foram extraídas do <a href="https://www.gov.br/saude/pt-br/acesso-a-informacao/concursos-e-selecoes/processo-seletivo-simplificado/2026/edital-no-1-2026-ministerio-da-saude-ms" target="_blank" rel="noopener">Edital nº 1, de 11 de novembro de 2026</a>, do Processo Seletivo Público Simplificado da Subsecretaria de Assuntos Administrativos do Ministério da Saúde, publicado no Diário Oficial da União de 12/11/2026 (seção 3, página 158). Prevalecem sempre o texto oficial e suas retificações. Página atualizada em 13/11/2026.</p>
+    <p>Fotos do edifício sede do Ministério da Saúde: Jefferson Rudy/Agência Senado, via Wikimedia Commons, licença CC BY 2.0, com recorte e tratamento de cor.</p>
     <p>Esta página não tem vínculo com o Ministério da Saúde nem com o Instituto Avalia. A aprovação depende também do empenho individual de cada candidato.</p>
   </footer>
 
-  <!-- MODAL INSCRIÇÃO -->
+  <div class="sticky" id="sticky">
+    <div><b>Ministério da Saúde</b><small id="stickyTxt">Inscrições até 14/12</small></div>
+    <a onclick="openModal()" class="bnt1"><span>Quero me preparar</span><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+
+  <!-- MODAL -->
   <div class="modal" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-content">
       <div class="modal-bar"></div>
-      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">
-        <i data-lucide="x"></i>
-      </button>
+      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">×</button>
       <div class="modal-body">
         <h3 id="modalTitle">Prepare-se para o Ministério da Saúde</h3>
         <p class="modal-text">Preencha seus dados e fale com a equipe da OdonConcursos sobre como estudar para a prova de 17/01/2027.</p>
-
         <form id="signupForm">
           <div class="form-row">
             <label for="su-name">Nome completo</label>
@@ -784,62 +548,53 @@
             <label for="su-email">E-mail</label>
             <input class="form-input" type="email" id="su-email" required placeholder="seu@email.com" autocomplete="email">
           </div>
-          <button type="submit" id="su-submit" class="bnt-lime form-submit">
-            Quero falar com a equipe
-            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </button>
+          <button type="submit" id="su-submit" class="bnt-form">Quero falar com a equipe <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </form>
-
         <div class="modal-ok" id="modalOk">
-          <a id="waBtn" class="bnt-lime" target="_blank" rel="noopener">Continuar no WhatsApp <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a id="waBtn" class="bnt-form" target="_blank" rel="noopener">Continuar no WhatsApp <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-
-        <div class="modal-secure">
-          <i data-lucide="lock"></i>
-          <span>Seus dados estão seguros</span>
-        </div>
+        <div class="modal-secure" id="modalSecure">Seus dados estão seguros</div>
       </div>
     </div>
   </div>
 
   <script>
-    lucide.createIcons();
-
-    // Webhook que recebe os dados do formulário (Make) — mesmo das demais capturas
+    // Webhook que recebe os dados do formulário (Make), mesmo das demais capturas
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
-
-    // Número do comercial da OdonConcursos — destino do redirect pós-cadastro
+    // Número do comercial da OdonConcursos (aparece só depois do cadastro)
     const COMERCIAL_WHATSAPP = '5519994565534';
 
-    // Captura UTMs e IDs de clique da URL no carregamento da página
     const tracking = (() => {
       const p = new URLSearchParams(window.location.search);
       const get = (k) => p.get(k) || '';
       return {
-        utm_source:   get('utm_source'),
-        utm_medium:   get('utm_medium'),
-        utm_campaign: get('utm_campaign'),
-        utm_content:  get('utm_content'),
-        utm_term:     get('utm_term'),
-        fbclid:       get('fbclid'),
-        gclid:        get('gclid'),
-        referrer:     document.referrer || '',
-        landing_url:  window.location.href
+        utm_source: get('utm_source'), utm_medium: get('utm_medium'), utm_campaign: get('utm_campaign'),
+        utm_content: get('utm_content'), utm_term: get('utm_term'), fbclid: get('fbclid'), gclid: get('gclid'),
+        referrer: document.referrer || '', landing_url: window.location.href
       };
     })();
 
-    function openModal() {
-      document.getElementById('signupModal').classList.add('is-open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-      document.getElementById('signupModal').classList.remove('is-open');
-      document.body.style.overflow = '';
-    }
-    document.getElementById('signupModal').addEventListener('click', function (e) {
-      if (e.target === this) closeModal();
-    });
+    function openModal() { document.getElementById('signupModal').classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { document.getElementById('signupModal').classList.remove('is-open'); document.body.style.overflow = ''; }
+    document.getElementById('signupModal').addEventListener('click', function (e) { if (e.target === this) closeModal(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    // Entrada das seções ao rolar
+    (function () {
+      const els = document.querySelectorAll('.rv');
+      if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('on')); return; }
+      const io = new IntersectionObserver((list) => {
+        list.forEach((it) => { if (it.isIntersecting) { it.target.classList.add('on'); io.unobserve(it.target); } });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      els.forEach((e) => io.observe(e));
+    })();
+
+    // Barra fixa do celular aparece depois do topo
+    (function () {
+      const bar = document.getElementById('sticky');
+      const onScroll = () => bar.classList.toggle('on', window.scrollY > 620);
+      window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    })();
 
     // Contagem até o fim das inscrições (14/12/2026, 23h59, horário de Brasília)
     (function () {
@@ -850,13 +605,15 @@
         if (r <= 0) {
           document.getElementById('cdClock').style.display = 'none';
           document.getElementById('cdLabel').textContent = 'Inscrições encerradas em 14/12. Prova em 17/01/2027.';
+          document.getElementById('stickyTxt').textContent = 'Prova em 17/01/2027';
           return;
         }
-        const s = Math.floor(r / 1000);
-        document.getElementById('cd-d').textContent = pad(Math.floor(s / 86400));
+        const s = Math.floor(r / 1000), d = Math.floor(s / 86400);
+        document.getElementById('cd-d').textContent = pad(d);
         document.getElementById('cd-h').textContent = pad(Math.floor(s % 86400 / 3600));
         document.getElementById('cd-m').textContent = pad(Math.floor(s % 3600 / 60));
         document.getElementById('cd-s').textContent = pad(s % 60);
+        document.getElementById('stickyTxt').textContent = d >= 1 ? 'Inscrições acabam em ' + d + (d === 1 ? ' dia' : ' dias') : 'Inscrições acabam hoje';
         setTimeout(tick, 1000);
       }
       tick();
@@ -870,7 +627,6 @@
 
       const countryCode = document.getElementById('su-country').value;
       const phoneDigits = document.getElementById('su-phone').value.replace(/\D/g, '');
-
       const now = new Date();
       const nome = document.getElementById('su-name').value;
       const payload = {
@@ -888,20 +644,9 @@
       };
 
       try {
-        if (WEBHOOK_URL) {
-          await fetch(WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-        } else {
-          console.log('Inscrição (configure WEBHOOK_URL):', payload);
-        }
-      } catch (err) {
-        console.error('Webhook error:', err);
-      }
+        await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      } catch (err) { console.error('Webhook error:', err); }
 
-      // Evento de Lead no Meta Pixel (pessoa virou lead)
       try {
         if (typeof fbq === 'function') {
           fbq('track', 'Lead', { content_name: 'LP Ministério da Saúde Dentista (captura)', content_category: 'Ministério da Saúde' });
@@ -912,7 +657,7 @@
       const msg = `Vi a página do processo seletivo do Ministério da Saúde e gostaria de saber mais. Poderia me ajudar? Sou ${nome}`;
       document.getElementById('waBtn').href = `https://wa.me/${COMERCIAL_WHATSAPP}?text=${encodeURIComponent(msg)}`;
       this.style.display = 'none';
-      document.querySelector('#signupModal .modal-secure').style.display = 'none';
+      document.getElementById('modalSecure').style.display = 'none';
       document.getElementById('modalTitle').textContent = 'Cadastro recebido';
       document.querySelector('#signupModal .modal-text').textContent = 'Toque no botão abaixo para falar agora com a equipe da OdonConcursos no WhatsApp.';
       document.getElementById('modalOk').style.display = 'block';
