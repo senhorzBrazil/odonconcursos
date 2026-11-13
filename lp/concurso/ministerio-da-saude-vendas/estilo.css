@@ -1591,3 +1591,26 @@ p, li, span, b, strong, summary, .lead, .btn { text-wrap: balance; }
 .bonus-crono::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff5c9d' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='17' rx='2'/%3E%3Cpath d='M3 10h18M8 2v4M16 2v4M8 15l2.500 2.500L16 13'/%3E%3C/svg%3E"); }
 .bonus-quest::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff5c9d' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 12c0-2.800 1.600-5 3.500-5 3 0 4 10 7 10 1.900 0 3.500-2.200 3.500-5s-1.600-5-3.500-5c-3 0-4 10-7 10C8.600 17 7 14.800 7 12z' transform='translate(-2 0)'/%3E%3C/svg%3E"); }
 .offer-left .bonus + .bonus { margin-top: 18px; }
+
+/* topo: Prof. Manu à direita (mesma foto das LPs da Black), prédio do Ministério ao fundo */
+.hero > .wrap { position: relative; }
+.hero-manu { display: none; }
+@media (min-width: 861px) {
+  .hero .hero-bg { background-position: calc(100% + 60px) center; filter: saturate(.7); }
+  .hero .hero-bg::after { background:
+    linear-gradient(90deg, #050505 0%, rgba(5,5,5,.94) 30%, rgba(5,5,5,.72) 50%, rgba(5,5,5,.6) 100%),
+    radial-gradient(46% 70% at 82% 40%, rgba(238,42,123,.22), transparent 70%); }
+  .hero-manu { display: block; position: absolute; z-index: 1; right: -24px; bottom: 0; height: min(100%, 640px); aspect-ratio: 720/900;
+    background: url('manu.jpg') center bottom / cover no-repeat;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 30%, #000 86%, transparent 100%), linear-gradient(180deg, transparent 0, #000 20%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 30%, #000 86%, transparent 100%), linear-gradient(180deg, transparent 0, #000 20%);
+    -webkit-mask-composite: source-in; mask-composite: intersect; }
+}
+@media (min-width: 861px) and (max-width: 1100px) { .hero-manu { right: -90px; } }
+@media (max-width: 860px) {
+  .hero { --mw: min(100vw, 520px); }
+  .hero .hero-bg { background:
+    linear-gradient(180deg, rgba(5,5,5,0) 0, rgba(5,5,5,0) calc(var(--mw) * .56), #050505 calc(var(--mw) * .9)),
+    url('manu.jpg') center calc(var(--mw) * -.04) / var(--mw) auto no-repeat, #050505; }
+  .hero .hero-inner { padding-top: calc(var(--mw) * .9); }
+}
