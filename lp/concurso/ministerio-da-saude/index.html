@@ -218,6 +218,19 @@
     .crono b { font-family: var(--display); font-size: 15.5px; color: #d6177e; }
     .crono span { font-size: 15px; line-height: 1.5; color: #334155; }
 
+    /* DEPOIMENTOS */
+    .depo-videos { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 40px; }
+    .depo figure { display: flex; flex-direction: column; gap: 12px; }
+    .depo-video { aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; border: 1px solid var(--line-strong); background: #000;
+      box-shadow: 0 16px 40px rgba(0,0,0,.5); transition: transform .25s ease, border-color .25s ease; }
+    .depo figure:hover .depo-video { transform: translateY(-4px); border-color: rgba(233,30,140,.55); }
+    .depo-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .depo figcaption b { display: block; font-size: 15px; }
+    .depo figcaption span { font-size: 13px; color: var(--mute); }
+    .depo-sub { margin-top: 44px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--mute); }
+    .depo-imgs { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 16px; }
+    .depo-imgs img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 14px; border: 1px solid var(--line); background: var(--card); display: block; }
+
     /* FAIXA ODON */
     .faixa { position: relative; overflow: hidden; padding: clamp(72px,10vw,120px) clamp(20px,5vw,64px); text-align: center; background: #000; }
     .faixa-bg { position: absolute; inset: 0; background: url("/lp/concurso/ministerio-da-saude/letreiro.jpg") 30% 45% / cover no-repeat; filter: saturate(.8) brightness(.8); }
@@ -295,6 +308,10 @@
       .num:nth-child(2) { border-right: 0; }
       .num:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
       .perfis, .saiba, .prova { grid-template-columns: 1fr; }
+      .depo-videos { grid-template-columns: repeat(2,1fr); gap: 12px; }
+      .depo-imgs { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin-right: calc(-1 * clamp(20px,5vw,64px)); padding-right: 20px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .depo-imgs::-webkit-scrollbar { display: none; }
+      .depo-imgs img { flex: 0 0 62%; scroll-snap-align: start; }
       .crono li { grid-template-columns: 1fr; gap: 4px; }
       .sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 150; display: flex; align-items: center; justify-content: space-between; gap: 12px;
         padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: rgba(4,6,15,.94); border-top: 1px solid var(--line-strong);
@@ -475,6 +492,33 @@
     </div>
   </section>
 
+  <!-- DEPOIMENTOS -->
+  <section class="sec dark depo" id="depoimentos">
+    <div class="sec-in">
+      <div class="kicker">Quem estudou, aprovou</div>
+      <h2>Mais de 1.200 dentistas já foram <span class="g1">aprovados</span> com a Odon</h2>
+      <p class="lead">São aprovações em concursos de Odontologia de prefeituras, secretarias de saúde, forças militares e órgãos federais. Veja o que eles contam sobre estudar com a Odon.</p>
+      <div class="depo-videos">
+        <figure class="rv"><div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Lp6OBEG7wbs?rel=0&modestbranding=1" title="Depoimento: Guilherme" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><figcaption><b>Guilherme</b><span>Aprovado em concurso</span></figcaption></figure>
+        <figure class="rv"><div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Akkp0nC0fKA?rel=0&modestbranding=1" title="Depoimento: Ivana" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><figcaption><b>Ivana</b><span>Aprovada em 1º lugar</span></figcaption></figure>
+        <figure class="rv"><div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/bSponCOMkY0?rel=0&modestbranding=1" title="Depoimento: 1º lugar no primeiro seletivo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><figcaption><b>1º lugar no primeiro seletivo</b><span>“Assinei e fui 1º lugar”</span></figcaption></figure>
+        <figure class="rv"><div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Cv5sQndeBqo?rel=0&modestbranding=1" title="Depoimento: Bárbara" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><figcaption><b>Bárbara</b><span>1º lugar na EBSERH</span></figcaption></figure>
+      </div>
+      <div class="depo-sub">Resultados de alunos da Odon</div>
+      <div class="depo-imgs">
+        <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-1.webp" alt="Print de aprovação de aluno da OdonConcursos">
+        <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-2.webp" alt="Print de aprovação de aluno da OdonConcursos">
+        <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-3.webp" alt="Print de aprovação de aluno da OdonConcursos">
+        <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-5.webp" alt="Print de aprovação de aluno da OdonConcursos">
+        <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-6.webp" alt="Print de aprovação de aluno da OdonConcursos">
+        <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-8.webp" alt="Print de aprovação de aluno da OdonConcursos">
+        <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/aprov-4.webp" alt="Print de aprovação de aluno da OdonConcursos">
+        <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-16.webp" alt="Print de aprovação de aluno da OdonConcursos">
+      </div>
+      <div class="sec-cta"><a onclick="openModal()" class="bnt1"><span>Quero me preparar com a Odon</span><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+    </div>
+  </section>
+
   <!-- ODON -->
   <section class="faixa">
     <div class="faixa-bg"></div><div class="faixa-shade"></div>
@@ -510,7 +554,7 @@
     <p>OdonConcursos · Preparatório especializado em concursos de Odontologia.</p>
     <p>Informações sobre vagas, remuneração, requisitos, prazos e etapas foram extraídas do <a href="https://www.gov.br/saude/pt-br/acesso-a-informacao/concursos-e-selecoes/processo-seletivo-simplificado/2026/edital-no-1-2026-ministerio-da-saude-ms" target="_blank" rel="noopener">Edital nº 1, de 11 de novembro de 2026</a>, do Processo Seletivo Público Simplificado da Subsecretaria de Assuntos Administrativos do Ministério da Saúde, publicado no Diário Oficial da União de 12/11/2026 (seção 3, página 158). Prevalecem sempre o texto oficial e suas retificações. Página atualizada em 13/11/2026.</p>
     <p>Fotos do edifício sede do Ministério da Saúde: Jefferson Rudy/Agência Senado, via Wikimedia Commons, licença CC BY 2.0, com recorte e tratamento de cor.</p>
-    <p>Esta página não tem vínculo com o Ministério da Saúde nem com o Instituto Avalia. A aprovação depende também do empenho individual de cada candidato.</p>
+    <p>Esta página não tem vínculo com o Ministério da Saúde nem com o Instituto Avalia. A aprovação depende também do empenho individual de cada candidato. Resultados citados são de turmas anteriores, em outros concursos, e não constituem garantia de aprovação.</p>
   </footer>
 
   <div class="sticky" id="sticky">
