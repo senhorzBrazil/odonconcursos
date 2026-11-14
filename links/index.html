@@ -74,6 +74,53 @@
     .topbar b { font-weight: 800; }
     .topbar .dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; flex: 0 0 7px; animation: blink 1.1s ease-in-out infinite; }
 
+    /* ---------- destaques (estilo linktree) ---------- */
+    .tree { position: relative; max-width: 560px; margin: 0 auto; padding: 30px 16px 6px; }
+    .tree-title { text-align: center; color: var(--pink-soft); font-size: 11.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 16px; }
+    .tree-list { display: grid; gap: 13px; }
+    .lk {
+      position: relative; display: flex; align-items: center; gap: 14px;
+      min-height: 76px; padding: 13px 18px 13px 14px; border-radius: 999px;
+      text-decoration: none; color: #fff; overflow: hidden;
+      background: var(--bg-card); border: 1px solid var(--line-strong);
+      box-shadow: 0 14px 34px rgba(0,0,0,.35);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .lk:hover, .lk:focus-visible { transform: translateY(-2px) scale(1.01); border-color: rgba(233,30,140,.6); outline: none; }
+    .lk .ic {
+      flex: 0 0 48px; width: 48px; height: 48px; border-radius: 50%;
+      display: grid; place-items: center; position: relative; z-index: 2;
+      background: rgba(255,255,255,.08); border: 1px solid var(--line-strong);
+    }
+    .lk .ic svg { width: 22px; height: 22px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .lk .tx { flex: 1; min-width: 0; position: relative; z-index: 2; }
+    .lk .tx strong { display: block; font-family: var(--display); font-weight: 800; font-size: 18.5px; line-height: 1.15; letter-spacing: -.01em; }
+    .lk .tx span { display: block; margin-top: 3px; font-size: 13px; line-height: 1.3; color: #c7cee0; }
+    .lk .go { flex: 0 0 18px; width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; position: relative; z-index: 2; opacity: .85; }
+    /* 1 · Imersão: pill rosa com glow e brilho, igual ao CTA das LPs */
+    .lk.imersao {
+      border-color: var(--pink);
+      background: radial-gradient(60% 120% at 50% 0%, var(--pink) 0, var(--pink-2) 100%);
+      box-shadow: 0 0 20px rgba(233,30,140,.5), 0 0 44px rgba(240,48,154,.32), 0 12px 28px rgba(233,30,140,.25);
+    }
+    .lk.imersao::before {
+      content: ''; position: absolute; bottom: 0; width: 90px; height: 160%;
+      background: linear-gradient(10deg, #ffd9ec 12.81%, rgba(255,217,236,0) 66.66%);
+      transform: translateX(-50%) skew(-25deg);
+      animation: shinery 3s ease-in-out infinite; filter: blur(4px); pointer-events: none;
+    }
+    .lk.imersao .ic { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.45); }
+    .lk.imersao .tx span { color: #ffe3f1; }
+    /* 2 · Black: preto com contorno rosa */
+    .lk.black { background: #000; border-color: rgba(233,30,140,.55); box-shadow: 0 0 0 1px rgba(233,30,140,.2), 0 14px 34px rgba(0,0,0,.5); }
+    .lk.black .ic { background: rgba(233,30,140,.16); border-color: rgba(233,30,140,.5); }
+    .lk.black .ic svg { stroke: var(--pink-soft); }
+    /* 3 · Comercial: WhatsApp */
+    .lk.wa .ic { background: rgba(37,211,102,.14); border-color: rgba(37,211,102,.5); }
+    .lk.wa .ic svg { stroke: none; fill: #25d366; }
+    .lk.wa:hover, .lk.wa:focus-visible { border-color: rgba(37,211,102,.6); }
+    @media (max-width: 380px) { .lk .tx strong { font-size: 17px; } .lk .tx span { font-size: 12px; } }
+
     /* ---------- header ---------- */
     .header {
       position: sticky; top: 0; z-index: 50;
@@ -302,13 +349,13 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .fade { animation: none; opacity: 1; }
-      .bnt1::before, .hero::before, .topbar .dot, .bubble, .profs-track { animation: none; }
+      .bnt1::before, .lk.imersao::before, .hero::before, .topbar .dot, .bubble, .profs-track { animation: none; }
       .card, .media img, .bnt1 { transition: none; }
     }
   </style>
 </head>
 <body>
-  <div class="topbar"><span class="dot"></span><span><b>Concurseiro PRO + 6 preparatórios abertos</b></span></div>
+  <div class="topbar"><span class="dot"></span><span><b>Imersão Odon</b> · domingo, 22/11, às 10h</span></div>
 
   <header class="header">
     <div class="header-in">
@@ -316,6 +363,27 @@
       <a class="nav-pill" href="#concursos">Ver concursos</a>
     </div>
   </header>
+
+  <section class="tree" id="destaques">
+    <div class="tree-title">Comece por aqui</div>
+    <div class="tree-list">
+      <a class="lk imersao fade d1" data-nome="Imersão Odon" href="/lp/concurso/imersao-odon/">
+        <span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span>
+        <span class="tx"><strong>Imersão Odon</strong><span>Domingo, 22/11, às 10h · 4 dias de acesso à plataforma</span></span>
+        <svg class="go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="lk black fade d2" data-nome="Black Odon" href="/lp/concurso/black-odon/">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg></span>
+        <span class="tx"><strong>Black Odon</strong><span>A oferta do ano no Concurseiro PRO</span></span>
+        <svg class="go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="lk wa fade d3" data-nome="Fale com o Comercial" target="_blank" rel="noopener" href="https://wa.me/5519994565534?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20de%20links%20da%20Odon%20e%20quero%20falar%20com%20o%20comercial.">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.9.9-1 2.200-.3 3.500a11 11 0 0 0 4.500 4.400c1.600.700 2.300.800 3.100.600.500-.1 1.500-.6 1.700-1.200.2-.6.2-1.100.1-1.200l-.4-.2z"/></svg></span>
+        <span class="tx"><strong>Fale com o Comercial</strong><span>Tire suas dúvidas pelo WhatsApp</span></span>
+        <svg class="go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
 
   <section class="hero">
     <div class="hero-in">
@@ -406,6 +474,11 @@
         if (window.fbq) fbq('trackCustom', 'LinkClick', { content_name: l.nome });
       });
       grid.appendChild(a);
+    });
+    // Destaques do topo: repassa UTMs (menos no WhatsApp) e registra o clique.
+    document.querySelectorAll('.lk').forEach((a) => {
+      if (a.getAttribute('href').startsWith('/')) a.href = a.getAttribute('href') + qs;
+      a.addEventListener('click', () => { if (window.fbq) fbq('trackCustom', 'LinkClick', { content_name: a.dataset.nome }); });
     });
     // Card do Concurseiro PRO: repassa UTMs e monta a faixa de professores (comercial/1..11.jpg).
     const pro = document.getElementById('pro');
