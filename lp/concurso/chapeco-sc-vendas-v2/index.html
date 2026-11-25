@@ -779,7 +779,7 @@
           <p class="cd-note">A condição acaba às <strong>23h59 de 7 de janeiro</strong>, o último dia de inscrição no concurso.</p>
           <button class="btn btn-gold btn-lg" onclick="openModal('chap')">Quero a condição especial <i data-lucide="arrow-right"></i></button>
           <button class="btn btn-ghost" onclick="openModal('contato')"><i data-lucide="message-circle"></i> Fale conosco</button>
-          <div class="safe"><i data-lucide="lock"></i> Seus dados estão seguros · atendimento pelo WhatsApp</div>
+          <div class="safe"><i data-lucide="lock"></i> Seus dados estão seguros · acesso liberado na hora</div>
         </div>
       </div>
       <p class="warn"><strong>Atenção:</strong> a condição especial vale até as 23h59 de 07/01/2027. Depois dessa data ela não volta.</p>
@@ -823,12 +823,12 @@
       </div>
       <div class="faq">
         <details><summary>O edital de Chapecó já saiu? Quando me inscrevo?</summary><div class="a">Já. O edital do <strong>Concurso Público nº 003/2026</strong> foi publicado em <strong>25 de novembro de 2026</strong>, com <strong>31 vagas + cadastro reserva para Cirurgião Dentista</strong>. As inscrições vão de <strong>07/12/2026 a 07/01/2027</strong>, no site do Instituto Objetiva (objetivas.com.br), com taxa de <strong>R$ 150,00</strong>. O pedido de isenção vai só de <strong>07/12 a 09/12</strong>.</div></details>
-        <details><summary>Como faço para me inscrever no preparatório?</summary><div class="a">Você preenche seus dados no formulário e é levado para o <strong>WhatsApp da nossa equipe comercial</strong>, que faz a sua matrícula já com a condição especial aplicada. Confirmado o pagamento, seu acesso às aulas é liberado.</div></details>
+        <details><summary>Como faço para me inscrever no preparatório?</summary><div class="a">Você preenche seus dados no formulário e é levado direto para o <strong>checkout da OdonConcursos</strong>, já com a condição especial aplicada. Confirmado o pagamento, seu acesso às aulas é liberado. Se preferir tirar dúvidas antes, use o botão <strong>Fale conosco</strong> e fale com a nossa equipe pelo WhatsApp.</div></details>
         <details><summary>Até quando eu tenho acesso ao curso?</summary><div class="a">O curso fica disponível até <strong>14/02/2027</strong>, o dia da prova. Depois dessa data o conteúdo é desativado.</div></details>
         <details><summary>Serve para quem está começando do zero?</summary><div class="a">Sim. O preparatório atende tanto iniciantes quanto quem já estuda. A ordem das aulas mostra por onde começar e o que priorizar, e o tira-dúvidas com os professores destrava o que você não entender no caminho.</div></details>
         <details><summary>Tem prova prática, de títulos ou redação?</summary><div class="a">Não para Cirurgião Dentista. É só a <strong>prova objetiva</strong>, com 50 questões de 4 alternativas e 100 pontos. Para passar é preciso fazer no mínimo <strong>50% da nota</strong>.</div></details>
         <details><summary>Por que Legislação pesa tanto?</summary><div class="a">São <strong>18 questões valendo 2,00 cada</strong>, ou 36 pontos: mais do que Português e Raciocínio Lógico juntos. Cai Constituição (arts. 5º e 37 a 41), Lei de Acesso à Informação, LGPD, Lei Orgânica de Chapecó, Estatuto do Servidor e a lei do regime disciplinar do município. Também é o segundo critério de desempate.</div></details>
-        <details><summary>Qual é a condição especial?</summary><div class="a">O preparatório está com uma condição especial de lançamento válida até as <strong>23h59 de 07/01/2027</strong>, o último dia de inscrição no concurso. Preencha seus dados e a nossa equipe comercial garante a condição para você pelo WhatsApp.</div></details>
+        <details><summary>Qual é a condição especial?</summary><div class="a">O preparatório está com uma condição especial de lançamento válida até as <strong>23h59 de 07/01/2027</strong>, o último dia de inscrição no concurso. Preencha seus dados e você é levado direto para o <strong>checkout</strong>, na plataforma da OdonConcursos, em ambiente seguro.</div></details>
         <details><summary>O preparatório é online?</summary><div class="a">Sim, 100% online e gravado. Você assiste de onde estiver, no seu ritmo, com os PDFs, os mapas mentais e o banco de questões sempre à mão.</div></details>
       </div>
     </div>
@@ -876,7 +876,7 @@
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal()" aria-label="Fechar"><i data-lucide="x"></i></button>
       <h3 id="modalTitle">Falta pouco para sua vaga</h3>
-      <p class="modal-text">Preencha seus dados para garantir a condição especial. Em seguida você fala com a nossa equipe comercial no WhatsApp para fechar a sua matrícula.</p>
+      <p class="modal-text">Preencha seus dados para garantir a condição especial. Em seguida você é levado direto para o checkout do preparatório de Chapecó.</p>
       <form class="form" id="signupForm">
         <div><label for="su-name">Nome completo</label><input id="su-name" type="text" required autocomplete="name"></div>
         <div>
@@ -905,7 +905,7 @@
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
     // Checkout do preparatório de Chapecó (vazio = o cadastro leva ao comercial no WhatsApp)
-    const CURSO_URL = '';
+    const CURSO_URL = 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=Q05renBSY3I4SFBBSDJueUI5aDd6dz09&utm_source=lp';
 
     // WhatsApp comercial — destino do "Fale conosco"
     const COMERCIAL_WHATSAPP = '5519994565534';
@@ -917,7 +917,7 @@
         botao: 'Quero a condição especial',
         msg: 'Quero garantir a condição especial do preparatório de Chapecó (Cirurgião Dentista). Poderia me ajudar? Sou o ',
         titulo: 'Falta pouco para sua vaga',
-        texto: 'Preencha seus dados para garantir a condição especial. Em seguida você fala com a nossa equipe comercial no WhatsApp para fechar a sua matrícula.'
+        texto: 'Preencha seus dados para garantir a condição especial. Em seguida você é levado direto para o checkout do preparatório de Chapecó.'
       },
       contato: {
         nome: 'Fale conosco · Chapecó SC',
@@ -1000,6 +1000,11 @@
         if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'LP Chapecó SC Dentista (vendas v2) · ' + ofertaAtual.nome, content_category: 'Chapecó SC' });
       } catch (err) { console.error('Meta Pixel error:', err); }
 
+      if (ofertaAtual.url) {
+        const qs = window.location.search.replace(/^\?/, '');
+        window.location.href = qs ? ofertaAtual.url + '&' + qs : ofertaAtual.url;
+        return;
+      }
       this.style.display = 'none';
       document.getElementById('modalTitle').textContent = 'Dados recebidos ✓';
       // Sem checkout: o passo de obrigado leva para o comercial (WhatsApp), com botão visível
