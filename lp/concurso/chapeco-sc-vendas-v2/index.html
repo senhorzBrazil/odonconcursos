@@ -438,6 +438,18 @@
       .stick div b { display: block; color: #fff; font-size: 13.5px; }
       .stick .btn { padding: 14px 18px; font-size: 12px; }
     }
+      /* aprovados Instituto Objetiva (mesma banca de Chapecó) */
+    .obj2 { margin-top: 56px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; }
+    .obj2-txt h3 { font-size: clamp(28px, 3.6vw, 42px); line-height: 1.1; margin: 18px 0 14px; }
+    .obj2-txt p { color: var(--muted-light); font-size: 16px; line-height: 1.65; }
+    .obj2-txt p strong { color: #fff; }
+    .obj2-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .obj2-grid figure { margin: 0; min-width: 0; }
+    .obj2-grid img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--ink-line); }
+    .obj2-grid figcaption { margin-top: 10px; font-size: 13px; line-height: 1.5; color: var(--muted-light); }
+    .obj2-grid figcaption b { display: block; font-size: 15px; color: #fff; }
+    .obj2-grid .pos { display: block; font-weight: 700; color: var(--bronze); }
+    @media (max-width: 860px) { .obj2 { grid-template-columns: 1fr; gap: 22px; margin-top: 44px; } .obj2-grid { gap: 10px; } .obj2-grid figcaption { font-size: 12px; } }
   </style>
 </head>
 <body>
@@ -710,6 +722,23 @@
         <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-8.webp" alt="Aprovação de aluno do Odon">
         <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/aprov-4.webp" alt="Aprovação de aluna do Odon">
         <img loading="lazy" decoding="async" src="https://odonconcursospage.com/wp-content/uploads/2026/02/prova-16.webp" alt="Aprovação de aluno do Odon">
+      </div>
+    </div>
+    <div class="wrap obj2">
+      <div class="obj2-txt">
+        <span class="tag">Mesma banca de Chapecó</span>
+        <h3 class="display">1º e 2º lugar com o <span class="gold">Instituto Objetiva.</span></h3>
+        <p>A prova de Chapecó é do <strong>Instituto Objetiva</strong>. Nossos alunos já foram aprovados em <strong>1º e 2º lugar</strong> em concursos de Odontologia organizados por essa mesma banca.</p>
+      </div>
+      <div class="obj2-grid">
+        <figure>
+          <img loading="lazy" decoding="async" width="613" height="760" src="/lp/concurso/chapeco-sc-vendas/aprovada-thayna-guaraniacu.jpg" alt="Thayná Larsen, aprovada em 1º lugar na Prefeitura de Guaraniaçu-PR">
+          <figcaption><b>Thayná Larsen</b><span class="pos">1º lugar · Cirurgiã-Dentista</span>Prefeitura de Guaraniaçu/PR · Instituto Objetiva</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" decoding="async" width="615" height="760" src="/lp/concurso/chapeco-sc-vendas/aprovado-vitor-vila-boa.jpg" alt="Vitor Neves, aprovado em 2º lugar em Vila Boa-GO">
+          <figcaption><b>Vitor Neves</b><span class="pos">2º lugar · Cirurgião-Dentista</span>Vila Boa/GO · Instituto Objetiva</figcaption>
+        </figure>
       </div>
     </div>
   </section>

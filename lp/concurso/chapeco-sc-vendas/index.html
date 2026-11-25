@@ -1160,6 +1160,18 @@
 
       .modal-body { padding: 26px 22px; }
     }
+      /* ─── APROVADOS OBJETIVA ─── */
+    .obj-box { max-width: 820px; margin: 34px auto 0; padding: 26px; border-radius: 18px; border: 1px solid rgba(233,30,140,.28); background: rgba(233,30,140,.05); }
+    .obj-tit { font-family: var(--display); font-size: clamp(22px, 3vw, 30px); line-height: 1.2; font-weight: 700; color: var(--text); margin: 0 0 10px; }
+    .obj-txt { font-size: 15.5px; line-height: 1.65; color: var(--text-mute); margin: 0 0 22px; }
+    .obj-txt strong { color: var(--text); }
+    .obj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .obj-card { margin: 0; min-width: 0; }
+    .obj-card img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); background: var(--bg-card); }
+    .obj-card figcaption { margin-top: 12px; font-size: 13.5px; line-height: 1.55; color: var(--text-mute); }
+    .obj-card figcaption strong { display: block; font-size: 15px; color: var(--text); }
+    .obj-pos { display: block; font-weight: 700; color: var(--lime-soft); }
+    @media (max-width: 760px) { .obj-box { padding: 20px 16px; } .obj-grid { gap: 10px; } .obj-card figcaption { font-size: 12.5px; } }
   </style>
 </head>
 <body>
@@ -1322,6 +1334,20 @@
     <div class="s-label">Quem estudou, aprovou</div>
     <h2 class="sec-title">Mais de 1.200 dentistas já foram <span class="g1">aprovados</span> com o Odon</h2>
     <p class="sec-intro">O Odon Concursos é um ecossistema especializado <strong>exclusivamente em concursos de Odontologia</strong>, com aprovados em <strong>secretarias de saúde, forças militares e órgãos federais por todo o Brasil</strong> — exatamente o perfil do concurso de Chapecó.</p>
+    <div class="obj-box">
+      <h3 class="obj-tit">1º e 2º lugar com a <span class="g1">mesma banca de Chapecó</span></h3>
+      <p class="obj-txt">A prova de Chapecó é do <strong>Instituto Objetiva</strong>. Nossos alunos já foram aprovados em <strong>1º e 2º lugar</strong> em concursos de Odontologia organizados por essa mesma banca.</p>
+      <div class="obj-grid">
+        <figure class="obj-card">
+          <img loading="lazy" decoding="async" width="613" height="760" src="/lp/concurso/chapeco-sc-vendas/aprovada-thayna-guaraniacu.jpg" alt="Thayná Larsen, aprovada em 1º lugar na Prefeitura de Guaraniaçu-PR">
+          <figcaption><strong>Thayná Larsen</strong><span class="obj-pos">1º lugar · Cirurgiã-Dentista</span>Prefeitura de Guaraniaçu/PR · Instituto Objetiva</figcaption>
+        </figure>
+        <figure class="obj-card">
+          <img loading="lazy" decoding="async" width="615" height="760" src="/lp/concurso/chapeco-sc-vendas/aprovado-vitor-vila-boa.jpg" alt="Vitor Neves, aprovado em 2º lugar em Vila Boa-GO">
+          <figcaption><strong>Vitor Neves</strong><span class="obj-pos">2º lugar · Cirurgião-Dentista</span>Vila Boa/GO · Instituto Objetiva</figcaption>
+        </figure>
+      </div>
+    </div>
     <div class="depo-videos">
       <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Lp6OBEG7wbs?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
       <div class="depo-video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Akkp0nC0fKA?rel=0&modestbranding=1" title="Depoimento de aprovado" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
