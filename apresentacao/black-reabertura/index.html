@@ -1587,7 +1587,7 @@ body.show-hud #help{opacity:1}
   show(m ? (+m[1]-1) : 0, false);
 })();
 
-</script><!-- 2ª versão: botão discreto "Iniciar apresentação" na capa abre o trailer em loop com os números oficiais.
+</script><!-- Botão discreto "Iniciar apresentação" na capa: trailer → carrossel de aprovados → trailer… em loop, com os números oficiais.
      O trailer só fecha com Esc ou "próxima" (seta, Page Down, espaço, Enter) e volta para a capa. O cronômetro da capa segue normal. -->
 <style>
 #esp{position:fixed;inset:0;z-index:5000;background:#000;display:none;cursor:none}
@@ -1607,9 +1607,9 @@ body.na-capa #esp-ini{display:inline-flex}
 body.na-capa.show-hud #esp-ini{opacity:.85}
 #esp-ini:hover{opacity:1!important;border-color:#EE2A7B}
 </style>
-<button id="esp-ini" type="button" title="Abre o trailer em loop. Esc ou próxima volta para a capa."><i></i>Iniciar apresentação</button>
+<button id="esp-ini" type="button" title="Abre o trailer e o carrossel de aprovados em loop. Esc ou próxima volta para a capa."><i></i>Iniciar apresentação</button>
 <div id="esp" aria-hidden="true">
-  <video id="esp-v" src="../black-nao-alunos/videos/trailer.mp4" loop playsinline preload="auto"></video>
+  <video id="esp-v" src="../black-nao-alunos/videos/trailer.mp4" playsinline preload="auto"></video>
   <div class="faixa">
     <div class="esp-num"><small>Estes são os nossos números oficiais</small><ul><li><i></i>(19) 99011-2297</li><li><i></i>(19) 99315-3278</li><li><i></i>(19) 99456-5534</li><li><i></i>(19) 99344-0882</li></ul><p>Na dúvida, confira: mkt.odonconcursospage.com/numeros-oficiais</p></div>
   </div>
@@ -1618,9 +1618,13 @@ body.na-capa.show-hud #esp-ini{opacity:.85}
 (function(){
   const esp=document.getElementById('esp'), v=document.getElementById('esp-v'), ini=document.getElementById('esp-ini');
   const capa=document.querySelector('.slide');
+  // playlist: o trailer e depois o carrossel de aprovados (mesma trilha), um atrás do outro
+  const LISTA=['../black-nao-alunos/videos/trailer.mp4','videos/aprovados.mp4']; let idx=0;
+  function toca(){ const p=v.play(); if(p&&p.catch) p.catch(()=>{ v.muted=true; v.play().catch(()=>{}); }); }
+  v.addEventListener('ended',()=>{ idx=(idx+1)%LISTA.length; v.src=LISTA[idx]; toca(); });
   const marca=()=>document.body.classList.toggle('na-capa', capa.classList.contains('active') && !esp.classList.contains('on'));
   setInterval(marca,250); marca();
-  function abre(){ esp.classList.add('on'); marca(); v.muted=false; v.currentTime=0; const p=v.play(); if(p&&p.catch) p.catch(()=>{ v.muted=true; v.play().catch(()=>{}); }); }
+  function abre(){ esp.classList.add('on'); marca(); v.muted=false; idx=0; if(!v.src.endsWith(LISTA[0].slice(2))) v.src=LISTA[0]; v.currentTime=0; toca(); }
   function fecha(){ esp.classList.remove('on'); v.pause(); marca(); }
   ini.addEventListener('click',e=>{ e.stopPropagation(); abre(); });
   // com o trailer aberto: só Esc ou "próxima" fecham; M liga e desliga o som; o resto é ignorado para não mexer nos slides
