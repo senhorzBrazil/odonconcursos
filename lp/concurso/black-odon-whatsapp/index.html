@@ -121,6 +121,11 @@ h3{font-weight:800}
 .plan .its li.x svg{background:#24232a;stroke:#6f6b78}
 .plan .its li small{display:block;color:var(--mute);font-size:12.5px;text-decoration:none}
 .plan .pz{margin-top:auto;padding-top:24px;text-align:center}
+.cd-hero{margin-top:22px}.cd-hero .clock-label{color:#fff}.cd-hero .clock-label b{color:var(--pink-hi)}
+.cd-card{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;font:800 12px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.cd-card b{font:900 17px/1 var(--display);letter-spacing:.02em;font-variant-numeric:tabular-nums;color:#fff;background:rgba(238,42,123,.18);border:1px solid rgba(238,42,123,.55);padding:7px 10px;border-radius:10px}
+.sk-l [data-cd]{font-variant-numeric:tabular-nums}
+@media (max-width:560px){.cd-hero .clock div{min-width:66px;padding:10px 6px 8px}.cd-hero .clock b{font-size:30px}}
 .plan .de{color:var(--mute);font-size:14px}.plan .de s{text-decoration-color:var(--pink);text-decoration-thickness:2px}
 .plan .por{font:900 52px/1 var(--display);letter-spacing:-.04em;margin:8px 0 6px;white-space:nowrap}
 .plan .por small{font-size:20px;letter-spacing:0;margin-right:6px}
@@ -450,6 +455,10 @@ footer .brand{height:34px;margin:0 auto 12px}
     <h1 class="fadeSlideIn delay-2">Black <span class="g1">Odon</span></h1>
     <p class="sub fadeSlideIn delay-3">O curso mais completo para concursos de odontologia. A Black <span>reabriu</span>.</p>
     <p class="desc fadeSlideIn delay-3">Vitalício, PRO 2 anos e PRO 1 ano, todos com a Mentoria OdonClass. <b id="heroPrazo">O melhor preço vale até 23h59 de hoje, 26/11.</b></p>
+    <div class="cd-hero fadeSlideIn delay-4" id="cdHero" hidden>
+      <p class="clock-label">O preço sobe à <b>meia-noite</b>. Faltam:</p>
+      <div class="clock"><div><b data-cd="h">00</b><small>horas</small></div><div><b data-cd="m">00</b><small>min</small></div><div><b data-cd="s">00</b><small>seg</small></div></div>
+    </div>
     <div class="cta-row fadeSlideIn delay-5">
       <a class="bnt1" href="#planos">Ver os planos <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
     </div>
@@ -778,6 +787,7 @@ function render() {
     <ul class="its">${p.itens.map(([n, y, s]) => `<li class="${y ? 'y' : 'x'}">${y ? Y : X}<span>${n}${y && s ? `<small>${s}</small>` : ''}</span></li>`).join('')}</ul>
     <div class="pz">
       <span class="hoje">${FASE.rotulo}</span>
+      ${PROX ? '<div class="cd-card">Acaba em <b data-cd="hms">--:--:--</b></div>' : ''}
       <div class="por"><small>12x</small>${preco(p)[0]}</div>
       <div class="av">ou <b>${preco(p)[1]} à vista</b> no cartão ou no pix</div>
       <a class="bnt1" data-plan="${p.id}" href="#">Quero o ${p.nome}</a>
@@ -797,6 +807,24 @@ function render() {
   }
 }
 render();
+
+// cronômetro até a meia-noite (fim da fase do melhor preço); às 00:00 recarrega e a página troca de fase sozinha
+if (!ESPERA && PROX) {
+  const FIM = new Date(FASE.ate).getTime();
+  document.getElementById('cdHero').hidden = false;
+  document.getElementById('skL').innerHTML = 'Preço sobe à meia-noite<b>Faltam <span data-cd="hms">--:--:--</span></b>';
+  const p2 = n => String(n).padStart(2, '0');
+  const tick = () => {
+    const t = Math.max(0, Math.floor((FIM - Date.now()) / 1000));
+    const h = p2(Math.floor(t / 3600)), m = p2(Math.floor(t % 3600 / 60)), s = p2(t % 60);
+    document.querySelectorAll('[data-cd="h"]').forEach(e => e.textContent = h);
+    document.querySelectorAll('[data-cd="m"]').forEach(e => e.textContent = m);
+    document.querySelectorAll('[data-cd="s"]').forEach(e => e.textContent = s);
+    document.querySelectorAll('[data-cd="hms"]').forEach(e => e.textContent = `${h}:${m}:${s}`);
+    if (t === 0) { clearInterval(iv); setTimeout(() => location.reload(), 1500); }
+  };
+  const iv = setInterval(tick, 1000); tick();
+}
 
 // lista de espera até as 20h: troca os textos fixos da página
 if (ESPERA) {
