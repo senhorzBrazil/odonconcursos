@@ -709,7 +709,7 @@ footer .brand{height:34px;margin:0 auto 12px}
     <div class="m-ok" id="m-ok" hidden>
       <div class="m-ok-ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
       <h4>Você está na lista de espera</h4>
-      <p>Falta 1 passo: entre no grupo do WhatsApp. É por lá que sai o link de compra às 20h.</p>
+      <p>Falta 1 passo: entre no grupo do WhatsApp. É por lá que sai o link de compra às 20h30.</p>
       <a class="bnt1" id="m-ok-grupo" href="#" rel="noopener">Entrar no grupo</a>
     </div>
   </div>
@@ -735,8 +735,8 @@ const CONFIG = {
     { ate: '2026-11-27T00:00:00-03:00', rotulo: 'Até 23h59 de hoje', precos: { vit: ['R$ 299,72', 'R$ 2.997'], pro2: ['R$ 189,19', 'R$ 1.897'], pro1: ['R$ 179,01', 'R$ 1.797'] } },
     { ate: '2026-12-01T00:00:00-03:00', rotulo: 'Até 30/11', precos: { vit: ['R$ 349', 'R$ 3.499'], pro2: ['R$ 249', 'R$ 2.499'], pro1: ['R$ 199', 'R$ 1.997'] } }
   ],
-  // Até as 20h de 26/11 a página fica em lista de espera; às 20h abre o checkout sozinha (e recarrega quem estiver com ela aberta).
-  abre: '2026-11-26T20:00:00-03:00',
+  // Até as 20h de 26/11 a página fica em lista de espera; às 20h30 abre o checkout sozinha (e recarrega quem estiver com ela aberta).
+  abre: '2026-11-26T20:30:00-03:00',
   grupoEspera: 'https://sndflw.com/i/OMce0WcpA2duKSCac8QN', // grupo da lista de espera da Black (SendFlow)
   webhook: 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz',
   whatsapp: '5519994565534',
@@ -776,13 +776,13 @@ const X = '<svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7 7 17"/></svg>';
 function render() {
   document.getElementById('plans').innerHTML = PLANOS.map(p => p.espera ? `
   <div class="plan ${p.cls} espera">
-    <span class="badge">Abre hoje às 20h</span>
+    <span class="badge">Abre hoje às 20h30</span>
     <div class="nm">${p.nome}</div>
     <div class="tl">${p.full}</div>
     <ul class="its">${p.itens.map(([n, y, s]) => `<li class="${y ? 'y' : 'x'}">${y ? Y : X}<span>${n}${y && s ? `<small>${s}</small>` : ''}</span></li>`).join('')}</ul>
     <div class="wa-box espera">
-      <span class="hoje">Abre hoje, 26/11, às 20h</span>
-      <p>Entre na lista de espera do ${p.nome} e no grupo do WhatsApp. O link de compra sai por lá às 20h.</p>
+      <span class="hoje">Abre hoje, 26/11, às 20h30</span>
+      <p>Entre na lista de espera do ${p.nome} e no grupo do WhatsApp. O link de compra sai por lá às 20h30.</p>
       <a class="bnt2" data-plan="${p.id}" href="#">Entrar na lista de espera</a>
     </div>
   </div>` : `
@@ -801,11 +801,11 @@ function render() {
     </div>
   </div>`).join('');
   document.getElementById('trPreco').innerHTML = '<td style="font:800 15px var(--display)">Condição da Black</td>' +
-    PLANOS.map(p => p.espera ? `<td class="${p.cls}"><span>Abre hoje às 20h</span></td>` : `<td class="${p.cls}"><b>12x ${preco(p)[0]}</b><span>ou ${preco(p)[1]} à vista</span></td>`).join('');
+    PLANOS.map(p => p.espera ? `<td class="${p.cls}"><span>Abre hoje às 20h30</span></td>` : `<td class="${p.cls}"><b>12x ${preco(p)[0]}</b><span>ou ${preco(p)[1]} à vista</span></td>`).join('');
   document.getElementById('notaPreco').innerHTML = ESPERA
-    ? '<b>As ofertas da reabertura abrem hoje, 26/11, às 20h.</b> Entre na lista de espera e no grupo do WhatsApp para receber o link de compra.'
+    ? '<b>As ofertas da reabertura abrem hoje, 26/11, às 20h30.</b> Entre na lista de espera e no grupo do WhatsApp para receber o link de compra.'
     : PROX
-    ? '<b>Preço da reabertura das 20h às 23h59 de hoje, 26/11.</b> De 27 a 30/11: Vitalício 12x R$ 349 ou R$ 3.499, PRO 2 anos 12x R$ 249 ou R$ 2.499 e PRO 1 ano 12x R$ 199 ou R$ 1.997.'
+    ? '<b>Preço da reabertura das 20h30 às 23h59 de hoje, 26/11.</b> De 27 a 30/11: Vitalício 12x R$ 349 ou R$ 3.499, PRO 2 anos 12x R$ 249 ou R$ 2.499 e PRO 1 ano 12x R$ 199 ou R$ 1.997.'
     : '<b>A Black Odon vai até 30/11.</b> Parcelamento em até 12x no cartão (com juros) ou à vista no cartão ou no pix.';
   if (!PROX) {
     document.getElementById('heroPrazo').textContent = 'Condição da Black até 30/11.';
@@ -838,24 +838,24 @@ if (ESPERA) {
   const set = (el, html) => { if (el) el.innerHTML = html; };
   document.title = 'Black Odon · Lista de espera';
   set(document.querySelector('.hero .pill'), '<i></i>Black Odon · Lista de espera');
-  set(document.querySelector('.hero .sub span'), 'reabre hoje às 20h');
+  set(document.querySelector('.hero .sub span'), 'reabre hoje às 20h30');
   set(document.querySelector('.hero .cta-micro'), '<span>Escolha o plano</span><span>Deixe seus dados</span><span>Receba o link no WhatsApp</span>');
-  set(document.getElementById('heroPrazo'), 'As ofertas abrem hoje, 26/11, às 20h. Entre na lista de espera e receba o link de compra no grupo do WhatsApp.');
+  set(document.getElementById('heroPrazo'), 'As ofertas abrem hoje, 26/11, às 20h30. Entre na lista de espera e receba o link de compra no grupo do WhatsApp.');
   document.querySelectorAll('.hero .bnt1[href="#planos"], #vsl .bnt1[href="#planos"]').forEach(a => set(a, 'Entrar na lista de espera ' + SETA));
-  set(document.querySelector('#planos .lead'), 'As ofertas abrem hoje às 20h. Escolha o plano e entre na lista de espera: o link de compra sai no grupo do WhatsApp.');
+  set(document.querySelector('#planos .lead'), 'As ofertas abrem hoje às 20h30. Escolha o plano e entre na lista de espera: o link de compra sai no grupo do WhatsApp.');
   document.querySelectorAll('.cta-row .bnt2[data-plan]').forEach(a => { const p = PLANOS.find(x => x.id === a.dataset.plan); if (p) a.textContent = 'Lista de espera do ' + p.nome; });
   const faq = [...document.querySelectorAll('details')].find(d => d.querySelector('summary')?.textContent.startsWith('Até quando vale'));
-  if (faq) faq.innerHTML = '<summary>Quando abrem as ofertas?</summary><p>Hoje, 26/11, às 20h. Até lá, entre na lista de espera e no grupo do WhatsApp: o link de compra sai por lá. O melhor preço vale das 20h às 23h59 de hoje. De 27 a 30/11 a Black continua, com outros valores.</p>';
+  if (faq) faq.innerHTML = '<summary>Quando abrem as ofertas?</summary><p>Hoje, 26/11, às 20h30. Até lá, entre na lista de espera e no grupo do WhatsApp: o link de compra sai por lá. O melhor preço vale das 20h30 às 23h59 de hoje. De 27 a 30/11 a Black continua, com outros valores.</p>';
   const h2 = [...document.querySelectorAll('h2')].find(h => h.textContent.startsWith('Garanta a sua'));
   if (h2) {
     set(h2, 'Entre na <span class="g1">lista de espera</span>');
     const box = h2.parentElement;
-    set(box.querySelector('.lead'), 'As ofertas abrem hoje às 20h. Deixe seus dados e entre no grupo do WhatsApp para receber o link de compra.');
+    set(box.querySelector('.lead'), 'As ofertas abrem hoje às 20h30. Deixe seus dados e entre no grupo do WhatsApp para receber o link de compra.');
     set(box.querySelector('.bnt1[href="#planos"]'), 'Entrar na lista de espera');
   }
-  set(document.getElementById('skL'), 'Abre hoje às 20h<b>Lista de espera aberta</b>');
+  set(document.getElementById('skL'), 'Abre hoje às 20h30<b>Lista de espera aberta</b>');
   set(document.querySelector('#sticky .bnt1'), 'Entrar na lista de espera');
-  // às 20h recarrega sozinha (se o formulário estiver aberto, espera fechar)
+  // às 20h30 recarrega sozinha (se o formulário estiver aberto, espera fechar)
   const virar = () => { if (Date.now() < ABRE) return; if (document.getElementById('lead').hidden) location.reload(); else setTimeout(virar, 20000); };
   setTimeout(virar, Math.min(ABRE - Date.now() + 1500, 2147483000));
   document.addEventListener('visibilitychange', () => { if (!document.hidden) virar(); });
@@ -880,7 +880,7 @@ function abrirCaptura(p) {
   mp.hidden = esp;
   if (!esp) { const [parc, vista] = preco(p); mp.innerHTML = `12x ${parc} <span>ou ${vista} à vista</span>`; }
   document.getElementById('m-wa').hidden = !esp;
-  document.getElementById('m-sub').textContent = esp ? `As ofertas da reabertura abrem hoje, 26/11, às 20h. Deixe seus dados para entrar na lista de espera do ${p.nome} e, depois, no grupo do WhatsApp, onde sai o link de compra.` : 'Preencha seus dados para ir ao pagamento. Se precisar, o nosso comercial fala com você por aqui.';
+  document.getElementById('m-sub').textContent = esp ? `As ofertas da reabertura abrem hoje, 26/11, às 20h30. Deixe seus dados para entrar na lista de espera do ${p.nome} e, depois, no grupo do WhatsApp, onde sai o link de compra.` : 'Preencha seus dados para ir ao pagamento. Se precisar, o nosso comercial fala com você por aqui.';
   document.getElementById('f-submit-tx').textContent = esp ? 'Entrar na lista de espera ' : 'Ir para o pagamento ';
   document.getElementById('f-submit').disabled = false;
   form.hidden = false; document.getElementById('m-ok').hidden = true;
