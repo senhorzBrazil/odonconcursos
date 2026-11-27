@@ -143,6 +143,35 @@
   </style>
 </head>
 <body>
+<!-- BLACK NOVEMBER PM PE (até 30/11 23h59) -->
+<style>
+  #bn-pmpe{position:relative;z-index:9999;background:#000;color:#fff;font-family:Inter,system-ui,-apple-system,sans-serif;text-align:center;padding:10px 14px;border-bottom:2px solid #e91e8c;line-height:1.35}
+  #bn-pmpe .bn-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 14px;max-width:1100px;margin:0 auto;font-size:14px}
+  #bn-pmpe .bn-tag{background:#e91e8c;color:#fff;font-weight:800;letter-spacing:.12em;font-size:11px;padding:4px 10px;border-radius:99px;text-transform:uppercase}
+  #bn-pmpe s{color:#9a9a9a}
+  #bn-pmpe b{color:#fff;font-weight:800}
+  #bn-pmpe .bn-price{color:#ff5fb1;font-weight:800;font-size:16px}
+  #bn-pmpe .bn-cd{font-variant-numeric:tabular-nums;font-weight:700;color:#ff5fb1}
+  #bn-pmpe .bn-cta{color:#fff;font-weight:800;text-decoration:underline;cursor:pointer;background:none;border:0;font:inherit;padding:0}
+  @media (max-width:600px){#bn-pmpe .bn-in{font-size:12.5px}#bn-pmpe .bn-price{font-size:14px}}
+</style>
+<div id="bn-pmpe" role="region" aria-label="Black November">
+  <div class="bn-in">
+    <span class="bn-tag">Black November</span>
+    <span>Preparatório PM PE: de <s>R$ 1.497</s> por <span class="bn-price">R$ 997</span></span>
+    <span>até <b>30/11 às 23h59</b> · acaba em <span class="bn-cd" data-bn="cd">--</span></span>
+    
+  </div>
+</div>
+<script>
+(function(){var FIM=new Date('2026-11-30T23:59:59-03:00').getTime(),p=function(n){return String(n).padStart(2,'0')};
+function t(){var d=Math.max(0,FIM-Date.now()),s=Math.floor(d/1000),D=Math.floor(s/86400),H=Math.floor(s%86400/3600),M=Math.floor(s%3600/60),S=s%60;
+var txt=d===0?'encerrada':(D>0?D+'d ':'')+p(H)+':'+p(M)+':'+p(S);
+document.querySelectorAll('[data-bn="cd"]').forEach(function(e){e.textContent=txt});
+if(d===0){var b=document.getElementById('bn-pmpe');if(b)b.style.display='none';return false}return true}
+if(t()){var iv=setInterval(function(){if(!t())clearInterval(iv)},1000)}})();
+</script>
+
   <header>
     <img src="https://odonconcursos.com.br/assets/img/logo.png" alt="OdonConcursos" class="logo-img">
   </header>
