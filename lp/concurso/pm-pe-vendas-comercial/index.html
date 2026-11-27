@@ -1175,9 +1175,9 @@
 <div id="bn-pmpe" role="region" aria-label="Black November">
   <div class="bn-in">
     <span class="bn-tag">Black November</span>
-    <span>Preparatório PM PE: de <s>R$ 1.497</s> por <span class="bn-price">R$ 997</span></span>
+    <span>Condição especial no <b>preparatório PM PE</b></span>
     <span>até <b>30/11 às 23h59</b> · acaba em <span class="bn-cd" data-bn="cd">--</span></span>
-    <button class="bn-cta" onclick="openModal()">Quero o desconto</button>
+    <button class="bn-cta" onclick="openModal()">Falar com a equipe</button>
   </div>
 </div>
 <script>
@@ -1447,9 +1447,8 @@ if(t()){var iv=setInterval(function(){if(!t())clearInterval(iv)},1000)}})();
           </div>
           <div class="plan-price">
             <div class="plan-offer-tag">Black November</div>
-            <div class="plan-main"><span style="text-decoration:line-through">de R$ 1.497</span> por R$ 997</div>
-            <div class="plan-cash" style="margin-bottom:6px">Condição de Black November <strong>até 30/11 às 23h59</strong></div>
-            <div class="plan-cash">Preencha seus dados e vá direto para o <strong>checkout com a condição especial</strong></div>
+            <div class="plan-main">Black November <span class="nowrap">até 30/11</span></div>
+            <div class="plan-cash">Preencha seus dados e fale com a nossa equipe para <strong>garantir a condição especial</strong></div>
           </div>
           <a onclick="openModal()" class="bnt1">
             <span>Quero a condição especial</span>
@@ -1640,7 +1639,7 @@ if(t()){var iv=setInterval(function(){if(!t())clearInterval(iv)},1000)}})();
           Como faço para me inscrever no preparatório?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">Você preenche seus dados no formulário e é levado direto para o <strong>checkout da OdonConcursos</strong>, já com a condição especial aplicada. Confirmado o pagamento, seu acesso às aulas é liberado. Se preferir tirar dúvidas antes, use o botão <strong>Fale conosco</strong> e fale com a nossa equipe pelo WhatsApp.</div>
+        <div class="faq-a">Você preenche seus dados no formulário e é levado para o <strong>WhatsApp da nossa equipe comercial</strong>, que faz a sua matrícula já com a condição especial aplicada. Confirmado o pagamento, seu acesso às aulas é liberado.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1675,7 +1674,7 @@ if(t()){var iv=setInterval(function(){if(!t())clearInterval(iv)},1000)}})();
           Qual é a condição especial?
           <span class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></span>
         </summary>
-        <div class="faq-a">O preparatório da PM PE está com uma <strong>condição de Black November válida até as 23h59 de segunda-feira, 30/11/2026</strong>. Preencha seus dados e você é levado direto para o <strong>checkout</strong>, na plataforma da OdonConcursos, em ambiente seguro.</div>
+        <div class="faq-a">O preparatório da PM PE está com uma <strong>condição de Black November válida até as 23h59 de segunda-feira, 30/11/2026</strong>. Preencha seus dados e a nossa equipe comercial garante a condição para você pelo <strong>WhatsApp</strong>.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">
@@ -1712,7 +1711,7 @@ if(t()){var iv=setInterval(function(){if(!t())clearInterval(iv)},1000)}})();
       </button>
       <div class="modal-body">
         <h3 id="modalTitle">Falta pouco para sua vaga</h3>
-        <p class="modal-text">Preencha seus dados para garantir a condição especial. Em seguida você é levado direto para o checkout do preparatório da PM PE.</p>
+        <p class="modal-text">Preencha seus dados para garantir a condição especial. Em seguida você fala com a nossa equipe comercial no WhatsApp para fechar a sua matrícula.</p>
 
         <form id="signupForm">
           <div class="form-row">
@@ -1757,8 +1756,8 @@ if(t()){var iv=setInterval(function(){if(!t())clearInterval(iv)},1000)}})();
     // Os leads da PM PE se distinguem pelos campos `produto` / `origem` do payload.
     const WEBHOOK_URL = 'https://hook.us2.make.com/qyusegjcycxd01avh9gte6aijb166suz';
 
-    // Checkout do preparatório da PM PE
-    const CURSO_URL = 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=ZTZJZ3Z3MW5BSU09&utm_source=Comerciallinktree';
+    // Checkout do preparatório da PM PE (fora de uso desde 13/11: o cadastro leva ao comercial)
+    const CURSO_URL = 'https://odonconcursos.com.br/carrinhocompras.aspx?tp=c&idp=ZTZJZ3Z3MW5BSU09&utm_source=lp';
 
     // WhatsApp comercial — destino do "Fale conosco" (oferta sem url)
     const COMERCIAL_WHATSAPP = '5519994565534';
@@ -1766,13 +1765,17 @@ if(t()){var iv=setInterval(function(){if(!t())clearInterval(iv)},1000)}})();
     const OFERTAS = {
       pmpe: {
         nome: 'Preparatório PM PE Oficial Dentista',
-        url: CURSO_URL,
+        url: null, // sem checkout direto: depois do cadastro o lead vai para o comercial
+        botao: 'Quero a condição especial',
+        msg: 'Quero garantir a condição especial do preparatório da PM PE (Oficial Dentista). Poderia me ajudar? Sou o ',
         titulo: 'Falta pouco para sua vaga',
-        texto: 'Preencha seus dados para garantir a condição especial. Em seguida você é levado direto para o checkout do preparatório da PM PE.'
+        texto: 'Preencha seus dados para garantir a condição especial. Em seguida você fala com a nossa equipe comercial no WhatsApp para fechar a sua matrícula.'
       },
       contato: {
         nome: 'Fale conosco · PM PE',
         url: null,
+        botao: 'Falar com a equipe',
+        msg: 'Vi o anúncio sobre o concurso de Odontologia da PM PE e gostaria de saber mais. Poderia me ajudar? Sou o ',
         titulo: 'Fale com a nossa equipe',
         texto: 'Preencha seus dados e você é levado para o WhatsApp da nossa equipe para tirar suas dúvidas sobre o preparatório da PM PE.'
       }
@@ -1810,7 +1813,8 @@ if(t()){var iv=setInterval(function(){if(!t())clearInterval(iv)},1000)}})();
       document.getElementById('modalTitle').textContent = ofertaAtual.titulo;
       document.querySelector('#signupModal .modal-text').textContent = ofertaAtual.texto;
       document.getElementById('signupForm').style.display = '';
-      document.getElementById('su-submit').childNodes[0].textContent = (ofertaAtual.url ? 'Quero a condição especial' : 'Falar com a equipe') + ' ';
+      const ctaAntigo = document.getElementById('su-cta'); if (ctaAntigo) ctaAntigo.remove();
+      document.getElementById('su-submit').childNodes[0].textContent = ofertaAtual.botao + ' ';
       document.getElementById('signupModal').classList.add('is-open');
       document.body.style.overflow = 'hidden';
     }
@@ -1871,23 +1875,23 @@ if(t()){var iv=setInterval(function(){if(!t())clearInterval(iv)},1000)}})();
         }
       } catch (err) { console.error('Meta Pixel error:', err); }
 
-      // Confirmação + redirecionamento: checkout do preparatório (se CURSO_URL existir,
-      // repassando os parâmetros de campanha) ou WhatsApp comercial.
       this.style.display = 'none';
       document.getElementById('modalTitle').textContent = 'Dados recebidos ✓';
-      let destino;
-      if (ofertaAtual.url) {
-        document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o checkout do preparatório da PM PE…';
-        const qsp = new URLSearchParams(window.location.search); qsp.delete('utm_source'); const qs = qsp.toString(); // mantém utm_source=Comerciallinktree no checkout
-        const base = ofertaAtual.url;
-        destino = qs ? base + (base.includes('?') ? '&' : '?') + qs : base;
-      } else {
-        document.querySelector('#signupModal .modal-text').textContent = 'Pronto! Estamos te levando para o WhatsApp da nossa equipe…';
-        const msg = `Vi o anúncio sobre o concurso de Odontologia da PM PE e gostaria de saber mais. Poderia me ajudar? Sou o ${nome}`;
-        destino = 'https://wa.me/' + COMERCIAL_WHATSAPP + '?text=' + encodeURIComponent(msg);
-      }
+      // Sem checkout: o passo de obrigado leva para o comercial (WhatsApp), com botão visível
+      // caso o redirecionamento automático não abra.
+      const txt = document.querySelector('#signupModal .modal-text');
+      txt.textContent = 'Pronto! Agora fale com a nossa equipe comercial no WhatsApp para garantir a sua condição especial.';
+      const destino = 'https://wa.me/' + COMERCIAL_WHATSAPP + '?text=' + encodeURIComponent(ofertaAtual.msg + nome);
+      const cta = document.createElement('a');
+      cta.id = 'su-cta';
+      cta.className = 'bnt-lime form-submit';
+      cta.href = destino;
+      cta.style.textDecoration = 'none';
+      cta.innerHTML = 'Falar com o comercial no WhatsApp <i data-lucide="arrow-right"></i>';
+      cta.addEventListener('click', () => clearTimeout(redir));
+      txt.insertAdjacentElement('afterend', cta);
       lucide.createIcons();
-      setTimeout(() => { window.location.href = destino; }, 1200);
+      const redir = setTimeout(() => { window.location.href = destino; }, 2500);
     });
   </script>
 
