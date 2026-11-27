@@ -764,7 +764,12 @@ if (ESPERA) PLANOS.forEach(p => { p.espera = true; });
 function comUtm(url) {
   try {
     const u = new URL(url);
-    qs.forEach((v, k) => { if (k.startsWith('utm_') && !u.searchParams.has(k)) u.searchParams.set(k, v); });
+    // 27/11: se a visita trouxe UTMs (anúncio Meta etc.), elas substituem as do link (que vêm como grupo).
+    const daPagina = [...qs.keys()].filter(k => k.startsWith('utm_'));
+    if (daPagina.length) {
+      [...u.searchParams.keys()].filter(k => k.startsWith('utm_')).forEach(k => u.searchParams.delete(k));
+      daPagina.forEach(k => u.searchParams.set(k, qs.get(k)));
+    }
     return u.toString();
   } catch (e) { return url; }
 }
